@@ -1,0 +1,1097 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Todas as APIs da Alpha Systemas foram desenvolvidas baseadas na tecnologia REST, seguindo os atuais padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos e utilizam os padrões do protocolo HTTP como autenticação, verbos e códigos de retorno. Isso permite que APIs possam ser utilizadas por clientes HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, as APIs foram cuidadosamente trabalhadas para que os termos de negócios contidos sejam facilmente entendidos por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que um nome de campo em um endpoint tenha rigorosamente o mesmo significado em outros recursos. <p> <b>Atenção: Todos os testes devem ser realizados em produção, porém, ao fazer um faturamento de pedido des testes será necessário excluir o pedido no sistema AlphaInd.</b>",
+    "version": "1.0.0",
+    "title": "Alpha API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "cliente.alphasystemas.com.br",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "produto",
+      "description": "Tudo sobre produtos."
+    },
+    {
+      "name": "categoria",
+      "description": "Tudo sobre categorias."
+    },
+    {
+      "name": "coleção",
+      "description": "Tudo sobre coleções."
+    },
+    {
+      "name": "grupo",
+      "description": "Tudo sobre grupos."
+    },
+    {
+      "name": "estoque",
+      "description": "Tudo sobre estoque."
+    },
+    {
+      "name": "linha",
+      "description": "Tudo sobre linhas."
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/product": {
+      "get": {
+        "tags": [
+          "produto"
+        ],
+        "summary": "Listar todos os produtos.",
+        "description": "",
+        "operationId": "getProducts",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "string",
+            "name": "id",
+            "description": "Referência do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "details",
+            "description": "Descrição detalhada do produto."
+          },
+          {
+            "in": "query",
+            "type": "number",
+            "name": "weight",
+            "description": "Peso do produto."
+          },
+          {
+            "in": "query",
+            "type": "number",
+            "name": "price",
+            "description": "Preço do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "unit",
+            "description": "Unidade de medida do produto."
+          },
+          {
+            "in": "query",
+            "type": "boolean",
+            "name": "disabled",
+            "description": "Mostra se o produtos está inativo ou não."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "gender",
+            "description": "Gênero do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "quantity",
+            "description": "Quantidade em estoque."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "createdAt",
+            "description": "Data de cadatro do produto."
+          },
+          {
+            "in": "query",
+            "type": "boolean",
+            "name": "isWebStore",
+            "description": "Indica se o produto foi enviado ou não, para a loja virtual."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "categoryId",
+            "description": "Id da categoria do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "category",
+            "description": "Nome da categoria do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "groupId",
+            "description": "Id do grupo do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "group",
+            "description": "Nome do grupo do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "collectionId",
+            "description": "Id da coleção do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "collection",
+            "description": "Nome da coleção do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "lineId",
+            "description": "Id da linha do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "line",
+            "description": "Nome da linha do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "sku",
+            "description": "SKU do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "skuQuantity",
+            "description": "Estoque de SKU do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "colorId",
+            "description": "Id da cor do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "color",
+            "description": "Nome da cor do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "sizeId",
+            "description": "Id do tamanho do produto."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "size",
+            "description": "Tamanho do produto."
+          },
+          {
+            "in": "query",
+            "type": "integer",
+            "name": "storeId",
+            "description": "Id da loja."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/ProductArray"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/product/{id}": {
+      "get": {
+        "tags": [
+          "produto"
+        ],
+        "summary": "Encrontrar produto pelo ID",
+        "description": "Retorna um único produto",
+        "operationId": "getProduct",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do produto a ser buscado",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/category": {
+      "get": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Listar todos as categorias.",
+        "description": "",
+        "operationId": "getCategorys",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "integer",
+            "format": "int",
+            "name": "id",
+            "description": "Id da categoria."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome da categoria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/CategoryArray"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/category/{id}": {
+      "get": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Encrontrar categoria pelo ID",
+        "description": "Retorna uma única categoria",
+        "operationId": "getCategory",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do categoria a ser buscado",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome da categoria."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/collection": {
+      "get": {
+        "tags": [
+          "coleção"
+        ],
+        "summary": "Listar todos as coleções.",
+        "description": "",
+        "operationId": "getCollections",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "integer",
+            "format": "int",
+            "name": "id",
+            "description": "Id da coleção."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome da coleção."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/CollectionArray"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/collection/{id}": {
+      "get": {
+        "tags": [
+          "coleção"
+        ],
+        "summary": "Encrontrar coleção pelo ID",
+        "description": "Retorna uma única coleção",
+        "operationId": "getCollection",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da coleção a ser buscada",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome da coleção."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Collections"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/group": {
+      "get": {
+        "tags": [
+          "grupo"
+        ],
+        "summary": "Listar todos os grupos.",
+        "description": "",
+        "operationId": "getGroups",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "integer",
+            "format": "int",
+            "name": "id",
+            "description": "Id do grupo."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome do grupo."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/GroupArray"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/group/{id}": {
+      "get": {
+        "tags": [
+          "grupo"
+        ],
+        "summary": "Encrontrar grupo pelo ID",
+        "description": "Retorna um único grupo",
+        "operationId": "getGroup",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do grupo a ser buscada",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome do grupo."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Groups"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/inventory": {
+      "get": {
+        "tags": [
+          "estoque"
+        ],
+        "summary": "Listar todos as coleções.",
+        "description": "",
+        "operationId": "getInventorys",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "string",
+            "name": "sku",
+            "description": "SKU."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "quantity",
+            "description": "Quantidade em estoque."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/InventoryArray"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/line": {
+      "get": {
+        "tags": [
+          "linha"
+        ],
+        "summary": "Listar todos as linhas.",
+        "description": "",
+        "operationId": "getLines",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "type": "integer",
+            "format": "int",
+            "name": "id",
+            "description": "Id da linha."
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome da linha."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/LineArray"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/line/{id}": {
+      "get": {
+        "tags": [
+          "linha"
+        ],
+        "summary": "Encrontrar linha pelo ID",
+        "description": "Retorna uma única linha",
+        "operationId": "getLine",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da linha a ser buscada",
+            "required": true,
+            "type": "integer",
+            "format": "int"
+          },
+          {
+            "in": "query",
+            "type": "string",
+            "name": "name",
+            "description": "Nome da linha."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Lines"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "JEANS"
+        }
+      }
+    },
+    "Group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "BLUSAS"
+        }
+      }
+    },
+    "Collection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 7
+        },
+        "name": {
+          "type": "string",
+          "example": "AMAR"
+        }
+      }
+    },
+    "Line": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "MARCA PRINCIPAL"
+        }
+      }
+    },
+    "Colors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Color"
+      }
+    },
+    "Color": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "AZUL"
+        },
+        "sizes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Size"
+          }
+        }
+      }
+    },
+    "Size": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "P"
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 6
+        },
+        "storeId": {
+          "type": "integer",
+          "example": 1
+        },
+        "sku": {
+          "type": "string",
+          "example": "0000001-0009-1"
+        }
+      }
+    },
+    "Error400": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "example": "Erro 400"
+        }
+      }
+    },
+    "Error500": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "example": "Erro 500"
+        }
+      }
+    },
+    "ProductArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Product"
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "0000001"
+        },
+        "name": {
+          "type": "string",
+          "example": "BLUSA GOLA POLO -  BORDADO"
+        },
+        "details": {
+          "type": "string",
+          "example": "BLUSA LEGAL"
+        },
+        "weight": {
+          "type": "number",
+          "example": 10
+        },
+        "price": {
+          "type": "number",
+          "example": 80
+        },
+        "unit": {
+          "type": "string",
+          "example": "UN"
+        },
+        "disabled": {
+          "type": "boolean",
+          "example": false
+        },
+        "gender": {
+          "type": "integer",
+          "example": 3
+        },
+        "quantity": {
+          "type": "string",
+          "example": 6
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2020-12-01T00:00:00.000Z"
+        },
+        "isWebStore": {
+          "type": "boolean",
+          "example": false
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "collection": {
+          "$ref": "#/definitions/Collection"
+        },
+        "line": {
+          "$ref": "#/definitions/Line"
+        },
+        "size": {
+          "type": "string",
+          "example": "P"
+        },
+        "colors": {
+          "$ref": "#/definitions/Colors"
+        }
+      }
+    },
+    "CategoryArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Categorys"
+      }
+    },
+    "Categorys": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "JEANS"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "CollectionArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Collections"
+      }
+    },
+    "Collections": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "ANO NOVO 2021"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "GroupArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Groups"
+      }
+    },
+    "Groups": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "BLUSAS"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "InventoryArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Inventorys"
+      }
+    },
+    "Inventorys": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "string",
+          "example": "2020029-0004-2"
+        },
+        "quantity": {
+          "type": "string",
+          "example": 1
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "LineArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Lines"
+      }
+    },
+    "Lines": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "MARCA PRINCIPAL"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    }
+  }
+}
