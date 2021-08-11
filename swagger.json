@@ -1,17 +1,10 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Todas as APIs da Alpha Systemas foram desenvolvidas baseadas na tecnologia REST, seguindo os atuais padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos e utilizam os padrões do protocolo HTTP como autenticação, verbos e códigos de retorno. Isso permite que APIs possam ser utilizadas por clientes HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, as APIs foram cuidadosamente trabalhadas para que os termos de negócios contidos sejam facilmente entendidos por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que um nome de campo em um endpoint tenha rigorosamente o mesmo significado em outros recursos. <p> <b>Atenção: Todos os testes devem ser realizados em produção, porém, ao fazer um faturamento de pedido des testes será necessário excluir o pedido no sistema AlphaInd.</b>",
+    "description": "Todas as APIs da Alpha Systemas foram desenvolvidas baseadas na tecnologia REST, seguindo os atuais padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos e utilizam os padrões do protocolo HTTP como autenticação, verbos e códigos de retorno. Isso permite que APIs possam ser utilizadas por clientes HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, as APIs foram cuidadosamente trabalhadas para que os termos de negócios contidos sejam facilmente entendidos por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que um nome de campo em um endpoint tenha rigorosamente o mesmo significado em outros recursos.",
     "version": "1.0.0",
     "title": "Alpha API",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "apiteam@swagger.io"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    }
+    "termsOfService": "http://swagger.io/terms/"
   },
   "host": "cliente.alphasystemas.com.br",
   "basePath": "/api",
@@ -613,7 +606,7 @@
         "tags": [
           "estoque"
         ],
-        "summary": "Listar todos as coleções.",
+        "summary": "Listar todo o estoque.",
         "description": "",
         "operationId": "getInventorys",
         "produces": [
