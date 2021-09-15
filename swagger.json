@@ -659,6 +659,144 @@
         }
       }
     },
+    "/inventory/out": {
+      "put": {
+        "tags": [
+          "estoque"
+        ],
+        "summary": "Atualiza o estoque do produto.",
+        "description": "",
+        "operationId": "getInventoryOut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Corpo do Inventory/Out.",
+            "schema": {
+              "$ref": "#/definitions/bodyInventoryOut"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/responseInventoryOut"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/inventory/out/grid": {
+      "put": {
+        "tags": [
+          "estoque"
+        ],
+        "summary": "Atualiza o estoque do produto.",
+        "description": "",
+        "operationId": "getInventoryOutGrid",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Corpo do Inventory/Out/Grid.",
+            "schema": {
+              "$ref": "#/definitions/bodyInventoryOutGrid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/responseInventoryOutGrid"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/dpa": {
+      "post": {
+        "tags": [
+          "estoque"
+        ],
+        "summary": "Registra uma saída de produto do estoque do DPA.",
+        "description": "",
+        "operationId": "postDpa",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Corpo do dpa.",
+            "schema": {
+              "$ref": "#/definitions/bodyDpa"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso",
+            "schema": {
+              "$ref": "#/definitions/responseDpa"
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo"
+          },
+          "400": {
+            "description": "Erro do Usuário",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Erro interno do Servidor",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
     "/line": {
       "get": {
         "tags": [
@@ -1423,6 +1561,104 @@
       },
       "xml": {
         "name": "Product"
+      }
+    },
+    "bodyInventoryOut": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": 2020030
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 3
+        }
+      }
+    },
+    "bodyInventoryOutGrid": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": 2020030
+        },
+        "colorId": {
+          "type": "string",
+          "example": 4
+        },
+        "size01": {
+          "type": "integer",
+          "example": 1
+        },
+        "size02": {
+          "type": "integer",
+          "example": 1
+        },
+        "size03": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "responseInventoryOut": {
+      "$ref": "#/definitions/bodyInventoryOut"
+    },
+    "responseInventoryOutGrid": {
+      "$ref": "#/definitions/bodyInventoryOutGrid"
+    },
+    "bodyDpa": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": 2020030
+        },
+        "saleId": {
+          "type": "string",
+          "example": 200003
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 3
+        },
+        "unitValue": {
+          "type": "number",
+          "example": 20
+        }
+      }
+    },
+    "responseDpa": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": 2020030
+        },
+        "saleId": {
+          "type": "string",
+          "example": 200003
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 3
+        },
+        "unitValue": {
+          "type": "number",
+          "example": 20
+        },
+        "date": {
+          "type": "string",
+          "example": "2021-09-15 14:19:28"
+        },
+        "type": {
+          "type": "string",
+          "example": "S"
+        },
+        "history": {
+          "type": "string",
+          "example": "VENDA REALIZADA PELO SITE"
+        }
       }
     },
     "LineArray": {
