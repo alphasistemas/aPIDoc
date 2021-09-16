@@ -47,7 +47,7 @@
     "http"
   ],
   "paths": {
-    "/product": {
+    "/product/product": {
       "get": {
         "tags": [
           "produto"
@@ -249,7 +249,7 @@
         ]
       }
     },
-    "/product/{id}": {
+    "/product/product/{id}": {
       "get": {
         "tags": [
           "produto"
@@ -300,7 +300,7 @@
         ]
       }
     },
-    "/category": {
+    "/product/category": {
       "get": {
         "tags": [
           "categoria"
@@ -351,7 +351,7 @@
         }
       }
     },
-    "/category/{id}": {
+    "/product/category/{id}": {
       "get": {
         "tags": [
           "categoria"
@@ -403,7 +403,7 @@
         }
       }
     },
-    "/collection": {
+    "/product/collection": {
       "get": {
         "tags": [
           "coleção"
@@ -454,7 +454,7 @@
         }
       }
     },
-    "/collection/{id}": {
+    "/product/collection/{id}": {
       "get": {
         "tags": [
           "coleção"
@@ -506,7 +506,7 @@
         }
       }
     },
-    "/group": {
+    "/product/group": {
       "get": {
         "tags": [
           "grupo"
@@ -557,7 +557,7 @@
         }
       }
     },
-    "/group/{id}": {
+    "/product/group/{id}": {
       "get": {
         "tags": [
           "grupo"
@@ -609,7 +609,7 @@
         }
       }
     },
-    "/inventory": {
+    "/product/inventory": {
       "get": {
         "tags": [
           "estoque"
@@ -659,7 +659,7 @@
         }
       }
     },
-    "/inventory/out": {
+    "/product/inventory/out": {
       "put": {
         "tags": [
           "estoque"
@@ -705,7 +705,7 @@
         }
       }
     },
-    "/inventory/out/grid": {
+    "/product/inventory/out/grid": {
       "put": {
         "tags": [
           "estoque"
@@ -751,7 +751,7 @@
         }
       }
     },
-    "/dpa": {
+    "/product/dpa": {
       "post": {
         "tags": [
           "estoque"
@@ -797,7 +797,7 @@
         }
       }
     },
-    "/line": {
+    "/product/line": {
       "get": {
         "tags": [
           "linha"
@@ -848,7 +848,7 @@
         }
       }
     },
-    "/line/{id}": {
+    "/product/line/{id}": {
       "get": {
         "tags": [
           "linha"
@@ -900,7 +900,7 @@
         }
       }
     },
-    "/email": {
+    "/email/email": {
       "post": {
         "tags": [
           "email"
@@ -946,7 +946,7 @@
         }
       }
     },
-    "/client": {
+    "/user/client": {
       "get": {
         "tags": [
           "usuario"
@@ -1121,7 +1121,7 @@
         }
       }
     },
-    "/employee": {
+    "/user/employee": {
       "get": {
         "tags": [
           "usuario"
