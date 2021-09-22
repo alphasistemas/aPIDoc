@@ -1,13 +1,13 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.1",
   "info": {
+    "title": "Alpha API",
     "description": "Todas as APIs da Alpha Systemas foram desenvolvidas baseadas na tecnologia REST, seguindo os atuais padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos e utilizam os padrões do protocolo HTTP como autenticação, verbos e códigos de retorno. Isso permite que APIs possam ser utilizadas por clientes HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, as APIs foram cuidadosamente trabalhadas para que os termos de negócios contidos sejam facilmente entendidos por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que um nome de campo em um endpoint tenha rigorosamente o mesmo significado em outros recursos.",
     "version": "1.0.0",
-    "title": "Alpha API",
-    "termsOfService": "http://swagger.io/terms/"
+    "contact": {
+      "email": "desenvolvimento@alphasystemas.com.br"
+    }
   },
-  "host": "cliente.alphasystemas.com.br",
-  "basePath": "/api",
   "tags": [
     {
       "name": "produto",
@@ -38,13 +38,9 @@
       "description": "Tudo sobre email."
     },
     {
-      "name": "usuario",
-      "description": "Tudo sobre usuario."
+      "name": "usuário",
+      "description": "Tudo sobre usuário."
     }
-  ],
-  "schemes": [
-    "https",
-    "http"
   ],
   "paths": {
     "/product/product": {
@@ -55,9 +51,6 @@
         "summary": "Listar todos os produtos.",
         "description": "",
         "operationId": "getProducts",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "query",
@@ -219,8 +212,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/ProductArray"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/productArray"
+                }
+              }
             }
           },
           "204": {
@@ -228,25 +225,25 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
-        },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        }
       }
     },
     "/product/product/{id}": {
@@ -257,9 +254,6 @@
         "summary": "Encrontrar produto pelo ID",
         "description": "Retorna um único produto",
         "operationId": "getProduct",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -273,8 +267,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/Product"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/product"
+                }
+              }
             }
           },
           "204": {
@@ -282,22 +280,25 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
+        }
       }
     },
     "/product/category": {
@@ -308,9 +309,6 @@
         "summary": "Listar todos as categorias.",
         "description": "",
         "operationId": "getCategorys",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "query",
@@ -329,8 +327,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/CategoryArray"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/categoryArray"
+                }
+              }
             }
           },
           "204": {
@@ -338,14 +340,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -359,9 +369,6 @@
         "summary": "Encrontrar categoria pelo ID",
         "description": "Retorna uma única categoria",
         "operationId": "getCategory",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -381,8 +388,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/Category"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/category"
+                }
+              }
             }
           },
           "204": {
@@ -390,14 +401,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -411,9 +430,6 @@
         "summary": "Listar todos as coleções.",
         "description": "",
         "operationId": "getCollections",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "query",
@@ -432,8 +448,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/CollectionArray"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/collectionArray"
+                }
+              }
             }
           },
           "204": {
@@ -441,14 +461,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -462,9 +490,6 @@
         "summary": "Encrontrar coleção pelo ID",
         "description": "Retorna uma única coleção",
         "operationId": "getCollection",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -484,8 +509,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/Collections"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/collection"
+                }
+              }
             }
           },
           "204": {
@@ -494,13 +523,13 @@
           "400": {
             "description": "Erro do Usuário",
             "schema": {
-              "$ref": "#/definitions/Error400"
+              "$ref": "#/definitions/error400"
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
             "schema": {
-              "$ref": "#/definitions/Error500"
+              "$ref": "#/definitions/error500"
             }
           }
         }
@@ -514,9 +543,6 @@
         "summary": "Listar todos os grupos.",
         "description": "",
         "operationId": "getGroups",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "query",
@@ -535,8 +561,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/GroupArray"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/groupArray"
+                }
+              }
             }
           },
           "204": {
@@ -544,14 +574,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json":{
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -565,9 +603,6 @@
         "summary": "Encrontrar grupo pelo ID",
         "description": "Retorna um único grupo",
         "operationId": "getGroup",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -587,8 +622,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/Group"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/group"
+                }
+              }
             }
           },
           "204": {
@@ -596,14 +635,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content":{
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }                
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json":{
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -617,9 +664,6 @@
         "summary": "Listar todo o estoque.",
         "description": "",
         "operationId": "getInventorys",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "query",
@@ -637,8 +681,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/InventoryArray"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/inventoryArray"
+                }
+              }
             }
           },
           "204": {
@@ -646,14 +694,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -667,24 +723,29 @@
         "summary": "Atualiza o estoque do produto.",
         "description": "",
         "operationId": "getInventoryOut",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "description": "Corpo do Inventory/Out.",
-            "schema": {
-              "$ref": "#/definitions/bodyInventoryOut"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/bodyInventoryOut"
+                }
+              }
             }
           }
         ],
         "responses": {
           "201": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/responseInventoryOut"
+            "content" :{
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/responseInventoryOut"
+                }
+              }
             }
           },
           "204": {
@@ -692,14 +753,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -713,24 +782,29 @@
         "summary": "Atualiza o estoque do produto.",
         "description": "",
         "operationId": "getInventoryOutGrid",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "description": "Corpo do Inventory/Out/Grid.",
-            "schema": {
-              "$ref": "#/definitions/bodyInventoryOutGrid"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/bodyInventoryOutGrid"
+                }
+              }
             }
           }
         ],
         "responses": {
           "201": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/responseInventoryOutGrid"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/responseInventoryOutGrid"
+                }
+              }
             }
           },
           "204": {
@@ -738,14 +812,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -759,24 +841,29 @@
         "summary": "Registra uma saída de produto do estoque do DPA.",
         "description": "",
         "operationId": "postDpa",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "description": "Corpo do dpa.",
-            "schema": {
-              "$ref": "#/definitions/bodyDpa"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/bodyDpa"
+                }
+              }
             }
           }
         ],
         "responses": {
           "201": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/responseDpa"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/responseDpa"
+                }
+              }
             }
           },
           "204": {
@@ -784,14 +871,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -805,9 +900,6 @@
         "summary": "Listar todos as linhas.",
         "description": "",
         "operationId": "getLines",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "in": "query",
@@ -826,8 +918,12 @@
         "responses": {
           "200": {
             "description": "Ação concluída com sucesso",
-            "schema": {
-              "$ref": "#/definitions/LineArray"
+            "content": { 
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/lineArray"
+                }
+              }
             }
           },
           "204": {
@@ -835,14 +931,22 @@
           },
           "400": {
             "description": "Erro do Usuário",
-            "schema": {
-              "$ref": "#/definitions/Error400"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error400"
+                }
+              }
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
-            "schema": {
-              "$ref": "#/definitions/Error500"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/error500"
+                }
+              }
             }
           }
         }
@@ -879,7 +983,7 @@
           "200": {
             "description": "Ação concluída com sucesso",
             "schema": {
-              "$ref": "#/definitions/Lines"
+              "$ref": "#/definitions/Line"
             }
           },
           "204": {
@@ -888,13 +992,13 @@
           "400": {
             "description": "Erro do Usuário",
             "schema": {
-              "$ref": "#/definitions/Error400"
+              "$ref": "#/definitions/error400"
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
             "schema": {
-              "$ref": "#/definitions/Error500"
+              "$ref": "#/definitions/error500"
             }
           }
         }
@@ -934,13 +1038,13 @@
           "400": {
             "description": "Erro do Usuário",
             "schema": {
-              "$ref": "#/definitions/Error400"
+              "$ref": "#/definitions/error400"
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
             "schema": {
-              "$ref": "#/definitions/Error500"
+              "$ref": "#/definitions/error500"
             }
           }
         }
@@ -949,7 +1053,7 @@
     "/user/client": {
       "get": {
         "tags": [
-          "usuario"
+          "usuário"
         ],
         "summary": "Listar todos os clientes.",
         "description": "",
@@ -1080,20 +1184,20 @@
           "400": {
             "description": "Erro do Usuário",
             "schema": {
-              "$ref": "#/definitions/Error400"
+              "$ref": "#/definitions/error400"
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
             "schema": {
-              "$ref": "#/definitions/Error500"
+              "$ref": "#/definitions/error500"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "usuario"
+          "usuário"
         ],
         "summary": "Cadatro de cliente.",
         "description": "",
@@ -1124,7 +1228,7 @@
     "/user/employee": {
       "get": {
         "tags": [
-          "usuario"
+          "usuário"
         ],
         "summary": "Listar todos os funcionários.",
         "description": "",
@@ -1222,7 +1326,7 @@
           "200": {
             "description": "Ação concluída com sucesso",
             "schema": {
-              "$ref": "#/definitions/EmployeeArray"
+              "$ref": "#/definitions/employeeArray"
             }
           },
           "204": {
@@ -1231,20 +1335,20 @@
           "400": {
             "description": "Erro do Usuário",
             "schema": {
-              "$ref": "#/definitions/Error400"
+              "$ref": "#/definitions/error400"
             }
           },
           "500": {
             "description": "Erro interno do Servidor",
             "schema": {
-              "$ref": "#/definitions/Error500"
+              "$ref": "#/definitions/error500"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "usuario"
+          "usuário"
         ],
         "summary": "Cadatro de funcionários.",
         "description": "",
@@ -1273,52 +1377,8 @@
       }
     }
   },
-  "securityDefinitions": {
-    "petstore_auth": {
-      "type": "oauth2",
-      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
-      "flow": "implicit",
-      "scopes": {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets"
-      }
-    },
-    "api_key": {
-      "type": "apiKey",
-      "name": "api_key",
-      "in": "header"
-    }
-  },
   "definitions": {
-    "Category": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "JEANS"
-        }
-      }
-    },
-    "Collection": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 7
-        },
-        "name": {
-          "type": "string",
-          "example": "AMAR"
-        }
-      }
-    },
-    "Color": {
+    "color": {
       "type": "object",
       "properties": {
         "id": {
@@ -1333,15 +1393,15 @@
         "sizes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Size"
+            "$ref": "#/definitions/size"
           }
         }
       }
     },
-    "Colors": {
+    "colorArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Color"
+        "$ref": "#/definitions/color"
       }
     },
     "email": {
@@ -1384,13 +1444,7 @@
         }
       }
     },
-    "EmployeeArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Employees"
-      }
-    },
-    "Employees": {
+    "employee": {
       "type": "object",
       "properties": {
         "id": {
@@ -1452,6 +1506,12 @@
         }
       }
     },
+    "employeeArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/employee"
+      }
+    },
     "envelope": {
       "type": "object",
       "properties": {
@@ -1468,35 +1528,7 @@
         }
       }
     },
-    "Group": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "BLUSAS"
-        }
-      }
-    },
-    "Line": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "MARCA PRINCIPAL"
-        }
-      }
-    },
-    "Size": {
+    "size": {
       "type": "object",
       "properties": {
         "id": {
@@ -1522,13 +1554,7 @@
         }
       }
     },
-    "CategoryArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Categorys"
-      }
-    },
-    "Categorys": {
+    "category": {
       "type": "object",
       "properties": {
         "id": {
@@ -1540,18 +1566,15 @@
           "type": "string",
           "example": "JEANS"
         }
-      },
-      "xml": {
-        "name": "Product"
       }
     },
-    "ClientArray": {
+    "categoryArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Clients"
+        "$ref": "#/definitions/category"
       }
     },
-    "Clients": {
+    "client": {
       "type": "object",
       "properties": {
         "id": {
@@ -1629,13 +1652,13 @@
         }
       }
     },
-    "CollectionArray": {
+    "clientArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Collections"
+        "$ref": "#/definitions/client"
       }
     },
-    "Collections": {
+    "collection": {
       "type": "object",
       "properties": {
         "id": {
@@ -1647,18 +1670,15 @@
           "type": "string",
           "example": "ANO NOVO 2021"
         }
-      },
-      "xml": {
-        "name": "Product"
       }
     },
-    "GroupArray": {
+    "collectionArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Group"
+        "$ref": "#/definitions/collection"
       }
     },
-    "Group": {
+    "group": {
       "type": "object",
       "properties": {
         "id": {
@@ -1670,18 +1690,15 @@
           "type": "string",
           "example": "BLUSAS"
         }
-      },
-      "xml": {
-        "name": "Product"
       }
     },
-    "InventoryArray": {
+    "groupArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Inventory"
+        "$ref": "#/definitions/group"
       }
     },
-    "Inventory": {
+    "inventory": {
       "type": "object",
       "properties": {
         "sku": {
@@ -1692,18 +1709,15 @@
           "type": "string",
           "example": 1
         }
-      },
-      "xml": {
-        "name": "Product"
       }
     },
-    "LineArray": {
+    "inventoryArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Lines"
+        "$ref": "#/definitions/Inventory"
       }
     },
-    "Lines": {
+    "line": {
       "type": "object",
       "properties": {
         "id": {
@@ -1715,18 +1729,15 @@
           "type": "string",
           "example": "MARCA PRINCIPAL"
         }
-      },
-      "xml": {
-        "name": "Product"
       }
     },
-    "ProductArray": {
+    "lineArray": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Product"
+        "$ref": "#/definitions/line"
       }
     },
-    "Product": {
+    "product": {
       "type": "object",
       "properties": {
         "id": {
@@ -1790,8 +1801,14 @@
           "example": "P"
         },
         "colors": {
-          "$ref": "#/definitions/Colors"
+          "$ref": "#/definitions/colorArray"
         }
+      }
+    },
+    "productArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/product"
       }
     },
     "bodyClient": {
@@ -2348,7 +2365,7 @@
       }
     },
     "responseEmail": {
-      "$ref": "#/definitions/email"
+      "$ref": "#/definitions/Email"
     },
     "responseEmployee": {
       "type": "object",
@@ -2662,7 +2679,7 @@
     "responseInventoryOutGrid": {
       "$ref": "#/definitions/bodyInventoryOutGrid"
     },
-    "Error400": {
+    "error400": {
       "type": "object",
       "properties": {
         "error": {
@@ -2671,7 +2688,7 @@
         }
       }
     },
-    "Error500": {
+    "error500": {
       "type": "object",
       "properties": {
         "error": {
