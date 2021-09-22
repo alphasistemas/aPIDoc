@@ -588,7 +588,7 @@
           "200": {
             "description": "Ação concluída com sucesso",
             "schema": {
-              "$ref": "#/definitions/Groups"
+              "$ref": "#/definitions/Group"
             }
           },
           "204": {
@@ -1304,20 +1304,6 @@
         }
       }
     },
-    "Group": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "BLUSAS"
-        }
-      }
-    },
     "Collection": {
       "type": "object",
       "properties": {
@@ -1330,26 +1316,6 @@
           "type": "string",
           "example": "AMAR"
         }
-      }
-    },
-    "Line": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "MARCA PRINCIPAL"
-        }
-      }
-    },
-    "Colors": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Color"
       }
     },
     "Color": {
@@ -1372,316 +1338,10 @@
         }
       }
     },
-    "Size": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "P"
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 6
-        },
-        "storeId": {
-          "type": "integer",
-          "example": 1
-        },
-        "sku": {
-          "type": "string",
-          "example": "0000001-0009-1"
-        }
-      }
-    },
-    "ProductArray": {
+    "Colors": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Product"
-      }
-    },
-    "Product": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "example": "0000001"
-        },
-        "name": {
-          "type": "string",
-          "example": "BLUSA GOLA POLO -  BORDADO"
-        },
-        "details": {
-          "type": "string",
-          "example": "BLUSA LEGAL"
-        },
-        "weight": {
-          "type": "number",
-          "example": 10
-        },
-        "price": {
-          "type": "number",
-          "example": 80
-        },
-        "unit": {
-          "type": "string",
-          "example": "UN"
-        },
-        "disabled": {
-          "type": "boolean",
-          "example": false
-        },
-        "gender": {
-          "type": "integer",
-          "example": 3
-        },
-        "quantity": {
-          "type": "string",
-          "example": 6
-        },
-        "createdAt": {
-          "type": "string",
-          "example": "2020-12-01T00:00:00.000Z"
-        },
-        "isWebStore": {
-          "type": "boolean",
-          "example": false
-        },
-        "category": {
-          "$ref": "#/definitions/Category"
-        },
-        "group": {
-          "$ref": "#/definitions/Group"
-        },
-        "collection": {
-          "$ref": "#/definitions/Collection"
-        },
-        "line": {
-          "$ref": "#/definitions/Line"
-        },
-        "size": {
-          "type": "string",
-          "example": "P"
-        },
-        "colors": {
-          "$ref": "#/definitions/Colors"
-        }
-      }
-    },
-    "CategoryArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Categorys"
-      }
-    },
-    "Categorys": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "JEANS"
-        }
-      },
-      "xml": {
-        "name": "Product"
-      }
-    },
-    "CollectionArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Collections"
-      }
-    },
-    "Collections": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "ANO NOVO 2021"
-        }
-      },
-      "xml": {
-        "name": "Product"
-      }
-    },
-    "GroupArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Groups"
-      }
-    },
-    "Groups": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "BLUSAS"
-        }
-      },
-      "xml": {
-        "name": "Product"
-      }
-    },
-    "InventoryArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Inventorys"
-      }
-    },
-    "Inventorys": {
-      "type": "object",
-      "properties": {
-        "sku": {
-          "type": "string",
-          "example": "2020029-0004-2"
-        },
-        "quantity": {
-          "type": "string",
-          "example": 1
-        }
-      },
-      "xml": {
-        "name": "Product"
-      }
-    },
-    "bodyInventoryOut": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "example": 2020030
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 3
-        }
-      }
-    },
-    "bodyInventoryOutGrid": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "example": 2020030
-        },
-        "colorId": {
-          "type": "string",
-          "example": 4
-        },
-        "size01": {
-          "type": "integer",
-          "example": 1
-        },
-        "size02": {
-          "type": "integer",
-          "example": 1
-        },
-        "size03": {
-          "type": "integer",
-          "example": 1
-        }
-      }
-    },
-    "responseInventoryOut": {
-      "$ref": "#/definitions/bodyInventoryOut"
-    },
-    "responseInventoryOutGrid": {
-      "$ref": "#/definitions/bodyInventoryOutGrid"
-    },
-    "bodyDpa": {
-      "type": "object",
-      "properties": {
-        "productId": {
-          "type": "string",
-          "example": 2020030
-        },
-        "saleId": {
-          "type": "string",
-          "example": 200003
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 3
-        },
-        "unitValue": {
-          "type": "number",
-          "example": 20
-        }
-      }
-    },
-    "responseDpa": {
-      "type": "object",
-      "properties": {
-        "productId": {
-          "type": "string",
-          "example": 2020030
-        },
-        "saleId": {
-          "type": "string",
-          "example": 200003
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 3
-        },
-        "unitValue": {
-          "type": "number",
-          "example": 20
-        },
-        "date": {
-          "type": "string",
-          "example": "2021-09-15 14:19:28"
-        },
-        "type": {
-          "type": "string",
-          "example": "S"
-        },
-        "history": {
-          "type": "string",
-          "example": "VENDA REALIZADA PELO SITE"
-        }
-      }
-    },
-    "LineArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Lines"
-      }
-    },
-    "Lines": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "MARCA PRINCIPAL"
-        }
-      },
-      "xml": {
-        "name": "Product"
+        "$ref": "#/definitions/Color"
       }
     },
     "email": {
@@ -1724,6 +1384,74 @@
         }
       }
     },
+    "EmployeeArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Employees"
+      }
+    },
+    "Employees": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 110
+        },
+        "name": {
+          "type": "string",
+          "example": "FUNCIONÁRIOS DIVERSOS 2"
+        },
+        "CPF": {
+          "type": "string",
+          "example": 111111111112
+        },
+        "RG": {
+          "type": "string",
+          "example": null
+        },
+        "address": {
+          "type": "string",
+          "example": ""
+        },
+        "CEP": {
+          "type": "string",
+          "example": 60000000
+        },
+        "city": {
+          "type": "string",
+          "example": "ARACOIABA"
+        },
+        "UF": {
+          "type": "string",
+          "example": "CE"
+        },
+        "phone": {
+          "type": "string",
+          "example": ""
+        },
+        "cellphone": {
+          "type": "string",
+          "example": ""
+        },
+        "registerDate": {
+          "type": "string",
+          "example": "2013-01-01T00:00:00.000Z"
+        },
+        "role": {
+          "type": "integer",
+          "example": 0
+        },
+        "situation": {
+          "type": "integer",
+          "example": 1
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
     "envelope": {
       "type": "object",
       "properties": {
@@ -1740,28 +1468,81 @@
         }
       }
     },
-    "responseEmail": {
-      "$ref": "#/definitions/email"
-    },
-    "bodyEmail": {
+    "Group": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
         "name": {
           "type": "string",
-          "example": "Fulano de Tal"
-        },
-        "email": {
-          "type": "string",
-          "example": "cliente@email.com.br"
-        },
-        "subject": {
-          "type": "string",
-          "example": "Assunto do Email"
-        },
-        "text": {
-          "type": "string",
-          "example": "Corpo do Email"
+          "example": "BLUSAS"
         }
+      }
+    },
+    "Line": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "MARCA PRINCIPAL"
+        }
+      }
+    },
+    "Size": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "P"
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 6
+        },
+        "storeId": {
+          "type": "integer",
+          "example": 1
+        },
+        "sku": {
+          "type": "string",
+          "example": "0000001-0009-1"
+        }
+      }
+    },
+    "CategoryArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Categorys"
+      }
+    },
+    "Categorys": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "JEANS"
+        }
+      },
+      "xml": {
+        "name": "Product"
       }
     },
     "ClientArray": {
@@ -1848,6 +1629,171 @@
         }
       }
     },
+    "CollectionArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Collections"
+      }
+    },
+    "Collections": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "ANO NOVO 2021"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "GroupArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Group"
+      }
+    },
+    "Group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "BLUSAS"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "InventoryArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Inventory"
+      }
+    },
+    "Inventory": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "string",
+          "example": "2020029-0004-2"
+        },
+        "quantity": {
+          "type": "string",
+          "example": 1
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "LineArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Lines"
+      }
+    },
+    "Lines": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "MARCA PRINCIPAL"
+        }
+      },
+      "xml": {
+        "name": "Product"
+      }
+    },
+    "ProductArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Product"
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "0000001"
+        },
+        "name": {
+          "type": "string",
+          "example": "BLUSA GOLA POLO -  BORDADO"
+        },
+        "details": {
+          "type": "string",
+          "example": "BLUSA LEGAL"
+        },
+        "weight": {
+          "type": "number",
+          "example": 10
+        },
+        "price": {
+          "type": "number",
+          "example": 80
+        },
+        "unit": {
+          "type": "string",
+          "example": "UN"
+        },
+        "disabled": {
+          "type": "boolean",
+          "example": false
+        },
+        "gender": {
+          "type": "integer",
+          "example": 3
+        },
+        "quantity": {
+          "type": "string",
+          "example": 6
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2020-12-01T00:00:00.000Z"
+        },
+        "isWebStore": {
+          "type": "boolean",
+          "example": false
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "collection": {
+          "$ref": "#/definitions/Collection"
+        },
+        "line": {
+          "$ref": "#/definitions/Line"
+        },
+        "size": {
+          "type": "string",
+          "example": "P"
+        },
+        "colors": {
+          "$ref": "#/definitions/Colors"
+        }
+      }
+    },
     "bodyClient": {
       "type": "object",
       "properties": {
@@ -1915,143 +1861,45 @@
         }
       }
     },
-    "responseClient": {
+    "bodyDpa": {
       "type": "object",
       "properties": {
-        "name": {
+        "productId": {
           "type": "string",
-          "example": "CONSUMIDORES DIVERSOS 2"
+          "example": 2020030
         },
-        "corporateName": {
+        "saleId": {
           "type": "string",
-          "example": "CONSUMIDORES DIVERSOS 2"
+          "example": 200003
         },
-        "CNPJCPF": {
-          "type": "string",
-          "example": 111111111112
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "postalCode": {
-          "type": "string",
-          "example": 60000000
-        },
-        "district": {
-          "type": "string",
-          "example": ""
-        },
-        "cityId": {
+        "quantity": {
           "type": "integer",
-          "format": "int",
-          "example": 674
+          "example": 3
         },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "countryId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string",
-          "example": ""
-        },
-        "whatsapp": {
-          "type": "string",
-          "example": ""
-        },
-        "email": {
-          "type": "string",
-          "example": ""
-        },
-        "blocked": {
-          "type": "boolean",
-          "example": false
-        },
-        "inactive": {
-          "type": "boolean",
-          "example": false
-        },
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 348301142
+        "unitValue": {
+          "type": "number",
+          "example": 20
         }
       }
     },
-    "EmployeeArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Employees"
-      }
-    },
-    "Employees": {
+    "bodyEmail": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 110
-        },
         "name": {
           "type": "string",
-          "example": "FUNCIONÁRIOS DIVERSOS 2"
+          "example": "Fulano de Tal"
         },
-        "CPF": {
+        "email": {
           "type": "string",
-          "example": 111111111112
+          "example": "cliente@email.com.br"
         },
-        "RG": {
+        "subject": {
           "type": "string",
-          "example": null
+          "example": "Assunto do Email"
         },
-        "address": {
+        "text": {
           "type": "string",
-          "example": ""
-        },
-        "CEP": {
-          "type": "string",
-          "example": 60000000
-        },
-        "city": {
-          "type": "string",
-          "example": "ARACOIABA"
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string",
-          "example": ""
-        },
-        "registerDate": {
-          "type": "string",
-          "example": "2013-01-01T00:00:00.000Z"
-        },
-        "role": {
-          "type": "integer",
-          "example": 0
-        },
-        "situation": {
-          "type": "integer",
-          "example": 1
-        },
-        "active": {
-          "type": "boolean",
-          "example": true
+          "example": "Corpo do Email"
         }
       }
     },
@@ -2355,6 +2203,152 @@
           "example": "StringDoPlayerIdPdvMobile"
         }
       }
+    },
+    "bodyInventoryOut": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": 2020030
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 3
+        }
+      }
+    },
+    "bodyInventoryOutGrid": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": 2020030
+        },
+        "colorId": {
+          "type": "string",
+          "example": 4
+        },
+        "size01": {
+          "type": "integer",
+          "example": 1
+        },
+        "size02": {
+          "type": "integer",
+          "example": 1
+        },
+        "size03": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "responseClient": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "CONSUMIDORES DIVERSOS 2"
+        },
+        "corporateName": {
+          "type": "string",
+          "example": "CONSUMIDORES DIVERSOS 2"
+        },
+        "CNPJCPF": {
+          "type": "string",
+          "example": 111111111112
+        },
+        "address": {
+          "type": "string",
+          "example": ""
+        },
+        "postalCode": {
+          "type": "string",
+          "example": 60000000
+        },
+        "district": {
+          "type": "string",
+          "example": ""
+        },
+        "cityId": {
+          "type": "integer",
+          "format": "int",
+          "example": 674
+        },
+        "UF": {
+          "type": "string",
+          "example": "CE"
+        },
+        "countryId": {
+          "type": "integer",
+          "format": "int",
+          "example": 674
+        },
+        "phone": {
+          "type": "string",
+          "example": ""
+        },
+        "cellphone": {
+          "type": "string",
+          "example": ""
+        },
+        "whatsapp": {
+          "type": "string",
+          "example": ""
+        },
+        "email": {
+          "type": "string",
+          "example": ""
+        },
+        "blocked": {
+          "type": "boolean",
+          "example": false
+        },
+        "inactive": {
+          "type": "boolean",
+          "example": false
+        },
+        "id": {
+          "type": "integer",
+          "format": "int",
+          "example": 348301142
+        }
+      }
+    },
+    "responseDpa": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": 2020030
+        },
+        "saleId": {
+          "type": "string",
+          "example": 200003
+        },
+        "quantity": {
+          "type": "integer",
+          "example": 3
+        },
+        "unitValue": {
+          "type": "number",
+          "example": 20
+        },
+        "date": {
+          "type": "string",
+          "example": "2021-09-15 14:19:28"
+        },
+        "type": {
+          "type": "string",
+          "example": "S"
+        },
+        "history": {
+          "type": "string",
+          "example": "VENDA REALIZADA PELO SITE"
+        }
+      }
+    },
+    "responseEmail": {
+      "$ref": "#/definitions/email"
     },
     "responseEmployee": {
       "type": "object",
@@ -2661,6 +2655,12 @@
           "example": 110
         }
       }
+    },
+    "responseInventoryOut": {
+      "$ref": "#/definitions/bodyInventoryOut"
+    },
+    "responseInventoryOutGrid": {
+      "$ref": "#/definitions/bodyInventoryOutGrid"
     },
     "Error400": {
       "type": "object",
