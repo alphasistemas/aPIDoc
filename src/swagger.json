@@ -11,43 +11,43 @@
   },
   "tags": [
     {
-      "name": "produto",
-      "description": "Tudo sobre produtos."
+      "name": "Email",
+      "description": "Reúne endpoints relacionados a email."
     },
     {
-      "name": "categoria",
-      "description": "Tudo sobre categorias."
+      "name": "Categoria",
+      "description": "Reúne endpoints relacionados a categorias."
     },
     {
-      "name": "coleção",
-      "description": "Tudo sobre coleções."
+      "name": "Coleção",
+      "description": "Reúne endpoints relacionados a coleções."
     },
     {
-      "name": "grupo",
-      "description": "Tudo sobre grupos."
+      "name": "Estoque",
+      "description": "Reúne endpoints relacionados a estoque."
     },
     {
-      "name": "estoque",
-      "description": "Tudo sobre estoque."
+      "name": "Grupo",
+      "description": "Reúne endpoints relacionados a grupos."
     },
     {
-      "name": "linha",
-      "description": "Tudo sobre linhas."
+      "name": "Linha",
+      "description": "Reúne endpoints relacionados a linhas."
+    },  
+    {
+      "name": "Produto",
+      "description": "Reúne endpoints relacionados a produtos."
     },
     {
-      "name": "email",
-      "description": "Tudo sobre email."
-    },
-    {
-      "name": "usuário",
-      "description": "Tudo sobre usuário."
+      "name": "Usuário",
+      "description": "Reúne endpoints relacionados a usuário."
     }
   ],
   "paths": {
     "/product/product": {
       "get": {
         "tags": [
-          "produto"
+          "Produto"
         ],
         "summary": "Listar todos os produtos.",
         "operationId": "getProduct",
@@ -77,40 +77,40 @@
             }
           },
           {
-            "in": "query",
             "name": "weight",
+            "in": "query",
             "description": "Peso do produto.",
             "schema": {
               "type": "number"
             }
           },
           {
-            "in": "query",
             "name": "price",
+            "in": "query",
             "description": "Preço do produto.",
             "schema": {
               "type": "number"
             }
           },
           {
-            "in": "query",
             "name": "unit",
+            "in": "query",
             "description": "Unidade de medida do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "disabled",
+            "in": "query",
             "description": "Mostra se o produtos está inativo ou não.",
             "schema": {
               "type": "boolean"
             }
           },
           {
-            "in": "query",
             "name": "gender",
+            "in": "query",
             "description": "Gênero do produto.",
             "schema":{
               "type": "integer",
@@ -126,24 +126,24 @@
             }
           },
           {
-            "in": "query",
             "name": "createdAt",
+            "in": "query",
             "description": "Data de cadatro do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "isWebStore",
+            "in": "query",
             "description": "Indica se o produto foi enviado ou não, para a loja virtual.",
             "schema":{
               "type": "boolean"
             }
           },
           {
-            "in": "query",
             "name": "categoryId",
+            "in": "query",
             "description": "Id da categoria do produto.",
             "schema": {
               "type": "integer",
@@ -151,16 +151,16 @@
             }
           },
           {
-            "in": "query",
             "name": "category",
+            "in": "query",
             "description": "Nome da categoria do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "groupId",
+            "in": "query",
             "description": "Id do grupo do produto.",
             "schema": {
               "type": "integer",
@@ -168,16 +168,16 @@
             }
           },
           {
-            "in": "query",
             "name": "group",
+            "in": "query",
             "description": "Nome do grupo do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "collectionId",
+            "in": "query",
             "description": "Id da coleção do produto.",
             "schema": {
               "type": "integer",
@@ -185,16 +185,16 @@
             }
           },
           {
-            "in": "query",
             "name": "collection",
+            "in": "query",
             "description": "Nome da coleção do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "lineId",
+            "in": "query",
             "description": "Id da linha do produto.",
             "schema": {
               "type": "integer",
@@ -202,24 +202,24 @@
             }
           },
           {
-            "in": "query",
             "name": "line",
+            "in": "query",
             "description": "Nome da linha do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "sku",
+            "in": "query",
             "description": "SKU do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "skuQuantity",
+            "in": "query",
             "description": "Estoque de SKU do produto.",
             "schema": {
               "type": "integer",
@@ -227,8 +227,8 @@
             }
           },
           {
-            "in": "query",
             "name": "colorId",
+            "in": "query",
             "description": "Id da cor do produto.",
             "schema": {
               "type": "integer",
@@ -236,16 +236,16 @@
             }
           },
           {
-            "in": "query",
             "name": "color",
+            "in": "query",
             "description": "Nome da cor do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "sizeId",
+            "in": "query",
             "description": "Id do tamanho do produto.",
             "schema": {
               "type": "integer",
@@ -253,16 +253,16 @@
             }
           },
           {
-            "in": "query",
             "name": "size",
+            "in": "query",
             "description": "Tamanho do produto.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "in": "query",
             "name": "storeId",
+            "in": "query",
             "description": "Id da loja.",
             "schema": {
               "type": "integer",
@@ -272,7 +272,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -282,10 +282,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -295,7 +295,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -310,16 +310,16 @@
     "/product/product/{id}": {
       "get": {
         "tags": [
-          "produto"
+          "Produto"
         ],
-        "summary": "Encrontrar produto pelo ID",
-        "description": "Retorna um único produto",
+        "summary": "Encrontrar produto pelo id.",
+        "description": "Retorna um único produto.",
         "operationId": "getProductId",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID do produto a ser buscado",
+            "description": "Id do produto a ser buscado.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -329,7 +329,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -339,10 +339,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -352,7 +352,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -367,7 +367,7 @@
     "/product/category": {
       "get": {
         "tags": [
-          "categoria"
+          "Categoria"
         ],
         "summary": "Listar todos as categorias.",
         "operationId": "getCategory",
@@ -383,8 +383,8 @@
 
           },
           {
-            "in": "query",
             "name": "name",
+            "in": "query",
             "description": "Nome da categoria.",
             "schema": {
               "type": "string"
@@ -393,7 +393,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -403,10 +403,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -416,7 +416,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -431,16 +431,16 @@
     "/product/category/{id}": {
       "get": {
         "tags": [
-          "categoria"
+          "Categoria"
         ],
-        "summary": "Encrontrar categoria pelo ID",
-        "description": "Retorna uma única categoria",
+        "summary": "Encrontrar categoria pelo id.",
+        "description": "Retorna uma única categoria.",
         "operationId": "getCategoryId",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID do categoria a ser buscado",
+            "description": "Id do categoria a ser buscado.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -458,7 +458,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -468,10 +468,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -481,7 +481,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -496,15 +496,14 @@
     "/product/collection": {
       "get": {
         "tags": [
-          "coleção"
+          "Coleção"
         ],
-        "summary": "Listar todos as coleções.",
-        "description": "",
+        "summary": "Listar todas as coleções.",
         "operationId": "getCollection",
         "parameters": [
           {
-            "in": "query",
             "name": "id",
+            "in": "query",
             "description": "Id da coleção.",
             "schema":{
               "type": "integer",
@@ -512,8 +511,8 @@
             }
           },
           {
-            "in": "query",
             "name": "name",
+            "in": "query",
             "description": "Nome da coleção.",
             "schema":{
               "type": "string"
@@ -522,7 +521,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -532,10 +531,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -545,7 +544,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -560,16 +559,16 @@
     "/product/collection/{id}": {
       "get": {
         "tags": [
-          "coleção"
+          "Coleção"
         ],
-        "summary": "Encrontrar coleção pelo ID",
-        "description": "Retorna uma única coleção",
+        "summary": "Encrontrar coleção pelo id.",
+        "description": "Retorna uma única coleção.",
         "operationId": "getCollectionId",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID da coleção a ser buscada",
+            "description": "Id da coleção a ser buscada.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -577,8 +576,8 @@
             }
           },
           {
-            "in": "query",
             "name": "name",
+            "in": "query",
             "description": "Nome da coleção.",
             "schema":{
               "type": "string"
@@ -587,7 +586,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -597,10 +596,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -610,7 +609,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -625,15 +624,14 @@
     "/product/group": {
       "get": {
         "tags": [
-          "grupo"
+          "Grupo"
         ],
         "summary": "Listar todos os grupos.",
-        "description": "",
         "operationId": "getGroup",
         "parameters": [
           {
-            "in": "query",
             "name": "id",
+            "in": "query",
             "description": "Id do grupo.",
             "schema":{
               "type": "integer",
@@ -641,8 +639,8 @@
             }
           },
           {
-            "in": "query",
             "name": "name",
+            "in": "query",
             "description": "Nome do grupo.",
             "schema":{
               "type": "string"
@@ -651,7 +649,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -661,10 +659,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -674,7 +672,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json":{
                 "schema": {
@@ -689,16 +687,16 @@
     "/product/group/{id}": {
       "get": {
         "tags": [
-          "grupo"
+          "Grupo"
         ],
-        "summary": "Encrontrar grupo pelo ID",
-        "description": "Retorna um único grupo",
+        "summary": "Encrontrar grupo pelo id.",
+        "description": "Retorna um único grupo.",
         "operationId": "getGroupId",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID do grupo a ser buscada",
+            "description": "Id do grupo a ser buscada",
             "required": true,
             "schema":{
               "type": "integer",
@@ -706,8 +704,8 @@
             }
           },
           {
-            "in": "query",
             "name": "name",
+            "in": "query",
             "description": "Nome do grupo.",
             "schema":{
               "type": "string"
@@ -716,7 +714,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -726,10 +724,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content":{
               "application/json": {
                 "schema": {
@@ -739,7 +737,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json":{
                 "schema": {
@@ -754,11 +752,10 @@
     "/product/inventory": {
       "get": {
         "tags": [
-          "estoque"
+          "Estoque"
         ],
         "summary": "Listar todo o estoque.",
-        "description": "",
-        "operationId": "getInventorys",
+        "operationId": "getInventory",
         "parameters": [
           {
             "name": "sku",
@@ -779,7 +776,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -789,10 +786,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -802,7 +799,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -817,13 +814,12 @@
     "/product/inventory/out": {
       "put": {
         "tags": [
-          "estoque"
+          "Estoque"
         ],
         "summary": "Atualiza o estoque do produto.",
-        "description": "",
         "operationId": "getInventoryOut",
         "requestBody": {
-          "description": "Corpo do inventory/out.",
+          "description": "Corpo da requisição.",
           "content": {
             "application/json": {
               "schema": {
@@ -834,7 +830,7 @@
         },
         "responses": {
           "201": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content" :{
               "application/json": {
                 "schema": {
@@ -844,10 +840,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -857,7 +853,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -872,12 +868,12 @@
     "/product/inventory/out/grid": {
       "put": {
         "tags": [
-          "estoque"
+          "Estoque"
         ],
         "summary": "Atualiza o estoque do produto.",
         "operationId": "getInventoryOutGrid",
         "requestBody": {
-            "description": "Corpo do inventory/out/grid.",
+            "description": "Corpo da requisição.",
             "content": {
               "application/json": {
                 "schema": {
@@ -888,7 +884,7 @@
         },
         "responses": {
           "201": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -898,10 +894,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -911,7 +907,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -926,13 +922,12 @@
     "/product/dpa": {
       "post": {
         "tags": [
-          "estoque"
+          "Estoque"
         ],
         "summary": "Registra uma saída de produto do estoque do DPA.",
-        "description": "",
         "operationId": "postDpa",
         "requestBody": {
-            "description": "Corpo do dpa.",
+            "description": "Corpo da requisição.",
             "content": {
               "application/json": {
                 "schema": {
@@ -943,7 +938,7 @@
         },
         "responses": {
           "201": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -953,10 +948,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -966,7 +961,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -981,28 +976,32 @@
     "/product/line": {
       "get": {
         "tags": [
-          "linha"
+          "Linha"
         ],
-        "summary": "Listar todos as linhas.",
+        "summary": "Listar todas as linhas.",
         "operationId": "getLine",
         "parameters": [
           {
-            "in": "query",
-            "type": "integer",
-            "format": "int",
             "name": "id",
-            "description": "Id da linha."
+            "in": "query",
+            "description": "Id da linha.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "name",
-            "description": "Nome da linha."
+            "in": "query",
+            "description": "Nome da linha.",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1012,10 +1011,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1025,7 +1024,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1040,16 +1039,16 @@
     "/product/line/{id}": {
       "get": {
         "tags": [
-          "linha"
+          "Linha"
         ],
-        "summary": "Encrontrar linha pelo ID",
-        "description": "Retorna uma única linha",
+        "summary": "Encrontrar linha pelo id.",
+        "description": "Retorna uma única linha.",
         "operationId": "getLineId",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID da linha a ser buscada",
+            "description": "Id da linha a ser buscada.",
             "required": true,
             "schema":{
               "type": "integer",
@@ -1057,8 +1056,8 @@
             }
           },
           {
-            "in": "query",
             "name": "name",
+            "in": "query",
             "description": "Nome da linha.",
             "schema":{
               "type": "string"
@@ -1067,7 +1066,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1077,10 +1076,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1090,7 +1089,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1105,13 +1104,12 @@
     "/email/email": {
       "post": {
         "tags": [
-          "email"
+          "Email"
         ],
         "summary": "Enviar e-mail.",
-        "description": "",
         "operationId": "postEmail",
         "requestBody": {
-          "description": "Corpo do Email.",
+          "description": "Corpo da requisição.",
           "content": {
             "application/json": {
               "schema": {
@@ -1122,7 +1120,7 @@
         },
         "responses": {
           "201": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1132,10 +1130,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1145,7 +1143,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1160,124 +1158,160 @@
     "/user/client": {
       "get": {
         "tags": [
-          "usuário"
+          "Usuário"
         ],
         "summary": "Listar todos os clientes.",
-        "description": "",
         "operationId": "getClient",
         "parameters": [
           {
-            "in": "query",
-            "type": "string",
             "name": "id",
-            "description": "Id do cliente."
+            "in": "query",
+            "description": "Id do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "name",
-            "description": "Nome Fantasia do cliente."
+            "in": "query",
+            "description": "Nome Fantasia do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "corporateName",
-            "description": "Razão Social do cliente."
+            "in": "query",
+            "description": "Razão Social do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "CNPJCPF",
-            "description": "CNPJ ou CPF do cliente."
+            "in": "query",
+            "description": "CNPJ ou CPF do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "address",
-            "description": "Endereço do cliente."
+            "in": "query",
+            "description": "Endereço do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "postalCode",
-            "description": "CEP do cliente."
+            "in": "query",
+            "description": "CEP do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "district",
-            "description": "Bairro do cliente."
+            "in": "query",
+            "description": "Bairro do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "city",
-            "description": "Cidade do cliente."
+            "in": "query",
+            "description": "Cidade do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "UF",
-            "description": "UF (Unidade Federativa) do cliente."
+            "in": "query",
+            "description": "UF (Unidade Federativa) do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "country",
-            "description": "País do cliente."
+            "in": "query",
+            "description": "País do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "registerDate",
-            "description": "Data do cadastro do cliente."
+            "in": "query",
+            "description": "Data do cadastro do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "phone",
-            "description": "Telefone cliente."
+            "in": "query",
+            "description": "Telefone do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "cellphone",
-            "description": "Celular cliente."
+            "in": "query",
+            "description": "Celular do cliente.", 
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "whatsapp",
-            "description": "WhatsApp do cliente."
+            "in": "query",
+            "description": "WhatsApp do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "string",
             "name": "email",
-            "description": "E-mail do cliente."
+            "in": "query",
+            "description": "Email do cliente.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "in": "query",
-            "type": "boolean",
             "name": "blocked",
-            "description": "Verifica se o cliente está bloqueado ou não."
+            "in": "query",
+            "description": "Verifica se o cliente está bloqueado ou não.",
+            "schema": {
+              "type": "boolean"
+            }
           },
           {
-            "in": "query",
-            "type": "boolean",
             "name": "inactive",
-            "description": "Verifica se o cliente está inativo ou não."
+            "in": "query",
+            "description": "Verifica se o cliente está inativo ou não.",
+            "schema": {
+              "type": "boolean"
+            }
           },
           {
-            "in": "query",
-            "type": "integer",
             "name": "clientType",
-            "description": "Tipo de cliente."
+            "in": "query",
+            "description": "Tipo de cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1287,10 +1321,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1300,7 +1334,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1313,31 +1347,28 @@
       },
       "post": {
         "tags": [
-          "usuário"
+          "Usuário"
         ],
         "summary": "Cadatro de cliente.",
-        "description": "",
         "operationId": "postClient",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Corpo do cadastro de cliente.",
-            "content":{
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/bodyClient"
-                }
+        "requestBody": {
+          "description": "Corpo do cadastro de cliente.",
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/bodyClient"
               }
             }
           }
-        ],
+        },
         "responses": {
           "201": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
-              "schema": {
-                "$ref": "#/definitions/responseClient"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/responseClient"
+                }
               }
             }
           }
@@ -1440,7 +1471,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1450,10 +1481,10 @@
             }
           },
           "204": {
-            "description": "Sem conteúdo"
+            "description": "Sem conteúdo."
           },
           "400": {
-            "description": "Erro do Usuário",
+            "description": "Requisição invalida.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1463,7 +1494,7 @@
             }
           },
           "500": {
-            "description": "Erro interno do Servidor",
+            "description": "Erro interno do servidor.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1493,7 +1524,7 @@
         },
         "responses": {
           "201": {
-            "description": "Ação concluída com sucesso",
+            "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
