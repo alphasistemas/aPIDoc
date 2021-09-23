@@ -1,8 +1,8 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.0",
   "info": {
     "title": "Alpha API",
-    "description": "Todas as APIs da Alpha Systemas foram desenvolvidas baseadas na tecnologia REST, seguindo os atuais padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos e utilizam os padrões do protocolo HTTP como autenticação, verbos e códigos de retorno. Isso permite que APIs possam ser utilizadas por clientes HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, as APIs foram cuidadosamente trabalhadas para que os termos de negócios contidos sejam facilmente entendidos por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que um nome de campo em um endpoint tenha rigorosamente o mesmo significado em outros recursos.",
+    "description": "A API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite que a API possa ser utilizada pelos clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nome dos campos em um endpoint tenha rigorosamente o mesmo significado em outros recursos.",
     "version": "1.0.0",
     "contact": {
       "name": "Alpha Sistemas",
@@ -15,26 +15,6 @@
       "description": "Reúne endpoints relacionados a email."
     },
     {
-      "name": "Categoria",
-      "description": "Reúne endpoints relacionados a categorias."
-    },
-    {
-      "name": "Coleção",
-      "description": "Reúne endpoints relacionados a coleções."
-    },
-    {
-      "name": "Estoque",
-      "description": "Reúne endpoints relacionados a estoque."
-    },
-    {
-      "name": "Grupo",
-      "description": "Reúne endpoints relacionados a grupos."
-    },
-    {
-      "name": "Linha",
-      "description": "Reúne endpoints relacionados a linhas."
-    },  
-    {
       "name": "Produto",
       "description": "Reúne endpoints relacionados a produtos."
     },
@@ -44,12 +24,762 @@
     }
   ],
   "paths": {
+    "/email/email": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "Enviar e-mail.",
+        "operationId": "postEmail",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyEmail"
+                }
+              }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseEmail"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/category": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Obter todas as categorias.",
+        "operationId": "getCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da categoria.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da categoria.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/categoryArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/category/{id}": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Encrontrar uma categoria pelo id.",
+        "description": "Retorna uma única categoria.",
+        "operationId": "getCategoryId",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "description": "Nome da categoria.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/collection": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Obter todas as coleções.",
+        "operationId": "getCollection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da coleção.",
+            "schema":{
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da coleção.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/collectionArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/collection/{id}": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Encrontrar uma coleção pelo id.",
+        "description": "Retorna uma única coleção.",
+        "operationId": "getCollectionId",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da coleção.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/collection"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/dpa": {
+      "post": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Registrar uma saída de produto do estoque do DPA.",
+        "operationId": "postDpa",
+        "requestBody": {
+            "description": "Corpo da requisição.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyDpa"
+                }
+              }
+            }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseDpa"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/group": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Obter todos os grupos.",
+        "operationId": "getGroup",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do grupo.",
+            "schema":{
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do grupo.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groupArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json":{
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/group/{id}": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Encrontrar um grupo pelo id.",
+        "description": "Retorna um único grupo.",
+        "operationId": "getGroupId",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do grupo.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/group"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content":{
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }                
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json":{
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/inventory": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Obter o estoque de todos os produtos.",
+        "operationId": "getInventory",
+        "parameters": [
+          {
+            "name": "sku",
+            "in": "query",
+            "description": "SKU.",
+            "schema":{
+              "type": "string"
+            }
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "Quantidade em estoque.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inventoryArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/inventory/out": {
+      "put": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Atualizar o estoque do produto.",
+        "operationId": "getInventoryOut",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyInventoryOut"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content" :{
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseInventoryOut"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/inventory/out/grid": {
+      "put": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Atualizar o estoque do produto.",
+        "operationId": "getInventoryOutGrid",
+        "requestBody": {
+            "description": "Corpo da requisição.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyInventoryOutGrid"
+                }
+              }
+            }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseInventoryOutGrid"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/line": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Obter todas as linhas.",
+        "operationId": "getLine",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da linha.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da linha.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/lineArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/line/{id}": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Encrontrar uma linha pelo id.",
+        "description": "Retorna uma única linha.",
+        "operationId": "getLineId",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da linha.",
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/line"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/product/product": {
       "get": {
         "tags": [
           "Produto"
         ],
-        "summary": "Listar todos os produtos.",
+        "summary": "Obter todos os produtos.",
         "operationId": "getProduct",
         "parameters": [
           {
@@ -276,7 +1006,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/productArray"
+                  "$ref": "#/components/schemas/productArray"
                 }
               }
             }
@@ -289,7 +1019,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error400"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -299,7 +1029,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error500"
+                  "$ref": "#/components/schemas/error500"
                 }
               }
             }
@@ -312,755 +1042,217 @@
         "tags": [
           "Produto"
         ],
-        "summary": "Encrontrar produto pelo id.",
+        "summary": "Encontrar um produto pelo id.",
         "description": "Retorna um único produto.",
         "operationId": "getProductId",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "Id do produto a ser buscado.",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/product"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/category": {
-      "get": {
-        "tags": [
-          "Categoria"
-        ],
-        "summary": "Listar todos as categorias.",
-        "operationId": "getCategory",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "description": "Id da categoria.",
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-
-          },
-          {
             "name": "name",
             "in": "query",
-            "description": "Nome da categoria.",
+            "description": "Nome do produto.",
             "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/categoryArray"
-                }
-              }
-            }
           },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/category/{id}": {
-      "get": {
-        "tags": [
-          "Categoria"
-        ],
-        "summary": "Encrontrar categoria pelo id.",
-        "description": "Retorna uma única categoria.",
-        "operationId": "getCategoryId",
-        "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "Id do categoria a ser buscado.",
-            "required": true,
+            "in": "query",
+            "name": "details",
+            "description": "Descrição detalhada do produto.",
             "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "weight",
+            "in": "query",
+            "description": "Peso do produto.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "description": "Preço do produto.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "description": "Unidade de medida do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Mostra se o produtos está inativo ou não.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Gênero do produto.",
+            "schema":{
               "type": "integer",
               "format": "int32"
             }
           },
           {
             "in": "query",
-            "name": "name",
-            "description": "Nome da categoria.",
-            "schema":{
+            "name": "quantity",
+            "description": "Quantidade em estoque.",
+            "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/category"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/collection": {
-      "get": {
-        "tags": [
-          "Coleção"
-        ],
-        "summary": "Listar todas as coleções.",
-        "operationId": "getCollection",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "description": "Id da coleção.",
-            "schema":{
-              "type": "integer",
-              "format": "int32"
-            }
           },
           {
-            "name": "name",
+            "name": "createdAt",
             "in": "query",
-            "description": "Nome da coleção.",
-            "schema":{
+            "description": "Data de cadatro do produto.",
+            "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/collectionArray"
-                }
-              }
-            }
           },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/collection/{id}": {
-      "get": {
-        "tags": [
-          "Coleção"
-        ],
-        "summary": "Encrontrar coleção pelo id.",
-        "description": "Retorna uma única coleção.",
-        "operationId": "getCollectionId",
-        "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "Id da coleção a ser buscada.",
-            "required": true,
+            "name": "isWebStore",
+            "in": "query",
+            "description": "Indica se o produto foi enviado ou não, para a loja virtual.",
+            "schema":{
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "Id da categoria do produto.",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "name",
+            "name": "category",
             "in": "query",
-            "description": "Nome da coleção.",
-            "schema":{
+            "description": "Nome da categoria do produto.",
+            "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/collection"
-                }
-              }
-            }
           },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/group": {
-      "get": {
-        "tags": [
-          "Grupo"
-        ],
-        "summary": "Listar todos os grupos.",
-        "operationId": "getGroup",
-        "parameters": [
           {
-            "name": "id",
+            "name": "groupId",
             "in": "query",
-            "description": "Id do grupo.",
-            "schema":{
+            "description": "Id do grupo do produto.",
+            "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "name",
+            "name": "group",
             "in": "query",
-            "description": "Nome do grupo.",
-            "schema":{
+            "description": "Nome do grupo do produto.",
+            "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/groupArray"
-                }
-              }
-            }
           },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json":{
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/group/{id}": {
-      "get": {
-        "tags": [
-          "Grupo"
-        ],
-        "summary": "Encrontrar grupo pelo id.",
-        "description": "Retorna um único grupo.",
-        "operationId": "getGroupId",
-        "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "Id do grupo a ser buscada",
-            "required": true,
-            "schema":{
+            "name": "collectionId",
+            "in": "query",
+            "description": "Id da coleção do produto.",
+            "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "name",
+            "name": "collection",
             "in": "query",
-            "description": "Nome do grupo.",
-            "schema":{
+            "description": "Nome da coleção do produto.",
+            "schema": {
               "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/group"
-                }
-              }
+          },
+          {
+            "name": "lineId",
+            "in": "query",
+            "description": "Id da linha do produto.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content":{
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }                
-              }
+          {
+            "name": "line",
+            "in": "query",
+            "description": "Nome da linha do produto.",
+            "schema": {
+              "type": "string"
             }
           },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json":{
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/inventory": {
-      "get": {
-        "tags": [
-          "Estoque"
-        ],
-        "summary": "Listar todo o estoque.",
-        "operationId": "getInventory",
-        "parameters": [
           {
             "name": "sku",
             "in": "query",
-            "description": "SKU.",
-            "schema":{
+            "description": "SKU do produto.",
+            "schema": {
               "type": "string"
             }
           },
           {
-            "name": "quantity",
+            "name": "skuQuantity",
             "in": "query",
-            "description": "Quantidade em estoque.",
-            "schema":{
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/inventoryArray"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/inventory/out": {
-      "put": {
-        "tags": [
-          "Estoque"
-        ],
-        "summary": "Atualiza o estoque do produto.",
-        "operationId": "getInventoryOut",
-        "requestBody": {
-          "description": "Corpo da requisição.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/bodyInventoryOut"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Ação concluída com sucesso.",
-            "content" :{
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/responseInventoryOut"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/inventory/out/grid": {
-      "put": {
-        "tags": [
-          "Estoque"
-        ],
-        "summary": "Atualiza o estoque do produto.",
-        "operationId": "getInventoryOutGrid",
-        "requestBody": {
-            "description": "Corpo da requisição.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/bodyInventoryOutGrid"
-                }
-              }
-            }
-        },
-        "responses": {
-          "201": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/responseInventoryOutGrid"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/dpa": {
-      "post": {
-        "tags": [
-          "Estoque"
-        ],
-        "summary": "Registra uma saída de produto do estoque do DPA.",
-        "operationId": "postDpa",
-        "requestBody": {
-            "description": "Corpo da requisição.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/bodyDpa"
-                }
-              }
-            }
-        },
-        "responses": {
-          "201": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/responseDpa"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/line": {
-      "get": {
-        "tags": [
-          "Linha"
-        ],
-        "summary": "Listar todas as linhas.",
-        "operationId": "getLine",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "description": "Id da linha.",
+            "description": "Estoque de SKU do produto.",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "name",
+            "name": "colorId",
             "in": "query",
-            "description": "Nome da linha.",
+            "description": "Id da cor do produto.",
             "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/lineArray"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/line/{id}": {
-      "get": {
-        "tags": [
-          "Linha"
-        ],
-        "summary": "Encrontrar linha pelo id.",
-        "description": "Retorna uma única linha.",
-        "operationId": "getLineId",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id da linha a ser buscada.",
-            "required": true,
-            "schema":{
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "name",
+            "name": "color",
             "in": "query",
-            "description": "Nome da linha.",
-            "schema":{
+            "description": "Nome da cor do produto.",
+            "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "sizeId",
+            "in": "query",
+            "description": "Id do tamanho do produto.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Tamanho do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -1070,7 +1262,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/line"
+                  "$ref": "#/components/schemas/product"
                 }
               }
             }
@@ -1083,7 +1275,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error400"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -1093,61 +1285,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/email/email": {
-      "post": {
-        "tags": [
-          "Email"
-        ],
-        "summary": "Enviar e-mail.",
-        "operationId": "postEmail",
-        "requestBody": {
-          "description": "Corpo da requisição.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/bodyEmail"
-                }
-              }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/responseEmail"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/error500"
+                  "$ref": "#/components/schemas/error500"
                 }
               }
             }
@@ -1160,7 +1298,7 @@
         "tags": [
           "Usuário"
         ],
-        "summary": "Listar todos os clientes.",
+        "summary": "Obter todos os clientes.",
         "operationId": "getClient",
         "parameters": [
           {
@@ -1315,7 +1453,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/clientArray"
+                  "$ref": "#/components/schemas/clientArray"
                 }
               }
             }
@@ -1328,7 +1466,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error400"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -1338,7 +1476,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error500"
+                  "$ref": "#/components/schemas/error500"
                 }
               }
             }
@@ -1349,14 +1487,14 @@
         "tags": [
           "Usuário"
         ],
-        "summary": "Cadatro de cliente.",
+        "summary": "Cadatrar um cliente.",
         "operationId": "postClient",
         "requestBody": {
           "description": "Corpo do cadastro de cliente.",
           "content":{
             "application/json": {
               "schema": {
-                "$ref": "#/definitions/bodyClient"
+                "$ref": "#/components/schemas/bodyClient"
               }
             }
           }
@@ -1367,115 +1505,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/responseClient"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/user/employee": {
-      "get": {
-        "tags": [
-          "usuário"
-        ],
-        "summary": "Listar todos os funcionários.",
-        "description": "",
-        "operationId": "getEmployee",
-        "parameters": [
-          {
-            "in": "query",
-            "type": "string",
-            "name": "id",
-            "description": "Id do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "name",
-            "description": "Nome do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "CPF",
-            "description": "CPF do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "RG",
-            "description": "RG do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "address",
-            "description": "Endereço do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "CEP",
-            "description": "CEP do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "city",
-            "description": "Cidade do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "UF",
-            "description": "UF (Unidade Federativa) do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "phone",
-            "description": "Telefone funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "cellphone",
-            "description": "Celular funcionário."
-          },
-          {
-            "in": "query",
-            "type": "string",
-            "name": "registerDate",
-            "description": "Data do cadastro do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "integer",
-            "name": "role",
-            "description": "Função do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "integer",
-            "name": "situation",
-            "description": "Situação do funcionário."
-          },
-          {
-            "in": "query",
-            "type": "boolean",
-            "name": "active",
-            "description": "Verifica se o funcionário está ativo ou não."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/employeeArray"
+                  "$ref": "#/components/schemas/responseClient"
                 }
               }
             }
@@ -1488,7 +1518,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error400"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -1498,7 +1528,350 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/error500"
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/client/{id}": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Obter o cliente pelo id.",
+        "operationId": "getClientId",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome Fantasia do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "corporateName",
+            "in": "query",
+            "description": "Razão Social do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CNPJCPF",
+            "in": "query",
+            "description": "CNPJ ou CPF do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Endereço do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "postalCode",
+            "in": "query",
+            "description": "CEP do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "district",
+            "in": "query",
+            "description": "Bairro do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Cidade do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UF",
+            "in": "query",
+            "description": "UF (Unidade Federativa) do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "País do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "registerDate",
+            "in": "query",
+            "description": "Data do cadastro do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Telefone do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cellphone",
+            "in": "query",
+            "description": "Celular do cliente.", 
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "whatsapp",
+            "in": "query",
+            "description": "WhatsApp do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Email do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "blocked",
+            "in": "query",
+            "description": "Verifica se o cliente está bloqueado ou não.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "inactive",
+            "in": "query",
+            "description": "Verifica se o cliente está inativo ou não.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "clientType",
+            "in": "query",
+            "description": "Tipo de cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/client"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/employee": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Obter todos os funcionários.",
+        "operationId": "getEmployee",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CPF",
+            "in": "query",
+            "description": "CPF do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RG",
+            "in": "query",
+            "description": "RG do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Endereço do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CEP",
+            "in": "query",
+            "description": "CEP do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Cidade do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UF",
+            "in": "query",
+            "description": "UF (Unidade Federativa) do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Telefone funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cellphone",
+            "description": "Celular funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "registerDate",
+            "in": "query",
+            "description": "Data do cadastro do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "Função do funcionário.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "situation",
+            "in": "query",
+            "description": "Situação do funcionário.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Verifica se o funcionário está ativo ou não.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/employeeArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
                 }
               }
             }
@@ -1507,17 +1880,16 @@
       },
       "post": {
         "tags": [
-          "usuário"
+          "Usuário"
         ],
-        "summary": "Cadatro de funcionários.",
-        "description": "",
+        "summary": "Cadatrar um funcionário.",
         "operationId": "postEmployee",
         "requestBody": {
           "description": "Corpo do cadastro de funcionários.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/definitions/bodyEmployee"
+                "$ref": "#/components/schemas/bodyEmployee"
               }
             }
           }
@@ -1528,7 +1900,182 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/definitions/responseEmployee"
+                  "$ref": "#/components/schemas/responseEmployee"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/employee/{id}": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Obter o funcionário pelo id.",
+        "operationId": "getEmployee",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CPF",
+            "in": "query",
+            "description": "CPF do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RG",
+            "in": "query",
+            "description": "RG do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Endereço do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CEP",
+            "in": "query",
+            "description": "CEP do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Cidade do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UF",
+            "in": "query",
+            "description": "UF (Unidade Federativa) do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Telefone funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cellphone",
+            "description": "Celular funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "registerDate",
+            "in": "query",
+            "description": "Data do cadastro do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "Função do funcionário.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "situation",
+            "in": "query",
+            "description": "Situação do funcionário.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Verifica se o funcionário está ativo ou não.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/employeeArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
                 }
               }
             }
@@ -1537,1323 +2084,1430 @@
       }
     }
   },
-  "definitions": {
-    "bodyClient": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "CONSUMIDORES DIVERSOS 2"
-        },
-        "corporateName": {
-          "type": "string",
-          "example": "CONSUMIDORES DIVERSOS 2"
-        },
-        "CNPJCPF": {
-          "type": "string",
-          "example": 111111111112
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "postalCode": {
-          "type": "string",
-          "example": 60000000
-        },
-        "district": {
-          "type": "string",
-          "example": ""
-        },
-        "cityId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "countryId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string",
-          "example": ""
-        },
-        "whatsapp": {
-          "type": "string",
-          "example": ""
-        },
-        "email": {
-          "type": "string",
-          "example": ""
-        },
-        "blocked": {
-          "type": "boolean",
-          "example": false
-        },
-        "inactive": {
-          "type": "boolean",
-          "example": false
-        }
-      }
-    },
-    "bodyDpa": {
-      "type": "object",
-      "properties": {
-        "productId": {
-          "type": "string",
-          "example": 2020030
-        },
-        "saleId": {
-          "type": "string",
-          "example": 200003
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 3
-        },
-        "unitValue": {
-          "type": "number",
-          "example": 20
-        }
-      }
-    },
-    "bodyEmail": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "Fulano de Tal"
-        },
-        "email": {
-          "type": "string",
-          "example": "cliente@email.com.br"
-        },
-        "subject": {
-          "type": "string",
-          "example": "Assunto do Email"
-        },
-        "text": {
-          "type": "string",
-          "example": "Corpo do Email"
-        }
-      }
-    },
-    "bodyEmployee": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "FUNCIONÁRIOS DIVERSOS 2"
-        },
-        "CPF": {
-          "type": "string",
-          "example": 111111111112
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "postalCode": {
-          "type": "string",
-          "example": 60000000
-        },
-        "district": {
-          "type": "string",
-          "example": ""
-        },
-        "cityId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string"
-        },
-        "active": {
-          "type": "boolean",
-          "example": true
-        },
-        "commissionInCash": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionInInstallments": {
-          "type": "number",
-          "example": 0
-        },
-        "commission1": {
-          "type": "number",
-          "example": 0
-        },
-        "commission2": {
-          "type": "number",
-          "example": 0
-        },
-        "commission3": {
-          "type": "number",
-          "example": 0
-        },
-        "commission4": {
-          "type": "number",
-          "example": 0
-        },
-        "commission5": {
-          "type": "number",
-          "example": 0
-        },
-        "commission6": {
-          "type": "number",
-          "example": 0
-        },
-        "commission7": {
-          "type": "number",
-          "example": 0
-        },
-        "commission8": {
-          "type": "number",
-          "example": 0
-        },
-        "commission9": {
-          "type": "number",
-          "example": 0
-        },
-        "commission09": {
-          "type": "number",
-          "example": 0
-        },
-        "commission10": {
-          "type": "number",
-          "example": 0
-        },
-        "commission11": {
-          "type": "number",
-          "example": 0
-        },
-        "commission12": {
-          "type": "number",
-          "example": 0
-        },
-        "commission13": {
-          "type": "number",
-          "example": 0
-        },
-        "commission14": {
-          "type": "number",
-          "example": 0
-        },
-        "commission15": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionCashier": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionManager": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionSupervisor": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionGeneral": {
-          "type": "number",
-          "example": 0
-        },
-        "limit": {
-          "type": "number",
-          "example": 0
-        },
-        "roleId": {
-          "type": "number",
-          "example": 0
-        },
-        "maritalStatusId": {
-          "type": "number",
-          "example": 0
-        },
-        "dependentQuantity": {
-          "type": "number",
-          "example": 0
-        },
-        "sectorId": {
-          "type": "number",
-          "example": 0
-        },
-        "salary": {
-          "type": "number",
-          "example": 0
-        },
-        "salaryCTPS": {
-          "type": "number",
-          "example": 0
-        },
-        "PaymentType": {
-          "type": "number",
-          "example": 0
-        },
-        "days": {
-          "type": "number",
-          "example": 0
-        },
-        "hours": {
-          "type": "number",
-          "example": 220
-        },
-        "syndicate": {
-          "type": "boolean",
-          "example": false
-        },
-        "transportationVoucher": {
-          "type": "boolean",
-          "example": false
-        },
-        "storeId": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "hasControlledEfficiency": {
-          "type": "boolean",
-          "example": false
-        },
-        "productionGroupId": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "biweeklyAdvanceAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "isVacationEmployee": {
-          "type": "boolean",
-          "example": false
-        },
-        "goldQuotaNumberOfParts": {
-          "type": "integer",
-          "format": "int",
-          "example": 250
-        },
-        "goldQuotaCommission": {
-          "type": "boolean",
-          "example": false
-        },
-        "goldQuotaAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "silverQuotaNumberOfParts": {
-          "type": "integer",
-          "format": "int",
-          "example": 500
-        },
-        "silverQuotaCommission": {
-          "type": "boolean",
-          "example": false
-        },
-        "silverQuotaAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "bronzeQuotaNumberOfParts": {
-          "type": "number",
-          "example": 1000
-        },
-        "bronzeQuotaCommission": {
-          "type": "boolean",
-          "example": false
-        },
-        "bronzeQuotaAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "voucherLimit": {
-          "type": "number",
-          "example": 0
-        },
-        "situation": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "hasTriennium": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "hasQuennium": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "award": {
-          "type": "number",
-          "example": 0
-        },
-        "productivity": {
-          "type": "number",
-          "example": 0
-        },
-        "punctuality": {
-          "type": "number",
-          "example": 0
-        },
-        "bank": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "agency": {
-          "type": "string",
-          "example": "0000"
-        },
-        "account": {
-          "type": "string",
-          "example": "0000"
-        },
-        "operation": {
-          "type": "string",
-          "example": "0000"
-        },
-        "launchProduction": {
-          "type": "boolean",
-          "example": false
-        },
-        "password": {
-          "type": "string",
-          "example": "SuperSenhaSeguraDaAlpha"
-        },
-        "playerIdPdvMobile": {
-          "type": "string",
-          "example": "StringDoPlayerIdPdvMobile"
-        }
-      }
-    },
-    "bodyInventoryOut": {
-      "type": "object",
-      "properties": {
-        "productId": {
-          "type": "string",
-          "example": 2020030
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 3
-        }
-      }
-    },
-    "bodyInventoryOutGrid": {
-      "type": "object",
-      "properties": {
-        "productId": {
-          "type": "string",
-          "example": 2020030
-        },
-        "colorId": {
-          "type": "string",
-          "example": 4
-        },
-        "size01": {
-          "type": "integer",
-          "example": 1
-        },
-        "size02": {
-          "type": "integer",
-          "example": 1
-        },
-        "size03": {
-          "type": "integer",
-          "example": 1
-        }
-      }
-    },
-    "category": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "JEANS"
-        }
-      }
-    },
-    "categoryArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/category"
-      }
-    },
-    "client": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "CONSUMIDORES DIVERSOS"
-        },
-        "corporateName": {
-          "type": "string",
-          "example": "CONSUMIDORES DIVERSOS"
-        },
-        "CNPJCPF": {
-          "type": "string",
-          "example": 11111111111
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "postalCode": {
-          "type": "string",
-          "example": 60000000
-        },
-        "district": {
-          "type": "string",
-          "example": ""
-        },
-        "city": {
-          "type": "string",
-          "example": "FORTALEZA"
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "country": {
-          "type": "string",
-          "example": "BRASIL"
-        },
-        "registerDate": {
-          "type": "string",
-          "example": "2013-01-01T00:00:00.000Z"
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string",
-          "example": ""
-        },
-        "whatsapp": {
-          "type": "string",
-          "example": ""
-        },
-        "email": {
-          "type": "string",
-          "example": ""
-        },
-        "blocked": {
-          "type": "boolean",
-          "example": false
-        },
-        "inactive": {
-          "type": "boolean",
-          "example": false
-        },
-        "clientType": {
-          "type": "integer",
-          "example": 0
-        }
-      }
-    },
-    "clientArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/client"
-      }
-    },
-    "collection": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "ANO NOVO 2021"
-        }
-      }
-    },
-    "collectionArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/collection"
-      }
-    },
-    "color": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "AZUL"
-        },
-        "sizes": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/size"
-          }
-        }
-      }
-    },
-    "colorArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/color"
-      }
-    },
-    "email": {
-      "type": "object",
-      "properties": {
-        "accepted": {
-          "type": "string",
-          "example": [
-            "cliente@email.com.br"
-          ]
-        },
-        "rejected": {
-          "example": []
-        },
-        "envelopeTime": {
-          "type": "integer",
-          "format": "int",
-          "example": 3154
-        },
-        "messageTime": {
-          "type": "integer",
-          "format": "int",
-          "example": 968
-        },
-        "messageSize": {
-          "type": "integer",
-          "format": "int",
-          "example": 340
-        },
-        "response": {
-          "type": "string",
-          "example": "250 2.0.0 Ok queued as D6BAA41A4F9C"
-        },
-        "envolope": {
-          "$ref": "#/definitions/envelope"
-        },
-        "messageId": {
-          "type": "string",
-          "example": "<0220f233-ce4b-6f53-93ed-ed7825ef4ac7@alphasystemas.com.br>"
-        }
-      }
-    },
-    "employee": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 110
-        },
-        "name": {
-          "type": "string",
-          "example": "FUNCIONÁRIOS DIVERSOS 2"
-        },
-        "CPF": {
-          "type": "string",
-          "example": 111111111112
-        },
-        "RG": {
-          "type": "string",
-          "example": null
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "CEP": {
-          "type": "string",
-          "example": 60000000
-        },
-        "city": {
-          "type": "string",
-          "example": "ARACOIABA"
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string",
-          "example": ""
-        },
-        "registerDate": {
-          "type": "string",
-          "example": "2013-01-01T00:00:00.000Z"
-        },
-        "role": {
-          "type": "integer",
-          "example": 0
-        },
-        "situation": {
-          "type": "integer",
-          "example": 1
-        },
-        "active": {
-          "type": "boolean",
-          "example": true
-        }
-      }
-    },
-    "employeeArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/employee"
-      }
-    },
-    "envelope": {
-      "type": "object",
-      "properties": {
-        "from": {
-          "type": "string",
-          "example": "alphaweb@alphasystemas.com.br"
-        },
-        "to": {
-          "type": "array",
-          "items": {
+  "components": {
+    "schemas": {
+      "bodyClient": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS 2"
+          },
+          "corporateName": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS 2"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "example": "111111111112"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "61932660"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "email": {
             "type": "string",
             "example": "cliente@email.com.br"
+          },
+          "blocked": {
+            "type": "boolean",
+            "example": false
+          },
+          "inactive": {
+            "type": "boolean",
+            "example": false
           }
         }
-      }
-    },
-    "group": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "BLUSAS"
+      },
+      "bodyDpa": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "saleId": {
+            "type": "string",
+            "example": "200003"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 20.10
+          }
         }
-      }
-    },
-    "groupArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/group"
-      }
-    },
-    "inventory": {
-      "type": "object",
-      "properties": {
-        "sku": {
-          "type": "string",
-          "example": "2020029-0004-2"
-        },
-        "quantity": {
-          "type": "string",
-          "example": 1
+      },
+      "bodyEmail": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Fulano de Tal"
+          },
+          "email": {
+            "type": "string",
+            "example": "cliente@email.com.br"
+          },
+          "subject": {
+            "type": "string",
+            "example": "Assunto do Email"
+          },
+          "text": {
+            "type": "string",
+            "example": "Corpo do Email"
+          }
         }
-      }
-    },
-    "inventoryArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Inventory"
-      }
-    },
-    "line": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "MARCA PRINCIPAL"
+      },
+      "bodyEmployee": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "FUNCIONÁRIOS DIVERSOS 2"
+          },
+          "CPF": {
+            "type": "string",
+            "example": "111111111111"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "60000000"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "commissionInCash": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commissionInInstallments": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission1": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission2": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission3": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission4": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission5": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission6": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission7": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission8": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission9": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission09": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission10": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission11": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission12": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission13": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission14": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commission15": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commissionCashier": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commissionManager": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commissionSupervisor": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "commissionGeneral": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "limit": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "roleId": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "maritalStatusId": {
+            "type": "number",
+            "format": "double",
+            "example": 10.50
+          },
+          "dependentQuantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "sectorId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3
+          },
+          "salary": {
+            "type": "number",
+            "format": "double",
+            "example": 1200.00
+          },
+          "salaryCTPS": {
+            "type": "number",
+            "format": "double",
+            "example": 1200.00
+          },
+          "PaymentType": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "syndicate": {
+            "type": "integer",
+            "format": "int16",
+            "example": 2
+          },
+          "transportationVoucher": {
+            "type": "boolean",
+            "example": false
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "hasControlledEfficiency": {
+            "type": "boolean",
+            "example": false
+          },
+          "productionGroupId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "biweeklyAdvanceAmount": {
+            "type": "number",
+            "format": "double",
+            "example": 500.00
+          },
+          "isVacationEmployee": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int16",
+            "example": 250
+          },
+          "goldQuotaCommission": {
+            "type": "number",
+            "format": "float",
+            "example": 50.10
+          },
+          "goldQuotaAmount": {
+            "type": "number",
+            "format": "double",
+            "example": 570.20
+          },
+          "silverQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int16",
+            "example": 250
+          },
+          "silverQuotaCommission": {
+            "type": "number",
+            "format": "float",
+            "example": 50.10
+          },
+          "silverQuotaAmount": {
+            "type": "number",
+            "format": "double",
+            "example": 570.20
+          },
+          "bronzeQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int16",
+            "example": 250
+          },
+          "bronzeQuotaCommission": {
+            "type": "number",
+            "format": "float",
+            "example": 50.10
+          },
+          "bronzeQuotaAmount": {
+            "type": "number",
+            "format": "double",
+            "example": 570.20
+          },
+          "voucherLimit": {
+            "type": "number",
+            "format": "double",
+            "example": 299.98
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "hasTriennium": {
+            "type": "boolean",
+            "example": false
+          },
+          "hasQuennium": {
+            "type": "boolean",
+            "example": false
+          },
+          "award": {
+            "type": "number",
+            "format": "double",
+            "example": 500.00
+          },
+          "productivity": {
+            "type": "number",
+            "format": "double",
+            "example": 500.00
+          },
+          "punctuality": {
+            "type": "number",
+            "format": "double",
+            "example": 500.00
+          },
+          "bank": {
+            "type": "integer",
+            "format": "int16",
+            "example": 207
+          },
+          "agency": {
+            "type": "string",
+            "example": "0001"
+          },
+          "account": {
+            "type": "string",
+            "example": "1111111"
+          },
+          "operation": {
+            "type": "string",
+            "example": "0000"
+          },
+          "launchProduction": {
+            "type": "boolean",
+            "example": false
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "example": "SuperSenhaSeguraDaAlpha"
+          },
+          "playerIdPdvMobile": {
+            "type": "string",
+            "example": "StringDoPlayerIdPdvMobile"
+          }
         }
-      }
-    },
-    "lineArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/line"
-      }
-    },
-    "product": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "example": "0000001"
-        },
-        "name": {
-          "type": "string",
-          "example": "BLUSA GOLA POLO -  BORDADO"
-        },
-        "details": {
-          "type": "string",
-          "example": "BLUSA LEGAL"
-        },
-        "weight": {
-          "type": "number",
-          "example": 10
-        },
-        "price": {
-          "type": "number",
-          "example": 80
-        },
-        "unit": {
-          "type": "string",
-          "example": "UN"
-        },
-        "disabled": {
-          "type": "boolean",
-          "example": false
-        },
-        "gender": {
-          "type": "integer",
-          "example": 3
-        },
-        "quantity": {
-          "type": "string",
-          "example": 6
-        },
-        "createdAt": {
-          "type": "string",
-          "example": "2020-12-01T00:00:00.000Z"
-        },
-        "isWebStore": {
-          "type": "boolean",
-          "example": false
-        },
-        "category": {
-          "$ref": "#/definitions/Category"
-        },
-        "group": {
-          "$ref": "#/definitions/Group"
-        },
-        "collection": {
-          "$ref": "#/definitions/Collection"
-        },
-        "line": {
-          "$ref": "#/definitions/Line"
-        },
-        "size": {
-          "type": "string",
-          "example": "P"
-        },
-        "colors": {
-          "$ref": "#/definitions/colorArray"
+      },
+      "bodyInventoryOut": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3
+          }
         }
-      }
-    },
-    "productArray": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/product"
-      }
-    },
-    "size": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "name": {
-          "type": "string",
-          "example": "P"
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 6
-        },
-        "storeId": {
-          "type": "integer",
-          "example": 1
-        },
-        "sku": {
-          "type": "string",
-          "example": "0000001-0009-1"
+      },
+      "bodyInventoryOutGrid": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "colorId": {
+            "type": "string",
+            "example": "4"
+          },
+          "size01": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size02": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size03": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size04": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size05": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size06": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size07": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size08": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size09": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size10": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          }
         }
-      }
-    },
-    "responseClient": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "CONSUMIDORES DIVERSOS 2"
-        },
-        "corporateName": {
-          "type": "string",
-          "example": "CONSUMIDORES DIVERSOS 2"
-        },
-        "CNPJCPF": {
-          "type": "string",
-          "example": 111111111112
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "postalCode": {
-          "type": "string",
-          "example": 60000000
-        },
-        "district": {
-          "type": "string",
-          "example": ""
-        },
-        "cityId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "countryId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string",
-          "example": ""
-        },
-        "whatsapp": {
-          "type": "string",
-          "example": ""
-        },
-        "email": {
-          "type": "string",
-          "example": ""
-        },
-        "blocked": {
-          "type": "boolean",
-          "example": false
-        },
-        "inactive": {
-          "type": "boolean",
-          "example": false
-        },
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 348301142
+      },
+      "category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "JEANS"
+          }
         }
-      }
-    },
-    "responseDpa": {
-      "type": "object",
-      "properties": {
-        "productId": {
-          "type": "string",
-          "example": 2020030
-        },
-        "saleId": {
-          "type": "string",
-          "example": 200003
-        },
-        "quantity": {
-          "type": "integer",
-          "example": 3
-        },
-        "unitValue": {
-          "type": "number",
-          "example": 20
-        },
-        "date": {
-          "type": "string",
-          "example": "2021-09-15 14:19:28"
-        },
-        "type": {
-          "type": "string",
-          "example": "S"
-        },
-        "history": {
-          "type": "string",
-          "example": "VENDA REALIZADA PELO SITE"
+      },
+      "categoryArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/category"
         }
-      }
-    },
-    "responseEmail": {
-      "$ref": "#/definitions/Email"
-    },
-    "responseEmployee": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "FUNCIONÁRIOS DIVERSOS 2"
-        },
-        "CPF": {
-          "type": "string",
-          "example": 111111111112
-        },
-        "address": {
-          "type": "string",
-          "example": ""
-        },
-        "postalCode": {
-          "type": "string",
-          "example": 60000000
-        },
-        "district": {
-          "type": "string",
-          "example": ""
-        },
-        "cityId": {
-          "type": "integer",
-          "format": "int",
-          "example": 674
-        },
-        "UF": {
-          "type": "string",
-          "example": "CE"
-        },
-        "phone": {
-          "type": "string",
-          "example": ""
-        },
-        "cellphone": {
-          "type": "string"
-        },
-        "active": {
-          "type": "boolean",
-          "example": true
-        },
-        "commissionInCash": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionInInstallments": {
-          "type": "number",
-          "example": 0
-        },
-        "commission1": {
-          "type": "number",
-          "example": 0
-        },
-        "commission2": {
-          "type": "number",
-          "example": 0
-        },
-        "commission3": {
-          "type": "number",
-          "example": 0
-        },
-        "commission4": {
-          "type": "number",
-          "example": 0
-        },
-        "commission5": {
-          "type": "number",
-          "example": 0
-        },
-        "commission6": {
-          "type": "number",
-          "example": 0
-        },
-        "commission7": {
-          "type": "number",
-          "example": 0
-        },
-        "commission8": {
-          "type": "number",
-          "example": 0
-        },
-        "commission9": {
-          "type": "number",
-          "example": 0
-        },
-        "commission09": {
-          "type": "number",
-          "example": 0
-        },
-        "commission10": {
-          "type": "number",
-          "example": 0
-        },
-        "commission11": {
-          "type": "number",
-          "example": 0
-        },
-        "commission12": {
-          "type": "number",
-          "example": 0
-        },
-        "commission13": {
-          "type": "number",
-          "example": 0
-        },
-        "commission14": {
-          "type": "number",
-          "example": 0
-        },
-        "commission15": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionCashier": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionManager": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionSupervisor": {
-          "type": "number",
-          "example": 0
-        },
-        "commissionGeneral": {
-          "type": "number",
-          "example": 0
-        },
-        "limit": {
-          "type": "number",
-          "example": 0
-        },
-        "roleId": {
-          "type": "number",
-          "example": 0
-        },
-        "maritalStatusId": {
-          "type": "number",
-          "example": 0
-        },
-        "dependentQuantity": {
-          "type": "number",
-          "example": 0
-        },
-        "sectorId": {
-          "type": "number",
-          "example": 0
-        },
-        "salary": {
-          "type": "number",
-          "example": 0
-        },
-        "salaryCTPS": {
-          "type": "number",
-          "example": 0
-        },
-        "PaymentType": {
-          "type": "number",
-          "example": 0
-        },
-        "days": {
-          "type": "number",
-          "example": 0
-        },
-        "hours": {
-          "type": "number",
-          "example": 220
-        },
-        "syndicate": {
-          "type": "boolean",
-          "example": false
-        },
-        "transportationVoucher": {
-          "type": "boolean",
-          "example": false
-        },
-        "storeId": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "hasControlledEfficiency": {
-          "type": "boolean",
-          "example": false
-        },
-        "productionGroupId": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "biweeklyAdvanceAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "isVacationEmployee": {
-          "type": "boolean",
-          "example": false
-        },
-        "goldQuotaNumberOfParts": {
-          "type": "integer",
-          "format": "int",
-          "example": 250
-        },
-        "goldQuotaCommission": {
-          "type": "boolean",
-          "example": false
-        },
-        "goldQuotaAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "silverQuotaNumberOfParts": {
-          "type": "integer",
-          "format": "int",
-          "example": 500
-        },
-        "silverQuotaCommission": {
-          "type": "boolean",
-          "example": false
-        },
-        "silverQuotaAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "bronzeQuotaNumberOfParts": {
-          "type": "number",
-          "example": 1000
-        },
-        "bronzeQuotaCommission": {
-          "type": "boolean",
-          "example": false
-        },
-        "bronzeQuotaAmount": {
-          "type": "number",
-          "example": 0
-        },
-        "voucherLimit": {
-          "type": "number",
-          "example": 0
-        },
-        "situation": {
-          "type": "integer",
-          "format": "int",
-          "example": 1
-        },
-        "hasTriennium": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "hasQuennium": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "award": {
-          "type": "number",
-          "example": 0
-        },
-        "productivity": {
-          "type": "number",
-          "example": 0
-        },
-        "punctuality": {
-          "type": "number",
-          "example": 0
-        },
-        "bank": {
-          "type": "integer",
-          "format": "int",
-          "example": 0
-        },
-        "agency": {
-          "type": "string",
-          "example": "0000"
-        },
-        "account": {
-          "type": "string",
-          "example": "0000"
-        },
-        "operation": {
-          "type": "string",
-          "example": "0000"
-        },
-        "launchProduction": {
-          "type": "boolean",
-          "example": false
-        },
-        "password": {
-          "type": "string",
-          "example": "SuperSenhaSeguraDaAlpha"
-        },
-        "playerIdPdvMobile": {
-          "type": "string",
-          "example": "StringDoPlayerIdPdvMobile"
-        },
-        "id": {
-          "type": "integer",
-          "format": "int",
-          "example": 110
+      },
+      "client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS"
+          },
+          "corporateName": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "example": "11111111111"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "60150162"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "city": {
+            "type": "string",
+            "example": "FORTALEZA"
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "country": {
+            "type": "string",
+            "example": "BRASIL"
+          },
+          "registerDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "email": {
+            "type": "string",
+            "example": "cliente@email.com.br"
+          },
+          "blocked": {
+            "type": "boolean",
+            "example": false
+          },
+          "inactive": {
+            "type": "boolean",
+            "example": false
+          },
+          "clientType": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          }
         }
-      }
-    },
-    "responseInventoryOut": {
-      "$ref": "#/definitions/bodyInventoryOut"
-    },
-    "responseInventoryOutGrid": {
-      "$ref": "#/definitions/bodyInventoryOutGrid"
-    },
-    "error400": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string",
-          "example": "Erro 400"
+      },
+      "clientArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/client"
         }
-      }
-    },
-    "error500": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string",
-          "example": "Erro 500"
+      },
+      "collection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "ANO NOVO 2021"
+          }
+        }
+      },
+      "collectionArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/collection"
+        }
+      },
+      "color": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "AZUL"
+          },
+          "sizes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/size"
+            }
+          }
+        }
+      },
+      "colorArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/color"
+        }
+      },
+      "email": {
+        "type": "string",
+        "example": "email@dominioexemplo.com.br"
+      },
+      "employee": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 110
+          },
+          "name": {
+            "type": "string",
+            "example": "FUNCIONÁRIOS DIVERSOS 2"
+          },
+          "CPF": {
+            "type": "string",
+            "example": "11111111111"
+          },
+          "RG": {
+            "type": "string",
+            "example": "111111111111"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "CEP": {
+            "type": "string",
+            "example": "60150162"
+          },
+          "city": {
+            "type": "string",
+            "example": "FORTALEZA"
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "registerDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "role": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "employeeArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/employee"
+        }
+      },
+      "envelope": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "example": "alphaweb@alphasystemas.com.br"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "cliente@email.com.br"
+            }
+          }
+        }
+      },
+      "group": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "BLUSAS"
+          }
+        }
+      },
+      "groupArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/group"
+        }
+      },
+      "inventory": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "example": "2020029-0004-2"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          }
+        }
+      },
+      "inventoryArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/inventory"
+        }
+      },
+      "line": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "MARCA PRINCIPAL"
+          }
+        }
+      },
+      "lineArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/line"
+        }
+      },
+      "product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "0000001"
+          },
+          "name": {
+            "type": "string",
+            "example": "BLUSA GOLA POLO -  BORDADO"
+          },
+          "details": {
+            "type": "string",
+            "example": "BLUSA LEGAL"
+          },
+          "weight": {
+            "type": "number",
+            "format": "float",
+            "example": 2.54
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "example": 84.32
+          },
+          "unit": {
+            "type": "string",
+            "example": "UN"
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "gender": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "quantity": {
+            "type": "string",
+            "example": 6
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-12-01T00:00:00.000Z"
+          },
+          "isWebStore": {
+            "type": "boolean",
+            "example": false
+          },
+          "category": {
+            "$ref": "#/components/schemas/category"
+          },
+          "group": {
+            "$ref": "#/components/schemas/group"
+          },
+          "collection": {
+            "$ref": "#/components/schemas/collection"
+          },
+          "line": {
+            "$ref": "#/components/schemas/line"
+          },
+          "size": {
+            "type": "string",
+            "example": "P"
+          },
+          "colors": {
+            "$ref": "#/components/schemas/colorArray"
+          }
+        }
+      },
+      "productArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/product"
+        }
+      },
+      "size": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "P"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 6
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "sku": {
+            "type": "string",
+            "example": "0000001-0009-1"
+          }
+        }
+      },
+      "responseClient": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS 2"
+          },
+          "corporateName": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS 2"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "example": "111111111112"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "61932660"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "email": {
+            "type": "string",
+            "example": "cliente@email.com.br"
+          },
+          "blocked": {
+            "type": "boolean",
+            "example": false
+          },
+          "inactive": {
+            "type": "boolean",
+            "example": false
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 348301142
+          }
+        }
+      },
+      "responseDpa": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "saleId": {
+            "type": "string",
+            "example": "200003"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 29.98
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-15 14:19:28"
+          },
+          "type": {
+            "type": "string",
+            "example": "S"
+          },
+          "history": {
+            "type": "string",
+            "example": "VENDA REALIZADA PELO SITE"
+          }
+        }
+      },
+      "responseEmail": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/email"
+            }
+          },
+          "rejected": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/email"
+            }
+          },
+          "envelopeTime": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3154
+          },
+          "messageTime": {
+            "type": "integer",
+            "format": "int32",
+            "example": 968
+          },
+          "messageSize": {
+            "type": "integer",
+            "format": "int32",
+            "example": 340
+          },
+          "response": {
+            "type": "string",
+            "example": "250 2.0.0 Ok queued as D6BAA41A4F9C"
+          },
+          "envolope": {
+            "$ref": "#/components/schemas/envelope"
+          },
+          "messageId": {
+            "type": "string",
+            "example": "<0220f233-ce4b-6f53-93ed-ed7825ef4ac7@alphasystemas.com.br>"
+          }
+        }
+      },
+      "responseEmployee": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "FUNCIONÁRIOS DIVERSOS 2"
+          },
+          "CPF": {
+            "type": "string",
+            "example": 111111111112
+          },
+          "address": {
+            "type": "string",
+            "example": ""
+          },
+          "postalCode": {
+            "type": "string",
+            "example": 60000000
+          },
+          "district": {
+            "type": "string",
+            "example": ""
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "phone": {
+            "type": "string",
+            "example": ""
+          },
+          "cellphone": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "commissionInCash": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionInInstallments": {
+            "type": "number",
+            "example": 0
+          },
+          "commission1": {
+            "type": "number",
+            "example": 0
+          },
+          "commission2": {
+            "type": "number",
+            "example": 0
+          },
+          "commission3": {
+            "type": "number",
+            "example": 0
+          },
+          "commission4": {
+            "type": "number",
+            "example": 0
+          },
+          "commission5": {
+            "type": "number",
+            "example": 0
+          },
+          "commission6": {
+            "type": "number",
+            "example": 0
+          },
+          "commission7": {
+            "type": "number",
+            "example": 0
+          },
+          "commission8": {
+            "type": "number",
+            "example": 0
+          },
+          "commission9": {
+            "type": "number",
+            "example": 0
+          },
+          "commission09": {
+            "type": "number",
+            "example": 0
+          },
+          "commission10": {
+            "type": "number",
+            "example": 0
+          },
+          "commission11": {
+            "type": "number",
+            "example": 0
+          },
+          "commission12": {
+            "type": "number",
+            "example": 0
+          },
+          "commission13": {
+            "type": "number",
+            "example": 0
+          },
+          "commission14": {
+            "type": "number",
+            "example": 0
+          },
+          "commission15": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionCashier": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionManager": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionSupervisor": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionGeneral": {
+            "type": "number",
+            "example": 0
+          },
+          "limit": {
+            "type": "number",
+            "example": 0
+          },
+          "roleId": {
+            "type": "number",
+            "example": 0
+          },
+          "maritalStatusId": {
+            "type": "number",
+            "example": 0
+          },
+          "dependentQuantity": {
+            "type": "number",
+            "example": 0
+          },
+          "sectorId": {
+            "type": "number",
+            "example": 0
+          },
+          "salary": {
+            "type": "number",
+            "example": 0
+          },
+          "salaryCTPS": {
+            "type": "number",
+            "example": 0
+          },
+          "PaymentType": {
+            "type": "number",
+            "example": 0
+          },
+          "days": {
+            "type": "number",
+            "example": 0
+          },
+          "hours": {
+            "type": "number",
+            "example": 220
+          },
+          "syndicate": {
+            "type": "boolean",
+            "example": false
+          },
+          "transportationVoucher": {
+            "type": "boolean",
+            "example": false
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "hasControlledEfficiency": {
+            "type": "boolean",
+            "example": false
+          },
+          "productionGroupId": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "biweeklyAdvanceAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "isVacationEmployee": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int",
+            "example": 250
+          },
+          "goldQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "silverQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int",
+            "example": 500
+          },
+          "silverQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "silverQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "bronzeQuotaNumberOfParts": {
+            "type": "number",
+            "example": 1000
+          },
+          "bronzeQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "bronzeQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "voucherLimit": {
+            "type": "number",
+            "example": 0
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int",
+            "example": 1
+          },
+          "hasTriennium": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "hasQuennium": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "award": {
+            "type": "number",
+            "example": 0
+          },
+          "productivity": {
+            "type": "number",
+            "example": 0
+          },
+          "punctuality": {
+            "type": "number",
+            "example": 0
+          },
+          "bank": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "agency": {
+            "type": "string",
+            "example": "0000"
+          },
+          "account": {
+            "type": "string",
+            "example": "0000"
+          },
+          "operation": {
+            "type": "string",
+            "example": "0000"
+          },
+          "launchProduction": {
+            "type": "boolean",
+            "example": false
+          },
+          "password": {
+            "type": "string",
+            "example": "SuperSenhaSeguraDaAlpha"
+          },
+          "playerIdPdvMobile": {
+            "type": "string",
+            "example": "StringDoPlayerIdPdvMobile"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int",
+            "example": 110
+          }
+        }
+      },
+      "responseInventoryOut": {
+        "$ref": "#/components/schemas/bodyInventoryOut"
+      },
+      "responseInventoryOutGrid": {
+        "$ref": "#/components/schemas/bodyInventoryOutGrid"
+      },
+      "error400": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Erro 400"
+          }
+        }
+      },
+      "error500": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Erro 500"
+          }
         }
       }
     }
