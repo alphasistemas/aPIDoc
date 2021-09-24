@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Alpha API",
-    "description": "A API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite que a API possa ser utilizada pelos clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nome dos campos em um endpoint tenha rigorosamente o mesmo significado em outros recursos.",
+    "description": "A API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite o uso da API por clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nomes dos campos em um endpoint tenham rigorosamente o mesmo significado em outros recursos.",
     "version": "1.0.0",
     "contact": {
       "name": "Alpha Sistemas",
@@ -12,15 +12,19 @@
   "tags": [
     {
       "name": "Email",
-      "description": "Reúne endpoints relacionados a email."
+      "description": "Reúne endpoints relacionados à email."
     },
     {
       "name": "Produto",
-      "description": "Reúne endpoints relacionados a produtos."
+      "description": "Reúne endpoints relacionados ao produtos."
     },
     {
       "name": "Usuário",
-      "description": "Reúne endpoints relacionados a usuário."
+      "description": "Reúne endpoints relacionados ao usuário."
+    },
+    {
+      "name": "Venda",
+      "description": "Reúne endpoints relacionados à venda."
     }
   ],
   "paths": {
@@ -1293,6 +1297,26 @@
         }
       }
     },
+
+    "/sale/sale": {
+      "delete": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Deletar uma venda.",
+        "operationId": "deleteSale",
+        "parameters": []
+      },
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Criar uma venda.",
+        "operationId": "postSale",
+        "parameters": []
+      }
+    },
+
     "/user/client": {
       "get": {
         "tags": [
