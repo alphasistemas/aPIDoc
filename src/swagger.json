@@ -11,6 +11,10 @@
   },
   "tags": [
     {
+      "name": "Autenticação",
+      "description": "Reúne endpoints relacionados a autenticação."
+    },
+    {
       "name": "Email",
       "description": "Reúne endpoints relacionados a email."
     },
@@ -24,6 +28,168 @@
     }
   ],
   "paths": {
+    "/auth/service": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "summary": "Cadastrar novo serviço.",
+        "operationId": "postService",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyService"
+                }
+              }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseService"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/signIn": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "summary": "Login do usuário.",
+        "operationId": "postSignIn",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodySignIn"
+                }
+              }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSignIn"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/signUp": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "summary": "Cadastrar novo usuário.",
+        "operationId": "postSignUp",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodySignUp"
+                }
+              }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSignUp"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/email/email": {
       "post": {
         "tags": [
@@ -2086,6 +2252,16 @@
   },
   "components": {
     "schemas": {
+      "all": {
+        "type": "string",
+        "example": "all"
+      },
+      "allArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/all"
+        }
+      },
       "bodyClient": {
         "type": "object",
         "properties": {
@@ -2620,6 +2796,120 @@
           }
         }
       },
+      "bodyService": {
+        "type": "object",
+        "properties": {
+          "givenName": {
+            "type": "string",
+            "example": "product"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "product"
+          },
+          "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/identificationsService"
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "product": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              }
+            }
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/all"
+            }
+          }
+        }
+      },
+      "bodySignIn": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "LOCAL"
+          },
+          "identification": {
+            "type": "string",
+            "example": "userteste3@gmail.com"
+          },
+          "key": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "bodySignUp": {
+        "type": "object",
+        "properties": {
+          "givenName": {
+            "type": "string",
+            "example": "Some"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "One"
+          },
+          "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/identifications"
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "VUTT": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              }
+            }
+          },
+          "instances": {
+            "type": "object",
+            "properties": {
+              "all": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/all"
+                }
+              }
+            }
+          }
+        }
+      },
       "category": {
         "type": "object",
         "properties": {
@@ -2883,6 +3173,93 @@
           "$ref": "#/components/schemas/group"
         }
       },
+      "identifications": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "LOCAL"
+          },
+          "identification": {
+            "type": "string",
+            "example": "userteste3@gmail.com"
+          },
+          "key": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "identificationsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/identificationsResponse"
+        }
+      },
+      "identificationsResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "LOCAL"
+          },
+          "identification": {
+            "type": "string",
+            "example": "userteste3@gmail.com"
+          },
+          "id": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd95"
+          },
+          "unverified": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "identificationsService": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "SERVICE"
+          },
+          "identification": {
+            "type": "string",
+            "example": "product"
+          },
+          "key": {
+            "type": "string",
+            "example": "12345678"
+          }
+        }
+      },
+      "identificationsServiceBody": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "SERVICE"
+          },
+          "identification": {
+            "type": "string",
+            "example": "product"
+          },
+          "id": {
+            "type": "string",
+            "example": "6155c1f9bd01ba29ac117b2e"
+          }
+        }
+      },
+      "identificationsServiceBodyArray": {
+        "items": {
+          "$ref": "#/components/schemas/identificationsServiceBody"
+        }
+      },
+      "instances": {
+        "type": "string",
+        "example": ""
+      },
       "inventory": {
         "type": "object",
         "properties": {
@@ -2902,6 +3279,10 @@
         "items": {
           "$ref": "#/components/schemas/inventory"
         }
+      },
+      "key": {
+        "type": "string",
+        "example": "read"
       },
       "line": {
         "type": "object",
@@ -3491,6 +3872,122 @@
       },
       "responseInventoryOutGrid": {
         "$ref": "#/components/schemas/bodyInventoryOutGrid"
+      },      
+      "responseService": {
+        "type": "object",
+        "properties": {
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
+            }
+          },
+          "familyName": {
+            "type": "string",
+            "example": "product"
+          },
+          "givenName": {
+            "type": "string",
+            "example": "product"
+          },
+          "id": {
+            "type": "string",
+            "example": "6155c1f9bd01ba29ac117b2d"
+          },
+        "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/identificationsServiceBody"
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "all": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "key": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/key"
+                }
+              }
+            }
+          },
+          "sponsorId": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd94"
+          }
+        }
+      },      
+      "responseSignIn": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlOYW1lIjoiT25lIiwiZ2l2ZW5OYW1lIjoiU29tZSIsImlkIjoiNjE1MWI0MjljYzkzN2Q2N2EwMTdiZDk0IiwicGVybWlzc2lvbnMiOnsiYWxsIjp7ImFsbCI6WyJhbGwiXX0sImF1dGgiOnsiYWxsIjpbImFsbCJdfX0sImlkZW50aWZpY2F0aW9uIjpbeyJ0eXBlIjoiTE9DQUwiLCJpZGVudGlmaWNhdGlvbiI6InVzZXJ0ZXN0ZTNAZ21haWwuY29tIiwidW52ZXJpZmllZCI6dHJ1ZX1dLCJpYXQiOjE2MzMwMTAxNDcsImV4cCI6MTYzMzAxMTA0N30.szdADaYhCiwkjSX_fCFZYXKWev8TCMLFw8z1LQxkQ7lVZGsF5JJ2yD0nQDxh_-hoDDC1VqCbW-0X6ZvMIKBePt5mnkYFEwLiDxf80r3B22qw_cTVaeDfPQjdyxRymMgPfgFdH1TFsfNKCIUZZ-IbT7HTyJXU6YJF-4K6P9D9G6nGqMwGDuBqv2auvo2mKlwWW9J7We40j9d1CgRn4u1_lOSj2l4BN8_DY0hI2dQeBP4ccdRltWIH9sv9EkdZPjuF0KisLqbQ24RBXwQ_7tXyWXTCnODaeWC4Ue1tFKsZbyJ9pOUKCwJxOXaiT-tdCqegbfkRh0la1dfstVJuAcLv2g"
+          }
+        }
+      },      
+      "responseSignUp": {
+        "type": "object",
+        "properties": {
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
+            }
+          },
+          "givenName": {
+            "type": "string",
+            "example": "Some"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "One"
+          },
+          "id": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd94"
+          },
+          "identifications": {
+            "$ref": "#/components/schemas/identificationsArray"
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "all": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "error400": {
         "type": "object",
