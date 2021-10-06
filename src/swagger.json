@@ -321,7 +321,7 @@
     "/product/dpa": {
       "delete": {
         "tags": [
-          "Venda"
+          "Produto"
         ],
         "summary": "Deletar o registro de entrada ou saída de um produto do DPA.",
         "operationId": "deleteDPA",
@@ -1355,6 +1355,58 @@
             }
           }
         }        
+      },
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Obter uma comanda.",
+        "operationId": "getBill",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyGetBill"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseBill"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "post": {
         "tags": [
@@ -2588,6 +2640,82 @@
           }
         }
       },
+      "bodyGetBill": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bodyGetBillArray"
+        }
+      },
+      "bodyGetBillArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "01/12/2020"
+          },
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "GLAYLSON SILVEIRE"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "string",
+            "example": "800.00"
+          },
+          "discountValue": {
+            "type": "string",
+            "example": "0.00"
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "Car"
+          },
+          "deliveryFee": {
+            "type": "string",
+            "example": 0.00
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productBill"
+            }
+          }
+        }
+      },
       "bodyCity": {
         "type": "object",
         "properties": {
@@ -3799,6 +3927,46 @@
           "$ref": "#/components/schemas/product"
         }
       },
+      "productBill": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "quantity": {
+            "type": "string",
+            "example": "10"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 80.00
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 800.00
+          },
+          
+          "federalTaxes": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "estadualTaxes": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "grids": {
+            "type": "array",
+            "items": { 
+              "$ref": "#/components/schemas/grid"
+            }
+          }
+        }
+      },
       "productSale": {
         "type": "object",
         "properties": {
@@ -3878,6 +4046,59 @@
         }
       },
       "responseBill": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.00
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "BOLETO"
+          },
+          "formOfPaymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 264
+          },
+          "billId": {
+            "type": "string",            
+            "example": "200082"
+          }
+        }
+      },
+      "responseGetBill": {
         "type": "object",
         "properties": {
           "consumerId": {
