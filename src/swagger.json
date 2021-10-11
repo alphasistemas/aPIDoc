@@ -37,6 +37,11 @@
         "tags": [
           "Autenticação"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Cadastrar novo serviço.",
         "operationId": "postService",
         "requestBody": {
@@ -253,6 +258,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter todas as categorias.",
         "operationId": "getCategory",
         "parameters": [
@@ -316,6 +326,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar uma categoria pelo id.",
         "description": "Retorna uma única categoria.",
         "operationId": "getCategoryId",
@@ -370,6 +385,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todas as coleções.",
         "operationId": "getCollection",
@@ -433,6 +453,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Encrontrar uma coleção pelo id.",
         "description": "Retorna uma única coleção.",
@@ -518,6 +543,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Registrar uma saída de produto do estoque do DPA.",
         "operationId": "postDpa",
         "requestBody": {
@@ -571,6 +601,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todos os grupos.",
         "operationId": "getGroup",
@@ -635,6 +670,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar um grupo pelo id.",
         "description": "Retorna um único grupo.",
         "operationId": "getGroupId",
@@ -689,6 +729,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter o estoque de todos os produtos.",
         "operationId": "getInventory",
@@ -752,6 +797,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOut",
         "requestBody": {
@@ -806,6 +856,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOutGrid",
         "requestBody": {
@@ -859,6 +914,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todas as linhas.",
         "operationId": "getLine",
@@ -923,6 +983,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar uma linha pelo id.",
         "description": "Retorna uma única linha.",
         "operationId": "getLineId",
@@ -977,6 +1042,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todos os produtos.",
         "operationId": "getProduct",
@@ -1241,6 +1311,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encontrar um produto pelo id.",
         "description": "Retorna um único produto.",
         "operationId": "getProductId",
@@ -1499,6 +1574,11 @@
         ],
         "summary": "Deletar uma comanda.",
         "operationId": "deleteBill",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1902,6 +1982,11 @@
         ],
         "summary": "Obter a cidade pelo id.",
         "operationId": "getCityId",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1978,7 +2063,12 @@
         "tags": [
           "Usuário"
         ],
-        "summary": "Obter todos os clientes.",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
+        "summary": "Obter todos os Clientes.",
         "operationId": "getClient",
         "parameters": [
           {
@@ -2169,6 +2259,11 @@
         ],
         "summary": "Cadatrar um cliente.",
         "operationId": "postClient",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "requestBody": {
           "description": "Corpo do cadastro de cliente.",
           "content":{
@@ -2223,6 +2318,11 @@
         ],
         "summary": "Obter o cliente pelo id.",
         "operationId": "getClientId",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "parameters": [
           {
             "name": "name",
@@ -2765,6 +2865,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "all": {
         "type": "string",
