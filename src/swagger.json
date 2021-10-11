@@ -33,6 +33,11 @@
         "tags": [
           "Autenticação"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Cadastrar novo serviço.",
         "operationId": "postService",
         "requestBody": {
@@ -249,6 +254,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter todas as categorias.",
         "operationId": "getCategory",
         "parameters": [
@@ -312,6 +322,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar uma categoria pelo id.",
         "description": "Retorna uma única categoria.",
         "operationId": "getCategoryId",
@@ -366,6 +381,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todas as coleções.",
         "operationId": "getCollection",
@@ -430,6 +450,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar uma coleção pelo id.",
         "description": "Retorna uma única coleção.",
         "operationId": "getCollectionId",
@@ -485,6 +510,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Registrar uma saída de produto do estoque do DPA.",
         "operationId": "postDpa",
         "requestBody": {
@@ -538,6 +568,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todos os grupos.",
         "operationId": "getGroup",
@@ -602,6 +637,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar um grupo pelo id.",
         "description": "Retorna um único grupo.",
         "operationId": "getGroupId",
@@ -656,6 +696,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter o estoque de todos os produtos.",
         "operationId": "getInventory",
@@ -719,6 +764,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOut",
         "requestBody": {
@@ -773,6 +823,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOutGrid",
         "requestBody": {
@@ -826,6 +881,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todas as linhas.",
         "operationId": "getLine",
@@ -890,6 +950,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encrontrar uma linha pelo id.",
         "description": "Retorna uma única linha.",
         "operationId": "getLineId",
@@ -944,6 +1009,11 @@
       "get": {
         "tags": [
           "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todos os produtos.",
         "operationId": "getProduct",
@@ -1208,6 +1278,11 @@
         "tags": [
           "Produto"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Encontrar um produto pelo id.",
         "description": "Retorna um único produto.",
         "operationId": "getProductId",
@@ -1464,6 +1539,11 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter todos os clientes.",
         "operationId": "getClient",
         "parameters": [
@@ -1707,6 +1787,11 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter o cliente pelo id.",
         "operationId": "getClientId",
         "parameters": [
@@ -1890,6 +1975,11 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter todos os funcionários.",
         "operationId": "getEmployee",
         "parameters": [
@@ -2048,6 +2138,11 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Cadatrar um funcionário.",
         "operationId": "postEmployee",
         "requestBody": {
@@ -2101,6 +2196,11 @@
       "get": {
         "tags": [
           "Usuário"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter o funcionário pelo id.",
         "operationId": "getEmployee",
@@ -2251,6 +2351,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "all": {
         "type": "string",
@@ -2880,14 +2987,6 @@
             "type": "object",
             "properties": {
               "auth": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              },
-              "VUTT": {
                 "type": "object",
                 "properties": {
                   "all": {
@@ -3876,12 +3975,6 @@
       "responseService": {
         "type": "object",
         "properties": {
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/instances"
-            }
-          },
           "familyName": {
             "type": "string",
             "example": "product"
@@ -3894,10 +3987,16 @@
             "type": "string",
             "example": "6155c1f9bd01ba29ac117b2d"
           },
-        "identifications": {
+          "identifications": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/identificationsServiceBody"
+            }
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
             }
           },
           "permissions": {
