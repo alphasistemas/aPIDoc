@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Alpha API",
-    "description": "A API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite que a API possa ser utilizada pelos clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nome dos campos em um endpoint tenha rigorosamente o mesmo significado em outros recursos.",
+    "description": "A API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite o uso da API por clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nomes dos campos em um endpoint tenham rigorosamente o mesmo significado em outros recursos.",
     "version": "1.0.0",
     "contact": {
       "name": "Alpha Sistemas",
@@ -16,15 +16,19 @@
     },
     {
       "name": "Email",
-      "description": "Reúne endpoints relacionados a email."
+      "description": "Reúne endpoints relacionados à email."
     },
     {
       "name": "Produto",
-      "description": "Reúne endpoints relacionados a produtos."
+      "description": "Reúne endpoints relacionados ao produtos."
     },
     {
       "name": "Usuário",
-      "description": "Reúne endpoints relacionados a usuário."
+      "description": "Reúne endpoints relacionados ao usuário."
+    },
+    {
+      "name": "Venda",
+      "description": "Reúne endpoints relacionados à venda."
     }
   ],
   "paths": {
@@ -506,6 +510,35 @@
       }
     },
     "/product/dpa": {
+      "delete": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Deletar o registro de entrada ou saída de um produto do DPA.",
+        "operationId": "deleteDPA",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do produto.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }        
+      },
       "post": {
         "tags": [
           "Produto"
@@ -1534,6 +1567,497 @@
         }
       }
     },
+    "/sale/bill": {
+      "delete": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Deletar uma comanda.",
+        "operationId": "deleteBill",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }        
+      },
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Obter uma comanda.",
+        "operationId": "getBill",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyGetBill"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseBill"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Criar uma comanda.",
+        "operationId": "postBill",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyBill"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseBill"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/invoice": {
+      "delete": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Deletar um registro no financeiro.",
+        "operationId": "deleteInvoice",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do registro.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }        
+      },
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Criar uma fatura.",
+        "operationId": "postInvoice",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyInvoice"
+              }
+            }
+          }
+        }
+        ,
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseInvoice"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/sale": {
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "summary": "Criar uma venda.",
+        "operationId": "postSale",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodySale"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSale"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/city": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Obter todos as cidades.",
+        "operationId": "getCity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da cidade.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da cidade.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Estado da cidade.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IBGEId",
+            "in": "query",
+            "description": "Código da cidade disponibilizado pelo IBGE.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/cityArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Cadatrar uma cidade.",
+        "operationId": "postCity",
+        "requestBody": {
+          "description": "Corpo do cadastro de cidade.",
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseCity"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/city/{id}": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Obter a cidade pelo id.",
+        "operationId": "getCityId",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Número do Id da cidade.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da cidade.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Estado da cidade.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IBGEId",
+            "in": "query",
+            "description": "Código da cidade disponibilizado pelo IBGE..",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/cityId"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/client": {
       "get": {
         "tags": [
@@ -1544,7 +2068,7 @@
             "bearerAuth": []
           }  
         ],
-        "summary": "Obter todos os clientes.",
+        "summary": "Obter todos os Clientes.",
         "operationId": "getClient",
         "parameters": [
           {
@@ -1735,6 +2259,11 @@
         ],
         "summary": "Cadatrar um cliente.",
         "operationId": "postClient",
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "requestBody": {
           "description": "Corpo do cadastro de cliente.",
           "content":{
@@ -1787,13 +2316,13 @@
         "tags": [
           "Usuário"
         ],
+        "summary": "Obter o cliente pelo id.",
+        "operationId": "getClientId",
         "security": [
           {
             "bearerAuth": []
           }  
         ],
-        "summary": "Obter o cliente pelo id.",
-        "operationId": "getClientId",
         "parameters": [
           {
             "name": "name",
@@ -1975,11 +2504,6 @@
         "tags": [
           "Usuário"
         ],
-        "security": [
-          {
-            "bearerAuth": []
-          }  
-        ],
         "summary": "Obter todos os funcionários.",
         "operationId": "getEmployee",
         "parameters": [
@@ -2138,11 +2662,6 @@
         "tags": [
           "Usuário"
         ],
-        "security": [
-          {
-            "bearerAuth": []
-          }  
-        ],
         "summary": "Cadatrar um funcionário.",
         "operationId": "postEmployee",
         "requestBody": {
@@ -2196,11 +2715,6 @@
       "get": {
         "tags": [
           "Usuário"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }  
         ],
         "summary": "Obter o funcionário pelo id.",
         "operationId": "getEmployee",
@@ -2369,6 +2883,139 @@
           "$ref": "#/components/schemas/all"
         }
       },
+      "bodyBill": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.00
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          }
+        }
+      },
+      "bodyGetBill": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bodyGetBillArray"
+        }
+      },
+      "bodyGetBillArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "01/12/2020"
+          },
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "GLAYLSON SILVEIRE"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "string",
+            "example": "800.00"
+          },
+          "discountValue": {
+            "type": "string",
+            "example": "0.00"
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "Car"
+          },
+          "deliveryFee": {
+            "type": "string",
+            "example": 0.00
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productBill"
+            }
+          }
+        }
+      },
+      "bodyCity": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Campina Grande"
+          },
+          "state": {
+            "type": "string",
+            "example": "PB"
+          },
+          "IBGEId": {
+            "type": "string",
+            "example": "2504009"
+          }
+        }
+      },
       "bodyClient": {
         "type": "object",
         "properties": {
@@ -2443,7 +3090,7 @@
             "type": "string",
             "example": "2020030"
           },
-          "saleId": {
+          "billId": {
             "type": "string",
             "example": "200003"
           },
@@ -2903,6 +3550,73 @@
           }
         }
       },
+      "bodyInvoice": {
+        "type": "object",                
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "example": 3
+          },
+          "sellerId": {
+            "type": "integer",
+            "example": 102
+          },
+          "billId": {
+            "type": "string",
+            "example": "22002079"
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 180
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          }
+        }
+      },
+      "bodySale": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.00
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          }
+        }
+      },
       "bodyService": {
         "type": "object",
         "properties": {
@@ -2993,6 +3707,14 @@
                     "$ref": "#/components/schemas/allArray"
                   }
                 }
+              },
+              "VUTT": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
               }
             }
           },
@@ -3029,6 +3751,58 @@
           "$ref": "#/components/schemas/category"
         }
       },
+      "city": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 21
+          },
+          "name": {
+            "type": "string",
+            "example": "AGUA BRANCA"
+          },
+          "state": {
+            "type": "string",
+            "example": "AL"
+          },
+          "IBGEId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2700201
+          }
+        }
+      },   
+      "cityArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/city"
+        }
+      },
+      "cityId": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 21
+          },
+          "name": {
+            "type": "string",
+            "example": "AGUA BRANCA"
+          },
+          "state": {
+            "type": "string",
+            "example": "AL"
+          },
+          "IBGEId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2700201
+          }
+        }
+      }, 
       "client": {
         "type": "object",
         "properties": {
@@ -3161,6 +3935,42 @@
           "$ref": "#/components/schemas/color"
         }
       },
+      "dpaBlockResponse": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.00
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 4
+          },
+          "billId": {
+            "type": "string",
+            "example": "200135"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-24 19:35:20"
+          },
+          "type": {
+            "type": "string",
+            "example": "S"
+          },
+          "history": {
+            "type": "string",
+            "example": "VENDA REALIZADA PELO SITE"
+          }
+        }
+      },
       "email": {
         "type": "string",
         "example": "email@dominioexemplo.com.br"
@@ -3252,6 +4062,130 @@
           }
         }
       },
+      "grid": {
+        "type": "object",
+        "properties": {
+          "colorId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3
+          },
+          "size01": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size02": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size03": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size04": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size05": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size06": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size07": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size08": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size09": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size10": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          }
+        }
+      },
+      "gridResponse": {
+        "type": "object",
+        "properties": {
+          "colorId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "size01": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size02": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size03": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size04": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size05": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size06": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size07": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "size08": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size09": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "size10": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          }  
+        }
+      },
       "group": {
         "type": "object",
         "properties": {
@@ -3316,23 +4250,6 @@
           }
         }
       },
-      "identificationsService": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "example": "SERVICE"
-          },
-          "identification": {
-            "type": "string",
-            "example": "product"
-          },
-          "key": {
-            "type": "string",
-            "example": "12345678"
-          }
-        }
-      },
       "identificationsServiceBody": {
         "type": "object",
         "properties": {
@@ -3353,6 +4270,23 @@
       "identificationsServiceBodyArray": {
         "items": {
           "$ref": "#/components/schemas/identificationsServiceBody"
+        }
+      },
+      "identificationsService": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "SERVICE"
+          },
+          "identification": {
+            "type": "string",
+            "example": "product"
+          },
+          "key": {
+            "type": "string",
+            "example": "12345678"
+          }
         }
       },
       "instances": {
@@ -3481,6 +4415,96 @@
           "$ref": "#/components/schemas/product"
         }
       },
+      "productBill": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "quantity": {
+            "type": "string",
+            "example": "10"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 80.00
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 800.00
+          },
+          
+          "federalTaxes": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "estadualTaxes": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "grids": {
+            "type": "array",
+            "items": { 
+              "$ref": "#/components/schemas/grid"
+            }
+          }
+        }
+      },
+      "productSale": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.00
+          },
+          "grids": {
+            "type": "array",
+            "items": { 
+              "$ref": "#/components/schemas/grid"
+            }
+          }
+        }
+      },
+      "productSaleBillResponse": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.00
+          },
+          "grids": {
+            "type": "array",
+            "items": { 
+              "$ref": "#/components/schemas/gridResponse"
+            }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 4
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 144
+          } 
+        }       
+      },
       "size": {
         "type": "object",
         "properties": {
@@ -3506,6 +4530,134 @@
           "sku": {
             "type": "string",
             "example": "0000001-0009-1"
+          }
+        }
+      },
+      "responseBill": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.00
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "BOLETO"
+          },
+          "formOfPaymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 264
+          },
+          "billId": {
+            "type": "string",            
+            "example": "200082"
+          }
+        }
+      },
+      "responseGetBill": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.00
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "BOLETO"
+          },
+          "formOfPaymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 264
+          },
+          "billId": {
+            "type": "string",            
+            "example": "200082"
+          }
+        }
+      },
+      "responseCity": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Campina Grande"
+          },
+          "state": {
+            "type": "string",
+            "example": "PB"
+          },
+          "IBGEId": {
+            "type": "string",
+            "example": "2504009"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 5920
           }
         }
       },
@@ -3588,7 +4740,7 @@
             "type": "string",
             "example": "2020030"
           },
-          "saleId": {
+          "billId": {
             "type": "string",
             "example": "200003"
           },
@@ -3971,10 +5123,98 @@
       },
       "responseInventoryOutGrid": {
         "$ref": "#/components/schemas/bodyInventoryOutGrid"
-      },      
+      },
+      "responseInvoice": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int16",
+            "example": 180
+          },
+          "id": {
+            "type": "string",
+            "example": "0012200207901"
+          },
+          "type": {
+            "type": "string",
+            "example": "01"
+          }
+        }
+      },
+      "responseSale": {
+        "type": "object",
+        "properties": {
+          "bill": {
+            "$ref": "#/components/schemas/saleBlockResponse"
+          },
+          "inventoryOut": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/saleBlockInventoryOut"
+            }
+          },
+          "dpa": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dpaBlockResponse"
+            }
+          },
+          "inventoryOutGrid": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/gridResponse"
+            }
+          },
+          "invoice": {
+            "type": "object",
+            "properties": {
+              "consumerId": {
+                "type": "integer",
+                "format": "int32",
+                "example": 2
+              },
+              "sellerId": {
+                "type": "integer",
+                "format": "int32",
+                "example": 102
+              },
+              "Id": {
+                "type": "string",
+                "example": "0010020013501"
+              },
+              "grossValue": {
+                "type": "integer",
+                "format": "int32",
+                "example": 264
+              },
+              "type": {
+                "type": "string",
+                "example": "01"
+              }              
+            }
+          }
+        }
+      },
       "responseService": {
         "type": "object",
         "properties": {
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
+            }
+          },
           "familyName": {
             "type": "string",
             "example": "product"
@@ -3987,16 +5227,10 @@
             "type": "string",
             "example": "6155c1f9bd01ba29ac117b2d"
           },
-          "identifications": {
+        "identifications": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/identificationsServiceBody"
-            }
-          },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/instances"
             }
           },
           "permissions": {
@@ -4085,6 +5319,73 @@
                 }
               }
             }
+          }
+        }
+      },
+      "saleBlockInventoryOut": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 36.00
+          },
+          "id": {
+            "type": "string",
+            "example": "439104"
+          }
+        }
+      },
+      "saleBlockResponse": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 7"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.00
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.00
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSaleBillResponse"
+            }
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "BOLETO"
+          },
+          "formOfPaymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 264
+          },
+          "billId": {
+            "type": "string",            
+            "example": "200135"
           }
         }
       },
