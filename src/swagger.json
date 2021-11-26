@@ -513,6 +513,11 @@
       "delete": {
         "tags": [
           "Produto"
+        ],        
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Deletar o registro de entrada ou saída de um produto do DPA.",
         "operationId": "deleteDPA",
@@ -1606,6 +1611,11 @@
         "tags": [
           "Venda"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter uma comanda.",
         "operationId": "getBill",
         "requestBody": {
@@ -1657,6 +1667,11 @@
       "post": {
         "tags": [
           "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Criar uma comanda.",
         "operationId": "postBill",
@@ -1712,6 +1727,11 @@
         "tags": [
           "Venda"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Deletar um registro no financeiro.",
         "operationId": "deleteInvoice",
         "parameters": [
@@ -1740,6 +1760,11 @@
       "post": {
         "tags": [
           "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Criar uma fatura.",
         "operationId": "postInvoice",
@@ -1796,6 +1821,11 @@
         "tags": [
           "Venda"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Criar uma venda.",
         "operationId": "postSale",
         "requestBody": {
@@ -1849,6 +1879,11 @@
       "get": {
         "tags": [
           "Usuário"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter todos as cidades.",
         "operationId": "getCity",
@@ -1925,6 +1960,11 @@
       "post": {
         "tags": [
           "Usuário"
+        ],        
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Cadatrar uma cidade.",
         "operationId": "postCity",
@@ -2504,6 +2544,11 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
         "summary": "Obter todos os funcionários.",
         "operationId": "getEmployee",
         "parameters": [
@@ -2661,6 +2706,11 @@
       "post": {
         "tags": [
           "Usuário"
+        ],        
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Cadatrar um funcionário.",
         "operationId": "postEmployee",
@@ -2715,6 +2765,11 @@
       "get": {
         "tags": [
           "Usuário"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
         ],
         "summary": "Obter o funcionário pelo id.",
         "operationId": "getEmployee",
