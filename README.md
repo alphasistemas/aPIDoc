@@ -1,5 +1,8 @@
 # Documentação da API
+Para atender as necessidades dos clientes de integrar uma solução de e-commerce ao ERP AlphaInd, foi desenvolvida a API de e-commerce da AlphaSystemas.
 
+Esta é uma API baseada em micro-serviços e foi construída utilizando o conceito de REST API, de forma a atender as boas práticas de mercado, tendo ainda uma rota de callback para facilitar a integração.
+![Arquitetura](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0168a19a-0511-4662-806c-67550cf979ed/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211126%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211126T135513Z&X-Amz-Expires=86400&X-Amz-Signature=d1a16e46984ca7491eff71be4feb695dd79c2c71b1e35ce0f75c904793fc309f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 ## Variáveis de ambiente
 | Serviço(S)                                     | Nome da Variável de Ambiente         | Descrição                                    | Valor de Exemplo                                | Secret | Obrigatório |
 | ---------------------------------------------- | ------------------------------------ | -------------------------------------------- | ----------------------------------------------- | ------ | ----------- |
