@@ -1,1 +1,39 @@
-# aPIDoc
+# Documentação da API
+Para atender as necessidades dos clientes de integrar uma solução de e-commerce ao ERP AlphaInd, foi desenvolvida a API de e-commerce da AlphaSystemas.
+
+Esta é uma API baseada em micro-serviços e foi construída utilizando o conceito de REST API, de forma a atender as boas práticas de mercado, tendo ainda uma rota de callback para facilitar a integração.
+![Arquitetura](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0168a19a-0511-4662-806c-67550cf979ed/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211126%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211126T135513Z&X-Amz-Expires=86400&X-Amz-Signature=d1a16e46984ca7491eff71be4feb695dd79c2c71b1e35ce0f75c904793fc309f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+## Variáveis de ambiente
+| Serviço(S)                                     | Nome da Variável de Ambiente         | Descrição                                    | Valor de Exemplo                                | Secret | Obrigatório |
+| ---------------------------------------------- | ------------------------------------ | -------------------------------------------- | ----------------------------------------------- | ------ | ----------- |
+| AUTH                                           | AUTH_DEFAULT_PERMISSIONS             | Permissões default para esse serviço         | "'{""all"": [""all""]}'"                        |  ✖     |  ✖         |
+| AUTH                                           | DEFAULT_PERMISSIONS                  | Permisões default para cada serviço          | "'{""all"": {""all"": [""all""]}}'"             |  ✖     |  ✖         |
+| AUTH                                           | MAIL_HOST                            | Host de Email                                | "http://api-ecomm.alphasystemas.com.br/email"   |  ✖     |  🗸         |
+| AUTH                                           | JWT_PRIVATE_KEY                      | JWT RSA PRIVATE KEY                          | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | JWT_PUBLIC_KEY                       | JWT RSA PUBLIC KEY                           | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | ALLOWED_HOSTS                        | Hosts Permitidos                             | '*'                                             |  ✖     |  ✖         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | SERVICE_NAME                         | Nome do Serviço                              | AUTH                                            |  ✖     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | INSTANCE                             | Nome da Instancia                            | auth                                            |  ✖     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | PORT                                 | Porta onde o serviço vai escutar             | 3000                                            |  ✖     |  ✖         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_HOST                           | Mongo Server URL                             | -                                               |  ✖     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_USER                           | Mongo Server Password                        | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_PASSWORD                       | Mongo Server Password                        | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_WRITE_DATABASE                 | Mongo Server Write DB Name                   | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_READ_DATABASE                  | Mongo Server Read DB Name                    | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_OPTIONS                        | Mongo Server Options                         | -                                               |  🗸     |  🗸         |
+| AUTH, EMAIL, PRODUCT, SALE, USER, SUBSCRIPTION | MONGO_CONNECTION_TYPE                | Mongo Server Connection Type                 | mongodb+srv                                     |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_USER                            | Usuário da Caixa de Email                    | user@alphasystemas.com.br                       |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_PASSWORD                        | Senha da Caixa de Email                      | user_password                                   |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_SERVICE                         | Serviço que hospeda a Caixa de Email         | KingHost                                        |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_SERVICE_POOL                    | Se o serviço de Email vai usar Pool          | 'true'                                          |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_SERVICE_HOST                    | Host do Serviço que hospeda a Caixa de Email | http://smtpi.kinghost.net/                      |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_SERVICE_SECURE                  | Se Aconexão é segura com a Caixa de Email    | 'true'                                          |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_SERVICE_PORT                    | Porta da Conexão                             | '465'                                           |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_SUFIX                           | Sufixo do Email                              | '@alphasystemas.com.br'                         |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_TIMEOUT                         | Timeout do Email                             | '100000'                                        |  ✖     |  🗸         |
+| EMAIL                                          | MAIL_JITTER                          | Jitter do Email                              | '10000'                                         |  ✖     |  🗸         |
+| EMAIL                                          | LANGUAGE                             | Língua dos Emails                            | pt-br                                           |  ✖     |  ✖         |
+| PRODUCT, SALE                                  | STORE_ID                             | Id da Loja                                   | '1'                                             |  ✖     |  🗸         |
+| SALE                                           | AUTH_HOST                            | Host de Autenticação                         | "http://api-ecomm.alphasystemas.com.br/auth"    |  ✖     |  🗸         |
+| SALE                                           | PRODUCT_HOST                         | Host de Produto                              | "http://api-ecomm.alphasystemas.com.br/product" |  ✖     |  🗸         |
+| {GITHUB.SECRET}                                | SSH_PRIVATE_KEY                      |                                              | ssh_ed25519.key/ssh_ed25519.key.pub             |  ✖     |  🗸         |
