@@ -19,6 +19,10 @@
       "description": "Reúne endpoints relacionados à email."
     },
     {
+      "name": "Inscrição",
+      "description": "Reúne endpoints relacionados à inscrição."
+    },
+    {
       "name": "Produto",
       "description": "Reúne endpoints relacionados ao produtos."
     },
@@ -1722,6 +1726,124 @@
         }
       }
     },
+    "/subscription/publication": {
+      "post": {
+        "tags": [
+          "Inscrição"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
+        "summary": "Criar uma Publicação.",
+        "operationId": "postPublication",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyPublication"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responsePublication"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscription/subscription": {
+      "post": {
+        "tags": [
+          "Inscrição"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }  
+        ],
+        "summary": "Criar uma Inscrição.",
+        "operationId": "postSubscription",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodySubscription"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSubscription"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sale/invoice": {
       "delete": {
         "tags": [
@@ -2978,6 +3100,12 @@
           }
         }
       },
+      "bodyCallback": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/all"
+        }
+      },
       "bodyGetBill": {
         "type": "array",
         "items": {
@@ -3632,6 +3760,28 @@
           }
         }
       },
+      "bodyPublication": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://reqres.in/api/user"
+          },
+          "endpoint": {
+            "type": "string",
+            "example": "api/alguma"
+          },
+          "contents": {
+            "type": "object",
+            "properties": {
+              "teste": {
+                "type": "string",
+                "example": "teste"
+              }
+            }
+          }
+        }
+      },
       "bodySale": {
         "type": "object",
         "properties": {
@@ -3714,6 +3864,47 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/all"
+            }
+          }
+        }
+      },
+      "bodySubscription": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "post"
+              },
+              "config": {
+                "type": "array",
+                "items": { 
+                  "$ref": "#/components/schemas/config"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "post"
+              }
             }
           }
         }
@@ -3988,6 +4179,28 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/color"
+        }
+      },
+      "config": {
+        "type": "object",
+        "properties": {
+          "judah": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "configResponse": {
+        "type": "object",
+        "properties": {
+          "judah": {
+            "type": "string",
+            "example": "1234"
+          },
+          "id":{
+            "type": "string",
+            "example": "61a4c40aa79376c00c8c010f"
+          }
         }
       },
       "dpaBlockResponse": {
@@ -5207,6 +5420,51 @@
           }
         }
       },
+      "responsePublication": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": { 
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
+          }
+        }
+      },
       "responseSale": {
         "type": "object",
         "properties": {
@@ -5374,6 +5632,51 @@
                 }
               }
             }
+          }
+        }
+      },
+      "responseSubscription": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": { 
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
           }
         }
       },
