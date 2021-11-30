@@ -1121,8 +1121,7 @@
             "in": "query",
             "description": "Gênero do produto.",
             "schema":{
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           },
           {
@@ -1130,7 +1129,8 @@
             "name": "quantity",
             "description": "Quantidade em estoque.",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
@@ -1622,16 +1622,272 @@
         ],
         "summary": "Obter uma comanda.",
         "operationId": "getBill",
-        "requestBody": {
-          "description": "Corpo da requisição.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bodyGetBill"
-              }
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "query",
+            "description": "Id do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consumer",
+            "in": "query",
+            "description": "Nome do cliente.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellerId",
+            "in": "query",
+            "description": "Id do vendedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "grossValue",
+            "in": "query",
+            "description": "Valor bruto.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "discountValue",
+            "in": "query",
+            "description": "Valor de desconto.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "formOfPayment",
+            "in": "query",
+            "description": "Forma de pagamento.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "formOfPaymentId",
+            "in": "query",
+            "description": "Código da forma de pagamento.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "deliveryFee",
+            "in": "query",
+            "description": "Taxa de entrega.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "commercial",
+            "in": "query",
+            "description": "Venda realizada pelo comercial ou retaguarda.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "ecommerceClientId",
+            "in": "query",
+            "description": "Código do ecommerce do cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ecommerceOrderId",
+            "in": "query",
+            "description": "Código do pedido do ecommerce.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "Id do produto.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "Quantidade de itens da comanda.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "billId",
+            "in": "query",
+            "description": "Id dacomanda.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Código da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "unitValue",
+            "in": "query",
+            "description": "Valor da unidade item.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "totalValue",
+            "in": "query",
+            "description": "Valor do item vezes a quantidade de itens.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "federalTaxes",
+            "in": "query",
+            "description": "Valot total de tributos federais do item.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "estadualTaxes",
+            "in": "query",
+            "description": "Valor total de tributos estaduais do item.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "colorId",
+            "in": "query",
+            "description": "Cor do item.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size01",
+            "in": "query",
+            "description": "Tamanho 01 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size02",
+            "in": "query",
+            "description": "Tamanho 02 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size03",
+            "in": "query",
+            "description": "Tamanho 03 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size04",
+            "in": "query",
+            "description": "Tamanho 04 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size05",
+            "in": "query",
+            "description": "Tamanho 05 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size06",
+            "in": "query",
+            "description": "Tamanho 06 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size07",
+            "in": "query",
+            "description": "Tamanho 07 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size08",
+            "in": "query",
+            "description": "Tamanho 08 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size09",
+            "in": "query",
+            "description": "Tamanho 09 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "size10",
+            "in": "query",
+            "description": "Tamanho 10 referente ao item.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
-        },
+        ],
         "responses": {
           "201": {
             "description": "Ação concluída com sucesso.",
@@ -4644,7 +4900,7 @@
             "example": 3
           },
           "quantity": {
-            "type": "string",
+            "format": "int32",
             "example": 6
           },
           "createdAt": {
@@ -4683,46 +4939,6 @@
           "$ref": "#/components/schemas/product"
         }
       },
-      "productBill": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "439104"
-          },
-          "quantity": {
-            "type": "string",
-            "example": "10"
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 80.00
-          },
-          "totalValue": {
-            "type": "number",
-            "format": "double",
-            "example": 800.00
-          },
-          
-          "federalTaxes": {
-            "type": "number",
-            "format": "double",
-            "example": 0.00
-          },
-          "estadualTaxes": {
-            "type": "number",
-            "format": "double",
-            "example": 0.00
-          },
-          "grids": {
-            "type": "array",
-            "items": { 
-              "$ref": "#/components/schemas/grid"
-            }
-          }
-        }
-      },
       "productSale": {
         "type": "object",
         "properties": {
@@ -4740,6 +4956,16 @@
             "items": { 
               "$ref": "#/components/schemas/grid"
             }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "inte32",
+            "example": 4
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 144.00
           }
         }
       },
