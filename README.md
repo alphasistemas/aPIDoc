@@ -10,7 +10,7 @@ A API foi Documentada utilizando o Swagger, um framework de documentação de AP
 
 O Swagger, além de mostrar os endpoints, permite a realização de exemplos de testes, retornando as responses associadas ao http status code.
 
-![Documentação](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/src/swagger.json)
+[Documentação](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/src/swagger.json)
 
 ## Variáveis de ambiente
 | Serviço(S)                                     | Nome da Variável de Ambiente         | Descrição                                    | Valor de Exemplo                                     | Secret | Obrigatório |
