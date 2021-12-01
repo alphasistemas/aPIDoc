@@ -9,6 +9,12 @@
       "email": "desenvolvimento@alphasystemas.com.br"
     }
   },
+  "servers": [
+    {
+      "url": "api-alpha.alphasystemas.com.br",
+      "description": "Test Server"
+    }
+  ],
   "tags": [
     {
       "name": "Autenticação",
