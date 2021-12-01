@@ -47,23 +47,23 @@
           "description": "Corpo da requisição.",
           "content": {
             "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/bodySignIn",
+              "schema": {
+                "$ref": "#/components/schemas/bodySignIn",
+              },
+              "examples": {
+                "usuário": {
+                  "summary": "Exemplo de Login de Usuário"
                 },
-                "examples":{
-                  "usuário":{
-                    "summary": "Exemplo de Login de Usuário"
-                  },
-                  "serviço":{
-                    "summary": "Exemplo de Login de Serviço",
-                    "value":{
-                      "type":"SERVICE",
-                      "identification": "userteste3@gmail.com",
-                      "key": "1234"
-                    }
+                "serviço": {
+                  "summary": "Exemplo de Login de Serviço",
+                  "value": {
+                    "type": "SERVICE",
+                    "identification": "userteste3@gmail.com",
+                    "key": "1234"
                   }
                 }
               }
+            }
           }
         },
         "responses": {
@@ -74,7 +74,6 @@
                 "schema": {
                   "$ref": "#/components/schemas/responseSignIn"
                 }
-                
               }
             }
           },
@@ -110,6 +109,7 @@
           "Autenticação"
         ],
         "security": [
+          {},
           {
             "bearerAuth": []
           }
@@ -123,13 +123,13 @@
               "schema": {
                 "$ref": "#/components/schemas/bodySignUp"
               },
-              "examples":{
-                "usuário":{
+              "examples": {
+                "usuário": {
                   "summary": "Exemplo de Cadastro de Usuário"
                 },
-                "serviço":{
+                "serviço": {
                   "summary": "Exemplo de Cadastro de Serviço",
-                  "value":{
+                  "value": {
                     "givenName": "LOJA",
                     "familyName": "API",
                     "identifications": [
@@ -212,8 +212,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/bodyEmail"
-                }
               }
+            }
           }
         },
         "responses": {
@@ -261,8 +261,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}
+          }
         ],
         "summary": "Obter todas as categorias.",
         "operationId": "getCategory",
@@ -330,8 +329,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Encrontrar uma categoria pelo id.",
         "description": "Retorna uma única categoria.",
@@ -351,7 +349,7 @@
             "in": "query",
             "name": "name",
             "description": "Nome da categoria.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -401,8 +399,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todas as coleções.",
         "operationId": "getCollection",
@@ -411,7 +408,7 @@
             "name": "id",
             "in": "query",
             "description": "Id da coleção.",
-            "schema":{
+            "schema": {
               "type": "integer",
               "format": "int32"
             }
@@ -420,7 +417,7 @@
             "name": "name",
             "in": "query",
             "description": "Nome da coleção.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -470,8 +467,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Encrontrar uma coleção pelo id.",
         "description": "Retorna uma única coleção.",
@@ -491,7 +487,7 @@
             "name": "name",
             "in": "query",
             "description": "Nome da coleção.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -537,12 +533,11 @@
       "delete": {
         "tags": [
           "Produto"
-        ],        
+        ],
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Deletar o registro de entrada ou saída de um produto do DPA.",
         "operationId": "deleteDPA",
@@ -567,7 +562,7 @@
               }
             }
           }
-        }        
+        }
       },
       "post": {
         "tags": [
@@ -576,20 +571,19 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Registrar uma saída de produto do estoque do DPA.",
         "operationId": "postDpa",
         "requestBody": {
-            "description": "Corpo da requisição.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/bodyDpa"
-                }
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyDpa"
               }
             }
+          }
         },
         "responses": {
           "201": {
@@ -636,8 +630,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todos os grupos.",
         "operationId": "getGroup",
@@ -646,7 +639,7 @@
             "name": "id",
             "in": "query",
             "description": "Id do grupo.",
-            "schema":{
+            "schema": {
               "type": "integer",
               "format": "int32"
             }
@@ -655,7 +648,7 @@
             "name": "name",
             "in": "query",
             "description": "Nome do grupo.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -687,7 +680,7 @@
           "500": {
             "description": "Erro interno do servidor.",
             "content": {
-              "application/json":{
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/error500"
                 }
@@ -705,8 +698,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Encrontrar um grupo pelo id.",
         "description": "Retorna um único grupo.",
@@ -726,7 +718,7 @@
             "name": "name",
             "in": "query",
             "description": "Nome do grupo.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -747,18 +739,18 @@
           },
           "400": {
             "description": "Requisição invalida.",
-            "content":{
+            "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/error400"
-                }                
+                }
               }
             }
           },
           "500": {
             "description": "Erro interno do servidor.",
             "content": {
-              "application/json":{
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/error500"
                 }
@@ -776,8 +768,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter o estoque de todos os produtos.",
         "operationId": "getInventory",
@@ -786,7 +777,7 @@
             "name": "sku",
             "in": "query",
             "description": "SKU.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           },
@@ -794,7 +785,7 @@
             "name": "quantity",
             "in": "query",
             "description": "Quantidade em estoque.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -844,8 +835,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOut",
@@ -862,7 +852,7 @@
         "responses": {
           "201": {
             "description": "Ação concluída com sucesso.",
-            "content" :{
+            "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseInventoryOut"
@@ -904,20 +894,19 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOutGrid",
         "requestBody": {
-            "description": "Corpo da requisição.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/bodyInventoryOutGrid"
-                }
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyInventoryOutGrid"
               }
             }
+          }
         },
         "responses": {
           "201": {
@@ -964,8 +953,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todas as linhas.",
         "operationId": "getLine",
@@ -1033,8 +1021,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Encrontrar uma linha pelo id.",
         "description": "Retorna uma única linha.",
@@ -1054,7 +1041,7 @@
             "name": "name",
             "in": "query",
             "description": "Nome da linha.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           }
@@ -1104,8 +1091,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todos os produtos.",
         "operationId": "getProduct",
@@ -1170,7 +1156,7 @@
             "name": "gender",
             "in": "query",
             "description": "Gênero do produto.",
-            "schema":{
+            "schema": {
               "type": "string"
             }
           },
@@ -1195,7 +1181,7 @@
             "name": "isWebStore",
             "in": "query",
             "description": "Indica se o produto foi enviado ou não, para a loja virtual.",
-            "schema":{
+            "schema": {
               "type": "boolean"
             }
           },
@@ -1373,8 +1359,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Encontrar um produto pelo id.",
         "description": "Retorna um único produto.",
@@ -1442,7 +1427,7 @@
             "name": "gender",
             "in": "query",
             "description": "Gênero do produto.",
-            "schema":{
+            "schema": {
               "type": "integer",
               "format": "int32"
             }
@@ -1467,7 +1452,7 @@
             "name": "isWebStore",
             "in": "query",
             "description": "Indica se o produto foi enviado ou não, para a loja virtual.",
-            "schema":{
+            "schema": {
               "type": "boolean"
             }
           },
@@ -1647,8 +1632,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "parameters": [
           {
@@ -1671,7 +1655,7 @@
               }
             }
           }
-        }        
+        }
       },
       "get": {
         "tags": [
@@ -1680,8 +1664,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter uma comanda.",
         "operationId": "getBill",
@@ -1994,8 +1977,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Criar uma comanda.",
         "operationId": "postBill",
@@ -2054,8 +2036,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Criar uma Publicação.",
         "operationId": "postPublication",
@@ -2114,8 +2095,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Criar uma Inscrição.",
         "operationId": "postSubscription",
@@ -2174,8 +2154,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Deletar um registro no financeiro.",
         "operationId": "deleteInvoice",
@@ -2200,7 +2179,7 @@
               }
             }
           }
-        }        
+        }
       },
       "post": {
         "tags": [
@@ -2209,8 +2188,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Criar uma fatura.",
         "operationId": "postInvoice",
@@ -2223,8 +2201,7 @@
               }
             }
           }
-        }
-        ,
+        },
         "responses": {
           "201": {
             "description": "Ação concluída com sucesso.",
@@ -2270,8 +2247,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Criar uma venda.",
         "operationId": "postSale",
@@ -2330,8 +2306,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todos as cidades.",
         "operationId": "getCity",
@@ -2408,18 +2383,17 @@
       "post": {
         "tags": [
           "Usuário"
-        ],        
+        ],
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Cadatrar uma cidade.",
         "operationId": "postCity",
         "requestBody": {
           "description": "Corpo do cadastro de cidade.",
-          "content":{
+          "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/bodyCity"
@@ -2474,8 +2448,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "parameters": [
           {
@@ -2566,8 +2539,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todos os Clientes.",
         "operationId": "getClient",
@@ -2671,7 +2643,7 @@
           {
             "name": "cellphone",
             "in": "query",
-            "description": "Celular do cliente.", 
+            "description": "Celular do cliente.",
             "schema": {
               "type": "string"
             }
@@ -2763,12 +2735,11 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "requestBody": {
           "description": "Corpo do cadastro de cliente.",
-          "content":{
+          "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/bodyClient"
@@ -2823,8 +2794,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "parameters": [
           {
@@ -2928,7 +2898,7 @@
           {
             "name": "cellphone",
             "in": "query",
-            "description": "Celular do cliente.", 
+            "description": "Celular do cliente.",
             "schema": {
               "type": "string"
             }
@@ -3020,8 +2990,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter todos os funcionários.",
         "operationId": "getEmployee",
@@ -3180,12 +3149,11 @@
       "post": {
         "tags": [
           "Usuário"
-        ],        
+        ],
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Cadatrar um funcionário.",
         "operationId": "postEmployee",
@@ -3244,8 +3212,7 @@
         "security": [
           {
             "bearerAuth": []
-          },
-          {}  
+          }
         ],
         "summary": "Obter o funcionário pelo id.",
         "operationId": "getEmployeeId",
@@ -4098,7 +4065,7 @@
         }
       },
       "bodyInvoice": {
-        "type": "object",                
+        "type": "object",
         "properties": {
           "consumerId": {
             "type": "integer",
@@ -4202,7 +4169,7 @@
               },
               "config": {
                 "type": "array",
-                "items": { 
+                "items": {
                   "$ref": "#/components/schemas/config"
                 }
               }
@@ -4337,7 +4304,7 @@
             "example": 2700201
           }
         }
-      },   
+      },
       "cityArray": {
         "type": "array",
         "items": {
@@ -4366,7 +4333,7 @@
             "example": 2700201
           }
         }
-      }, 
+      },
       "client": {
         "type": "object",
         "properties": {
@@ -4515,7 +4482,7 @@
             "type": "string",
             "example": "1234"
           },
-          "id":{
+          "id": {
             "type": "string",
             "example": "61a4c40aa79376c00c8c010f"
           }
@@ -4769,7 +4736,7 @@
           "productId": {
             "type": "string",
             "example": "439104"
-          }  
+          }
         }
       },
       "group": {
@@ -4976,7 +4943,7 @@
           },
           "grids": {
             "type": "array",
-            "items": { 
+            "items": {
               "$ref": "#/components/schemas/grid"
             }
           },
@@ -5006,7 +4973,7 @@
           },
           "grids": {
             "type": "array",
-            "items": { 
+            "items": {
               "$ref": "#/components/schemas/gridResponse"
             }
           },
@@ -5019,8 +4986,8 @@
             "type": "number",
             "format": "double",
             "example": 144
-          } 
-        }       
+          }
+        }
       },
       "size": {
         "type": "object",
@@ -5098,7 +5065,7 @@
             "example": 264
           },
           "billId": {
-            "type": "string",            
+            "type": "string",
             "example": "200082"
           }
         }
@@ -5151,7 +5118,7 @@
             "example": 264
           },
           "billId": {
-            "type": "string",            
+            "type": "string",
             "example": "200082"
           }
         }
@@ -5685,7 +5652,7 @@
               },
               "config": {
                 "type": "array",
-                "items": { 
+                "items": {
                   "$ref": "#/components/schemas/configResponse"
                 }
               }
@@ -5763,7 +5730,7 @@
               "type": {
                 "type": "string",
                 "example": "01"
-              }              
+              }
             }
           }
         }
@@ -5776,7 +5743,7 @@
             "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlOYW1lIjoiT25lIiwiZ2l2ZW5OYW1lIjoiU29tZSIsImlkIjoiNjE1MWI0MjljYzkzN2Q2N2EwMTdiZDk0IiwicGVybWlzc2lvbnMiOnsiYWxsIjp7ImFsbCI6WyJhbGwiXX0sImF1dGgiOnsiYWxsIjpbImFsbCJdfX0sImlkZW50aWZpY2F0aW9uIjpbeyJ0eXBlIjoiTE9DQUwiLCJpZGVudGlmaWNhdGlvbiI6InVzZXJ0ZXN0ZTNAZ21haWwuY29tIiwidW52ZXJpZmllZCI6dHJ1ZX1dLCJpYXQiOjE2MzMwMTAxNDcsImV4cCI6MTYzMzAxMTA0N30.szdADaYhCiwkjSX_fCFZYXKWev8TCMLFw8z1LQxkQ7lVZGsF5JJ2yD0nQDxh_-hoDDC1VqCbW-0X6ZvMIKBePt5mnkYFEwLiDxf80r3B22qw_cTVaeDfPQjdyxRymMgPfgFdH1TFsfNKCIUZZ-IbT7HTyJXU6YJF-4K6P9D9G6nGqMwGDuBqv2auvo2mKlwWW9J7We40j9d1CgRn4u1_lOSj2l4BN8_DY0hI2dQeBP4ccdRltWIH9sv9EkdZPjuF0KisLqbQ24RBXwQ_7tXyWXTCnODaeWC4Ue1tFKsZbyJ9pOUKCwJxOXaiT-tdCqegbfkRh0la1dfstVJuAcLv2g"
           }
         }
-      },      
+      },
       "responseSignUp": {
         "type": "object",
         "properties": {
@@ -5840,7 +5807,7 @@
               },
               "config": {
                 "type": "array",
-                "items": { 
+                "items": {
                   "$ref": "#/components/schemas/configResponse"
                 }
               }
