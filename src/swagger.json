@@ -11,8 +11,13 @@
   },
   "servers": [
     {
-      "url": "https://api-alpha.alphasystemas.com.br",
-      "description": "Test Server"
+      "url": "{full url}",
+      "description": "Test Server",
+      "variables": {
+        "full url": {
+          "default": "https://api-alpha.alphasystemas.com.br"
+        }
+      }
     }
   ],
   "tags": [
