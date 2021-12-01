@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "api-alpha.alphasystemas.com.br",
+      "url": "https://api-alpha.alphasystemas.com.br",
       "description": "Test Server"
     }
   ],
