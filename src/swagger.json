@@ -19,6 +19,10 @@
       "description": "Reúne endpoints relacionados à email."
     },
     {
+      "name": "Inscrição",
+      "description": "Reúne endpoints relacionados à inscrição."
+    },
+    {
       "name": "Produto",
       "description": "Reúne endpoints relacionados ao produtos."
     },
@@ -32,78 +36,32 @@
     }
   ],
   "paths": {
-    "/auth/service": {
-      "post": {
-        "tags": [
-          "Autenticação"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }  
-        ],
-        "summary": "Cadastrar novo serviço.",
-        "operationId": "postService",
-        "requestBody": {
-          "description": "Corpo da requisição.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bodyService"
-                }
-              }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Ação concluída com sucesso.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/responseService"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "Sem conteúdo."
-          },
-          "400": {
-            "description": "Requisição invalida.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error400"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Erro interno do servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error500"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/auth/signIn": {
       "post": {
         "tags": [
           "Autenticação"
         ],
-        "summary": "Login do usuário.",
+        "summary": "Login do usuário ou serviço.",
         "operationId": "postSignIn",
         "requestBody": {
           "description": "Corpo da requisição.",
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bodySignIn"
+                "schema": {
+                  "$ref": "#/components/schemas/bodySignIn",
+                },
+                "examples":{
+                  "usuário":{
+                    "summary": "Exemplo de Login de Usuário"
+                  },
+                  "serviço":{
+                    "summary": "Exemplo de Login de Serviço",
+                    "value":{
+                      "type":"SERVICE",
+                      "identification": "userteste3@gmail.com",
+                      "key": "1234"
+                    }
+                  }
                 }
               }
           }
@@ -116,6 +74,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/responseSignIn"
                 }
+                
               }
             }
           },
@@ -150,7 +109,12 @@
         "tags": [
           "Autenticação"
         ],
-        "summary": "Cadastrar novo usuário.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Cadastrar novo usuário ou serviço.",
         "operationId": "postSignUp",
         "requestBody": {
           "description": "Corpo da requisição.",
@@ -158,8 +122,44 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/bodySignUp"
+              },
+              "examples":{
+                "usuário":{
+                  "summary": "Exemplo de Cadastro de Usuário"
+                },
+                "serviço":{
+                  "summary": "Exemplo de Cadastro de Serviço",
+                  "value":{
+                    "givenName": "LOJA",
+                    "familyName": "API",
+                    "identifications": [
+                      {
+                        "type": "SERVICE",
+                        "identification": "LOJAAPI",
+                        "key": "vsadgvf7asd9fg8as8d7f6"
+                      }
+                    ],
+                    "permissions": {
+                      "auth": {
+                        "all": [
+                          "all"
+                        ]
+                      },
+                      "VUTT": {
+                        "all": [
+                          "all"
+                        ]
+                      }
+                    },
+                    "instances": {
+                      "all": [
+                        "all"
+                      ]
+                    }
+                  }
                 }
               }
+            }
           }
         },
         "responses": {
@@ -261,7 +261,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}
         ],
         "summary": "Obter todas as categorias.",
         "operationId": "getCategory",
@@ -329,12 +330,23 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Encrontrar uma categoria pelo id.",
         "description": "Retorna uma única categoria.",
         "operationId": "getCategoryId",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "in": "query",
             "name": "name",
@@ -389,7 +401,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Obter todas as coleções.",
         "operationId": "getCollection",
@@ -457,12 +470,23 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Encrontrar uma coleção pelo id.",
         "description": "Retorna uma única coleção.",
         "operationId": "getCollectionId",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -513,6 +537,12 @@
       "delete": {
         "tags": [
           "Produto"
+        ],        
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Deletar o registro de entrada ou saída de um produto do DPA.",
         "operationId": "deleteDPA",
@@ -546,7 +576,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Registrar uma saída de produto do estoque do DPA.",
         "operationId": "postDpa",
@@ -605,7 +636,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Obter todos os grupos.",
         "operationId": "getGroup",
@@ -673,12 +705,23 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Encrontrar um grupo pelo id.",
         "description": "Retorna um único grupo.",
         "operationId": "getGroupId",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -733,7 +776,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Obter o estoque de todos os produtos.",
         "operationId": "getInventory",
@@ -800,7 +844,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOut",
@@ -859,7 +904,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOutGrid",
@@ -918,7 +964,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Obter todas as linhas.",
         "operationId": "getLine",
@@ -986,12 +1033,23 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Encrontrar uma linha pelo id.",
         "description": "Retorna uma única linha.",
         "operationId": "getLineId",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -1046,7 +1104,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Obter todos os produtos.",
         "operationId": "getProduct",
@@ -1314,12 +1373,23 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Encontrar um produto pelo id.",
         "description": "Retorna um único produto.",
         "operationId": "getProductId",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -1577,7 +1647,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "parameters": [
           {
@@ -1605,6 +1676,12 @@
       "get": {
         "tags": [
           "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Obter uma comanda.",
         "operationId": "getBill",
@@ -1914,6 +1991,12 @@
         "tags": [
           "Venda"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
+        ],
         "summary": "Criar uma comanda.",
         "operationId": "postBill",
         "requestBody": {
@@ -1963,10 +2046,136 @@
         }
       }
     },
+    "/subscription/publication": {
+      "post": {
+        "tags": [
+          "Inscrição"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
+        ],
+        "summary": "Criar uma Publicação.",
+        "operationId": "postPublication",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyPublication"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responsePublication"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscription/subscription": {
+      "post": {
+        "tags": [
+          "Inscrição"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
+        ],
+        "summary": "Criar uma Inscrição.",
+        "operationId": "postSubscription",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodySubscription"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSubscription"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sale/invoice": {
       "delete": {
         "tags": [
           "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Deletar um registro no financeiro.",
         "operationId": "deleteInvoice",
@@ -1996,6 +2205,12 @@
       "post": {
         "tags": [
           "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Criar uma fatura.",
         "operationId": "postInvoice",
@@ -2052,6 +2267,12 @@
         "tags": [
           "Venda"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
+        ],
         "summary": "Criar uma venda.",
         "operationId": "postSale",
         "requestBody": {
@@ -2105,6 +2326,12 @@
       "get": {
         "tags": [
           "Usuário"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Obter todos as cidades.",
         "operationId": "getCity",
@@ -2181,6 +2408,12 @@
       "post": {
         "tags": [
           "Usuário"
+        ],        
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Cadatrar uma cidade.",
         "operationId": "postCity",
@@ -2241,9 +2474,20 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "id",
             "in": "query",
@@ -2322,7 +2566,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "summary": "Obter todos os Clientes.",
         "operationId": "getClient",
@@ -2518,7 +2763,8 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "requestBody": {
           "description": "Corpo do cadastro de cliente.",
@@ -2577,9 +2823,20 @@
         "security": [
           {
             "bearerAuth": []
-          }  
+          },
+          {}  
         ],
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -2760,6 +3017,12 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
+        ],
         "summary": "Obter todos os funcionários.",
         "operationId": "getEmployee",
         "parameters": [
@@ -2917,6 +3180,12 @@
       "post": {
         "tags": [
           "Usuário"
+        ],        
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
         ],
         "summary": "Cadatrar um funcionário.",
         "operationId": "postEmployee",
@@ -2972,9 +3241,25 @@
         "tags": [
           "Usuário"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {}  
+        ],
         "summary": "Obter o funcionário pelo id.",
-        "operationId": "getEmployee",
+        "operationId": "getEmployeeId",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da categoria.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "name",
             "in": "query",
@@ -3175,6 +3460,88 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/productSale"
+            }
+          }
+        }
+      },
+      "bodyCallback": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/all"
+        }
+      },
+      "bodyGetBill": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bodyGetBillArray"
+        }
+      },
+      "bodyGetBillArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "01/12/2020"
+          },
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "GLAYLSON SILVEIRE"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "string",
+            "example": "800.00"
+          },
+          "discountValue": {
+            "type": "string",
+            "example": "0.00"
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "Car"
+          },
+          "deliveryFee": {
+            "type": "string",
+            "example": 0.00
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/product"
             }
           }
         }
@@ -3757,6 +4124,28 @@
           }
         }
       },
+      "bodyPublication": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://reqres.in/api/user"
+          },
+          "endpoint": {
+            "type": "string",
+            "example": "api/alguma"
+          },
+          "contents": {
+            "type": "object",
+            "properties": {
+              "teste": {
+                "type": "string",
+                "example": "teste"
+              }
+            }
+          }
+        }
+      },
       "bodySale": {
         "type": "object",
         "properties": {
@@ -3797,48 +4186,43 @@
           }
         }
       },
-      "bodyService": {
+      "bodySubscription": {
         "type": "object",
         "properties": {
-          "givenName": {
-            "type": "string",
-            "example": "product"
-          },
-          "familyName": {
-            "type": "string",
-            "example": "product"
-          },
-          "identifications": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/identificationsService"
-            }
-          },
-          "permissions": {
+          "callback": {
             "type": "object",
             "properties": {
-              "auth": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
               },
-              "product": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
+              "method": {
+                "type": "string",
+                "example": "post"
+              },
+              "config": {
+                "type": "array",
+                "items": { 
+                  "$ref": "#/components/schemas/config"
                 }
               }
             }
           },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/all"
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "post"
+              }
             }
           }
         }
@@ -4113,6 +4497,28 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/color"
+        }
+      },
+      "config": {
+        "type": "object",
+        "properties": {
+          "judah": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "configResponse": {
+        "type": "object",
+        "properties": {
+          "judah": {
+            "type": "string",
+            "example": "1234"
+          },
+          "id":{
+            "type": "string",
+            "example": "61a4c40aa79376c00c8c010f"
+          }
         }
       },
       "dpaBlockResponse": {
@@ -4427,45 +4833,6 @@
           "unverified": {
             "type": "boolean",
             "example": true
-          }
-        }
-      },
-      "identificationsServiceBody": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "example": "SERVICE"
-          },
-          "identification": {
-            "type": "string",
-            "example": "product"
-          },
-          "id": {
-            "type": "string",
-            "example": "6155c1f9bd01ba29ac117b2e"
-          }
-        }
-      },
-      "identificationsServiceBodyArray": {
-        "items": {
-          "$ref": "#/components/schemas/identificationsServiceBody"
-        }
-      },
-      "identificationsService": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "example": "SERVICE"
-          },
-          "identification": {
-            "type": "string",
-            "example": "product"
-          },
-          "key": {
-            "type": "string",
-            "example": "12345678"
           }
         }
       },
@@ -5302,6 +5669,51 @@
           }
         }
       },
+      "responsePublication": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": { 
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
+          }
+        }
+      },
       "responseSale": {
         "type": "object",
         "properties": {
@@ -5356,66 +5768,6 @@
           }
         }
       },
-      "responseService": {
-        "type": "object",
-        "properties": {
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/instances"
-            }
-          },
-          "familyName": {
-            "type": "string",
-            "example": "product"
-          },
-          "givenName": {
-            "type": "string",
-            "example": "product"
-          },
-          "id": {
-            "type": "string",
-            "example": "6155c1f9bd01ba29ac117b2d"
-          },
-        "identifications": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/identificationsServiceBody"
-            }
-          },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "all": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              },
-              "auth": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              },
-              "key": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/key"
-                }
-              }
-            }
-          },
-          "sponsorId": {
-            "type": "string",
-            "example": "6151b429cc937d67a017bd94"
-          }
-        }
-      },      
       "responseSignIn": {
         "type": "object",
         "properties": {
@@ -5469,6 +5821,51 @@
                 }
               }
             }
+          }
+        }
+      },
+      "responseSubscription": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": { 
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
           }
         }
       },
@@ -5534,7 +5931,7 @@
             "example": 264
           },
           "billId": {
-            "type": "string",            
+            "type": "string",
             "example": "200135"
           }
         }
