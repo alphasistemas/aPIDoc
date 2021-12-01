@@ -10,6 +10,8 @@ A API foi Documentada utilizando o Swagger, um framework de documentação de AP
 
 O Swagger, além de mostrar os endpoints, permite a realização de exemplos de testes, retornando as responses associadas ao http status code.
 
+OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado via https. E caso o erro persista utilize o [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf/related?hl=en) para habilitar o CORS pelo Chrome.
+
 [Documentação](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/src/swagger.json)
 
 ## Variáveis de ambiente
