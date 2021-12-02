@@ -3,7 +3,7 @@ Para atender as necessidades dos clientes de integrar uma solução de e-commerc
 
 Esta é uma API baseada em micro-serviços e foi construída utilizando o conceito de REST API, de forma a atender as boas práticas de mercado, tendo ainda uma rota de callback para facilitar a integração.
 
-![Arquitetura](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ad36cce9-ed53-4fca-9afa-06ea1701377c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T121706Z&X-Amz-Expires=86400&X-Amz-Signature=462fec7d45209d34631d1ce37d091e3d22ac307c1f7725d9107178b9d86d5d3d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![Arquitetura](https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/images/overview.png)
 
 ## Swagger
 A API foi Documentada utilizando o Swagger, um framework de documentação de APIs.
