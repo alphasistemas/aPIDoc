@@ -59,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodySignIn",
+                "$ref": "#/components/schemas/bodySignIn"
               },
               "examples": {
                 "usuário": {
