@@ -624,6 +624,7 @@
         "operationId": "deleteDPA",
         "parameters": [
           {
+            "required": true,
             "name": "id",
             "in": "query",
             "description": "Id do produto.",
@@ -657,6 +658,7 @@
         "summary": "Registrar uma saída de produto do estoque do DPA.",
         "operationId": "postDpa",
         "requestBody": {
+          "required": true,
           "description": "Corpo da requisição.",
           "content": {
             "application/json": {
@@ -962,6 +964,7 @@
         "operationId": "getInventoryOut",
         "requestBody": {
           "description": "Corpo da requisição.",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -1818,6 +1821,7 @@
         "parameters": [
           {
             "name": "id",
+            "required": true,
             "in": "query",
             "description": "Id do cliente.",
             "schema": {
@@ -2174,6 +2178,7 @@
         "operationId": "postBill",
         "requestBody": {
           "description": "Corpo da requisição.",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -2642,7 +2647,8 @@
         ],
         "summary": "Cadatrar uma cidade.",
         "operationId": "postCity",
-        "requestBody": {
+        "requestBody": {          
+          "required": true,
           "description": "Corpo do cadastro de cidade.",
           "content": {
             "application/json": {
@@ -3724,6 +3730,12 @@
       },
       "bodyBill": {
         "type": "object",
+        "required": [
+          "consumer",
+          "paymentId",
+          "products",
+          "unitValue"
+        ],
         "properties": {
           "consumerId": {
             "type": "integer",
@@ -3846,6 +3858,9 @@
       },
       "bodyCity": {
         "type": "object",
+        "required": [
+          "state"
+        ],
         "properties": {
           "name": {
             "type": "string",
@@ -3930,6 +3945,12 @@
       },
       "bodyDpa": {
         "type": "object",
+        "required": [
+          "productId",
+          "billId",
+          "quantity",
+          "unitValue"
+        ],
         "properties": {
           "productId": {
             "type": "string",
@@ -4320,6 +4341,10 @@
       },
       "bodyInventoryOut": {
         "type": "object",
+        "required": [
+          "productId",
+          "quantity"
+        ],
         "properties": {
           "productId": {
             "type": "string",
@@ -5262,6 +5287,11 @@
       },
       "productSale": {
         "type": "object",
+        "required": [
+          "productId",
+          "unitValue",
+          "grids"
+        ],
         "properties": {
           "productId": {
             "type": "string",
