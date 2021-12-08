@@ -421,6 +421,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -498,6 +516,24 @@
             "description": "Nome da coleção.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -578,6 +614,24 @@
             "description": "Nome da coleção.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -762,6 +816,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -842,6 +914,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -918,6 +1008,24 @@
             "description": "Quantidade em estoque.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -1136,6 +1244,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -1215,6 +1341,24 @@
             "description": "Nome da linha.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -1490,6 +1634,24 @@
             "name": "storeId",
             "in": "query",
             "description": "Id da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1771,6 +1933,24 @@
             "name": "storeId",
             "in": "query",
             "description": "Id da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -2606,6 +2786,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -2776,6 +2974,24 @@
             "description": "Código da cidade disponibilizado pelo IBGE..",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -2979,6 +3195,24 @@
             "name": "clientType",
             "in": "query",
             "description": "Tipo de cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -3258,6 +3492,24 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -3432,6 +3684,24 @@
             "description": "Verifica se o funcionário está ativo ou não.",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -3676,6 +3946,24 @@
             "description": "Verifica se o funcionário está ativo ou não.",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
