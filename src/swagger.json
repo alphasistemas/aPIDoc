@@ -59,7 +59,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodySignIn",
+                "$ref": "#/components/schemas/bodySignIn"
               },
               "examples": {
                 "usuário": {
@@ -323,6 +323,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -403,6 +421,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -480,6 +516,24 @@
             "description": "Nome da coleção.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -561,6 +615,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -624,6 +696,7 @@
         "operationId": "deleteDPA",
         "parameters": [
           {
+            "required": true,
             "name": "id",
             "in": "query",
             "description": "Id do produto.",
@@ -657,6 +730,7 @@
         "summary": "Registrar uma saída de produto do estoque do DPA.",
         "operationId": "postDpa",
         "requestBody": {
+          "required": true,
           "description": "Corpo da requisição.",
           "content": {
             "application/json": {
@@ -742,6 +816,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -822,6 +914,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -899,6 +1009,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -962,6 +1090,7 @@
         "operationId": "getInventoryOut",
         "requestBody": {
           "description": "Corpo da requisição.",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -1115,6 +1244,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -1194,6 +1341,24 @@
             "description": "Nome da linha.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -1469,6 +1634,24 @@
             "name": "storeId",
             "in": "query",
             "description": "Id da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1754,6 +1937,24 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -1818,6 +2019,7 @@
         "parameters": [
           {
             "name": "id",
+            "required": true,
             "in": "query",
             "description": "Id do cliente.",
             "schema": {
@@ -2113,6 +2315,24 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -2174,6 +2394,7 @@
         "operationId": "postBill",
         "requestBody": {
           "description": "Corpo da requisição.",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -2583,6 +2804,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -2642,7 +2881,8 @@
         ],
         "summary": "Cadatrar uma cidade.",
         "operationId": "postCity",
-        "requestBody": {
+        "requestBody": {          
+          "required": true,
           "description": "Corpo do cadastro de cidade.",
           "content": {
             "application/json": {
@@ -2752,6 +2992,24 @@
             "description": "Código da cidade disponibilizado pelo IBGE..",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -2955,6 +3213,24 @@
             "name": "clientType",
             "in": "query",
             "description": "Tipo de cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -3234,6 +3510,24 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -3408,6 +3702,24 @@
             "description": "Verifica se o funcionário está ativo ou não.",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -3653,6 +3965,24 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -3724,6 +4054,12 @@
       },
       "bodyBill": {
         "type": "object",
+        "required": [
+          "consumer",
+          "paymentId",
+          "products",
+          "unitValue"
+        ],
         "properties": {
           "consumerId": {
             "type": "integer",
@@ -3846,6 +4182,9 @@
       },
       "bodyCity": {
         "type": "object",
+        "required": [
+          "state"
+        ],
         "properties": {
           "name": {
             "type": "string",
@@ -3930,6 +4269,12 @@
       },
       "bodyDpa": {
         "type": "object",
+        "required": [
+          "productId",
+          "billId",
+          "quantity",
+          "unitValue"
+        ],
         "properties": {
           "productId": {
             "type": "string",
@@ -4320,6 +4665,10 @@
       },
       "bodyInventoryOut": {
         "type": "object",
+        "required": [
+          "productId",
+          "quantity"
+        ],
         "properties": {
           "productId": {
             "type": "string",
@@ -5262,6 +5611,11 @@
       },
       "productSale": {
         "type": "object",
+        "required": [
+          "productId",
+          "unitValue",
+          "grids"
+        ],
         "properties": {
           "productId": {
             "type": "string",
