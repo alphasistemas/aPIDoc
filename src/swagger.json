@@ -23,7 +23,11 @@
   "tags": [
     {
       "name": "Autenticação",
-      "description": "Reúne endpoints relacionados a autenticação."
+      "description": "Reúne endpoints relacionados à autenticação."
+    },
+    {
+      "name": "Catálogo",
+      "description": "Reúne endpoints relacionados ao catálogo."
     },
     {
       "name": "Email",
@@ -190,6 +194,282 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseSignUp"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/catalog/config": {
+      "post": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Configurar o Catálogo.",
+        "operationId": "postCatalogConfig",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": " "
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/catalog/group": {
+      "post": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Agrupar o Catálogo.",
+        "operationId": "postCatalogGroup",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": " "
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/catalog/product": {
+      "post": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar uma Inscrição.",
+        "operationId": "postSubscription",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": " "
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/catalog/theme": {
+      "post": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar um Tema.",
+        "operationId": "postTheme",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyTheme"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": " "
                 }
               }
             }
@@ -4104,79 +4384,98 @@
           "$ref": "#/components/schemas/all"
         }
       },
-      "bodyGetBill": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/bodyGetBillArray"
-        }
-      },
-      "bodyGetBillArray": {
+      "bodyCatalogConfig": {
         "type": "object",
+        "required": [
+          "id",
+          "store",
+          "minimunQuantity"
+        ],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "date": {
             "type": "string",
-            "format": "date",
-            "example": "01/12/2020"
+            "example": "1213152"
           },
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "GLAYLSON SILVEIRE"
-          },
-          "sellerId": {
+          "store": {
             "type": "integer",
             "format": "int32",
             "example": 102
           },
-          "grossValue": {
-            "type": "string",
-            "example": "800.00"
-          },
-          "discountValue": {
-            "type": "string",
-            "example": "0.00"
-          },
-          "paymentConditions": {
-            "type": "string",
-            "example": "30/60"
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "Car"
-          },
-          "deliveryFee": {
-            "type": "string",
-            "example": 0.00
-          },
-          "inCash": {
-            "type": "number",
-            "format": "double",
-            "example": 0
-          },
-          "installments": {
-            "type": "number",
-            "format": "double",
-            "example": 800
-          },
-          "storeId": {
+          "minimunQuantity": {
             "type": "integer",
             "format": "int32",
             "example": 1
+          }
+        }
+      },
+      "bodyCatalogGroup": {
+        "type": "object",
+        "required": [
+          "id",
+          "priceTable",
+          "minimunQuantity"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1213152"
           },
-          "products": {
+          "name": {
+            "type": "string",
+            "example": "Camisas"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "01/01/2021"
+          },
+          "expirationAt": {
+            "type": "string",
+            "example": "01/01/2021"
+          },
+          "updateAt": {
+            "type": "string",
+            "example": "01/01/2021"
+          },
+          "priceTable": {
+            "type": "number",
+            "format": "double",
+            "example": 199.99
+          },
+          "images": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/product"
+              "$ref": "#/components/schemas/imagesGroupArray"
             }
+          }
+        }
+      },
+      "bodyCatalogProduct": {
+        "type": "object",
+        "required": [
+          "id",
+          "priceTable",
+          "minimunQuantity"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1213152"
+          },
+          "catalogs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/catalogsProduct"
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -4663,6 +4962,82 @@
           }
         }
       },
+      "bodyGetBill": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bodyGetBillArray"
+        }
+      },
+      "bodyGetBillArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "01/12/2020"
+          },
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "GLAYLSON SILVEIRE"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "string",
+            "example": "800.00"
+          },
+          "discountValue": {
+            "type": "string",
+            "example": "0.00"
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "Car"
+          },
+          "deliveryFee": {
+            "type": "string",
+            "example": 0.00
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/product"
+            }
+          }
+        }
+      },
       "bodyInventoryOut": {
         "type": "object",
         "required": [
@@ -4941,6 +5316,36 @@
             }
           }
         }
+      },
+      "bodyTheme": {
+        "type": "object",
+        "required": [
+          "id",
+          "priceTable",
+          "minimunQuantity"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1213152"
+          },
+          "logos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "favicos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          }
+        }
+      },
+      "catalogsProduct": {
+        "type": "string",
+        "example": "Calças"
       },
       "category": {
         "type": "object",
@@ -5482,6 +5887,10 @@
             "example": true
           }
         }
+      },      
+      "imagesGroupArray": {
+        "type": "string",
+        "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
       },
       "instances": {
         "type": "string",
