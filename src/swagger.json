@@ -912,36 +912,43 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Deletar uma configuração de catálogo.",
-        "operationId": "deleteConfig",
+        "summary": "Deletar um Produto do catálogo.",
+        "operationId": "deleteProductCatalog",
         "parameters": [
           {
             "name": "id",
             "in": "query",
-            "description": "Id da configuração.",
+            "description": "Id do Produto.",
             "schema": {
               "type": "string",
               "example": "61cc904856f304037ce2b600"
             }
           },
           {
-            "name": "store",
+            "name": "catalogs",
             "in": "query",
-            "description": "Número da loja.",
+            "description": "Nome da catálogo.",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 11
+              "type": "string",
+              "example": "Calçados"
             }
           },
           {
-            "name": "minimunQuantity",
+            "name": "images",
             "in": "query",
-            "description": "Quantidade mínima.",
+            "description": "URL da imagem.",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 3
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
+            }
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Desativado.",
+            "schema": {
+              "type": "boolean",
+              "example": false
             }
           }
         ],
@@ -967,34 +974,43 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Obter todos as configurações de catálogo.",
-        "operationId": "getCatalog",
+        "summary": "Obter todas as configurações de produto.",
+        "operationId": "getProductCatalog",
         "parameters": [
           {
             "name": "id",
             "in": "query",
-            "description": "Id da configuração.",
+            "description": "Id do produto.",
             "schema": {
               "type": "string",
-              "format": "61cc906a56f304037ce2b61a"
+              "example": "61cc906a56f304037ce2b61a"
             }
           },
           {
-            "name": "store",
+            "name": "disabled",
             "in": "query",
-            "description": "Número da loja.",
+            "description": "Desativado.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "boolean",
+              "example": false
             }
           },
           {
-            "name": "minimumQuantity",
-            "in": "header",
-            "description": "Quantidade mínima.",
+            "name": "catalogs",
+            "in": "query",
+            "description": "Nome do catálogo.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "example": "Calças"
+            }
+          },
+          {
+            "name": "images",
+            "in": "query",
+            "description": "URL do produto.",
+            "schema": {
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
             }
           },
           {
@@ -1022,7 +1038,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                  "$ref": "#/components/schemas/responseProductCatalogArray"
                 }
               }
             }
@@ -1071,14 +1087,14 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Alterar uma Configuração.",
-        "operationId": "putConfig",
+        "summary": "Alterar um Produto.",
+        "operationId": "putProductCatalog",
         "requestBody": {
           "description": "Corpo da requisição.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCatalogConfig"
+                "$ref": "#/components/schemas/responseProductCatalogArray"
               }
             }
           }
@@ -1089,7 +1105,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                  "$ref": "#/components/schemas/responseProductCatalogArray"
                 }
               }
             }
@@ -1156,7 +1172,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": " "
+                  "$ref": "#/components/schemas/bodyCatalogProduct"
                 }
               }
             }
@@ -1207,36 +1223,34 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Deletar uma configuração de catálogo.",
-        "operationId": "deleteConfig",
+        "summary": "Deletar um tema de catálogo.",
+        "operationId": "deleteThemeCatalog",
         "parameters": [
           {
             "name": "id",
             "in": "query",
-            "description": "Id da configuração.",
+            "description": "Id do tema.",
             "schema": {
               "type": "string",
               "example": "61cc904856f304037ce2b600"
             }
           },
           {
-            "name": "store",
+            "name": "logos",
             "in": "query",
-            "description": "Número da loja.",
+            "description": "Logo do tema.",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 11
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
             }
           },
           {
-            "name": "minimunQuantity",
+            "name": "favicos",
             "in": "query",
-            "description": "Quantidade mínima.",
+            "description": "Favico do tema.",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 3
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
             }
           }
         ],
@@ -1262,34 +1276,34 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Obter todos as configurações de catálogo.",
-        "operationId": "getCatalog",
+        "summary": "Obter todos os temas de catálogo.",
+        "operationId": "getThemeCatalog",
         "parameters": [
           {
             "name": "id",
             "in": "query",
-            "description": "Id da configuração.",
+            "description": "Id do tema.",
             "schema": {
               "type": "string",
-              "format": "61cc906a56f304037ce2b61a"
+              "example": "61cc906a56f304037ce2b61a"
             }
           },
           {
-            "name": "store",
+            "name": "logos",
             "in": "query",
-            "description": "Número da loja.",
+            "description": "Logomarca.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
             }
           },
           {
-            "name": "minimumQuantity",
-            "in": "header",
-            "description": "Quantidade mínima.",
+            "name": "logos",
+            "in": "query",
+            "description": "Logomarca.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
             }
           },
           {
@@ -1298,7 +1312,8 @@
             "description": "Página da resposta.",
             "schema": {
               "type": "integer",
-              "format": "int32"
+              "format": "int32",
+              "example": 1            
             }
           },
           {
@@ -1307,7 +1322,8 @@
             "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
-              "format": "int32"
+              "format": "int32",
+              "example": 5        
             }
           }
         ],
@@ -1317,7 +1333,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                  "$ref": "#/components/schemas/responseThemeCatalogArray"
                 }
               }
             }
@@ -1373,7 +1389,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCatalogConfig"
+                "$ref": "#/components/schemas/responseThemeCatalog"
               }
             }
           }
@@ -1384,7 +1400,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                  "$ref": "#/components/schemas/responseThemeCatalog"
                 }
               }
             }
@@ -1451,7 +1467,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": " "
+                  "$ref": "#/components/schemas/responseThemeCatalog"
                 }
               }
             }
@@ -5447,7 +5463,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "example": "1213152"
+            "example": "61cc904856f304037ce2b600"
           },
           "catalogs": {
             "type": "array",
@@ -7011,6 +7027,10 @@
         "items": {
           "$ref": "#/components/schemas/product"
         }
+      },            
+      "productCatalogsArray": {
+        "type": "string",
+        "example": "Calças"
       },
       "productSale": {
         "type": "object",
@@ -7768,6 +7788,37 @@
           }
         }
       },
+      "responseProductCatalog": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61cc902656f304037ce2b5e0"
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "catalogs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productCatalogsArray"
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          }
+        }
+      },
+      "responseProductCatalogArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responseProductCatalog"
+        }
+      },
       "responsePublication": {
         "type": "object",
         "properties": {
@@ -7966,6 +8017,33 @@
             "type": "object",
             "example": "61a4c40aa79376c00c8c010d"
           }
+        }
+      },
+      "responseThemeCatalog": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61cc543656f304037ce2b47d"
+          },
+          "logos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "favicos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          }
+        }
+      },
+      "responseThemeCatalogArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responseThemeCatalog"
         }
       },
       "saleBlockInventoryOut": {
