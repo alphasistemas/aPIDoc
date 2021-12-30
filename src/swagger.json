@@ -235,6 +235,232 @@
       }
     },
     "/catalog/config": {
+      "delete": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deletar uma configuração de catálogo.",
+        "operationId": "deleteConfig",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc904856f304037ce2b600"
+            }
+          },
+          {
+            "name": "store",
+            "in": "query",
+            "description": "Número da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 11
+            }
+          },
+          {
+            "name": "minimunQuantity",
+            "in": "query",
+            "description": "Quantidade mínima.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todos as configurações de catálogo.",
+        "operationId": "getConfig",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "format": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "store",
+            "in": "query",
+            "description": "Número da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "minimumQuantity",
+            "in": "header",
+            "description": "Quantidade mínima.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogConfigArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar uma Configuração.",
+        "operationId": "putConfig",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "Catálogo"
@@ -262,7 +488,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": " "
+                  "$ref": "#/components/schemas/bodyCatalogConfig"
                 }
               }
             }
@@ -304,6 +530,310 @@
       }
     },
     "/catalog/group": {
+      "delete": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deletar um grupo de catálogo.",
+        "operationId": "deleteGroupCatalog",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do Grupo.",
+            "schema": {
+              "type": "string",
+              "example": "61cc904856f304037ce2b600"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do Grupo.",
+            "schema": {
+              "type": "string",
+              "example": "Camisas"
+            }
+          },
+          {
+            "name": "images",
+            "in": "query",
+            "description": "URL da Imagem.",
+            "schema": {
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
+            }
+          },
+          {
+            "name": "priceTable",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "example": 199.99
+            }
+          },
+          {
+            "name": "expirationAt",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-01-01T03:00:00.000Z"
+            }
+          },
+          {
+            "name": "createdAt",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-12-29T13:26:50.257Z"
+            }
+          },
+          {
+            "name": "updatedAt",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-12-29T13:26:50.257Z"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todos os grupos de catálogo.",
+        "operationId": "getGroupCatalog",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do Grupo.",
+            "schema": {
+              "type": "string",
+              "example": "61cc904856f304037ce2b600"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome do Grupo.",
+            "schema": {
+              "type": "string",
+              "example": "Camisas"
+            }
+          },
+          {
+            "name": "images",
+            "in": "query",
+            "description": "URL da Imagem.",
+            "schema": {
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
+            }
+          },
+          {
+            "name": "priceTable",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "example": 199.99
+            }
+          },
+          {
+            "name": "expirationAt",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-01-01T03:00:00.000Z"
+            }
+          },
+          {
+            "name": "createdAt",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-12-29T13:26:50.257Z"
+            }
+          },
+          {
+            "name": "updatedAt",
+            "in": "query",
+            "description": "Tabela de Preços.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-12-29T13:26:50.257Z"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/groupCatalogArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar uma Configuração de grupo.",
+        "operationId": "putGroupCatalog",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogGroup"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "Catálogo"
@@ -331,7 +861,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": " "
+                  "$ref": "#/components/schemas/ResponseCatalogGroup"
                 }
               }
             }
@@ -373,6 +903,232 @@
       }
     },
     "/catalog/product": {
+      "delete": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deletar uma configuração de catálogo.",
+        "operationId": "deleteConfig",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc904856f304037ce2b600"
+            }
+          },
+          {
+            "name": "store",
+            "in": "query",
+            "description": "Número da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 11
+            }
+          },
+          {
+            "name": "minimunQuantity",
+            "in": "query",
+            "description": "Quantidade mínima.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todos as configurações de catálogo.",
+        "operationId": "getCatalog",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "format": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "store",
+            "in": "query",
+            "description": "Número da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "minimumQuantity",
+            "in": "header",
+            "description": "Quantidade mínima.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar uma Configuração.",
+        "operationId": "putConfig",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "Catálogo"
@@ -442,6 +1198,232 @@
       }
     },
     "/catalog/theme": {
+      "delete": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deletar uma configuração de catálogo.",
+        "operationId": "deleteConfig",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc904856f304037ce2b600"
+            }
+          },
+          {
+            "name": "store",
+            "in": "query",
+            "description": "Número da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 11
+            }
+          },
+          {
+            "name": "minimunQuantity",
+            "in": "query",
+            "description": "Quantidade mínima.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todos as configurações de catálogo.",
+        "operationId": "getCatalog",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "format": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "store",
+            "in": "query",
+            "description": "Número da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "minimumQuantity",
+            "in": "header",
+            "description": "Quantidade mínima.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar uma Configuração.",
+        "operationId": "putConfig",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyCatalogConfig"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyCatalogConfig"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "Catálogo"
@@ -4394,7 +5376,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "example": "1213152"
+            "example": "61cc543656f304037ce2b47e"
           },
           "store": {
             "type": "integer",
@@ -4407,6 +5389,12 @@
             "example": 1
           }
         }
+      },      
+      "bodyCatalogConfigArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bodyCatalogConfig"
+        }
       },
       "bodyCatalogGroup": {
         "type": "object",
@@ -4418,7 +5406,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "example": "1213152"
+            "example": "61cc902656f304037ce2b5e0"
           },
           "name": {
             "type": "string",
@@ -4432,7 +5420,7 @@
             "type": "string",
             "example": "01/01/2021"
           },
-          "updateAt": {
+          "updatedAt": {
             "type": "string",
             "example": "01/01/2021"
           },
@@ -5844,6 +6832,12 @@
           "$ref": "#/components/schemas/group"
         }
       },
+      "groupCatalogArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bodyCatalogGroup"
+        }
+      },
       "identifications": {
         "type": "object",
         "properties": {
@@ -6214,6 +7208,50 @@
           "billId": {
             "type": "string",
             "example": "200082"
+          }
+        }
+      },
+      "ResponseCatalogGroup": {
+        "type": "object",
+        "required": [
+          "id",
+          "priceTable",
+          "minimunQuantity"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61cc902656f304037ce2b5e0"
+          },
+          "name": {
+            "type": "string",
+            "example": "Camisas"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
+          },
+          "expirationAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-11-01T03:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
+          },
+          "priceTable": {
+            "type": "number",
+            "format": "double",
+            "example": 199.99
           }
         }
       },
