@@ -3728,35 +3728,211 @@
         }
       }
     },
-    "/subscription/publication": {
-      "post": {
+    "/sale/estimate": {
+      "delete": {
         "tags": [
-          "Inscrição"
+          "Venda"
         ],
         "security": [
           {
             "bearerAuth": []
           }
         ],
-        "summary": "Criar uma Publicação.",
-        "operationId": "postPublication",
-        "requestBody": {
-          "description": "Corpo da requisição.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bodyPublication"
+        "summary": "Deletar uma Estimativa de Venda.",
+        "operationId": "deleteSaleEstimate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da estimativa.",
+            "schema": {
+              "type": "string",
+              "example": "61cc904856f304037ce2b600"
+            }
+          },
+          {
+            "name": "catalogs",
+            "in": "query",
+            "description": "Nome da catálogo.",
+            "schema": {
+              "type": "string",
+              "example": "Calçados"
+            }
+          },
+          {
+            "name": "images",
+            "in": "query",
+            "description": "URL da imagem.",
+            "schema": {
+              "type": "string",
+              "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
+            }
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Desativado.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
               }
             }
           }
-        },
+        }
+      },
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as estimativas de venda.",
+        "operationId": "getSaleEstimate",
+        "parameters": [
+          {
+            "name": "Data",
+            "in": "query",
+            "description": "Data da estimativa.",
+            "schema": {
+              "type": "string",
+              "example": "06/01/2022"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da estimativa.",
+            "schema": {
+              "type": "string",
+              "example": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "consumerId",
+            "in": "query",
+            "description": "Id do cliente.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          },
+          {
+            "name": "consumer",
+            "in": "query",
+            "description": "Nome do cliente.",
+            "schema": {
+              "type": "string",
+              "example": "CLIENTE 5"
+            }
+          },
+          {
+            "name": "sellerId",
+            "in": "query",
+            "description": "Id do vendedor.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 102
+            }
+          },
+          {
+            "name": "grossValue",
+            "in": "query",
+            "description": "Valor bruto.",
+            "schema": {
+              "type": "string",
+              "example": "264.00"
+            }
+          },
+          {
+            "name": "discountValue",
+            "in": "query",
+            "description": "Valor do desconto.",
+            "schema": {
+              "type": "string",
+              "example": "0.00"
+            }
+          },
+          {
+            "name": "paymentMethod",
+            "in": "query",
+            "description": "Método de pagamento.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "paymentConditions",
+            "in": "query",
+            "description": "Condição de pagamento.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "deliveryFee",
+            "in": "query",
+            "description": "Taxa de entrega.",
+            "schema": {
+              "type": "string",
+              "example": "20.00"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
-          "201": {
+          "200": {
             "description": "Ação concluída com sucesso.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePublication"
+                  "$ref": "#/components/schemas/responseProductCatalogArray"
                 }
               }
             }
@@ -3795,12 +3971,77 @@
             }
           }
         }
-      }
-    },
-    "/subscription/subscription": {
+      },
+      "put": {
+        "tags": [
+          "Catálogo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar um Produto.",
+        "operationId": "putProductCatalog",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/responseProductCatalogArray"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
-          "Inscrição"
+          "Catálogo"
         ],
         "security": [
           {
@@ -3814,7 +4055,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodySubscription"
+                "$ref": "#/components/schemas/bodyCatalogProduct"
               }
             }
           }
@@ -3825,7 +4066,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSubscription"
+                  "$ref": "#/components/schemas/bodyCatalogProduct"
                 }
               }
             }
@@ -3998,6 +4239,144 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseSale"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscription/publication": {
+      "post": {
+        "tags": [
+          "Inscrição"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar uma Publicação.",
+        "operationId": "postPublication",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyPublication"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responsePublication"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscription/subscription": {
+      "post": {
+        "tags": [
+          "Inscrição"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar uma Inscrição.",
+        "operationId": "postSubscription",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodySubscription"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSubscription"
                 }
               }
             }
