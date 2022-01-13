@@ -12,7 +12,7 @@ O Swagger, além de mostrar os endpoints, permite a realização de exemplos de 
 
 OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado via https. E caso o erro persista utilize o [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf/related?hl=en) para habilitar o CORS pelo Chrome.
 
-[Documentação](http://api-alpha.alphasystemas.com.br/doc)
+[Documentação](/doc)
 
 ## Variáveis de ambiente
 | Serviço(S)                                     | Nome da Variável de Ambiente         | Descrição                                    | Valor de Exemplo                                                | Secret | Obrigatório |
