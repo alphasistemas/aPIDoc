@@ -322,7 +322,7 @@
           },
           {
             "name": "minimumQuantity",
-            "in": "header",
+            "in": "query",
             "description": "Quantidade mínima.",
             "schema": {
               "type": "integer",
@@ -331,7 +331,7 @@
           },
           {
             "name": "page",
-            "in": "header",
+            "in": "query",
             "description": "Página da resposta.",
             "schema": {
               "type": "integer",
@@ -340,7 +340,7 @@
           },
           {
             "name": "pageSize",
-            "in": "header",
+            "in": "query",
             "description": "Número de elementos por página.",
             "schema": {
               "type": "integer",
