@@ -6688,14 +6688,9 @@
             }
           },
           "instances": {
-            "type": "object",
-            "properties": {
-              "all": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/all"
-                }
-              }
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/all"
             }
           }
         }
@@ -8309,12 +8304,6 @@
       "responseSignUp": {
         "type": "object",
         "properties": {
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/instances"
-            }
-          },
           "givenName": {
             "type": "string",
             "example": "Some"
@@ -8329,6 +8318,12 @@
           },
           "identifications": {
             "$ref": "#/components/schemas/identificationsArray"
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
+            }
           },
           "permissions": {
             "type": "object",
