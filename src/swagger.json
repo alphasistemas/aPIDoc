@@ -987,6 +987,15 @@
             }
           },
           {
+            "name": "reference",
+            "in": "query",
+            "description": "Referência do produto.",
+            "schema": {
+              "type": "string",
+              "example": "0920980"
+            }
+          },
+          {
             "name": "disabled",
             "in": "query",
             "description": "Desativado.",
@@ -996,12 +1005,12 @@
             }
           },
           {
-            "name": "catalogs",
+            "name": "groups",
             "in": "query",
-            "description": "Nome do catálogo.",
+            "description": "Grupo do produto.",
             "schema": {
               "type": "string",
-              "example": "Calças"
+              "example": "61d44f843b1b3fddedc72a63"
             }
           },
           {
@@ -2096,6 +2105,14 @@
             }
           },
           {
+            "name": "unit",
+            "in": "query",
+            "description": "Nome do grupo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "page",
             "in": "header",
             "description": "Página da resposta.",
@@ -2271,7 +2288,16 @@
         ],
         "summary": "Obter o estoque de todos os produtos.",
         "operationId": "getInventory",
-        "parameters": [
+        "parameters": [          
+          {
+            "name": "Id",
+            "in": "query",
+            "description": "Id do inventário.",
+            "schema": {
+              "type": "integer"
+
+            }
+          },
           {
             "name": "sku",
             "in": "query",
@@ -2286,6 +2312,14 @@
             "description": "Quantidade em estoque.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer"
             }
           },
           {
@@ -2705,7 +2739,8 @@
             "in": "query",
             "description": "Referência do produto.",
             "schema": {
-              "type": "string"
+              "type": "string",
+            "example": "0100058"
             }
           },
           {
@@ -2713,15 +2748,8 @@
             "in": "query",
             "description": "Nome do produto.",
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "details",
-            "description": "Descrição detalhada do produto.",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "KALESON DE RENDA"
             }
           },
           {
@@ -2729,7 +2757,8 @@
             "in": "query",
             "description": "Peso do produto.",
             "schema": {
-              "type": "number"
+              "type": "number",
+              "example": 10
             }
           },
           {
@@ -2741,19 +2770,57 @@
             }
           },
           {
+            "name": "costPrice",
+            "in": "query",
+            "description": "Preço de custo do produto.",
+            "schema": {
+              "type": "number",
+              "example": 109.90
+            }
+          },
+          {
+            "name": "buyPrice",
+            "in": "query",
+            "description": "Preço de compra do produto.",
+            "schema": {
+              "type": "number",
+              "example": 109.90
+            }
+          },
+          {
             "name": "unit",
             "in": "query",
-            "description": "Unidade de medida do produto.",
+            "description": "Unidade.",
             "schema": {
-              "type": "string"
+              "type": "string",              
+              "example": "PC"
             }
           },
           {
             "name": "disabled",
             "in": "query",
-            "description": "Mostra se o produtos está inativo ou não.",
+            "description": "Produto Inativo.",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "example": false
+            }
+          },
+          {
+            "name": "noStock",
+            "in": "query",
+            "description": "Retorna os produtos que estão com o estoque zerado.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
+          },
+          {
+            "name": "withStock",
+            "in": "query",
+            "description": "Retorna os produtos que têm estoque.",
+            "schema": {
+              "type": "boolean",
+              "example": true
             }
           },
           {
@@ -2761,16 +2828,8 @@
             "in": "query",
             "description": "Gênero do produto.",
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "quantity",
-            "description": "Quantidade em estoque.",
-            "schema": {
               "type": "integer",
-              "format": "int32"
+              "example": 2
             }
           },
           {
@@ -2778,7 +2837,9 @@
             "in": "query",
             "description": "Data de cadatro do produto.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-01-01T03:00:00.000Z"
             }
           },
           {
@@ -2786,7 +2847,181 @@
             "in": "query",
             "description": "Indica se o produto foi enviado ou não, para a loja virtual.",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "example": "false"
+            }
+          },
+          {
+            "name": "grid",
+            "in": "query",
+            "description": "Grade do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "barcode",
+            "in": "query",
+            "description": "Código de barras do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gridTable",
+            "in": "query",
+            "description": "Grid do produto em tabela.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "localization",
+            "in": "query",
+            "description": "Localização do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cloth1",
+            "in": "query",
+            "description": "Tecido 1 do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cloth2",
+            "in": "query",
+            "description": "Tecido 2 do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastBalanceAt",
+            "in": "query",
+            "description": "Data do último balanço.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-01-01T03:00:00.000Z"
+            }
+          },
+          {
+            "name": "lastPurchaseAt",
+            "in": "query",
+            "description": "Data da última compra.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2021-01-01T03:00:00.000Z"
+            }
+          },
+          {
+            "name": "in",
+            "in": "query",
+            "description": "Entradas.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "out",
+            "in": "query",
+            "description": "Saídas.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "supplier",
+            "in": "query",
+            "description": "Fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "initialId",
+            "in": "query",
+            "description": "Código original do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastSupplierPurchase",
+            "in": "query",
+            "description": "Última compra do fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "employeePrice",
+            "in": "query",
+            "description": "Preço para funcionário.",
+            "schema": {
+              "type": "number",
+              "example": 19.90
+            }
+          },
+          {
+            "name": "NCM",
+            "in": "query",
+            "description": "Código NCM.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maximumStock",
+            "in": "query",
+            "description": "Estoque máximo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "minimumStock",
+            "in": "query",
+            "description": "Estoque mínimo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ICP",
+            "in": "query",
+            "description": "Código ICP.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mixId",
+            "in": "query",
+            "description": "Mix.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CEST",
+            "in": "query",
+            "description": "Código CEST.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "webUpdate",
+            "in": "query",
+            "description": "Atualiza web.",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -2794,12 +3029,11 @@
             "in": "query",
             "description": "Id da categoria do produto.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           },
           {
-            "name": "category",
+            "name": "categoryName",
             "in": "query",
             "description": "Nome da categoria do produto.",
             "schema": {
@@ -2811,8 +3045,112 @@
             "in": "query",
             "description": "Id do grupo do produto.",
             "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "groupName",
+            "in": "query",
+            "description": "Descrição do grupo do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collectionId",
+            "in": "query",
+            "description": "Id da coleção do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collectionName",
+            "in": "query",
+            "description": "Última compra do fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lineId",
+            "in": "query",
+            "description": "Id da linha do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lineName",
+            "in": "query",
+            "description": "Última compra do fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "colorId",
+            "in": "query",
+            "description": "Id da cor do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "colorName",
+            "in": "query",
+            "description": "Última compra do fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sizeId",
+            "in": "query",
+            "description": "Id do tamanho do produto.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sizeName",
+            "in": "query",
+            "description": "Última compra do fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "Última compra do fornecedor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "elementNumber",
+            "in": "query",
+            "description": "Número de elementos.",
+            "schema": {
               "type": "integer",
-              "format": "int32"
+              "example": 1
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Nome da categoria do produto.",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -2824,29 +3162,11 @@
             }
           },
           {
-            "name": "collectionId",
-            "in": "query",
-            "description": "Id da coleção do produto.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "collection",
             "in": "query",
             "description": "Nome da coleção do produto.",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "lineId",
-            "in": "query",
-            "description": "Id da linha do produto.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             }
           },
           {
@@ -2875,29 +3195,11 @@
             }
           },
           {
-            "name": "colorId",
-            "in": "query",
-            "description": "Id da cor do produto.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "color",
             "in": "query",
             "description": "Nome da cor do produto.",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "sizeId",
-            "in": "query",
-            "description": "Id do tamanho do produto.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             }
           },
           {
@@ -2909,20 +3211,12 @@
             }
           },
           {
-            "name": "storeId",
-            "in": "query",
-            "description": "Id da loja.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "page",
             "in": "header",
             "description": "Página da resposta.",
             "schema": {
               "type": "integer",
+              "description": "A paginação começa a partir do 0.",
               "format": "int32"
             }
           },
@@ -3103,15 +3397,6 @@
             "description": "Nome da categoria do produto.",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "groupId",
-            "in": "query",
-            "description": "Id do grupo do produto.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             }
           },
           {
@@ -3974,7 +4259,7 @@
       },
       "put": {
         "tags": [
-          "Catálogo"
+          "Venda"
         ],
         "security": [
           {
@@ -4041,7 +4326,7 @@
       },
       "post": {
         "tags": [
-          "Catálogo"
+          "Venda"
         ],
         "security": [
           {
@@ -5824,6 +6109,10 @@
             "format": "double",
             "example": 199.99
           },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
           "images": {
             "type": "array",
             "items": {
@@ -6893,7 +7182,17 @@
           },
           "name": {
             "type": "string",
-            "example": "ANO NOVO 2021"
+            "example": "BEACH WERE FLUID"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-24 19:35:20"
+          },
+          "expirationAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-24 19:35:20"
           }
         }
       },
@@ -7213,6 +7512,10 @@
           "name": {
             "type": "string",
             "example": "BLUSAS"
+          },
+          "unit": {
+            "type": "string",
+            "example": ""
           }
         }
       },
@@ -7287,6 +7590,16 @@
             "type": "string",
             "example": "2020029-0004-2"
           },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 5
+          },
           "quantity": {
             "type": "integer",
             "format": "int32",
@@ -7307,6 +7620,10 @@
       "line": {
         "type": "object",
         "properties": {
+          "CNPJ": {
+            "type": "string",
+            "example": "03502989000120"
+          },
           "id": {
             "type": "integer",
             "format": "int16",
@@ -7404,7 +7721,7 @@
       },            
       "productCatalogsArray": {
         "type": "string",
-        "example": "Calças"
+        "example": "61d44f843b1b3fddedc72a63"
       },
       "productSale": {
         "type": "object",
@@ -8173,7 +8490,7 @@
             "type": "boolean",
             "example": false
           },
-          "catalogs": {
+          "groups": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/productCatalogsArray"
