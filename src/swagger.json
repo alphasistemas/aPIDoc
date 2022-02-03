@@ -5024,6 +5024,22 @@
             }
           },
           {
+            "name": "cityId",
+            "in": "query",
+            "description": "Id da cidade.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countryId",
+            "in": "query",
+            "description": "Id do país.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "name",
             "in": "query",
             "description": "Nome Fantasia do cliente.",
@@ -7293,6 +7309,30 @@
       "employee": {
         "type": "object",
         "properties": {
+          "CPF": {
+            "type": "string",
+            "example": "11111111111"
+          },
+          "RG": {
+            "type": "string",
+            "example": "111111111111"
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "CTPS": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PIS": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Obs": {
+            "type": "integer",
+            "format": "int32"
+          },
           "id": {
             "type": "integer",
             "format": "int32",
@@ -7302,13 +7342,49 @@
             "type": "string",
             "example": "FUNCIONÁRIOS DIVERSOS 2"
           },
-          "CPF": {
-            "type": "string",
-            "example": "11111111111"
+          "postalCode": {
+            "type": "integer",
+            "format": "int32",
+            "example": 110
           },
-          "RG": {
+          "city": {
             "type": "string",
-            "example": "111111111111"
+            "example": "FORTALEZA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 11043
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 300
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "maritalStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "sectorId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "salary": {
+            "type": "number",
+            "format": "double",
+            "example": 1299.90
+          },
+          "salaryCTPS": {
+            "type": "number",
+            "format": "double",
+            "example": 1299.90
           },
           "address": {
             "type": "string",
@@ -7317,14 +7393,6 @@
           "CEP": {
             "type": "string",
             "example": "60150162"
-          },
-          "city": {
-            "type": "string",
-            "example": "FORTALEZA"
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
           },
           "phone": {
             "type": "string",
