@@ -3021,7 +3021,7 @@
             "in": "query",
             "description": "Atualiza web.",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             }
           },
           {
@@ -7643,7 +7643,7 @@
       },
       "product": {
         "type": "object",
-        "properties": {
+        "properties": {          
           "id": {
             "type": "string",
             "example": "0000001"
@@ -7666,9 +7666,19 @@
             "format": "double",
             "example": 84.32
           },
+          "costPrice": {
+            "type": "number",
+            "format": "double",
+            "example": 82.32
+          },
+          "buyPrice": {
+            "type": "number",
+            "format": "double",
+            "example": 82.32
+          },
           "unit": {
             "type": "string",
-            "example": "UN"
+            "example": "PC"
           },
           "disabled": {
             "type": "boolean",
@@ -7679,9 +7689,11 @@
             "format": "int16",
             "example": 3
           },
-          "quantity": {
-            "format": "int32",
-            "example": 6
+          
+          "createAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
           },
           "createdAt": {
             "type": "string",
@@ -7691,6 +7703,161 @@
           "isWebStore": {
             "type": "boolean",
             "example": false
+          },
+          "grid": {
+            "type": "string",
+            "example": "G"
+          },
+          "barcode": {
+            "type": "string",
+            "example": "0001101"
+          },
+          "gridTable": {
+            "type": "string",
+            "example": "G, M, P"
+          },
+          "cloth1": {
+            "type": "string",
+            "example": "Couro"
+          },
+          "cloth2": {
+            "type": "string",
+            "example": "Tecido Crú"
+          },
+          "lastBalanceAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-12-01T00:00:00.000Z"
+          },
+          "lastPurchaseAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-12-01T00:00:00.000Z"
+          },
+          "in": {
+            "type": "string",
+            "example": "P"
+          },
+          "out": {
+            "type": "string",
+            "example": "P"
+          },
+          "supplier": {
+            "type": "string",
+            "example": "José Édson de Queiroz"
+          },
+          "initialId": {
+            "type": "string",
+            "example": "0012012"
+          },
+          "lastSupplierPurchase": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-12-01T00:00:00.000Z"
+          },
+          "employeePrice": {
+            "type": "number",
+            "example": 20.99
+          },
+          "NCM": {
+            "type": "integer",
+            "example": 3432240
+          },
+          "maximumStock": {
+            "type": "integer",
+            "example": 2000
+          },
+          "minimumStock": {
+            "type": "integer",
+            "example": 20
+          },
+          "ICP": {
+            "type": "integer",
+            "example": 2072623
+          },
+          "mixId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "CEST": {
+            "type": "integer",
+            "example": 3432240
+          },
+          "webUpdate": {
+            "type": "boolean",
+            "example": false
+          },
+          "categoryId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "categoryName": {
+            "type": "string",
+            "example": "P"
+          },
+          "groupId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "groupName": {
+            "type": "string",
+            "example": "P"
+          },
+          "collectionId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "collectionName": {
+            "type": "string",
+            "example": "P"
+          },
+          "lineId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "lineName": {
+            "type": "string",
+            "example": "P"
+          },
+          "colorId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "colorName": {
+            "type": "string",
+            "example": "P"
+          },
+          "sizeId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "sizeName": {
+            "type": "string",
+            "example": "P"
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 46
+          },
+          "storeId": {
+            "type": "integer",
+            "example": 4637428
+          },
+          "elementNumber": {
+            "type": "integer",
+            "example": 4637
+          },
+          "sku": {
+            "type": "string",
+            "example": "1284783-21848740-2321"
+          },
+          "skuQuantity": {
+            "type": "integer",
+            "example": 467
+          },
+          "size": {
+            "type": "string",
+            "example": "P"
           },
           "category": {
             "$ref": "#/components/schemas/category"
@@ -7703,10 +7870,6 @@
           },
           "line": {
             "$ref": "#/components/schemas/line"
-          },
-          "size": {
-            "type": "string",
-            "example": "P"
           },
           "colors": {
             "$ref": "#/components/schemas/colorArray"
