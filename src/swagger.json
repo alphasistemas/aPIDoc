@@ -1163,7 +1163,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Criar uma Inscrição.",
+        "summary": "Criar um Produto.",
         "operationId": "postSubscription",
         "requestBody": {
           "description": "Corpo da requisição.",
@@ -1391,7 +1391,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Alterar uma Configuração.",
+        "summary": "Alterar uma Configuração de Tema.",
         "operationId": "putConfig",
         "requestBody": {
           "description": "Corpo da requisição.",
