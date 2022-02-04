@@ -4023,7 +4023,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Deletar uma Estimativa de Venda.",
+        "summary": "Deletar um orçamento.",
         "operationId": "deleteSaleEstimate",
         "parameters": [
           {
@@ -4085,7 +4085,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Obter todas as estimativas de venda.",
+        "summary": "Obter todos os Orçamentos.",
         "operationId": "getSaleEstimate",
         "parameters": [
           {
@@ -4266,7 +4266,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Alterar um Produto.",
+        "summary": "Alterar um Orçamento.",
         "operationId": "putProductCatalog",
         "requestBody": {
           "description": "Corpo da requisição.",
@@ -4333,7 +4333,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Criar uma Inscrição.",
+        "summary": "Criar um Orçamento.",
         "operationId": "postSubscription",
         "requestBody": {
           "description": "Corpo da requisição.",
