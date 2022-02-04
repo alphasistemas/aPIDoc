@@ -5549,6 +5549,57 @@
         "operationId": "getEmployee",
         "parameters": [
           {
+            "name": "CPF",
+            "in": "query",
+            "description": "CPF do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "RG",
+            "in": "query",
+            "description": "RG do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UF",
+            "in": "query",
+            "description": "UF (Unidade Federativa) do funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CTPS",
+            "in": "query",
+            "description": "Id CTPS.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PIS",
+            "in": "query",
+            "description": "Número PIS.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Obs",
+            "in": "query",
+            "description": "Observação.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "id",
             "in": "query",
             "description": "Id do funcionário.",
@@ -5565,19 +5616,45 @@
             }
           },
           {
-            "name": "CPF",
+            "name": "postalCode",
             "in": "query",
-            "description": "CPF do funcionário.",
+            "description": "Código postal.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Cidade do funcionário.",
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "RG",
+            "name": "cityId",
             "in": "query",
-            "description": "RG do funcionário.",
+            "description": "Id do funcionário.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "cellphone",
+            "in": "query",
+            "description": "Celular funcionário.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Código postal.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
@@ -5597,33 +5674,9 @@
             }
           },
           {
-            "name": "city",
-            "in": "query",
-            "description": "Cidade do funcionário.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "UF",
-            "in": "query",
-            "description": "UF (Unidade Federativa) do funcionário.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "phone",
             "in": "query",
             "description": "Telefone funcionário.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "cellphone",
-            "description": "Celular funcionário.",
             "schema": {
               "type": "string"
             }
@@ -7356,6 +7409,10 @@
             "format": "int32",
             "example": 11043
           },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
           "limit": {
             "type": "integer",
             "format": "int32",
@@ -7386,6 +7443,134 @@
             "format": "double",
             "example": 1299.90
           },
+          "PaymentType": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32",
+            "example": 220
+          },
+          "sindicate": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "hasControlledEfficiency": {
+            "type": "boolean",
+            "example": true
+          },
+          "voucherLimit": {
+            "type": "number",
+            "format": "double",
+            "example": 1000
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int32",
+            "example": 9
+          },
+          "gender": {
+            "type": "string",
+            "example": "M"
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "placeOfBirth": {
+            "type": "string",
+            "example": "Campina Grande"
+          },
+          "nationality": {
+            "type": "string",
+            "example": "Brasileiro"
+          },
+          "affiliation": {
+            "type": "string",
+            "example": "ANA MARIA RODRIGUES SOUSA E MANOEL JOÃO DE SOUSA"
+          },
+          "spouse": {
+            "type": "string",
+            "example": "MONEGLESIA SOUSA SANTOS"
+          },
+          "education": {
+            "type": "string",
+            "example": "MEDIO COMPLETO"
+          },
+          "driversLicense": {
+            "type": "string",
+            "example": "0512357490B"
+          },
+          "FGTSAccount": {
+            "type": "string",
+            "example": " "
+          },
+          "FGTSCategory": {
+            "type": "string",
+            "example": "EMPREGADO "
+          },
+          "admission": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2012-06-01T00:00:00.000Z"
+          },
+          "allowance": {
+            "type": "string",
+            "example": " "
+          },
+          "resignation": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "resignationReason": {
+            "type": "string",
+            "example": "MOTIVOS PESSOAIS"
+          },
+          "currentVacationStart": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "currentVacationEnd": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "vacationStart": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "vacationEnd": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "nextVacationStart": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "nextVacationEnd": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
           "address": {
             "type": "string",
             "example": "AVENIDA SANTOS DUMONT"
@@ -7398,10 +7583,6 @@
             "type": "string",
             "example": "30302020"
           },
-          "cellphone": {
-            "type": "string",
-            "example": "085999808080"
-          },
           "registerDate": {
             "type": "string",
             "format": "date-time",
@@ -7411,11 +7592,6 @@
             "type": "integer",
             "format": "int16",
             "example": 0
-          },
-          "situation": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
           },
           "active": {
             "type": "boolean",
