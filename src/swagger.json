@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Alpha API",
-    "description": "A API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite o uso da API por clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nomes dos campos em um endpoint tenham rigorosamente o mesmo significado em outros recursos.",
+    "description": "A  API da Alpha Sistemas foi desenvolvida baseada na arquitetura REST, seguindo os padrões técnicos de mercado. Tudo isso para que a experiência na hora da integração seja a mais fácil possível. Todas as URLs são amigáveis e orientadas a recursos, utilizando os padrões do protocolo HTTP com autenticação, verbos e códigos de retorno. Isso permite o uso da API por clients HTTP já existentes. Todas as respostas são retornadas no formato JSON. Como pode ser visto abaixo, a API foi cuidadosamente trabalhada para que as regras de negócios contidas sejam facilmente entendidas por desenvolvedores que não tenham conhecimento prévio do sistema. Elas foram meticulosamente estudadas para que os nomes dos campos em um endpoint tenham rigorosamente o mesmo significado em outros recursos. \n\n Para usar esta API, é necessário que o usuário esteja autenticado. Para isso, cria-se uma nova conta a partir da rota /auth/singUp ou utiliza-se um usuário administrador provido pela infra. Conseguinte, é necessário que o usuário se autentique pela rota /auth/signIn, que retornará um token de autenticação. Em cada rota da API o token será solicitado como bearer token. O usuário precisará se autenticar novamente toda vez que vencer o prazo de autenticação predefinido. A API só funcionará se o usuário estiver usando um token.",
     "version": "1.0.0",
     "contact": {
       "name": "Alpha Sistemas",
@@ -1163,7 +1163,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Criar uma Inscrição.",
+        "summary": "Criar um Produto.",
         "operationId": "postSubscription",
         "requestBody": {
           "description": "Corpo da requisição.",
@@ -1391,7 +1391,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Alterar uma Configuração.",
+        "summary": "Alterar uma Configuração de Tema.",
         "operationId": "putConfig",
         "requestBody": {
           "description": "Corpo da requisição.",
@@ -4023,7 +4023,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Deletar uma Estimativa de Venda.",
+        "summary": "Deletar um orçamento.",
         "operationId": "deleteSaleEstimate",
         "parameters": [
           {
@@ -4085,7 +4085,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Obter todas as estimativas de venda.",
+        "summary": "Obter todos os Orçamentos.",
         "operationId": "getSaleEstimate",
         "parameters": [
           {
@@ -4266,7 +4266,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Alterar um Produto.",
+        "summary": "Alterar um Orçamento.",
         "operationId": "putProductCatalog",
         "requestBody": {
           "description": "Corpo da requisição.",
@@ -4333,7 +4333,7 @@
             "bearerAuth": []
           }
         ],
-        "summary": "Criar uma Inscrição.",
+        "summary": "Criar um Orçamento.",
         "operationId": "postSubscription",
         "requestBody": {
           "description": "Corpo da requisição.",
