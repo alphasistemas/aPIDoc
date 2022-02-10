@@ -2400,6 +2400,34 @@
         ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOut",
+        "parameters": [   
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Corpo da requisição.",
           "required": true,
@@ -4438,6 +4466,34 @@
         ],
         "summary": "Criar uma fatura.",
         "operationId": "postInvoice",
+        "parameters": [   
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Corpo da requisição.",
           "content": {
@@ -4507,6 +4563,34 @@
         ],
         "summary": "Criar uma venda.",
         "operationId": "postSale",
+        "parameters": [   
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Corpo da requisição.",
           "content": {
@@ -6794,6 +6878,11 @@
             "type": "integer",
             "format": "int32",
             "example": 3
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
           }
         }
       },
@@ -6884,6 +6973,15 @@
             "type": "integer",
             "format": "int32",
             "example": 2
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "type": {
+            "type": "string",
+            "example": "01"
           }
         }
       },
@@ -6937,6 +7035,11 @@
             "example": 20.00
           },
           "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "storeId": {
             "type": "integer",
             "format": "int32",
             "example": 1
@@ -8883,6 +8986,11 @@
           "type": {
             "type": "string",
             "example": "01"
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
           }
         }
       },
@@ -9184,6 +9292,11 @@
             "type": "number",
             "format": "double",
             "example": 20.00
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
           },
           "products": {
             "type": "array",
