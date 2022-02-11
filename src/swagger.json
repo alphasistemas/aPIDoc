@@ -4730,7 +4730,7 @@
         "summary": "Criar uma Inscrição.",
         "operationId": "postSubscription",
         "requestBody": {
-          "description": "Corpo da requisição.",
+          "description": "No objeto ***callback***, na ***url*** será necessário que o usuário defina uma url, onde receberá as notificações de cada evento que chegar API. No ***method*** ele pode definir o método que deseja receber essas notificações (se esse campo for removido, a url receberá qualquer evento, setado no ***method*** do route, que foi recebido na API. No ***config***, um objeto é repassado para o axios para que possa fazer a conexão com a rota em questão . \n\nNo objeto ***route***: a chave ***endpoint*** define um endpoint que o usuário deseja escutar; a chave ***method***, será um array de métodos que o usuário deseja receber retorno. Se você usar apenas o ***post*** no ***method***, você criará uma inscrição apenas para esse método e não receberá resposta dos outros métodos ***PUT, GET, DELETE***.",
           "content": {
             "application/json": {
               "schema": {
