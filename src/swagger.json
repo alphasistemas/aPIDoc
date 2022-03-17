@@ -4551,6 +4551,512 @@
         }
       }
     },
+    "/sale/payment/condition": {
+      "delete": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deletar uma condição de pagamento.",
+        "operationId": "deleteSalePaymentCondition",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da condição de pagamento.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as Condições de Pagamento.",
+        "operationId": "getSalePaymentCondition",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da condição de pagamento.",
+            "schema": {
+              "type": "string",
+              "example": "30"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da condição de pagamento.",
+            "schema": {
+              "type": "string",
+              "example": "30/60/90 Dias"
+            }
+          },
+          {
+            "name": "installments",
+            "in": "query",
+            "description": "Qauntidade de Parcelas.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          },
+          {
+            "name": "firstInstallmentDays",
+            "in": "query",
+            "description": "Dia do pagamento da primeira parcela.",
+            "schema": {
+              "type": "integer",
+              "example": 31
+            }
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "description": "Dias.",
+            "schema": {
+              "type": "integer",
+              "example": 30
+            }
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Inativo.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
+          },
+          {
+            "name": "discount",
+            "in": "query",
+            "description": "Valor do desconto.",
+            "schema": {
+              "type": "number",
+              "example": 0.99
+            }
+          },
+          {
+            "name": "keepFixedDay",
+            "in": "query",
+            "description": "Manter dia fixo.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "catalog",
+            "in": "query",
+            "description": "Catálogo.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "example": 2
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar uma condição de Pagamento.",
+        "operationId": "postSalePaymentCondition",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyPaymentCondition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyPaymentCondition"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/payment/method": {
+      "delete": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deletar um método de pagamento.",
+        "operationId": "deleteSalePaymentMethod",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do método de pagamento.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todos métodos de Pagamento.",
+        "operationId": "getSalePaymentMethod",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id do método de pagamento.",
+            "schema": {
+              "type": "string",
+              "example": "30"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Descrição do método de pagamento.",
+            "schema": {
+              "type": "string",
+              "example": "CARTÃO"
+            }
+          },
+          {
+            "name": "mnemonic",
+            "in": "query",
+            "description": "Sigla.",
+            "schema": {
+              "type": "string",
+              "example": "CA"
+            }
+          },
+          {
+            "name": "finisherId",
+            "in": "query",
+            "description": "Codigo da Finalizadora (meio de pagamento).",
+            "schema": {
+              "type": "integer",
+              "example": 99
+            }
+          },
+          {
+            "name": "issue",
+            "in": "query",
+            "description": "Baixa em Titulo.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "catalog",
+            "in": "query",
+            "description": "Catálogo.",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Descricao da Leitura.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "example": 2
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Venda"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar uma condição de Pagamento.",
+        "operationId": "postSalePaymentCondition",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bodyPaymentCondition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/bodyPaymentMethod"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sale/sale": {
       "post": {
         "tags": [
@@ -6982,6 +7488,76 @@
           "type": {
             "type": "string",
             "example": "01"
+          }
+        }
+      },
+      "bodyPaymentCondition": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "30/60/90/120"
+          },
+          "installments": {
+            "type": "integer",
+            "example": "3"
+          },
+          "firstInstallmentDays": {
+            "type": "integer",
+            "example": "30"
+          },
+          "days": {
+            "type": "integer",
+            "example": "30"
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": false
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "discount": {
+            "type": "number",
+            "example": 3.99
+          }
+        }
+      },
+      "bodyPaymentMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "CARTÃO"
+          },
+          "mnemonic": {
+            "type": "string",
+            "example": "CA"
+          },
+          "finisherId": {
+            "type": "integer",
+            "example": 99
+          },
+          "issue": {
+            "type": "boolean",
+            "example": false
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": true
+          },
+          "description": {
+            "type": "string",
+            "example": "CARTÃO"
           }
         }
       },
