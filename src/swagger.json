@@ -1969,6 +1969,114 @@
         }
       }
     },
+    "/product/color": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as cores de produto.",
+        "operationId": "getProductColor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Código da cor.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da cor.",
+            "schema": {
+              "type": "string",
+              "example": "ESTAMPADO"
+            }
+          },
+          {
+            "name": "warehouse",
+            "in": "query",
+            "description": "Almoxarifado.",
+            "schema": {
+              "type": "boolean",
+              "example": "true"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/categoryArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/product/dpa": {
       "delete": {
         "tags": [
@@ -2034,6 +2142,105 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseDpa"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/grid": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as grades de produto.",
+        "operationId": "getProductGrid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Código da grade.",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da grade.",
+            "schema": {
+              "type": "string",
+              "example": "PLUS SIZE"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productGrid"
                 }
               }
             }
@@ -4667,8 +4874,8 @@
             "in": "query",
             "description": "Manter dia fixo.",
             "schema": {
-              "type": "integer",
-              "example": 1
+              "type": "boolean",
+              "example": true
             }
           },
           {
@@ -4705,7 +4912,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                  "$ref": "#/components/schemas/responsePaymentCondition"
                 }
               }
             }
@@ -4772,7 +4979,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyPaymentCondition"
+                  "$ref": "#/components/schemas/responsePaymentConditionArray"
                 }
               }
             }
@@ -4949,7 +5156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                  "$ref": "#/components/schemas/responsePaymentMethod"
                 }
               }
             }
@@ -4999,13 +5206,13 @@
           }
         ],
         "summary": "Criar uma condição de Pagamento.",
-        "operationId": "postSalePaymentCondition",
+        "operationId": "postSalePaymentMethod",
         "requestBody": {
           "description": "Corpo da requisição.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPaymentCondition"
+                "$ref": "#/components/schemas/bodyPaymentMethod"
               }
             }
           }
@@ -8809,6 +9016,25 @@
         "type": "string",
         "example": "61d44f843b1b3fddedc72a63"
       },
+      "productGrid": {
+        "type": "object",
+        "properties":{
+          "id": {
+            "type": "integer",
+            "example": 3
+          },
+          "name": {
+            "type": "string",
+            "example": "CORES DIVERSAS"
+          },
+          "sizes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sizes"
+            }
+          }
+        }
+      },
       "productSale": {
         "type": "object",
         "required": [
@@ -9570,6 +9796,92 @@
           }
         }
       },
+      "responsePaymentCondition": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responsePaymentConditionArray"
+        }
+      },
+      "responsePaymentConditionArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "30/60/90/120"
+          },
+          "installments": {
+            "type": "integer",
+            "example": "3"
+          },
+          "firstInstallmentDays": {
+            "type": "integer",
+            "example": "30"
+          },
+          "days": {
+            "type": "integer",
+            "example": "30"
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": false
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "discount": {
+            "type": "number",
+            "example": 3.99
+          },
+          "keepFixedDay": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "responsePaymentMethod": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responsePaymentMethodArray"
+        }
+      },
+      "responsePaymentMethodArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "CARTÃO"
+          },
+          "mnemonic": {
+            "type": "string",
+            "example": "CA"
+          },
+          "finisherId": {
+            "type": "integer",
+            "example": "99"
+          },
+          "issue": {
+            "type": "boolean",
+            "example": "false"
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": false
+          },
+          "description": {
+            "type": "string",
+            "example": "CARTÃO"
+          }
+        }
+      },
       "responseProductCatalog": {
         "type": "object",
         "properties": {
@@ -9899,6 +10211,10 @@
             "example": "200135"
           }
         }
+      },
+      "sizes": {
+        "type": "string",
+        "example": "52, 34, 36, 38, 40, 42, 44, 46, 48, 50"
       },
       "error400": {
         "type": "object",

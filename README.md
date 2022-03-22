@@ -41,7 +41,7 @@ Para usar esta API, é necessário que o usuário esteja autenticado. Para isso,
 ## **Variáveis de ambiente**
 
 As variáveis de ambiente usadas no sistema estão da seguinte forma.
-
+****
 
 | Serviço(S)                                     | Nome da Variável de Ambiente         | Descrição                                    | Valor de Exemplo                                                    | Secret | Obrigatório | Produção | Desenvolvimento |
 | ---------------------------------------------- | ------------------------------------ | -------------------------------------------- | --------------------------------------------------------------------| ------ | ----------- | -------- | --------------- |
