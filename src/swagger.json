@@ -7827,6 +7827,11 @@
             "format": "int32",
             "example": 1
           },
+          "priceTable": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
           "products": {
             "type": "array",
             "items": {
