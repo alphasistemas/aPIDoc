@@ -6,7 +6,7 @@ Esta é uma API baseada em micro-serviços e foi construída utilizando o concei
 
 ***
 
-![Arquitetura](https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/images/APIs.drawio.svg.png)
+![Arquitetura](https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/images/APIs.drawio.svg)
 
 ***
 
