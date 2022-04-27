@@ -5324,16 +5324,7 @@
         "summary": "Criar uma Inscrição.",
         "operationId": "postSubscription",
         "requestBody": {
-          "description": "No objeto ***callback***, na ***url*** será necessário que o usuário defina
-           uma url, onde receberá as notificações de cada evento que chegar API.
-           No ***method*** ele pode definir o método que deseja receber essas notificações
-           (se esse campo for removido, a url receberá qualquer evento, setado no ***method*** do route,
-           que foi recebido na API. No ***config***, um objeto é repassado para o axios para que possa
-           fazer a conexão com a rota em questão .
-           \n\nNo objeto ***route***: a chave ***endpoint*** define um endpoint que o usuário deseja escutar;
-           a chave ***method***, será um array de métodos que o usuário deseja receber retorno. Se você usar
-           apenas o ***post*** no ***method***, você criará uma inscrição apenas para esse método e não receberá
-           resposta dos outros métodos ***PUT, GET, DELETE***.",
+          "description": "No objeto ***callback***, na ***url*** será necessário que o usuário defina uma url, onde receberá as notificações de cada evento que chegar API. No ***method*** ele pode definir o método que deseja receber essas notificações (se esse campo for removido, a url receberá qualquer evento, setado no ***method*** do route, que foi recebido na API. No ***config***, um objeto é repassado para o axios para que possa fazer a conexão com a rota em questão. \n\nNo objeto ***route***: a chave ***endpoint*** define um endpoint que o usuário deseja escutar; a chave ***method***, será um array de métodos que o usuário deseja receber retorno. Se você usar apenas o ***post*** no ***method***, você criará uma inscrição apenas para esse método e não receberá resposta dos outros métodos ***PUT, GET, DELETE***.",
           "content": {
             "application/json": {
               "schema": {
@@ -7616,14 +7607,17 @@
         "properties": {
           "url": {
             "type": "string",
+            "description": "URL da publicação",
             "example": "https://reqres.in/api/user"
           },
           "endpoint": {
             "type": "string",
+            "description": "Endpoint da publicação",
             "example": "api/alguma"
           },
           "contents": {
             "type": "object",
+            "description": "Conteúdo da publicação",
             "properties": {
               "teste": {
                 "type": "string",
@@ -7689,14 +7683,17 @@
             "properties": {
               "url": {
                 "type": "string",
-                "example": "https://test-api-services.vercel.app/api/subscription/publish"
+                "description": "URL que receberá notificações de eventos a rota a qual se inscreveu",
+                "example": "https://test-api.app/api/subscription/publish"
               },
               "method": {
                 "type": "string",
+                "description": "Método HTTP que será utilizado para receber as notificações",
                 "example": "POST"
               },
               "config": {
                 "type": "array",
+                "description": "Configurações adicionais para o envio da notificação, como headers, query params, etc. Esse campo tem o mesmo formato do Request Config do Axios: https://axios-http.com/docs/req_config",
                 "items": {
                   "$ref": "#/components/schemas/config"
                 }
@@ -7708,15 +7705,18 @@
             "properties": {
               "url": {
                 "type": "string",
-                "example": "https://reqres.in/api/user"
+                "description": "URL da API a qual deseja se inscrever",
+                "example": "https://alpha-api.com/"
               },
               "endpoint": {
                 "type": "string",
+                "description": "Endpoint da API a qual deseja se inscrever",
                 "example": "product/inventory"
               },
               "method": {
                 "type": "array",
-                "example": ["POST", "PUT"]
+                "description": "Métodos HTTP que deseja se inscrever",
+                "example": ["POST", "PUT", "DELETE"]
               }
             }
           }
