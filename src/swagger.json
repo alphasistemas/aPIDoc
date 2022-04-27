@@ -53,9 +53,7 @@
   "paths": {
     "/auth/signIn": {
       "post": {
-        "tags": [
-          "Autenticação"
-        ],
+        "tags": ["Autenticação"],
         "summary": "Login do usuário ou serviço.",
         "operationId": "postSignIn",
         "requestBody": {
@@ -130,9 +128,7 @@
     },
     "/auth/signUp": {
       "post": {
-        "tags": [
-          "Autenticação"
-        ],
+        "tags": ["Autenticação"],
         "security": [
           {},
           {
@@ -166,20 +162,14 @@
                     ],
                     "permissions": {
                       "auth": {
-                        "all": [
-                          "all"
-                        ]
+                        "all": ["all"]
                       },
                       "VUTT": {
-                        "all": [
-                          "all"
-                        ]
+                        "all": ["all"]
                       }
                     },
                     "instances": {
-                      "all": [
-                        "all"
-                      ]
+                      "all": ["all"]
                     }
                   }
                 }
@@ -236,9 +226,7 @@
     },
     "/catalog/config": {
       "delete": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -291,9 +279,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -395,9 +381,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -462,9 +446,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -531,9 +513,7 @@
     },
     "/catalog/group": {
       "delete": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -575,8 +555,8 @@
             "description": "Tabela de Preços.",
             "schema": {
               "type": "number",
-              "format": "double",
-              "example": 199.99
+              "format": "int32",
+              "example": 1
             }
           },
           {
@@ -624,9 +604,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -668,8 +646,8 @@
             "description": "Tabela de Preços.",
             "schema": {
               "type": "number",
-              "format": "double",
-              "example": 199.99
+              "format": "int32",
+              "example": 1
             }
           },
           {
@@ -768,9 +746,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -835,9 +811,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -904,9 +878,7 @@
     },
     "/catalog/product": {
       "delete": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -966,9 +938,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1088,9 +1058,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1155,9 +1123,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1224,9 +1190,7 @@
     },
     "/catalog/theme": {
       "delete": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1277,9 +1241,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1322,7 +1284,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 1            
+              "example": 1
             }
           },
           {
@@ -1332,7 +1294,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "example": 5        
+              "example": 5
             }
           }
         ],
@@ -1383,9 +1345,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1450,9 +1410,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Catálogo"
-        ],
+        "tags": ["Catálogo"],
         "security": [
           {
             "bearerAuth": []
@@ -1519,9 +1477,7 @@
     },
     "/email/email": {
       "post": {
-        "tags": [
-          "Email"
-        ],
+        "tags": ["Email"],
         "summary": "Enviar e-mail.",
         "operationId": "postEmail",
         "requestBody": {
@@ -1583,9 +1539,7 @@
     },
     "/product/category": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -1679,9 +1633,7 @@
     },
     "/product/category/{id}": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -1777,9 +1729,7 @@
     },
     "/product/collection": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -1873,9 +1823,7 @@
     },
     "/product/collection/{id}": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -1971,9 +1919,7 @@
     },
     "/product/color": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2079,9 +2025,7 @@
     },
     "/product/dpa": {
       "delete": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2114,9 +2058,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2184,9 +2126,7 @@
     },
     "/product/grid": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2283,9 +2223,7 @@
     },
     "/product/group": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2387,9 +2325,7 @@
     },
     "/product/group/{id}": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2485,9 +2421,7 @@
     },
     "/product/inventory": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2495,14 +2429,13 @@
         ],
         "summary": "Obter o estoque de todos os produtos.",
         "operationId": "getInventory",
-        "parameters": [          
+        "parameters": [
           {
             "name": "Id",
             "in": "query",
             "description": "Id do inventário.",
             "schema": {
               "type": "integer"
-
             }
           },
           {
@@ -2524,9 +2457,9 @@
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -2597,9 +2530,7 @@
     },
     "/product/inventory/out": {
       "put": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2607,13 +2538,13 @@
         ],
         "summary": "Atualizar o estoque do produto.",
         "operationId": "getInventoryOut",
-        "parameters": [   
+        "parameters": [
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -2695,9 +2626,7 @@
     },
     "/product/inventory/out/grid": {
       "put": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2764,9 +2693,7 @@
     },
     "/product/line": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2860,9 +2787,7 @@
     },
     "/product/line/{id}": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2958,9 +2883,7 @@
     },
     "/product/product": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -2975,7 +2898,7 @@
             "description": "Referência do produto.",
             "schema": {
               "type": "string",
-            "example": "0100058"
+              "example": "0100058"
             }
           },
           {
@@ -3010,7 +2933,7 @@
             "description": "Preço de custo do produto.",
             "schema": {
               "type": "number",
-              "example": 109.90
+              "example": 109.9
             }
           },
           {
@@ -3019,7 +2942,7 @@
             "description": "Preço de compra do produto.",
             "schema": {
               "type": "number",
-              "example": 109.90
+              "example": 109.9
             }
           },
           {
@@ -3027,7 +2950,7 @@
             "in": "query",
             "description": "Unidade.",
             "schema": {
-              "type": "string",              
+              "type": "string",
               "example": "PC"
             }
           },
@@ -3200,7 +3123,7 @@
             "description": "Preço para funcionário.",
             "schema": {
               "type": "number",
-              "example": 19.90
+              "example": 19.9
             }
           },
           {
@@ -3366,9 +3289,9 @@
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -3514,9 +3437,7 @@
     },
     "/product/product/{id}": {
       "get": {
-        "tags": [
-          "Produto"
-        ],
+        "tags": ["Produto"],
         "security": [
           {
             "bearerAuth": []
@@ -3730,10 +3651,9 @@
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -3804,9 +3724,7 @@
     },
     "/sale/bill": {
       "delete": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "summary": "Deletar uma comanda.",
         "operationId": "deleteBill",
         "security": [
@@ -3839,9 +3757,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -3974,10 +3890,9 @@
           {
             "name": "storeId",
             "in": "query",
-            "description": "Código da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -4180,9 +4095,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4250,9 +4163,7 @@
     },
     "/sale/estimate": {
       "delete": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4312,9 +4223,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4411,11 +4320,9 @@
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "example": 1
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -4493,9 +4400,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4560,9 +4465,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4629,9 +4532,7 @@
     },
     "/sale/invoice": {
       "delete": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4663,9 +4564,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4673,13 +4572,13 @@
         ],
         "summary": "Criar uma fatura.",
         "operationId": "postInvoice",
-        "parameters": [   
+        "parameters": [
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -4760,9 +4659,7 @@
     },
     "/sale/payment/condition": {
       "delete": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4795,9 +4692,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -4953,9 +4848,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -5022,9 +4915,7 @@
     },
     "/sale/payment/method": {
       "delete": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -5057,9 +4948,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -5197,9 +5086,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -5266,9 +5153,7 @@
     },
     "/sale/sale": {
       "post": {
-        "tags": [
-          "Venda"
-        ],
+        "tags": ["Venda"],
         "security": [
           {
             "bearerAuth": []
@@ -5276,13 +5161,13 @@
         ],
         "summary": "Criar uma venda.",
         "operationId": "postSale",
-        "parameters": [   
+        "parameters": [
           {
             "name": "storeId",
             "in": "query",
-            "description": "Id da loja.",
+            "description": "Número da Loja (Loja 1 = Matriz)",
             "schema": {
-              "type": "integer"
+              "$ref": "#/components/schemas/storeId"
             }
           },
           {
@@ -5363,9 +5248,7 @@
     },
     "/subscription/publication": {
       "post": {
-        "tags": [
-          "Inscrição"
-        ],
+        "tags": ["Inscrição"],
         "security": [
           {
             "bearerAuth": []
@@ -5432,9 +5315,7 @@
     },
     "/subscription/subscription": {
       "post": {
-        "tags": [
-          "Inscrição"
-        ],
+        "tags": ["Inscrição"],
         "security": [
           {
             "bearerAuth": []
@@ -5443,7 +5324,7 @@
         "summary": "Criar uma Inscrição.",
         "operationId": "postSubscription",
         "requestBody": {
-          "description": "No objeto ***callback***, na ***url*** será necessário que o usuário defina uma url, onde receberá as notificações de cada evento que chegar API. No ***method*** ele pode definir o método que deseja receber essas notificações (se esse campo for removido, a url receberá qualquer evento, setado no ***method*** do route, que foi recebido na API. No ***config***, um objeto é repassado para o axios para que possa fazer a conexão com a rota em questão . \n\nNo objeto ***route***: a chave ***endpoint*** define um endpoint que o usuário deseja escutar; a chave ***method***, será um array de métodos que o usuário deseja receber retorno. Se você usar apenas o ***post*** no ***method***, você criará uma inscrição apenas para esse método e não receberá resposta dos outros métodos ***PUT, GET, DELETE***.",
+          "description": "No objeto ***callback***, na ***url*** será necessário que o usuário defina uma url, onde receberá as notificações de cada evento que chegar API. No ***method*** ele pode definir o método que deseja receber essas notificações (se esse campo for removido, a url receberá qualquer evento, setado no ***method*** do route, que foi recebido na API. No ***config***, um objeto é repassado para o axios para que possa fazer a conexão com a rota em questão. \n\nNo objeto ***route***: a chave ***endpoint*** define um endpoint que o usuário deseja escutar; a chave ***method***, será um array de métodos que o usuário deseja receber retorno. Se você usar apenas o ***post*** no ***method***, você criará uma inscrição apenas para esse método e não receberá resposta dos outros métodos ***PUT, GET, DELETE***.",
           "content": {
             "application/json": {
               "schema": {
@@ -5501,9 +5382,7 @@
     },
     "/user/city": {
       "get": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "security": [
           {
             "bearerAuth": []
@@ -5610,9 +5489,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "security": [
           {
             "bearerAuth": []
@@ -5620,7 +5497,7 @@
         ],
         "summary": "Cadatrar uma cidade.",
         "operationId": "postCity",
-        "requestBody": {          
+        "requestBody": {
           "required": true,
           "description": "Corpo do cadastro de cidade.",
           "content": {
@@ -5680,9 +5557,7 @@
     },
     "/user/city/{id}": {
       "get": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "summary": "Obter a cidade pelo id.",
         "operationId": "getCityId",
         "security": [
@@ -5801,9 +5676,7 @@
     },
     "/user/client": {
       "get": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "security": [
           {
             "bearerAuth": []
@@ -6039,9 +5912,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "summary": "Cadatrar um cliente.",
         "operationId": "postClient",
         "security": [
@@ -6108,9 +5979,7 @@
     },
     "/user/client/{id}": {
       "get": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "summary": "Obter o cliente pelo id.",
         "operationId": "getClientId",
         "security": [
@@ -6334,9 +6203,7 @@
     },
     "/user/employee": {
       "get": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "security": [
           {
             "bearerAuth": []
@@ -6578,9 +6445,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "security": [
           {
             "bearerAuth": []
@@ -6647,9 +6512,7 @@
     },
     "/user/employee/{id}": {
       "get": {
-        "tags": [
-          "Usuário"
-        ],
+        "tags": ["Usuário"],
         "security": [
           {
             "bearerAuth": []
@@ -6862,12 +6725,7 @@
       },
       "bodyBill": {
         "type": "object",
-        "required": [
-          "consumer",
-          "paymentId",
-          "products",
-          "unitValue"
-        ],
+        "required": ["consumer", "paymentId", "products", "unitValue"],
         "properties": {
           "consumerId": {
             "type": "integer",
@@ -6886,12 +6744,12 @@
           "discountValue": {
             "type": "number",
             "format": "double",
-            "example": 0.00
+            "example": 0.0
           },
           "deliveryFee": {
             "type": "number",
             "format": "double",
-            "example": 20.00
+            "example": 20.0
           },
           "paymentId": {
             "type": "integer",
@@ -6903,6 +6761,14 @@
             "items": {
               "$ref": "#/components/schemas/productSale"
             }
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
           }
         }
       },
@@ -6914,11 +6780,7 @@
       },
       "bodyCatalogConfig": {
         "type": "object",
-        "required": [
-          "id",
-          "store",
-          "minimunQuantity"
-        ],
+        "required": ["id", "store", "minimunQuantity"],
         "properties": {
           "id": {
             "type": "string",
@@ -6935,7 +6797,7 @@
             "example": 1
           }
         }
-      },      
+      },
       "bodyCatalogConfigArray": {
         "type": "array",
         "items": {
@@ -6944,11 +6806,7 @@
       },
       "bodyCatalogGroup": {
         "type": "object",
-        "required": [
-          "id",
-          "priceTable",
-          "minimunQuantity"
-        ],
+        "required": ["id", "priceTable", "minimunQuantity"],
         "properties": {
           "id": {
             "type": "string",
@@ -6972,8 +6830,8 @@
           },
           "priceTable": {
             "type": "number",
-            "format": "double",
-            "example": 199.99
+            "format": "int32",
+            "example": 4
           },
           "disabled": {
             "type": "boolean",
@@ -6989,11 +6847,7 @@
       },
       "bodyCatalogProduct": {
         "type": "object",
-        "required": [
-          "id",
-          "priceTable",
-          "minimunQuantity"
-        ],
+        "required": ["id", "priceTable", "minimunQuantity"],
         "properties": {
           "id": {
             "type": "string",
@@ -7019,9 +6873,7 @@
       },
       "bodyCity": {
         "type": "object",
-        "required": [
-          "state"
-        ],
+        "required": ["state"],
         "properties": {
           "name": {
             "type": "string",
@@ -7106,12 +6958,7 @@
       },
       "bodyDpa": {
         "type": "object",
-        "required": [
-          "productId",
-          "billId",
-          "quantity",
-          "unitValue"
-        ],
+        "required": ["productId", "billId", "quantity", "unitValue"],
         "properties": {
           "productId": {
             "type": "string",
@@ -7129,7 +6976,7 @@
           "unitValue": {
             "type": "number",
             "format": "double",
-            "example": 20.10
+            "example": 20.1
           }
         }
       },
@@ -7153,6 +7000,12 @@
             "example": "Corpo do Email"
           }
         }
+      },
+      "storeId": {
+        "description": "Número da Loja (Loja 1 = Matriz)",
+        "type": "integer",
+        "format": "int32",
+        "example": 2
       },
       "bodyEmployee": {
         "type": "object",
@@ -7201,127 +7054,127 @@
           "commissionInCash": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commissionInInstallments": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission1": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission2": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission3": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission4": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission5": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission6": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission7": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission8": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission9": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission09": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission10": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission11": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission12": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission13": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission14": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commission15": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commissionCashier": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commissionManager": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commissionSupervisor": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "commissionGeneral": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "limit": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "roleId": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "maritalStatusId": {
             "type": "number",
             "format": "double",
-            "example": 10.50
+            "example": 10.5
           },
           "dependentQuantity": {
             "type": "integer",
@@ -7336,12 +7189,12 @@
           "salary": {
             "type": "number",
             "format": "double",
-            "example": 1200.00
+            "example": 1200.0
           },
           "salaryCTPS": {
             "type": "number",
             "format": "double",
-            "example": 1200.00
+            "example": 1200.0
           },
           "PaymentType": {
             "type": "integer",
@@ -7368,9 +7221,7 @@
             "example": false
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
+            "$ref": "#/components/schemas/storeId"
           },
           "hasControlledEfficiency": {
             "type": "boolean",
@@ -7384,7 +7235,7 @@
           "biweeklyAdvanceAmount": {
             "type": "number",
             "format": "double",
-            "example": 500.00
+            "example": 500.0
           },
           "isVacationEmployee": {
             "type": "boolean",
@@ -7398,12 +7249,12 @@
           "goldQuotaCommission": {
             "type": "number",
             "format": "float",
-            "example": 50.10
+            "example": 50.1
           },
           "goldQuotaAmount": {
             "type": "number",
             "format": "double",
-            "example": 570.20
+            "example": 570.2
           },
           "silverQuotaNumberOfParts": {
             "type": "integer",
@@ -7413,12 +7264,12 @@
           "silverQuotaCommission": {
             "type": "number",
             "format": "float",
-            "example": 50.10
+            "example": 50.1
           },
           "silverQuotaAmount": {
             "type": "number",
             "format": "double",
-            "example": 570.20
+            "example": 570.2
           },
           "bronzeQuotaNumberOfParts": {
             "type": "integer",
@@ -7428,12 +7279,12 @@
           "bronzeQuotaCommission": {
             "type": "number",
             "format": "float",
-            "example": 50.10
+            "example": 50.1
           },
           "bronzeQuotaAmount": {
             "type": "number",
             "format": "double",
-            "example": 570.20
+            "example": 570.2
           },
           "voucherLimit": {
             "type": "number",
@@ -7456,17 +7307,17 @@
           "award": {
             "type": "number",
             "format": "double",
-            "example": 500.00
+            "example": 500.0
           },
           "productivity": {
             "type": "number",
             "format": "double",
-            "example": 500.00
+            "example": 500.0
           },
           "punctuality": {
             "type": "number",
             "format": "double",
-            "example": 500.00
+            "example": 500.0
           },
           "bank": {
             "type": "integer",
@@ -7551,7 +7402,7 @@
           },
           "deliveryFee": {
             "type": "string",
-            "example": 0.00
+            "example": 0.0
           },
           "inCash": {
             "type": "number",
@@ -7564,9 +7415,7 @@
             "example": 800
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           },
           "products": {
             "type": "array",
@@ -7578,10 +7427,7 @@
       },
       "bodyInventoryOut": {
         "type": "object",
-        "required": [
-          "productId",
-          "quantity"
-        ],
+        "required": ["productId", "quantity"],
         "properties": {
           "productId": {
             "type": "string",
@@ -7593,9 +7439,7 @@
             "example": 3
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           }
         }
       },
@@ -7688,13 +7532,16 @@
             "example": 2
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           },
           "type": {
             "type": "string",
             "example": "01"
+          },
+          "installmentNumber": {
+            "type": "integer",
+            "example": "1",
+            "description": "Número do parcelamento, começa em 1"
           }
         }
       },
@@ -7773,14 +7620,17 @@
         "properties": {
           "url": {
             "type": "string",
+            "description": "URL da publicação",
             "example": "https://reqres.in/api/user"
           },
           "endpoint": {
             "type": "string",
+            "description": "Endpoint da publicação",
             "example": "api/alguma"
           },
           "contents": {
             "type": "object",
+            "description": "Conteúdo da publicação",
             "properties": {
               "teste": {
                 "type": "string",
@@ -7810,12 +7660,12 @@
           "discountValue": {
             "type": "number",
             "format": "double",
-            "example": 0.00
+            "example": 0.0
           },
           "deliveryFee": {
             "type": "number",
             "format": "double",
-            "example": 20.00
+            "example": 20.0
           },
           "paymentId": {
             "type": "integer",
@@ -7823,9 +7673,7 @@
             "example": 1
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           },
           "priceTable": {
             "type": "integer",
@@ -7848,14 +7696,17 @@
             "properties": {
               "url": {
                 "type": "string",
-                "example": "https://reqres.in/api/user"
+                "description": "URL que receberá notificações de eventos a rota a qual se inscreveu",
+                "example": "https://test-api.app/api/subscription/publish"
               },
               "method": {
                 "type": "string",
-                "example": "post"
+                "description": "Método HTTP que será utilizado para receber as notificações",
+                "example": "POST"
               },
               "config": {
                 "type": "array",
+                "description": "Configurações adicionais para o envio da notificação, como headers, query params, etc. Esse campo tem o mesmo formato do Request Config do Axios: https://axios-http.com/docs/req_config",
                 "items": {
                   "$ref": "#/components/schemas/config"
                 }
@@ -7867,15 +7718,18 @@
             "properties": {
               "url": {
                 "type": "string",
-                "example": "https://reqres.in/api/user"
+                "description": "URL da API a qual deseja se inscrever",
+                "example": "https://alpha-api.com/"
               },
               "endpoint": {
                 "type": "string",
-                "example": "api/alguma"
+                "description": "Endpoint da API a qual deseja se inscrever",
+                "example": "product/inventory"
               },
               "method": {
-                "type": "string",
-                "example": "post"
+                "type": "array",
+                "description": "Métodos HTTP que deseja se inscrever",
+                "example": ["POST", "PUT", "DELETE"]
               }
             }
           }
@@ -7946,11 +7800,7 @@
       },
       "bodyTheme": {
         "type": "object",
-        "required": [
-          "id",
-          "priceTable",
-          "minimunQuantity"
-        ],
+        "required": ["id", "priceTable", "minimunQuantity"],
         "properties": {
           "id": {
             "type": "string",
@@ -8220,7 +8070,7 @@
           "unitValue": {
             "type": "number",
             "format": "double",
-            "example": 36.00
+            "example": 36.0
           },
           "quantity": {
             "type": "integer",
@@ -8327,12 +8177,12 @@
           "salary": {
             "type": "number",
             "format": "double",
-            "example": 1299.90
+            "example": 1299.9
           },
           "salaryCTPS": {
             "type": "number",
             "format": "double",
-            "example": 1299.90
+            "example": 1299.9
           },
           "PaymentType": {
             "type": "integer",
@@ -8355,9 +8205,7 @@
             "example": 2
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
+            "$ref": "#/components/schemas/storeId"
           },
           "hasControlledEfficiency": {
             "type": "boolean",
@@ -8709,7 +8557,7 @@
             "example": true
           }
         }
-      },      
+      },
       "imagesGroupArray": {
         "type": "string",
         "example": "https://img.elo7.com.br/product/main/3A98FBA/roupa-free-fire-angelical-free-fire-angelical.jpg"
@@ -8731,9 +8579,7 @@
             "example": 1
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 5
+            "$ref": "#/components/schemas/storeId"
           },
           "quantity": {
             "type": "integer",
@@ -8778,7 +8624,7 @@
       },
       "product": {
         "type": "object",
-        "properties": {          
+        "properties": {
           "id": {
             "type": "string",
             "example": "0000001"
@@ -8824,7 +8670,7 @@
             "format": "int16",
             "example": 3
           },
-          
+
           "createAt": {
             "type": "string",
             "format": "date-time",
@@ -8975,8 +8821,7 @@
             "example": 46
           },
           "storeId": {
-            "type": "integer",
-            "example": 4637428
+            "$ref": "#/components/schemas/storeId"
           },
           "elementNumber": {
             "type": "integer",
@@ -9016,14 +8861,14 @@
         "items": {
           "$ref": "#/components/schemas/product"
         }
-      },            
+      },
       "productCatalogsArray": {
         "type": "string",
         "example": "61d44f843b1b3fddedc72a63"
       },
       "productGrid": {
         "type": "object",
-        "properties":{
+        "properties": {
           "id": {
             "type": "integer",
             "example": 3
@@ -9042,11 +8887,7 @@
       },
       "productSale": {
         "type": "object",
-        "required": [
-          "productId",
-          "unitValue",
-          "grids"
-        ],
+        "required": ["productId", "unitValue", "grids"],
         "properties": {
           "productId": {
             "type": "string",
@@ -9055,7 +8896,7 @@
           "unitValue": {
             "type": "number",
             "format": "double",
-            "example": 36.00
+            "example": 36.0
           },
           "grids": {
             "type": "array",
@@ -9071,7 +8912,7 @@
           "totalValue": {
             "type": "number",
             "format": "double",
-            "example": 144.00
+            "example": 144.0
           }
         }
       },
@@ -9085,7 +8926,7 @@
           "unitValue": {
             "type": "number",
             "format": "double",
-            "example": 36.00
+            "example": 36.0
           },
           "grids": {
             "type": "array",
@@ -9123,9 +8964,7 @@
             "example": 6
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           },
           "sku": {
             "type": "string",
@@ -9153,12 +8992,12 @@
           "discountValue": {
             "type": "number",
             "format": "double",
-            "example": 0.00
+            "example": 0.0
           },
           "deliveryFee": {
             "type": "number",
             "format": "double",
-            "example": 20.00
+            "example": 20.0
           },
           "products": {
             "type": "array",
@@ -9183,6 +9022,18 @@
           "billId": {
             "type": "string",
             "example": "200082"
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
           }
         }
       },
@@ -9206,12 +9057,12 @@
           "discountValue": {
             "type": "number",
             "format": "double",
-            "example": 0.00
+            "example": 0.0
           },
           "deliveryFee": {
             "type": "number",
             "format": "double",
-            "example": 20.00
+            "example": 20.0
           },
           "products": {
             "type": "array",
@@ -9236,16 +9087,24 @@
           "billId": {
             "type": "string",
             "example": "200082"
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
           }
         }
       },
       "ResponseCatalogGroup": {
         "type": "object",
-        "required": [
-          "id",
-          "priceTable",
-          "minimunQuantity"
-        ],
+        "required": ["id", "priceTable", "minimunQuantity"],
         "properties": {
           "id": {
             "type": "string",
@@ -9278,8 +9137,8 @@
           },
           "priceTable": {
             "type": "number",
-            "format": "double",
-            "example": 199.99
+            "format": "int32",
+            "example": 8
           }
         }
       },
@@ -9636,9 +9495,7 @@
             "example": false
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           },
           "hasControlledEfficiency": {
             "type": "boolean",
@@ -9795,9 +9652,7 @@
             "example": "01"
           },
           "storeId": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           }
         }
       },
@@ -10151,7 +10006,7 @@
           "quantity": {
             "type": "integer",
             "format": "int32",
-            "example": 36.00
+            "example": 36.0
           },
           "id": {
             "type": "string",
@@ -10179,17 +10034,15 @@
           "discountValue": {
             "type": "number",
             "format": "double",
-            "example": 0.00
+            "example": 0.0
           },
           "deliveryFee": {
             "type": "number",
             "format": "double",
-            "example": 20.00
+            "example": 20.0
           },
           "storeId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+            "$ref": "#/components/schemas/storeId"
           },
           "products": {
             "type": "array",
