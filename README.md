@@ -10,7 +10,7 @@ Esta é uma API baseada em micro-serviços e foi construída utilizando o concei
 
 ***
 
-## **Confiuração de AlphaInd e PDV**
+## **Configuração de AlphaInd e PDV**
 
 Para que a API funcione corretamente, em conjunto com o AlphaInd e PDV, é necessário que o usuário confiugere o *config.ini* corretamente dos dois sistemas. As configurações que devem ser usadas estão descritas abaixo:
 
