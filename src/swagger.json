@@ -6761,6 +6761,14 @@
             "items": {
               "$ref": "#/components/schemas/productSale"
             }
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
           }
         }
       },
@@ -7529,6 +7537,11 @@
           "type": {
             "type": "string",
             "example": "01"
+          },
+          "installmentNumber": {
+            "type": "integer",
+            "example": "1",
+            "description": "Número do parcelamento, começa em 1"
           }
         }
       },
@@ -9013,6 +9026,14 @@
           "ecommerceOrderId": {
             "type": "string",
             "example": "2000834322"
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
           }
         }
       },
@@ -9070,6 +9091,14 @@
           "ecommerceOrderId": {
             "type": "string",
             "example": "2000834322"
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
           }
         }
       },
