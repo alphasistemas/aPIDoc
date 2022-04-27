@@ -9013,7 +9013,7 @@
           "ecommerceOrderId": {
             "type": "string",
             "example": "2000834322"
-          },
+          }
         }
       },
       "responseGetBill": {
@@ -9070,7 +9070,7 @@
           "ecommerceOrderId": {
             "type": "string",
             "example": "2000834322"
-          },
+          }
         }
       },
       "ResponseCatalogGroup": {
