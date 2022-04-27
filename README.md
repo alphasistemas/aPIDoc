@@ -32,6 +32,23 @@ Pode-se acessar a documentação a partir deste link: [Documentação](/doc)
 
 OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado via https. E caso o erro persista utilize o [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf/related?hl=en) para habilitar o CORS pelo Chrome.
 
+## **Serviços**
+
+| Serviço           | Porta Default | BackEnd | FrontEnd |   Produto    |
+| ----------------- | ------------- | ------- | -------- | ------------ |
+| CatalogFront      | 3000          |    ✖    |    🗸    |   CATÁLOGO   |
+| Auth              | 3001          |    🗸    |    ✖    | API/CATÁLOGO |
+| Product           | 3002          |    🗸    |    ✖    | API/CATÁLOGO |
+| Sale              | 3003          |    🗸    |    ✖    | API/CATÁLOGO |
+| User              | 3004          |    🗸    |    ✖    | API/CATÁLOGO |
+| Subscription      | 3005          |    🗸    |    ✖    | API/CATÁLOGO |
+| Settings          | 3006          |    🗸    |    ✖    | API/CATÁLOGO |
+| LegacyAuth        | 3007          |    🗸    |    ✖    | API/CATÁLOGO |
+| OnSale            | 3008          |    🗸    |    ✖    | API/CATÁLOGO |
+| Catalog           | 3009          |    🗸    |    ✖    |   CATÁLOGO   |
+| Email             | 3100          |    🗸    |    ✖    | API/CATÁLOGO |
+| InstanceManager   | 4001          |    🗸    |    ✖    |      ✖      |
+
 ## **Configurações de Acesso**
 
 Para usar esta API, é necessário que o usuário esteja autenticado. Para isso, cria-se uma nova conta a partir da rota /auth/singUp ou utiliza-se um usuário administrador provido pela infra. Conseguinte, é necessário que o usuário se autentique pela rota /auth/signIn, que retornará um token de autenticação. Em cada rota da API o token será solicitado como bearer token. O usuário precisará se autenticar novamente toda vez que vencer o prazo de autenticação predefinido. A API só funcionará enquanto o usuário estiver usando um token. O tempo de vencimento do token é definido no Config.ini de acordo com o cliente.
@@ -44,9 +61,6 @@ As variáveis de ambiente usadas no sistema estão da seguinte forma.
 
 OBS.:
 
-- ALL BACKEND (Todos os Backends): AUTH, CATALOG, EMAIL, PRODUCT, SALE, SETTINGS, SUBSCRIPTION, USER
-- ALL FRONTEND (Todos os Frontends): CATALOGFRONT
-- ALL (Todos): AUTH, CATALOG, EMAIL, PRODUCT, SALE, SETTINGS, SUBSCRIPTION, USER, CATALOGFRONT
 - Para mais informações sobre o jwt/mauth acesse: [jwt](https://github.com/auth0/node-jsonwebtoken/blob/master/README.md#Algorithms%20supported)
 
 | Serviço(S)                                                        | Nome da Variável de Ambiente    | Descrição                                    | Valor de Exemplo                                                    | Secret | Obrigatório | Produção |
