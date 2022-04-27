@@ -6,7 +6,7 @@ Esta é uma API baseada em micro-serviços e foi construída utilizando o concei
 
 ***
 
-![Arquitetura](https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/images/overview.png)
+![Arquitetura](https://raw.githubusercontent.com/alphasistemas/aPIDoc/main/images/APIs.drawio.svg.png)
 
 ***
 
@@ -36,18 +36,18 @@ OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado v
 
 | Serviço           | Porta Default | BackEnd | FrontEnd |   Produto    |
 | ----------------- | ------------- | ------- | -------- | ------------ |
-| CatalogFront      | 3000          |    ✖    |    🗸    |   CATÁLOGO   |
+| CatalogFront      | 4000          |    ✖    |    🗸    |   CATÁLOGO   |
 | Auth              | 3001          |    🗸    |    ✖    | API/CATÁLOGO |
 | Product           | 3002          |    🗸    |    ✖    | API/CATÁLOGO |
 | Sale              | 3003          |    🗸    |    ✖    | API/CATÁLOGO |
 | User              | 3004          |    🗸    |    ✖    | API/CATÁLOGO |
 | Subscription      | 3005          |    🗸    |    ✖    | API/CATÁLOGO |
 | Settings          | 3006          |    🗸    |    ✖    | API/CATÁLOGO |
-| LegacyAuth        | 3007          |    🗸    |    ✖    | API/CATÁLOGO |
-| OnSale            | 3008          |    🗸    |    ✖    | API/CATÁLOGO |
+| OnSale            | 3007          |    🗸    |    ✖    | API/CATÁLOGO |
+| LegacyAuth        | 3008          |    🗸    |    ✖    |   CATÁLOGO   |
 | Catalog           | 3009          |    🗸    |    ✖    |   CATÁLOGO   |
-| Email             | 3100          |    🗸    |    ✖    | API/CATÁLOGO |
-| InstanceManager   | 4001          |    🗸    |    ✖    |      ✖      |
+| Email             | 2001          |    🗸    |    ✖    |      ✖      |
+| InstanceManager   | 1001          |    🗸    |    ✖    |      ✖      |
 
 ## **Configurações de Acesso**
 
