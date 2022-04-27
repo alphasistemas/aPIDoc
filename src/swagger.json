@@ -9009,7 +9009,11 @@
           "billId": {
             "type": "string",
             "example": "200082"
-          }
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
         }
       },
       "responseGetBill": {
@@ -9062,7 +9066,11 @@
           "billId": {
             "type": "string",
             "example": "200082"
-          }
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
         }
       },
       "ResponseCatalogGroup": {
