@@ -30,6 +30,10 @@
       "description": "Reúne endpoints relacionados ao catálogo."
     },
     {
+      "name": "Configurações",
+      "description": "Reúne endpoints relacionados à configuração do sistema."
+    },
+    {
       "name": "Email",
       "description": "Reúne endpoints relacionados à email."
     },
@@ -48,6 +52,10 @@
     {
       "name": "Venda",
       "description": "Reúne endpoints relacionados à venda."
+    },
+    {
+      "name": "Promoção",
+      "description": "Reúne endpoints relacionados à promoção."
     }
   ],
   "paths": {
@@ -1435,6 +1443,707 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseThemeCatalog"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/settings": {
+      "get": {
+        "tags": ["Configurações"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as configurações do sistema.",
+        "operationId": "getSettings",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "maximumDiscount",
+            "in": "query",
+            "description": "Desconto Máximo.",
+            "schema": {
+              "type": "number",
+              "example": 10.0
+            }
+          },
+          {
+            "name": "minimumQuantityWholesale",
+            "in": "query",
+            "description": "Quantidade Mínima para Atacado.",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "minimumValueWholesale",
+            "in": "query",
+            "description": "Valor Mínimo para Atacado.",
+            "schema": {
+              "type": "number",
+              "example": 100.0
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSettingsArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Configurações"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar as configurações do sistema.",
+        "operationId": "putsSettings",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "maximumDiscount",
+            "in": "query",
+            "description": "Desconto Máximo.",
+            "schema": {
+              "type": "number",
+              "example": 10.0
+            }
+          },
+          {
+            "name": "minimumQuantityWholesale",
+            "in": "query",
+            "description": "Quantidade Mínima para Atacado.",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "minimumValueWholesale",
+            "in": "query",
+            "description": "Valor Mínimo para Atacado.",
+            "schema": {
+              "type": "number",
+              "example": 100.0
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/responseSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSettings"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/settings/store": {
+      "get": {
+        "tags": ["Configurações"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as configurações das lojas.",
+        "operationId": "getSettingsStore",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "maximumDiscount",
+            "in": "query",
+            "description": "Desconto Máximo.",
+            "schema": {
+              "type": "number",
+              "example": 10.0
+            }
+          },
+          {
+            "name": "minimumQuantityWholesale",
+            "in": "query",
+            "description": "Quantidade Mínima para Atacado.",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "minimumValueWholesale",
+            "in": "query",
+            "description": "Valor Mínimo para Atacado.",
+            "schema": {
+              "type": "number",
+              "example": 100.0
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSettingsArray"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Configurações"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Alterar uma as configurações de uma loja.",
+        "operationId": "putSettingsStore",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da configuração.",
+            "schema": {
+              "type": "string",
+              "example": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "maximumDiscount",
+            "in": "query",
+            "description": "Desconto Máximo.",
+            "schema": {
+              "type": "number",
+              "example": 10.0
+            }
+          },
+          {
+            "name": "minimumQuantityWholesale",
+            "in": "query",
+            "description": "Quantidade Mínima para Atacado.",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          },
+          {
+            "name": "minimumValueWholesale",
+            "in": "query",
+            "description": "Valor Mínimo para Atacado.",
+            "schema": {
+              "type": "number",
+              "example": 100.0
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/responseSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSettings"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Configurações"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Criar as configurações de uma loja.",
+        "operationId": "postSettingsStore",
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/responseSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSettings"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onSale": {
+      "get": {
+        "tags": ["Promoção"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obter todas as promoções das lojas.",
+        "operationId": "getOnSale",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id da promoção.",
+            "schema": {
+              "type": "string",
+              "example": "61cc906a56f304037ce2b61a"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Nome da promoção.",
+            "schema": {
+              "type": "string",
+              "example": "Promoção 1"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "Referencia do Produto.",
+            "schema": {
+              "type": "integer",
+              "example": 1056345
+            }
+          },
+          {
+            "name": "groupInPercentage",
+            "in": "query",
+            "description": "Grupo de Desconto em Porcentagem.",
+            "schema": {
+              "type": "number",
+              "example": 10.0
+            }
+          },
+          {
+            "name": "productInPercentage",
+            "in": "header",
+            "description": "Produto em Porcentagem.",
+            "schema": {
+              "type": "number",
+              "example": 12.4
+            }
+          },
+          {
+            "name": "groupInValue",
+            "in": "header",
+            "description": "Grupo de Desconto em Valor.",
+            "schema": {
+              "type": "number",
+              "example": 12.4
+            }
+          },
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Id da loja.",
+            "schema": {
+              "type": "integer",
+              "example": 1056345
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Data de inicio da promoção.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2020-01-05T00:00:00.000Z"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Data de fim da promoção.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2020-05-05T00:00:00.000Z"
+            }
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Status da promoção.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
+          },
+          {
+            "name": "priceTable",
+            "in": "query",
+            "description": "Tabela de preço.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseOnSaleArray"
                 }
               }
             }
@@ -8972,6 +9681,95 @@
           }
         }
       },
+      "responseSettings": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 2345,
+            "description": "Id do registro"
+          },
+          "maximumDiscount": {
+            "type": "number",
+            "format": "double",
+            "example": 100.0,
+            "description": "Valor máximo de desconto"
+          },
+          "minimumQuantityWholesale": {
+            "type": "integer",
+            "example": 10,
+            "description": "Quantidade mínima para venda de atacado"
+          },
+          "minimumValueWholesale": {
+            "type": "number",
+            "format": "double",
+            "example": 100.0,
+            "description": "Valor mínimo para venda de atacado"
+          }
+        }
+      },
+      "responseOnSale": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61cc906a56f304037ce2b61a",
+            "description": "Id da promoção."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome da promoção.",
+            "example": "Promoção 1"
+          },
+          "productId": {
+            "type": "integer",
+            "example": 1056345,
+            "description": "Referencia do Produto."
+          },
+          "groupInPercentage": {
+            "type": "number",
+            "example": 10.0,
+            "description": "Grupo de Desconto em Porcentagem."
+          },
+          "productInPercentage": {
+            "type": "number",
+            "example": 12.4,
+            "description": "Produto em Porcentagem."
+          },
+          "groupInValue": {
+            "type": "number",
+            "example": 12.4,
+            "description": "Grupo de Desconto em Valor."
+          },
+          "storeId": {
+            "type": "integer",
+            "example": 1056345,
+            "description": "Id da loja."
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-01-01T00:00:00.000Z",
+            "description": "Data de inicio da promoção."
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2020-02-01T00:00:00.000Z",
+            "description": "Data de fim da promoção."
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false,
+            "description": "Status da promoção."
+          },
+          "priceTable": {
+            "type": "integer",
+            "example": 1,
+            "description": "Tabela de preço."
+          }
+        }
+      },
       "responseBill": {
         "type": "object",
         "properties": {
@@ -9654,6 +10452,18 @@
           "storeId": {
             "$ref": "#/components/schemas/storeId"
           }
+        }
+      },
+      "responseSettingsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responseSettings"
+        }
+      },
+      "responseOnSaleArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responseOnSale"
         }
       },
       "responsePaymentCondition": {
