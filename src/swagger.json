@@ -3281,7 +3281,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyInventoryOut"
+                "$ref": "#/components/schemas/inventoryOut"
               }
             }
           }
@@ -3292,7 +3292,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyInventoryOut"
+                  "$ref": "#/components/schemas/inventoryOut"
                 }
               }
             }
@@ -4763,7 +4763,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseBill"
+                  "$ref": "#/components/schemas/bill"
                 }
               }
             }
@@ -4818,7 +4818,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bill"
+                "$ref": "#/components/schemas/billPost"
               }
             }
           }
@@ -4829,7 +4829,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseBill"
+                  "$ref": "#/components/schemas/billPost"
                 }
               }
             }
@@ -7573,13 +7573,7 @@
           }
         }
       },
-      "billArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/bill"
-        }
-      },
-      "responseBill": {
+      "billPost": {
         "type": "object",
         "properties": {
           "consumerId": {
@@ -7589,7 +7583,7 @@
           },
           "consumer": {
             "type": "string",
-            "example": "Cliente 5"
+            "example": "Cliente 7"
           },
           "sellerId": {
             "type": "integer",
@@ -7605,6 +7599,9 @@
             "type": "number",
             "format": "double",
             "example": 20.0
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
           },
           "products": {
             "type": "array",
@@ -7628,20 +7625,14 @@
           },
           "billId": {
             "type": "string",
-            "example": "200082"
-          },
-          "ecommerceOrderId": {
-            "type": "string",
-            "example": "2000834322"
-          },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
-          },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
+            "example": "200135"
           }
+        }
+      },
+      "billArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/bill"
         }
       },
       "productSaleBillResponse": {
@@ -8815,7 +8806,7 @@
           }
         }
       },
-      "bodyInventoryOut": {
+      "inventoryOut": {
         "type": "object",
         "required": ["productId", "quantity"],
         "properties": {
@@ -9180,12 +9171,12 @@
         "type": "object",
         "properties": {
           "bill": {
-            "$ref": "#/components/schemas/saleBlockResponse"
+            "$ref": "#/components/schemas/billPost"
           },
           "inventoryOut": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/saleBlockInventoryOut"
+              "$ref": "#/components/schemas/inventoryOut"
             }
           },
           "dpa": {
@@ -10338,76 +10329,6 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/onSale"
-        }
-      },
-      "saleBlockInventoryOut": {
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "example": 36.0
-          },
-          "id": {
-            "type": "string",
-            "example": "439104"
-          }
-        }
-      },
-      "saleBlockResponse": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 7"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSaleBillResponse"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200135"
-          }
         }
       },
       "error400": {
