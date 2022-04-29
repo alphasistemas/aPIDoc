@@ -5570,7 +5570,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPaymentCondition"
+                "$ref": "#/components/schemas/paymentCondition"
               }
             }
           }
@@ -5581,7 +5581,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentCondition"
+                  "$ref": "#/components/schemas/paymentCondition"
                 }
               }
             }
@@ -5754,7 +5754,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentMethodArray"
+                  "$ref": "#/components/schemas/paymentMethodArray"
                 }
               }
             }
@@ -5808,7 +5808,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPaymentMethod"
+                "$ref": "#/components/schemas/paymentMethod"
               }
             }
           }
@@ -5819,7 +5819,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyPaymentMethod"
+                  "$ref": "#/components/schemas/paymentMethod"
                 }
               }
             }
@@ -8984,44 +8984,7 @@
           }
         }
       },
-      "bodyPaymentCondition": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "30/60/90/120"
-          },
-          "installments": {
-            "type": "integer",
-            "example": "3"
-          },
-          "firstInstallmentDays": {
-            "type": "integer",
-            "example": "30"
-          },
-          "days": {
-            "type": "integer",
-            "example": "30"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "disabled": {
-            "type": "boolean",
-            "example": false
-          },
-          "discount": {
-            "type": "number",
-            "example": 3.99
-          }
-        }
-      },
-      "responsePaymentCondition": {
+      "paymentCondition": {
         "type": "object",
         "properties": {
           "id": {
@@ -9065,10 +9028,10 @@
       "responsePaymentConditionArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/responsePaymentCondition"
+          "$ref": "#/components/schemas/paymentCondition"
         }
       },
-      "bodyPaymentMethod": {
+      "paymentMethod": {
         "type": "object",
         "properties": {
           "id": {
@@ -9101,43 +9064,10 @@
           }
         }
       },
-      "responsePaymentMethod": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "CARTÃO"
-          },
-          "mnemonic": {
-            "type": "string",
-            "example": "CA"
-          },
-          "finisherId": {
-            "type": "integer",
-            "example": "99"
-          },
-          "issue": {
-            "type": "boolean",
-            "example": "false"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "description": {
-            "type": "string",
-            "example": "CARTÃO"
-          }
-        }
-      },
-      "responsePaymentMethodArray": {
+      "paymentMethodArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/responsePaymentMethod"
+          "$ref": "#/components/schemas/paymentMethod"
         }
       },
       "bodyPublication": {
