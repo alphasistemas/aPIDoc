@@ -1312,7 +1312,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseThemeCatalogArray"
+                  "$ref": "#/components/schemas/themeArray"
                 }
               }
             }
@@ -1366,7 +1366,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseThemeCatalog"
+                "$ref": "#/components/schemas/theme"
               }
             }
           }
@@ -1377,7 +1377,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseThemeCatalog"
+                  "$ref": "#/components/schemas/theme"
                 }
               }
             }
@@ -1431,7 +1431,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyTheme"
+                "$ref": "#/components/schemas/theme"
               }
             }
           }
@@ -1442,7 +1442,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseThemeCatalog"
+                  "$ref": "#/components/schemas/theme"
                 }
               }
             }
@@ -9285,51 +9285,48 @@
           }
         }
       },
-      "bodySale": {
+      "responsePublication": {
         "type": "object",
         "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "paymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "priceTable": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
             }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
           }
         }
       },
@@ -9380,6 +9377,153 @@
           }
         }
       },
+      "responseSubscription": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
+          }
+        }
+      },
+      "bodySale": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.0
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.0
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "priceTable": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          }
+        }
+      },
+      "responseSale": {
+        "type": "object",
+        "properties": {
+          "bill": {
+            "$ref": "#/components/schemas/saleBlockResponse"
+          },
+          "inventoryOut": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/saleBlockInventoryOut"
+            }
+          },
+          "dpa": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dpaBlockResponse"
+            }
+          },
+          "inventoryOutGrid": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/gridResponse"
+            }
+          },
+          "invoice": {
+            "type": "object",
+            "properties": {
+              "consumerId": {
+                "type": "integer",
+                "format": "int32",
+                "example": 2
+              },
+              "sellerId": {
+                "type": "integer",
+                "format": "int32",
+                "example": 102
+              },
+              "Id": {
+                "type": "string",
+                "example": "0010020013501"
+              },
+              "grossValue": {
+                "type": "integer",
+                "format": "int32",
+                "example": 264
+              },
+              "type": {
+                "type": "string",
+                "example": "01"
+              }
+            }
+          }
+        }
+      },
       "bodySignIn": {
         "type": "object",
         "properties": {
@@ -9394,6 +9538,15 @@
           "key": {
             "type": "string",
             "example": "1234"
+          }
+        }
+      },
+      "responseSignIn": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlOYW1lIjoiT25lIiwiZ2l2ZW5OYW1lIjoiU29tZSIsImlkIjoiNjE1MWI0MjljYzkzN2Q2N2EwMTdiZDk0IiwicGVybWlzc2lvbnMiOnsiYWxsIjp7ImFsbCI6WyJhbGwiXX0sImF1dGgiOnsiYWxsIjpbImFsbCJdfX0sImlkZW50aWZpY2F0aW9uIjpbeyJ0eXBlIjoiTE9DQUwiLCJpZGVudGlmaWNhdGlvbiI6InVzZXJ0ZXN0ZTNAZ21haWwuY29tIiwidW52ZXJpZmllZCI6dHJ1ZX1dLCJpYXQiOjE2MzMwMTAxNDcsImV4cCI6MTYzMzAxMTA0N30.szdADaYhCiwkjSX_fCFZYXKWev8TCMLFw8z1LQxkQ7lVZGsF5JJ2yD0nQDxh_-hoDDC1VqCbW-0X6ZvMIKBePt5mnkYFEwLiDxf80r3B22qw_cTVaeDfPQjdyxRymMgPfgFdH1TFsfNKCIUZZ-IbT7HTyJXU6YJF-4K6P9D9G6nGqMwGDuBqv2auvo2mKlwWW9J7We40j9d1CgRn4u1_lOSj2l4BN8_DY0hI2dQeBP4ccdRltWIH9sv9EkdZPjuF0KisLqbQ24RBXwQ_7tXyWXTCnODaeWC4Ue1tFKsZbyJ9pOUKCwJxOXaiT-tdCqegbfkRh0la1dfstVJuAcLv2g"
           }
         }
       },
@@ -9443,7 +9596,54 @@
           }
         }
       },
-      "bodyTheme": {
+      "responseSignUp": {
+        "type": "object",
+        "properties": {
+          "givenName": {
+            "type": "string",
+            "example": "Some"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "One"
+          },
+          "id": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd94"
+          },
+          "identifications": {
+            "$ref": "#/components/schemas/identificationsArray"
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "all": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "theme": {
         "type": "object",
         "required": ["id", "priceTable", "minimunQuantity"],
         "properties": {
@@ -9463,6 +9663,12 @@
               "$ref": "#/components/schemas/imagesGroupArray"
             }
           }
+        }
+      },
+      "themeArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/theme"
         }
       },
       "catalogsProduct": {
@@ -10486,233 +10692,6 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/onSale"
-        }
-      },
-      "responseSale": {
-        "type": "object",
-        "properties": {
-          "bill": {
-            "$ref": "#/components/schemas/saleBlockResponse"
-          },
-          "inventoryOut": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/saleBlockInventoryOut"
-            }
-          },
-          "dpa": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/dpaBlockResponse"
-            }
-          },
-          "inventoryOutGrid": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/gridResponse"
-            }
-          },
-          "invoice": {
-            "type": "object",
-            "properties": {
-              "consumerId": {
-                "type": "integer",
-                "format": "int32",
-                "example": 2
-              },
-              "sellerId": {
-                "type": "integer",
-                "format": "int32",
-                "example": 102
-              },
-              "Id": {
-                "type": "string",
-                "example": "0010020013501"
-              },
-              "grossValue": {
-                "type": "integer",
-                "format": "int32",
-                "example": 264
-              },
-              "type": {
-                "type": "string",
-                "example": "01"
-              }
-            }
-          }
-        }
-      },
-      "responseSignIn": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string",
-            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlOYW1lIjoiT25lIiwiZ2l2ZW5OYW1lIjoiU29tZSIsImlkIjoiNjE1MWI0MjljYzkzN2Q2N2EwMTdiZDk0IiwicGVybWlzc2lvbnMiOnsiYWxsIjp7ImFsbCI6WyJhbGwiXX0sImF1dGgiOnsiYWxsIjpbImFsbCJdfX0sImlkZW50aWZpY2F0aW9uIjpbeyJ0eXBlIjoiTE9DQUwiLCJpZGVudGlmaWNhdGlvbiI6InVzZXJ0ZXN0ZTNAZ21haWwuY29tIiwidW52ZXJpZmllZCI6dHJ1ZX1dLCJpYXQiOjE2MzMwMTAxNDcsImV4cCI6MTYzMzAxMTA0N30.szdADaYhCiwkjSX_fCFZYXKWev8TCMLFw8z1LQxkQ7lVZGsF5JJ2yD0nQDxh_-hoDDC1VqCbW-0X6ZvMIKBePt5mnkYFEwLiDxf80r3B22qw_cTVaeDfPQjdyxRymMgPfgFdH1TFsfNKCIUZZ-IbT7HTyJXU6YJF-4K6P9D9G6nGqMwGDuBqv2auvo2mKlwWW9J7We40j9d1CgRn4u1_lOSj2l4BN8_DY0hI2dQeBP4ccdRltWIH9sv9EkdZPjuF0KisLqbQ24RBXwQ_7tXyWXTCnODaeWC4Ue1tFKsZbyJ9pOUKCwJxOXaiT-tdCqegbfkRh0la1dfstVJuAcLv2g"
-          }
-        }
-      },
-      "responseSignUp": {
-        "type": "object",
-        "properties": {
-          "givenName": {
-            "type": "string",
-            "example": "Some"
-          },
-          "familyName": {
-            "type": "string",
-            "example": "One"
-          },
-          "id": {
-            "type": "string",
-            "example": "6151b429cc937d67a017bd94"
-          },
-          "identifications": {
-            "$ref": "#/components/schemas/identificationsArray"
-          },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/instances"
-            }
-          },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "all": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              },
-              "auth": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "responsePublication": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
-          "id": {
-            "type": "object",
-            "example": "61a4c40aa79376c00c8c010d"
-          }
-        }
-      },
-      "responseSubscription": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
-          "id": {
-            "type": "object",
-            "example": "61a4c40aa79376c00c8c010d"
-          }
-        }
-      },
-      "responseThemeCatalog": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "61cc543656f304037ce2b47d"
-          },
-          "logos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          },
-          "favicos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          }
-        }
-      },
-      "responseThemeCatalogArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responseThemeCatalog"
         }
       },
       "saleBlockInventoryOut": {
