@@ -13,17 +13,20 @@ Esta é uma API baseada em micro-serviços e foi construída utilizando o concei
 ## **Configuração de AlphaInd e PDV**
 
 Para que a API funcione corretamente, em conjunto com o AlphaInd e PDV, é necessário que o usuário confiugere o *config.ini* corretamente dos dois sistemas. As configurações que devem ser usadas estão descritas abaixo:
-```
+
+```env
 API={URL da API}
 
 APIPublish=/subscription/publication
 
 APISignIn=/auth/signIn
-```
+
 DuracaoToken={Tempo de duracao do token de autenticação em milisegundos, deve estar conforme as configurações da API, ou adicione s para segundos,m para minutos,h para horas,d para dias. O default da API é 15m}
+```
 
 Exemplo:
-```
+
+```env
 API=http://api-alpha.alphasystemas.com.br
 
 APIPublish=/subscription/publication
