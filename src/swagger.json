@@ -843,7 +843,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseCatalogGroup"
+                  "$ref": "#/components/schemas/responseCatalogGroup"
                 }
               }
             }
@@ -3292,7 +3292,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseInventoryOut"
+                  "$ref": "#/components/schemas/bodyInventoryOut"
                 }
               }
             }
@@ -3359,7 +3359,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseInventoryOutGrid"
+                  "$ref": "#/components/schemas/bodyInventoryOutGrid"
                 }
               }
             }
@@ -5516,7 +5516,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentCondition"
+                  "$ref": "#/components/schemas/responsePaymentConditionArray"
                 }
               }
             }
@@ -5581,7 +5581,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentConditionArray"
+                  "$ref": "#/components/schemas/responsePaymentCondition"
                 }
               }
             }
@@ -5754,7 +5754,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentMethod"
+                  "$ref": "#/components/schemas/responsePaymentMethodArray"
                 }
               }
             }
@@ -7432,6 +7432,55 @@
           "$ref": "#/components/schemas/all"
         }
       },
+      "mongoId": {
+        "type": "string",
+        "example": "507f1f77bcf86cd799439011"
+      },
+      "mssqlId": {
+        "type": "integer",
+        "format": "int32",
+        "example": 123456
+      },
+      "storeId": {
+        "description": "Número da Loja (Loja 1 = Matriz)",
+        "$ref": "#/components/schemas/mssqlId"
+      },
+      "email": {
+        "type": "string",
+        "example": "email@dominioexemplo.com.br"
+      },
+      "bodyCallback": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/all"
+        }
+      },
+      "size": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "P"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 6
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "sku": {
+            "type": "string",
+            "example": "0000001-0009-1"
+          }
+        }
+      },
       "bodyBill": {
         "type": "object",
         "required": ["consumer", "paymentId", "products", "unitValue"],
@@ -7481,10 +7530,143 @@
           }
         }
       },
-      "bodyCallback": {
+      "bodyGetBillArray": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "01/12/2020"
+          },
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "GLAYLSON SILVEIRE"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "string",
+            "example": "800.00"
+          },
+          "discountValue": {
+            "type": "string",
+            "example": "0.00"
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "Car"
+          },
+          "deliveryFee": {
+            "type": "string",
+            "example": 0.0
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/product"
+            }
+          }
+        }
+      },
+      "bodyGetBill": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/all"
+          "$ref": "#/components/schemas/bodyGetBillArray"
+        }
+      },
+      "responseBill": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.0
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.0
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "BOLETO"
+          },
+          "formOfPaymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 264
+          },
+          "billId": {
+            "type": "string",
+            "example": "200082"
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
+          "installments": {
+            "type": "number",
+            "example": "50.5"
+          },
+          "inCash": {
+            "type": "number",
+            "example": "50.5"
+          }
         }
       },
       "bodyCatalogConfig": {
@@ -7551,6 +7733,46 @@
             "items": {
               "$ref": "#/components/schemas/imagesGroupArray"
             }
+          }
+        }
+      },
+      "responseCatalogGroup": {
+        "type": "object",
+        "required": ["id", "priceTable", "minimunQuantity"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61cc902656f304037ce2b5e0"
+          },
+          "name": {
+            "type": "string",
+            "example": "Camisas"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
+          },
+          "expirationAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-11-01T03:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
+          },
+          "priceTable": {
+            "type": "number",
+            "format": "int32",
+            "example": 8
           }
         }
       },
@@ -7709,12 +7931,6 @@
             "example": "Corpo do Email"
           }
         }
-      },
-      "storeId": {
-        "description": "Número da Loja (Loja 1 = Matriz)",
-        "type": "integer",
-        "format": "int32",
-        "example": 2
       },
       "bodyEmployee": {
         "type": "object",
@@ -8057,80 +8273,6 @@
           "playerIdPdvMobile": {
             "type": "string",
             "example": "StringDoPlayerIdPdvMobile"
-          }
-        }
-      },
-      "bodyGetBill": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/bodyGetBillArray"
-        }
-      },
-      "bodyGetBillArray": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "date": {
-            "type": "string",
-            "format": "date",
-            "example": "01/12/2020"
-          },
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "GLAYLSON SILVEIRE"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "grossValue": {
-            "type": "string",
-            "example": "800.00"
-          },
-          "discountValue": {
-            "type": "string",
-            "example": "0.00"
-          },
-          "paymentConditions": {
-            "type": "string",
-            "example": "30/60"
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "Car"
-          },
-          "deliveryFee": {
-            "type": "string",
-            "example": 0.0
-          },
-          "inCash": {
-            "type": "number",
-            "format": "double",
-            "example": 0
-          },
-          "installments": {
-            "type": "number",
-            "format": "double",
-            "example": 800
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/product"
-            }
           }
         }
       },
@@ -8804,10 +8946,6 @@
             "example": "VENDA REALIZADA PELO SITE"
           }
         }
-      },
-      "email": {
-        "type": "string",
-        "example": "email@dominioexemplo.com.br"
       },
       "employee": {
         "type": "object",
@@ -9571,10 +9709,6 @@
           "$ref": "#/components/schemas/product"
         }
       },
-      "productCatalogsArray": {
-        "type": "string",
-        "example": "61d44f843b1b3fddedc72a63"
-      },
       "productGrid": {
         "type": "object",
         "properties": {
@@ -9655,32 +9789,6 @@
           }
         }
       },
-      "size": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "P"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int16",
-            "example": 6
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "sku": {
-            "type": "string",
-            "example": "0000001-0009-1"
-          }
-        }
-      },
       "responseSettings": {
         "type": "object",
         "properties": {
@@ -9706,6 +9814,12 @@
             "example": 100.0,
             "description": "Valor mínimo para venda de atacado"
           }
+        }
+      },
+      "responseSettingsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responseSettings"
         }
       },
       "responseOnSale": {
@@ -9770,174 +9884,10 @@
           }
         }
       },
-      "responseBill": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200082"
-          },
-          "ecommerceOrderId": {
-            "type": "string",
-            "example": "2000834322"
-          },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
-          },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
-          }
-        }
-      },
-      "responseGetBill": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200082"
-          },
-          "ecommerceOrderId": {
-            "type": "string",
-            "example": "2000834322"
-          },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
-          },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
-          }
-        }
-      },
-      "ResponseCatalogGroup": {
-        "type": "object",
-        "required": ["id", "priceTable", "minimunQuantity"],
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "61cc902656f304037ce2b5e0"
-          },
-          "name": {
-            "type": "string",
-            "example": "Camisas"
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-01-01T03:00:00.000Z"
-          },
-          "expirationAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-11-01T03:00:00.000Z"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-01-01T03:00:00.000Z"
-          },
-          "priceTable": {
-            "type": "number",
-            "format": "int32",
-            "example": 8
-          }
+      "responseOnSaleArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responseOnSale"
         }
       },
       "responseCity": {
@@ -10417,12 +10367,6 @@
           }
         }
       },
-      "responseInventoryOut": {
-        "$ref": "#/components/schemas/bodyInventoryOut"
-      },
-      "responseInventoryOutGrid": {
-        "$ref": "#/components/schemas/bodyInventoryOutGrid"
-      },
       "responseInvoice": {
         "type": "object",
         "properties": {
@@ -10454,25 +10398,7 @@
           }
         }
       },
-      "responseSettingsArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responseSettings"
-        }
-      },
-      "responseOnSaleArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responseOnSale"
-        }
-      },
       "responsePaymentCondition": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responsePaymentConditionArray"
-        }
-      },
-      "responsePaymentConditionArray": {
         "type": "object",
         "properties": {
           "id": {
@@ -10513,13 +10439,13 @@
           }
         }
       },
-      "responsePaymentMethod": {
+      "responsePaymentConditionArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/responsePaymentMethodArray"
+          "$ref": "#/components/schemas/responsePaymentCondition"
         }
       },
-      "responsePaymentMethodArray": {
+      "responsePaymentMethod": {
         "type": "object",
         "properties": {
           "id": {
@@ -10552,6 +10478,12 @@
           }
         }
       },
+      "responsePaymentMethodArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responsePaymentMethod"
+        }
+      },
       "responseProductCatalog": {
         "type": "object",
         "properties": {
@@ -10566,7 +10498,7 @@
           "groups": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/productCatalogsArray"
+              "$ref": "#/components/schemas/mongoId"
             }
           },
           "images": {
@@ -10581,51 +10513,6 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/responseProductCatalog"
-        }
-      },
-      "responsePublication": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
-          "id": {
-            "type": "object",
-            "example": "61a4c40aa79376c00c8c010d"
-          }
         }
       },
       "responseSale": {
@@ -10735,6 +10622,51 @@
                 }
               }
             }
+          }
+        }
+      },
+      "responsePublication": {
+        "type": "object",
+        "properties": {
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/configResponse"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "example": "https://reqres.in/api/user"
+              },
+              "endpoint": {
+                "type": "string",
+                "example": "api/alguma"
+              },
+              "method": {
+                "type": "string",
+                "example": "POST"
+              }
+            }
+          },
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
           }
         }
       },
