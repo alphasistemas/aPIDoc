@@ -4818,7 +4818,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyBill"
+                "$ref": "#/components/schemas/bill"
               }
             }
           }
@@ -7495,62 +7495,18 @@
         "type": "string",
         "example": "52, 34, 36, 38, 40, 42, 44, 46, 48, 50"
       },
-      "bodyBill": {
+      "bill": {
         "type": "object",
         "required": ["consumer", "paymentId", "products", "unitValue"],
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "paymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
-          },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
-          }
-        }
-      },
-      "bodyGetBillArray": {
-        "type": "object",
         "properties": {
           "id": {
             "type": "integer",
             "format": "int32",
             "example": 2
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
           },
           "date": {
             "type": "string",
@@ -7604,6 +7560,11 @@
           "storeId": {
             "$ref": "#/components/schemas/storeId"
           },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
           "products": {
             "type": "array",
             "items": {
@@ -7612,10 +7573,10 @@
           }
         }
       },
-      "bodyGetBill": {
+      "billArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/bodyGetBillArray"
+          "$ref": "#/components/schemas/bill"
         }
       },
       "responseBill": {
