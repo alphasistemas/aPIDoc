@@ -1557,7 +1557,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettingsArray"
+                  "$ref": "#/components/schemas/settingsArray"
                 }
               }
             }
@@ -1669,7 +1669,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseSettings"
+                "$ref": "#/components/schemas/settings"
               }
             }
           }
@@ -1680,7 +1680,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettings"
+                  "$ref": "#/components/schemas/settings"
                 }
               }
             }
@@ -1795,7 +1795,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettingsArray"
+                  "$ref": "#/components/schemas/settingsArray"
                 }
               }
             }
@@ -1907,7 +1907,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseSettings"
+                "$ref": "#/components/schemas/settings"
               }
             }
           }
@@ -1918,7 +1918,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettings"
+                  "$ref": "#/components/schemas/settings"
                 }
               }
             }
@@ -1972,7 +1972,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseSettings"
+                "$ref": "#/components/schemas/settings"
               }
             }
           }
@@ -1983,7 +1983,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettings"
+                  "$ref": "#/components/schemas/settings"
                 }
               }
             }
@@ -2143,7 +2143,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseOnSaleArray"
+                  "$ref": "#/components/schemas/onSaleArray"
                 }
               }
             }
@@ -7449,10 +7449,20 @@
         "type": "string",
         "example": "email@dominioexemplo.com.br"
       },
-      "bodyCallback": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/all"
+      "envelope": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "example": "alphaweb@alphasystemas.com.br"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "cliente@email.com.br"
+            }
+          }
         }
       },
       "size": {
@@ -7480,6 +7490,10 @@
             "example": "0000001-0009-1"
           }
         }
+      },
+      "sizes": {
+        "type": "string",
+        "example": "52, 34, 36, 38, 40, 42, 44, 46, 48, 50"
       },
       "bodyBill": {
         "type": "object",
@@ -7666,6 +7680,36 @@
           "inCash": {
             "type": "number",
             "example": "50.5"
+          }
+        }
+      },
+      "productSaleBillResponse": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.0
+          },
+          "grids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/gridResponse"
+            }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 4
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 144
           }
         }
       },
@@ -7911,6 +7955,42 @@
           }
         }
       },
+      "responseDpa": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "billId": {
+            "type": "string",
+            "example": "200003"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 29.98
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-15 14:19:28"
+          },
+          "type": {
+            "type": "string",
+            "example": "S"
+          },
+          "history": {
+            "type": "string",
+            "example": "VENDA REALIZADA PELO SITE"
+          }
+        }
+      },
       "bodyEmail": {
         "type": "object",
         "properties": {
@@ -7929,6 +8009,49 @@
           "text": {
             "type": "string",
             "example": "Corpo do Email"
+          }
+        }
+      },
+      "responseEmail": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/email"
+            }
+          },
+          "rejected": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/email"
+            }
+          },
+          "envelopeTime": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3154
+          },
+          "messageTime": {
+            "type": "integer",
+            "format": "int32",
+            "example": 968
+          },
+          "messageSize": {
+            "type": "integer",
+            "format": "int32",
+            "example": 340
+          },
+          "response": {
+            "type": "string",
+            "example": "250 2.0.0 Ok queued as D6BAA41A4F9C"
+          },
+          "envolope": {
+            "$ref": "#/components/schemas/envelope"
+          },
+          "messageId": {
+            "type": "string",
+            "example": "<0220f233-ce4b-6f53-93ed-ed7825ef4ac7@alphasystemas.com.br>"
           }
         }
       },
@@ -8276,6 +8399,554 @@
           }
         }
       },
+      "employee": {
+        "type": "object",
+        "properties": {
+          "CPF": {
+            "type": "string",
+            "example": "11111111111"
+          },
+          "RG": {
+            "type": "string",
+            "example": "111111111111"
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "CTPS": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PIS": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Obs": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 110
+          },
+          "name": {
+            "type": "string",
+            "example": "FUNCIONÁRIOS DIVERSOS 2"
+          },
+          "postalCode": {
+            "type": "integer",
+            "format": "int32",
+            "example": 110
+          },
+          "city": {
+            "type": "string",
+            "example": "FORTALEZA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 11043
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 300
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "maritalStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "sectorId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "salary": {
+            "type": "number",
+            "format": "double",
+            "example": 1299.9
+          },
+          "salaryCTPS": {
+            "type": "number",
+            "format": "double",
+            "example": 1299.9
+          },
+          "PaymentType": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "example": 30
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32",
+            "example": 220
+          },
+          "sindicate": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "hasControlledEfficiency": {
+            "type": "boolean",
+            "example": true
+          },
+          "voucherLimit": {
+            "type": "number",
+            "format": "double",
+            "example": 1000
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int32",
+            "example": 9
+          },
+          "gender": {
+            "type": "string",
+            "example": "M"
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "placeOfBirth": {
+            "type": "string",
+            "example": "Campina Grande"
+          },
+          "nationality": {
+            "type": "string",
+            "example": "Brasileiro"
+          },
+          "affiliation": {
+            "type": "string",
+            "example": "ANA MARIA RODRIGUES SOUSA E MANOEL JOÃO DE SOUSA"
+          },
+          "spouse": {
+            "type": "string",
+            "example": "MONEGLESIA SOUSA SANTOS"
+          },
+          "education": {
+            "type": "string",
+            "example": "MEDIO COMPLETO"
+          },
+          "driversLicense": {
+            "type": "string",
+            "example": "0512357490B"
+          },
+          "FGTSAccount": {
+            "type": "string",
+            "example": " "
+          },
+          "FGTSCategory": {
+            "type": "string",
+            "example": "EMPREGADO "
+          },
+          "admission": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2012-06-01T00:00:00.000Z"
+          },
+          "allowance": {
+            "type": "string",
+            "example": " "
+          },
+          "resignation": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "resignationReason": {
+            "type": "string",
+            "example": "MOTIVOS PESSOAIS"
+          },
+          "currentVacationStart": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "currentVacationEnd": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "vacationStart": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "vacationEnd": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "nextVacationStart": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "nextVacationEnd": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "CEP": {
+            "type": "string",
+            "example": "60150162"
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "registerDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "role": {
+            "type": "integer",
+            "format": "int16",
+            "example": 0
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "employeeArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/employee"
+        }
+      },
+      "responseEmployee": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "FUNCIONÁRIOS DIVERSOS 2"
+          },
+          "CPF": {
+            "type": "string",
+            "example": 111111111112
+          },
+          "address": {
+            "type": "string",
+            "example": ""
+          },
+          "postalCode": {
+            "type": "string",
+            "example": 60000000
+          },
+          "district": {
+            "type": "string",
+            "example": ""
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "phone": {
+            "type": "string",
+            "example": ""
+          },
+          "cellphone": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "commissionInCash": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionInInstallments": {
+            "type": "number",
+            "example": 0
+          },
+          "commission1": {
+            "type": "number",
+            "example": 0
+          },
+          "commission2": {
+            "type": "number",
+            "example": 0
+          },
+          "commission3": {
+            "type": "number",
+            "example": 0
+          },
+          "commission4": {
+            "type": "number",
+            "example": 0
+          },
+          "commission5": {
+            "type": "number",
+            "example": 0
+          },
+          "commission6": {
+            "type": "number",
+            "example": 0
+          },
+          "commission7": {
+            "type": "number",
+            "example": 0
+          },
+          "commission8": {
+            "type": "number",
+            "example": 0
+          },
+          "commission9": {
+            "type": "number",
+            "example": 0
+          },
+          "commission09": {
+            "type": "number",
+            "example": 0
+          },
+          "commission10": {
+            "type": "number",
+            "example": 0
+          },
+          "commission11": {
+            "type": "number",
+            "example": 0
+          },
+          "commission12": {
+            "type": "number",
+            "example": 0
+          },
+          "commission13": {
+            "type": "number",
+            "example": 0
+          },
+          "commission14": {
+            "type": "number",
+            "example": 0
+          },
+          "commission15": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionCashier": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionManager": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionSupervisor": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionGeneral": {
+            "type": "number",
+            "example": 0
+          },
+          "limit": {
+            "type": "number",
+            "example": 0
+          },
+          "roleId": {
+            "type": "number",
+            "example": 0
+          },
+          "maritalStatusId": {
+            "type": "number",
+            "example": 0
+          },
+          "dependentQuantity": {
+            "type": "number",
+            "example": 0
+          },
+          "sectorId": {
+            "type": "number",
+            "example": 0
+          },
+          "salary": {
+            "type": "number",
+            "example": 0
+          },
+          "salaryCTPS": {
+            "type": "number",
+            "example": 0
+          },
+          "PaymentType": {
+            "type": "number",
+            "example": 0
+          },
+          "days": {
+            "type": "number",
+            "example": 0
+          },
+          "hours": {
+            "type": "number",
+            "example": 220
+          },
+          "syndicate": {
+            "type": "boolean",
+            "example": false
+          },
+          "transportationVoucher": {
+            "type": "boolean",
+            "example": false
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "hasControlledEfficiency": {
+            "type": "boolean",
+            "example": false
+          },
+          "productionGroupId": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "biweeklyAdvanceAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "isVacationEmployee": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int",
+            "example": 250
+          },
+          "goldQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "silverQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int",
+            "example": 500
+          },
+          "silverQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "silverQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "bronzeQuotaNumberOfParts": {
+            "type": "number",
+            "example": 1000
+          },
+          "bronzeQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "bronzeQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "voucherLimit": {
+            "type": "number",
+            "example": 0
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int",
+            "example": 1
+          },
+          "hasTriennium": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "hasQuennium": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "award": {
+            "type": "number",
+            "example": 0
+          },
+          "productivity": {
+            "type": "number",
+            "example": 0
+          },
+          "punctuality": {
+            "type": "number",
+            "example": 0
+          },
+          "bank": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "agency": {
+            "type": "string",
+            "example": "0000"
+          },
+          "account": {
+            "type": "string",
+            "example": "0000"
+          },
+          "operation": {
+            "type": "string",
+            "example": "0000"
+          },
+          "launchProduction": {
+            "type": "boolean",
+            "example": false
+          },
+          "password": {
+            "type": "string",
+            "example": "SuperSenhaSeguraDaAlpha"
+          },
+          "playerIdPdvMobile": {
+            "type": "string",
+            "example": "StringDoPlayerIdPdvMobile"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int",
+            "example": 110
+          }
+        }
+      },
       "bodyInventoryOut": {
         "type": "object",
         "required": ["productId", "quantity"],
@@ -8396,6 +9067,37 @@
           }
         }
       },
+      "responseInvoice": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int16",
+            "example": 180
+          },
+          "id": {
+            "type": "string",
+            "example": "0012200207901"
+          },
+          "type": {
+            "type": "string",
+            "example": "01"
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          }
+        }
+      },
       "bodyPaymentCondition": {
         "type": "object",
         "properties": {
@@ -8433,6 +9135,53 @@
           }
         }
       },
+      "responsePaymentCondition": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "30/60/90/120"
+          },
+          "installments": {
+            "type": "integer",
+            "example": "3"
+          },
+          "firstInstallmentDays": {
+            "type": "integer",
+            "example": "30"
+          },
+          "days": {
+            "type": "integer",
+            "example": "30"
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": false
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "discount": {
+            "type": "number",
+            "example": 3.99
+          },
+          "keepFixedDay": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "responsePaymentConditionArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responsePaymentCondition"
+        }
+      },
       "bodyPaymentMethod": {
         "type": "object",
         "properties": {
@@ -8464,6 +9213,45 @@
             "type": "string",
             "example": "CARTÃO"
           }
+        }
+      },
+      "responsePaymentMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "CARTÃO"
+          },
+          "mnemonic": {
+            "type": "string",
+            "example": "CA"
+          },
+          "finisherId": {
+            "type": "integer",
+            "example": "99"
+          },
+          "issue": {
+            "type": "boolean",
+            "example": "false"
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": false
+          },
+          "description": {
+            "type": "string",
+            "example": "CARTÃO"
+          }
+        }
+      },
+      "responsePaymentMethodArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/responsePaymentMethod"
         }
       },
       "bodyPublication": {
@@ -8747,6 +9535,28 @@
           }
         }
       },
+      "responseCity": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Campina Grande"
+          },
+          "state": {
+            "type": "string",
+            "example": "PB"
+          },
+          "IBGEId": {
+            "type": "string",
+            "example": "2504009"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 5920
+          }
+        }
+      },
       "client": {
         "type": "object",
         "properties": {
@@ -8831,6 +9641,78 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/client"
+        }
+      },
+      "responseClient": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS 2"
+          },
+          "corporateName": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS 2"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "example": "111111111112"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "61932660"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "email": {
+            "type": "string",
+            "example": "cliente@email.com.br"
+          },
+          "blocked": {
+            "type": "boolean",
+            "example": false
+          },
+          "inactive": {
+            "type": "boolean",
+            "example": false
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 348301142
+          }
         }
       },
       "collection": {
@@ -8944,266 +9826,6 @@
           "history": {
             "type": "string",
             "example": "VENDA REALIZADA PELO SITE"
-          }
-        }
-      },
-      "employee": {
-        "type": "object",
-        "properties": {
-          "CPF": {
-            "type": "string",
-            "example": "11111111111"
-          },
-          "RG": {
-            "type": "string",
-            "example": "111111111111"
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
-          },
-          "CTPS": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PIS": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Obs": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 110
-          },
-          "name": {
-            "type": "string",
-            "example": "FUNCIONÁRIOS DIVERSOS 2"
-          },
-          "postalCode": {
-            "type": "integer",
-            "format": "int32",
-            "example": 110
-          },
-          "city": {
-            "type": "string",
-            "example": "FORTALEZA"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 11043
-          },
-          "cellphone": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int32",
-            "example": 300
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "maritalStatusId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "sectorId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "salary": {
-            "type": "number",
-            "format": "double",
-            "example": 1299.9
-          },
-          "salaryCTPS": {
-            "type": "number",
-            "format": "double",
-            "example": 1299.9
-          },
-          "PaymentType": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "days": {
-            "type": "integer",
-            "format": "int32",
-            "example": 30
-          },
-          "hours": {
-            "type": "integer",
-            "format": "int32",
-            "example": 220
-          },
-          "sindicate": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "hasControlledEfficiency": {
-            "type": "boolean",
-            "example": true
-          },
-          "voucherLimit": {
-            "type": "number",
-            "format": "double",
-            "example": 1000
-          },
-          "situation": {
-            "type": "integer",
-            "format": "int32",
-            "example": 9
-          },
-          "gender": {
-            "type": "string",
-            "example": "M"
-          },
-          "birthday": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "placeOfBirth": {
-            "type": "string",
-            "example": "Campina Grande"
-          },
-          "nationality": {
-            "type": "string",
-            "example": "Brasileiro"
-          },
-          "affiliation": {
-            "type": "string",
-            "example": "ANA MARIA RODRIGUES SOUSA E MANOEL JOÃO DE SOUSA"
-          },
-          "spouse": {
-            "type": "string",
-            "example": "MONEGLESIA SOUSA SANTOS"
-          },
-          "education": {
-            "type": "string",
-            "example": "MEDIO COMPLETO"
-          },
-          "driversLicense": {
-            "type": "string",
-            "example": "0512357490B"
-          },
-          "FGTSAccount": {
-            "type": "string",
-            "example": " "
-          },
-          "FGTSCategory": {
-            "type": "string",
-            "example": "EMPREGADO "
-          },
-          "admission": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2012-06-01T00:00:00.000Z"
-          },
-          "allowance": {
-            "type": "string",
-            "example": " "
-          },
-          "resignation": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "resignationReason": {
-            "type": "string",
-            "example": "MOTIVOS PESSOAIS"
-          },
-          "currentVacationStart": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "currentVacationEnd": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "vacationStart": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "vacationEnd": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "nextVacationStart": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "nextVacationEnd": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "address": {
-            "type": "string",
-            "example": "AVENIDA SANTOS DUMONT"
-          },
-          "CEP": {
-            "type": "string",
-            "example": "60150162"
-          },
-          "phone": {
-            "type": "string",
-            "example": "30302020"
-          },
-          "registerDate": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "role": {
-            "type": "integer",
-            "format": "int16",
-            "example": 0
-          },
-          "active": {
-            "type": "boolean",
-            "example": true
-          }
-        }
-      },
-      "employeeArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/employee"
-        }
-      },
-      "envelope": {
-        "type": "object",
-        "properties": {
-          "from": {
-            "type": "string",
-            "example": "alphaweb@alphasystemas.com.br"
-          },
-          "to": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "cliente@email.com.br"
-            }
           }
         }
       },
@@ -9759,37 +10381,7 @@
           }
         }
       },
-      "productSaleBillResponse": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "439104"
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 36.0
-          },
-          "grids": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/gridResponse"
-            }
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int16",
-            "example": 4
-          },
-          "totalValue": {
-            "type": "number",
-            "format": "double",
-            "example": 144
-          }
-        }
-      },
-      "responseSettings": {
+      "settings": {
         "type": "object",
         "properties": {
           "id": {
@@ -9816,13 +10408,13 @@
           }
         }
       },
-      "responseSettingsArray": {
+      "settingsArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/responseSettings"
+          "$ref": "#/components/schemas/settings"
         }
       },
-      "responseOnSale": {
+      "onSale": {
         "type": "object",
         "properties": {
           "id": {
@@ -9884,604 +10476,10 @@
           }
         }
       },
-      "responseOnSaleArray": {
+      "onSaleArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/responseOnSale"
-        }
-      },
-      "responseCity": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "Campina Grande"
-          },
-          "state": {
-            "type": "string",
-            "example": "PB"
-          },
-          "IBGEId": {
-            "type": "string",
-            "example": "2504009"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 5920
-          }
-        }
-      },
-      "responseClient": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "CONSUMIDORES DIVERSOS 2"
-          },
-          "corporateName": {
-            "type": "string",
-            "example": "CONSUMIDORES DIVERSOS 2"
-          },
-          "CNPJCPF": {
-            "type": "string",
-            "example": "111111111112"
-          },
-          "address": {
-            "type": "string",
-            "example": "AVENIDA SANTOS DUMONT"
-          },
-          "postalCode": {
-            "type": "string",
-            "example": "61932660"
-          },
-          "district": {
-            "type": "string",
-            "example": "ALDEOTA"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 674
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
-          },
-          "countryId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 674
-          },
-          "phone": {
-            "type": "string",
-            "example": "30302020"
-          },
-          "cellphone": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "whatsapp": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "email": {
-            "type": "string",
-            "example": "cliente@email.com.br"
-          },
-          "blocked": {
-            "type": "boolean",
-            "example": false
-          },
-          "inactive": {
-            "type": "boolean",
-            "example": false
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 348301142
-          }
-        }
-      },
-      "responseDpa": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "2020030"
-          },
-          "billId": {
-            "type": "string",
-            "example": "200003"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int16",
-            "example": 3
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 29.98
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-09-15 14:19:28"
-          },
-          "type": {
-            "type": "string",
-            "example": "S"
-          },
-          "history": {
-            "type": "string",
-            "example": "VENDA REALIZADA PELO SITE"
-          }
-        }
-      },
-      "responseEmail": {
-        "type": "object",
-        "properties": {
-          "accepted": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/email"
-            }
-          },
-          "rejected": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/email"
-            }
-          },
-          "envelopeTime": {
-            "type": "integer",
-            "format": "int32",
-            "example": 3154
-          },
-          "messageTime": {
-            "type": "integer",
-            "format": "int32",
-            "example": 968
-          },
-          "messageSize": {
-            "type": "integer",
-            "format": "int32",
-            "example": 340
-          },
-          "response": {
-            "type": "string",
-            "example": "250 2.0.0 Ok queued as D6BAA41A4F9C"
-          },
-          "envolope": {
-            "$ref": "#/components/schemas/envelope"
-          },
-          "messageId": {
-            "type": "string",
-            "example": "<0220f233-ce4b-6f53-93ed-ed7825ef4ac7@alphasystemas.com.br>"
-          }
-        }
-      },
-      "responseEmployee": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "FUNCIONÁRIOS DIVERSOS 2"
-          },
-          "CPF": {
-            "type": "string",
-            "example": 111111111112
-          },
-          "address": {
-            "type": "string",
-            "example": ""
-          },
-          "postalCode": {
-            "type": "string",
-            "example": 60000000
-          },
-          "district": {
-            "type": "string",
-            "example": ""
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int",
-            "example": 674
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
-          },
-          "phone": {
-            "type": "string",
-            "example": ""
-          },
-          "cellphone": {
-            "type": "string"
-          },
-          "active": {
-            "type": "boolean",
-            "example": true
-          },
-          "commissionInCash": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionInInstallments": {
-            "type": "number",
-            "example": 0
-          },
-          "commission1": {
-            "type": "number",
-            "example": 0
-          },
-          "commission2": {
-            "type": "number",
-            "example": 0
-          },
-          "commission3": {
-            "type": "number",
-            "example": 0
-          },
-          "commission4": {
-            "type": "number",
-            "example": 0
-          },
-          "commission5": {
-            "type": "number",
-            "example": 0
-          },
-          "commission6": {
-            "type": "number",
-            "example": 0
-          },
-          "commission7": {
-            "type": "number",
-            "example": 0
-          },
-          "commission8": {
-            "type": "number",
-            "example": 0
-          },
-          "commission9": {
-            "type": "number",
-            "example": 0
-          },
-          "commission09": {
-            "type": "number",
-            "example": 0
-          },
-          "commission10": {
-            "type": "number",
-            "example": 0
-          },
-          "commission11": {
-            "type": "number",
-            "example": 0
-          },
-          "commission12": {
-            "type": "number",
-            "example": 0
-          },
-          "commission13": {
-            "type": "number",
-            "example": 0
-          },
-          "commission14": {
-            "type": "number",
-            "example": 0
-          },
-          "commission15": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionCashier": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionManager": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionSupervisor": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionGeneral": {
-            "type": "number",
-            "example": 0
-          },
-          "limit": {
-            "type": "number",
-            "example": 0
-          },
-          "roleId": {
-            "type": "number",
-            "example": 0
-          },
-          "maritalStatusId": {
-            "type": "number",
-            "example": 0
-          },
-          "dependentQuantity": {
-            "type": "number",
-            "example": 0
-          },
-          "sectorId": {
-            "type": "number",
-            "example": 0
-          },
-          "salary": {
-            "type": "number",
-            "example": 0
-          },
-          "salaryCTPS": {
-            "type": "number",
-            "example": 0
-          },
-          "PaymentType": {
-            "type": "number",
-            "example": 0
-          },
-          "days": {
-            "type": "number",
-            "example": 0
-          },
-          "hours": {
-            "type": "number",
-            "example": 220
-          },
-          "syndicate": {
-            "type": "boolean",
-            "example": false
-          },
-          "transportationVoucher": {
-            "type": "boolean",
-            "example": false
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "hasControlledEfficiency": {
-            "type": "boolean",
-            "example": false
-          },
-          "productionGroupId": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "biweeklyAdvanceAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "isVacationEmployee": {
-            "type": "boolean",
-            "example": false
-          },
-          "goldQuotaNumberOfParts": {
-            "type": "integer",
-            "format": "int",
-            "example": 250
-          },
-          "goldQuotaCommission": {
-            "type": "boolean",
-            "example": false
-          },
-          "goldQuotaAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "silverQuotaNumberOfParts": {
-            "type": "integer",
-            "format": "int",
-            "example": 500
-          },
-          "silverQuotaCommission": {
-            "type": "boolean",
-            "example": false
-          },
-          "silverQuotaAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "bronzeQuotaNumberOfParts": {
-            "type": "number",
-            "example": 1000
-          },
-          "bronzeQuotaCommission": {
-            "type": "boolean",
-            "example": false
-          },
-          "bronzeQuotaAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "voucherLimit": {
-            "type": "number",
-            "example": 0
-          },
-          "situation": {
-            "type": "integer",
-            "format": "int",
-            "example": 1
-          },
-          "hasTriennium": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "hasQuennium": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "award": {
-            "type": "number",
-            "example": 0
-          },
-          "productivity": {
-            "type": "number",
-            "example": 0
-          },
-          "punctuality": {
-            "type": "number",
-            "example": 0
-          },
-          "bank": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "agency": {
-            "type": "string",
-            "example": "0000"
-          },
-          "account": {
-            "type": "string",
-            "example": "0000"
-          },
-          "operation": {
-            "type": "string",
-            "example": "0000"
-          },
-          "launchProduction": {
-            "type": "boolean",
-            "example": false
-          },
-          "password": {
-            "type": "string",
-            "example": "SuperSenhaSeguraDaAlpha"
-          },
-          "playerIdPdvMobile": {
-            "type": "string",
-            "example": "StringDoPlayerIdPdvMobile"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int",
-            "example": 110
-          }
-        }
-      },
-      "responseInvoice": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int16",
-            "example": 3
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int16",
-            "example": 102
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int16",
-            "example": 180
-          },
-          "id": {
-            "type": "string",
-            "example": "0012200207901"
-          },
-          "type": {
-            "type": "string",
-            "example": "01"
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          }
-        }
-      },
-      "responsePaymentCondition": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "30/60/90/120"
-          },
-          "installments": {
-            "type": "integer",
-            "example": "3"
-          },
-          "firstInstallmentDays": {
-            "type": "integer",
-            "example": "30"
-          },
-          "days": {
-            "type": "integer",
-            "example": "30"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "disabled": {
-            "type": "boolean",
-            "example": false
-          },
-          "discount": {
-            "type": "number",
-            "example": 3.99
-          },
-          "keepFixedDay": {
-            "type": "boolean",
-            "example": true
-          }
-        }
-      },
-      "responsePaymentConditionArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responsePaymentCondition"
-        }
-      },
-      "responsePaymentMethod": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "CARTÃO"
-          },
-          "mnemonic": {
-            "type": "string",
-            "example": "CA"
-          },
-          "finisherId": {
-            "type": "integer",
-            "example": "99"
-          },
-          "issue": {
-            "type": "boolean",
-            "example": "false"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "description": {
-            "type": "string",
-            "example": "CARTÃO"
-          }
-        }
-      },
-      "responsePaymentMethodArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responsePaymentMethod"
+          "$ref": "#/components/schemas/onSale"
         }
       },
       "responseProductCatalog": {
@@ -10812,11 +10810,8 @@
           }
         }
       },
-      "sizes": {
-        "type": "string",
-        "example": "52, 34, 36, 38, 40, 42, 44, 46, 48, 50"
-      },
       "error400": {
+        "description": "Requisição invalida.",
         "type": "object",
         "properties": {
           "error": {
@@ -10826,6 +10821,7 @@
         }
       },
       "error500": {
+        "description": "Erro interno do servidor.",
         "type": "object",
         "properties": {
           "error": {
@@ -10835,6 +10831,7 @@
         }
       },
       "error503": {
+        "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
         "type": "object",
         "properties": {
           "error": {
