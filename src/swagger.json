@@ -767,7 +767,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCatalogGroup"
+                "$ref": "#/components/schemas/catalogGroup"
               }
             }
           }
@@ -778,7 +778,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogGroup"
+                  "$ref": "#/components/schemas/catalogGroup"
                 }
               }
             }
@@ -832,7 +832,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCatalogGroup"
+                "$ref": "#/components/schemas/catalogGroup"
               }
             }
           }
@@ -843,7 +843,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseCatalogGroup"
+                  "$ref": "#/components/schemas/catalogGroup"
                 }
               }
             }
@@ -1025,7 +1025,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                  "$ref": "#/components/schemas/catalogProductArray"
                 }
               }
             }
@@ -1079,7 +1079,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseProductCatalogArray"
+                "$ref": "#/components/schemas/catalogProductArray"
               }
             }
           }
@@ -1090,7 +1090,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                  "$ref": "#/components/schemas/catalogProductArray"
                 }
               }
             }
@@ -1144,7 +1144,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCatalogProduct"
+                "$ref": "#/components/schemas/catalogProduct"
               }
             }
           }
@@ -1155,7 +1155,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogProduct"
+                  "$ref": "#/components/schemas/catalogProduct"
                 }
               }
             }
@@ -1312,7 +1312,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseThemeCatalogArray"
+                  "$ref": "#/components/schemas/themeArray"
                 }
               }
             }
@@ -1366,7 +1366,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseThemeCatalog"
+                "$ref": "#/components/schemas/theme"
               }
             }
           }
@@ -1377,7 +1377,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseThemeCatalog"
+                  "$ref": "#/components/schemas/theme"
                 }
               }
             }
@@ -1431,7 +1431,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyTheme"
+                "$ref": "#/components/schemas/theme"
               }
             }
           }
@@ -1442,7 +1442,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseThemeCatalog"
+                  "$ref": "#/components/schemas/theme"
                 }
               }
             }
@@ -1557,7 +1557,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettingsArray"
+                  "$ref": "#/components/schemas/settingsArray"
                 }
               }
             }
@@ -1669,7 +1669,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseSettings"
+                "$ref": "#/components/schemas/settings"
               }
             }
           }
@@ -1680,7 +1680,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettings"
+                  "$ref": "#/components/schemas/settings"
                 }
               }
             }
@@ -1795,7 +1795,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettingsArray"
+                  "$ref": "#/components/schemas/settingsArray"
                 }
               }
             }
@@ -1907,7 +1907,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseSettings"
+                "$ref": "#/components/schemas/settings"
               }
             }
           }
@@ -1918,7 +1918,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettings"
+                  "$ref": "#/components/schemas/settings"
                 }
               }
             }
@@ -1972,7 +1972,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseSettings"
+                "$ref": "#/components/schemas/settings"
               }
             }
           }
@@ -1983,7 +1983,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSettings"
+                  "$ref": "#/components/schemas/settings"
                 }
               }
             }
@@ -2143,7 +2143,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseOnSaleArray"
+                  "$ref": "#/components/schemas/onSaleArray"
                 }
               }
             }
@@ -3281,7 +3281,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyInventoryOut"
+                "$ref": "#/components/schemas/inventoryOut"
               }
             }
           }
@@ -3292,7 +3292,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseInventoryOut"
+                  "$ref": "#/components/schemas/inventoryOut"
                 }
               }
             }
@@ -3359,7 +3359,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseInventoryOutGrid"
+                  "$ref": "#/components/schemas/bodyInventoryOutGrid"
                 }
               }
             }
@@ -4763,7 +4763,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseBill"
+                  "$ref": "#/components/schemas/bill"
                 }
               }
             }
@@ -4818,7 +4818,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyBill"
+                "$ref": "#/components/schemas/billPost"
               }
             }
           }
@@ -4829,7 +4829,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseBill"
+                  "$ref": "#/components/schemas/billPost"
                 }
               }
             }
@@ -5068,7 +5068,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                  "$ref": "#/components/schemas/catalogProductArray"
                 }
               }
             }
@@ -5122,7 +5122,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/responseProductCatalogArray"
+                "$ref": "#/components/schemas/catalogProductArray"
               }
             }
           }
@@ -5133,7 +5133,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseProductCatalogArray"
+                  "$ref": "#/components/schemas/catalogProductArray"
                 }
               }
             }
@@ -5187,7 +5187,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCatalogProduct"
+                "$ref": "#/components/schemas/catalogProduct"
               }
             }
           }
@@ -5198,7 +5198,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyCatalogProduct"
+                  "$ref": "#/components/schemas/catalogProduct"
                 }
               }
             }
@@ -5516,7 +5516,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentCondition"
+                  "$ref": "#/components/schemas/responsePaymentConditionArray"
                 }
               }
             }
@@ -5570,7 +5570,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPaymentCondition"
+                "$ref": "#/components/schemas/paymentCondition"
               }
             }
           }
@@ -5581,7 +5581,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentConditionArray"
+                  "$ref": "#/components/schemas/paymentCondition"
                 }
               }
             }
@@ -5754,7 +5754,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePaymentMethod"
+                  "$ref": "#/components/schemas/paymentMethodArray"
                 }
               }
             }
@@ -5808,7 +5808,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPaymentMethod"
+                "$ref": "#/components/schemas/paymentMethod"
               }
             }
           }
@@ -5819,7 +5819,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/bodyPaymentMethod"
+                  "$ref": "#/components/schemas/paymentMethod"
                 }
               }
             }
@@ -5970,7 +5970,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPublication"
+                "$ref": "#/components/schemas/publication"
               }
             }
           }
@@ -5981,7 +5981,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePublication"
+                  "$ref": "#/components/schemas/publication"
                 }
               }
             }
@@ -6037,7 +6037,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodySubscription"
+                "$ref": "#/components/schemas/subscription"
               }
             }
           }
@@ -6048,7 +6048,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSubscription"
+                  "$ref": "#/components/schemas/subscription"
                 }
               }
             }
@@ -6212,7 +6212,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCity"
+                "$ref": "#/components/schemas/city"
               }
             }
           }
@@ -6223,7 +6223,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseCity"
+                  "$ref": "#/components/schemas/city"
                 }
               }
             }
@@ -6342,7 +6342,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/cityId"
+                  "$ref": "#/components/schemas/city"
                 }
               }
             }
@@ -7432,9 +7432,149 @@
           "$ref": "#/components/schemas/all"
         }
       },
-      "bodyBill": {
+      "mongoId": {
+        "type": "string",
+        "example": "507f1f77bcf86cd799439011"
+      },
+      "mssqlId": {
+        "type": "integer",
+        "format": "int32",
+        "example": 123456
+      },
+      "storeId": {
+        "description": "Número da Loja (Loja 1 = Matriz)",
+        "$ref": "#/components/schemas/mssqlId"
+      },
+      "email": {
+        "type": "string",
+        "example": "email@dominioexemplo.com.br"
+      },
+      "envelope": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "example": "alphaweb@alphasystemas.com.br"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "cliente@email.com.br"
+            }
+          }
+        }
+      },
+      "size": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "P"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 6
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "sku": {
+            "type": "string",
+            "example": "0000001-0009-1"
+          }
+        }
+      },
+      "sizes": {
+        "type": "string",
+        "example": "52, 34, 36, 38, 40, 42, 44, 46, 48, 50"
+      },
+      "bill": {
         "type": "object",
         "required": ["consumer", "paymentId", "products", "unitValue"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "01/12/2020"
+          },
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "GLAYLSON SILVEIRE"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "string",
+            "example": "800.00"
+          },
+          "discountValue": {
+            "type": "string",
+            "example": "0.00"
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "formOfPayment": {
+            "type": "string",
+            "example": "Car"
+          },
+          "deliveryFee": {
+            "type": "string",
+            "example": 0.0
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/product"
+            }
+          }
+        }
+      },
+      "billPost": {
+        "type": "object",
         "properties": {
           "consumerId": {
             "type": "integer",
@@ -7443,7 +7583,7 @@
           },
           "consumer": {
             "type": "string",
-            "example": "Cliente 5"
+            "example": "Cliente 7"
           },
           "sellerId": {
             "type": "integer",
@@ -7460,10 +7600,8 @@
             "format": "double",
             "example": 20.0
           },
-          "paymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
           },
           "products": {
             "type": "array",
@@ -7471,20 +7609,60 @@
               "$ref": "#/components/schemas/productSale"
             }
           },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
+          "formOfPayment": {
+            "type": "string",
+            "example": "BOLETO"
           },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
+          "formOfPaymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 8
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 264
+          },
+          "billId": {
+            "type": "string",
+            "example": "200135"
           }
         }
       },
-      "bodyCallback": {
+      "billArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/all"
+          "$ref": "#/components/schemas/bill"
+        }
+      },
+      "productSaleBillResponse": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.0
+          },
+          "grids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/grid"
+            }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 4
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 144
+          }
         }
       },
       "bodyCatalogConfig": {
@@ -7513,7 +7691,7 @@
           "$ref": "#/components/schemas/bodyCatalogConfig"
         }
       },
-      "bodyCatalogGroup": {
+      "catalogProduct": {
         "type": "object",
         "required": ["id", "priceTable", "minimunQuantity"],
         "properties": {
@@ -7521,30 +7699,15 @@
             "type": "string",
             "example": "61cc902656f304037ce2b5e0"
           },
-          "name": {
-            "type": "string",
-            "example": "Camisas"
-          },
-          "createdAt": {
-            "type": "string",
-            "example": "01/01/2021"
-          },
-          "expirationAt": {
-            "type": "string",
-            "example": "01/01/2021"
-          },
-          "updatedAt": {
-            "type": "string",
-            "example": "01/01/2021"
-          },
-          "priceTable": {
-            "type": "number",
-            "format": "int32",
-            "example": 4
-          },
           "disabled": {
             "type": "boolean",
             "example": false
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/mongoId"
+            }
           },
           "images": {
             "type": "array",
@@ -7554,48 +7717,10 @@
           }
         }
       },
-      "bodyCatalogProduct": {
-        "type": "object",
-        "required": ["id", "priceTable", "minimunQuantity"],
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "61cc904856f304037ce2b600"
-          },
-          "catalogs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/catalogsProduct"
-            }
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          },
-          "disabled": {
-            "type": "boolean",
-            "example": false
-          }
-        }
-      },
-      "bodyCity": {
-        "type": "object",
-        "required": ["state"],
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "Campina Grande"
-          },
-          "state": {
-            "type": "string",
-            "example": "PB"
-          },
-          "IBGEId": {
-            "type": "string",
-            "example": "2504009"
-          }
+      "catalogProductArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/catalogProduct"
         }
       },
       "bodyClient": {
@@ -7689,6 +7814,42 @@
           }
         }
       },
+      "responseDpa": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "billId": {
+            "type": "string",
+            "example": "200003"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 29.98
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-15 14:19:28"
+          },
+          "type": {
+            "type": "string",
+            "example": "S"
+          },
+          "history": {
+            "type": "string",
+            "example": "VENDA REALIZADA PELO SITE"
+          }
+        }
+      },
       "bodyEmail": {
         "type": "object",
         "properties": {
@@ -7710,11 +7871,48 @@
           }
         }
       },
-      "storeId": {
-        "description": "Número da Loja (Loja 1 = Matriz)",
-        "type": "integer",
-        "format": "int32",
-        "example": 2
+      "responseEmail": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/email"
+            }
+          },
+          "rejected": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/email"
+            }
+          },
+          "envelopeTime": {
+            "type": "integer",
+            "format": "int32",
+            "example": 3154
+          },
+          "messageTime": {
+            "type": "integer",
+            "format": "int32",
+            "example": 968
+          },
+          "messageSize": {
+            "type": "integer",
+            "format": "int32",
+            "example": 340
+          },
+          "response": {
+            "type": "string",
+            "example": "250 2.0.0 Ok queued as D6BAA41A4F9C"
+          },
+          "envolope": {
+            "$ref": "#/components/schemas/envelope"
+          },
+          "messageId": {
+            "type": "string",
+            "example": "<0220f233-ce4b-6f53-93ed-ed7825ef4ac7@alphasystemas.com.br>"
+          }
+        }
       },
       "bodyEmployee": {
         "type": "object",
@@ -8060,755 +8258,6 @@
           }
         }
       },
-      "bodyGetBill": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/bodyGetBillArray"
-        }
-      },
-      "bodyGetBillArray": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "date": {
-            "type": "string",
-            "format": "date",
-            "example": "01/12/2020"
-          },
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "GLAYLSON SILVEIRE"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "grossValue": {
-            "type": "string",
-            "example": "800.00"
-          },
-          "discountValue": {
-            "type": "string",
-            "example": "0.00"
-          },
-          "paymentConditions": {
-            "type": "string",
-            "example": "30/60"
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "Car"
-          },
-          "deliveryFee": {
-            "type": "string",
-            "example": 0.0
-          },
-          "inCash": {
-            "type": "number",
-            "format": "double",
-            "example": 0
-          },
-          "installments": {
-            "type": "number",
-            "format": "double",
-            "example": 800
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/product"
-            }
-          }
-        }
-      },
-      "bodyInventoryOut": {
-        "type": "object",
-        "required": ["productId", "quantity"],
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "2020030"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "example": 3
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          }
-        }
-      },
-      "bodyInventoryOutGrid": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "2020030"
-          },
-          "colorId": {
-            "type": "string",
-            "example": "4"
-          },
-          "size01": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size02": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size03": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size04": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size05": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size06": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size07": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size08": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size09": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "size10": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          }
-        }
-      },
-      "bodyInvoice": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "example": 3
-          },
-          "sellerId": {
-            "type": "integer",
-            "example": 102
-          },
-          "billId": {
-            "type": "string",
-            "example": "22002079"
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 180
-          },
-          "paymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "type": {
-            "type": "string",
-            "example": "01"
-          },
-          "installmentNumber": {
-            "type": "integer",
-            "example": "1",
-            "description": "Número do parcelamento, começa em 1"
-          }
-        }
-      },
-      "bodyPaymentCondition": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "30/60/90/120"
-          },
-          "installments": {
-            "type": "integer",
-            "example": "3"
-          },
-          "firstInstallmentDays": {
-            "type": "integer",
-            "example": "30"
-          },
-          "days": {
-            "type": "integer",
-            "example": "30"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "disabled": {
-            "type": "boolean",
-            "example": false
-          },
-          "discount": {
-            "type": "number",
-            "example": 3.99
-          }
-        }
-      },
-      "bodyPaymentMethod": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "CARTÃO"
-          },
-          "mnemonic": {
-            "type": "string",
-            "example": "CA"
-          },
-          "finisherId": {
-            "type": "integer",
-            "example": 99
-          },
-          "issue": {
-            "type": "boolean",
-            "example": false
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": true
-          },
-          "description": {
-            "type": "string",
-            "example": "CARTÃO"
-          }
-        }
-      },
-      "bodyPublication": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "URL da publicação",
-            "example": "https://reqres.in/api/user"
-          },
-          "endpoint": {
-            "type": "string",
-            "description": "Endpoint da publicação",
-            "example": "api/alguma"
-          },
-          "contents": {
-            "type": "object",
-            "description": "Conteúdo da publicação",
-            "properties": {
-              "teste": {
-                "type": "string",
-                "example": "teste"
-              }
-            }
-          }
-        }
-      },
-      "bodySale": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "paymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "priceTable": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          }
-        }
-      },
-      "bodySubscription": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "description": "URL que receberá notificações de eventos a rota a qual se inscreveu",
-                "example": "https://test-api.app/api/subscription/publish"
-              },
-              "method": {
-                "type": "string",
-                "description": "Método HTTP que será utilizado para receber as notificações",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "description": "Configurações adicionais para o envio da notificação, como headers, query params, etc. Esse campo tem o mesmo formato do Request Config do Axios: https://axios-http.com/docs/req_config",
-                "items": {
-                  "$ref": "#/components/schemas/config"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "description": "URL da API a qual deseja se inscrever",
-                "example": "https://alpha-api.com/"
-              },
-              "endpoint": {
-                "type": "string",
-                "description": "Endpoint da API a qual deseja se inscrever",
-                "example": "product/inventory"
-              },
-              "method": {
-                "type": "array",
-                "description": "Métodos HTTP que deseja se inscrever",
-                "example": ["POST", "PUT", "DELETE"]
-              }
-            }
-          }
-        }
-      },
-      "bodySignIn": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "example": "LOCAL"
-          },
-          "identification": {
-            "type": "string",
-            "example": "userteste3@gmail.com"
-          },
-          "key": {
-            "type": "string",
-            "example": "1234"
-          }
-        }
-      },
-      "bodySignUp": {
-        "type": "object",
-        "properties": {
-          "givenName": {
-            "type": "string",
-            "example": "Some"
-          },
-          "familyName": {
-            "type": "string",
-            "example": "One"
-          },
-          "identifications": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/identifications"
-            }
-          },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "auth": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              },
-              "VUTT": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              }
-            }
-          },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/all"
-            }
-          }
-        }
-      },
-      "bodyTheme": {
-        "type": "object",
-        "required": ["id", "priceTable", "minimunQuantity"],
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "1213152"
-          },
-          "logos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          },
-          "favicos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          }
-        }
-      },
-      "catalogsProduct": {
-        "type": "string",
-        "example": "Calças"
-      },
-      "category": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "JEANS"
-          }
-        }
-      },
-      "categoryArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/category"
-        }
-      },
-      "city": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 21
-          },
-          "name": {
-            "type": "string",
-            "example": "AGUA BRANCA"
-          },
-          "state": {
-            "type": "string",
-            "example": "AL"
-          },
-          "IBGEId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2700201
-          }
-        }
-      },
-      "cityArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/city"
-        }
-      },
-      "cityId": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 21
-          },
-          "name": {
-            "type": "string",
-            "example": "AGUA BRANCA"
-          },
-          "state": {
-            "type": "string",
-            "example": "AL"
-          },
-          "IBGEId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2700201
-          }
-        }
-      },
-      "client": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "CONSUMIDORES DIVERSOS"
-          },
-          "corporateName": {
-            "type": "string",
-            "example": "CONSUMIDORES DIVERSOS"
-          },
-          "CNPJCPF": {
-            "type": "string",
-            "example": "11111111111"
-          },
-          "address": {
-            "type": "string",
-            "example": "AVENIDA SANTOS DUMONT"
-          },
-          "postalCode": {
-            "type": "string",
-            "example": "60150162"
-          },
-          "district": {
-            "type": "string",
-            "example": "ALDEOTA"
-          },
-          "city": {
-            "type": "string",
-            "example": "FORTALEZA"
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
-          },
-          "country": {
-            "type": "string",
-            "example": "BRASIL"
-          },
-          "registerDate": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2013-01-01T00:00:00.000Z"
-          },
-          "phone": {
-            "type": "string",
-            "example": "30302020"
-          },
-          "cellphone": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "whatsapp": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "email": {
-            "type": "string",
-            "example": "cliente@email.com.br"
-          },
-          "blocked": {
-            "type": "boolean",
-            "example": false
-          },
-          "inactive": {
-            "type": "boolean",
-            "example": false
-          },
-          "clientType": {
-            "type": "integer",
-            "format": "int16",
-            "example": 0
-          }
-        }
-      },
-      "clientArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/client"
-        }
-      },
-      "collection": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "BEACH WERE FLUID"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-09-24 19:35:20"
-          },
-          "expirationAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-09-24 19:35:20"
-          }
-        }
-      },
-      "collectionArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/collection"
-        }
-      },
-      "color": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int16",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "AZUL"
-          },
-          "sizes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/size"
-            }
-          }
-        }
-      },
-      "colorArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/color"
-        }
-      },
-      "config": {
-        "type": "object",
-        "properties": {
-          "judah": {
-            "type": "string",
-            "example": "1234"
-          }
-        }
-      },
-      "configResponse": {
-        "type": "object",
-        "properties": {
-          "judah": {
-            "type": "string",
-            "example": "1234"
-          },
-          "id": {
-            "type": "string",
-            "example": "61a4c40aa79376c00c8c010f"
-          }
-        }
-      },
-      "dpaBlockResponse": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "439104"
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 36.0
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "example": 4
-          },
-          "billId": {
-            "type": "string",
-            "example": "200135"
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-09-24 19:35:20"
-          },
-          "type": {
-            "type": "string",
-            "example": "S"
-          },
-          "history": {
-            "type": "string",
-            "example": "VENDA REALIZADA PELO SITE"
-          }
-        }
-      },
-      "email": {
-        "type": "string",
-        "example": "email@dominioexemplo.com.br"
-      },
       "employee": {
         "type": "object",
         "properties": {
@@ -9053,29 +8502,338 @@
           "$ref": "#/components/schemas/employee"
         }
       },
-      "envelope": {
+      "responseEmployee": {
         "type": "object",
         "properties": {
-          "from": {
+          "name": {
             "type": "string",
-            "example": "alphaweb@alphasystemas.com.br"
+            "example": "FUNCIONÁRIOS DIVERSOS 2"
           },
-          "to": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "cliente@email.com.br"
-            }
+          "CPF": {
+            "type": "string",
+            "example": 111111111112
+          },
+          "address": {
+            "type": "string",
+            "example": ""
+          },
+          "postalCode": {
+            "type": "string",
+            "example": 60000000
+          },
+          "district": {
+            "type": "string",
+            "example": ""
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "phone": {
+            "type": "string",
+            "example": ""
+          },
+          "cellphone": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "commissionInCash": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionInInstallments": {
+            "type": "number",
+            "example": 0
+          },
+          "commission1": {
+            "type": "number",
+            "example": 0
+          },
+          "commission2": {
+            "type": "number",
+            "example": 0
+          },
+          "commission3": {
+            "type": "number",
+            "example": 0
+          },
+          "commission4": {
+            "type": "number",
+            "example": 0
+          },
+          "commission5": {
+            "type": "number",
+            "example": 0
+          },
+          "commission6": {
+            "type": "number",
+            "example": 0
+          },
+          "commission7": {
+            "type": "number",
+            "example": 0
+          },
+          "commission8": {
+            "type": "number",
+            "example": 0
+          },
+          "commission9": {
+            "type": "number",
+            "example": 0
+          },
+          "commission09": {
+            "type": "number",
+            "example": 0
+          },
+          "commission10": {
+            "type": "number",
+            "example": 0
+          },
+          "commission11": {
+            "type": "number",
+            "example": 0
+          },
+          "commission12": {
+            "type": "number",
+            "example": 0
+          },
+          "commission13": {
+            "type": "number",
+            "example": 0
+          },
+          "commission14": {
+            "type": "number",
+            "example": 0
+          },
+          "commission15": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionCashier": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionManager": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionSupervisor": {
+            "type": "number",
+            "example": 0
+          },
+          "commissionGeneral": {
+            "type": "number",
+            "example": 0
+          },
+          "limit": {
+            "type": "number",
+            "example": 0
+          },
+          "roleId": {
+            "type": "number",
+            "example": 0
+          },
+          "maritalStatusId": {
+            "type": "number",
+            "example": 0
+          },
+          "dependentQuantity": {
+            "type": "number",
+            "example": 0
+          },
+          "sectorId": {
+            "type": "number",
+            "example": 0
+          },
+          "salary": {
+            "type": "number",
+            "example": 0
+          },
+          "salaryCTPS": {
+            "type": "number",
+            "example": 0
+          },
+          "PaymentType": {
+            "type": "number",
+            "example": 0
+          },
+          "days": {
+            "type": "number",
+            "example": 0
+          },
+          "hours": {
+            "type": "number",
+            "example": 220
+          },
+          "syndicate": {
+            "type": "boolean",
+            "example": false
+          },
+          "transportationVoucher": {
+            "type": "boolean",
+            "example": false
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "hasControlledEfficiency": {
+            "type": "boolean",
+            "example": false
+          },
+          "productionGroupId": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "biweeklyAdvanceAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "isVacationEmployee": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int",
+            "example": 250
+          },
+          "goldQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "goldQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "silverQuotaNumberOfParts": {
+            "type": "integer",
+            "format": "int",
+            "example": 500
+          },
+          "silverQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "silverQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "bronzeQuotaNumberOfParts": {
+            "type": "number",
+            "example": 1000
+          },
+          "bronzeQuotaCommission": {
+            "type": "boolean",
+            "example": false
+          },
+          "bronzeQuotaAmount": {
+            "type": "number",
+            "example": 0
+          },
+          "voucherLimit": {
+            "type": "number",
+            "example": 0
+          },
+          "situation": {
+            "type": "integer",
+            "format": "int",
+            "example": 1
+          },
+          "hasTriennium": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "hasQuennium": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "award": {
+            "type": "number",
+            "example": 0
+          },
+          "productivity": {
+            "type": "number",
+            "example": 0
+          },
+          "punctuality": {
+            "type": "number",
+            "example": 0
+          },
+          "bank": {
+            "type": "integer",
+            "format": "int",
+            "example": 0
+          },
+          "agency": {
+            "type": "string",
+            "example": "0000"
+          },
+          "account": {
+            "type": "string",
+            "example": "0000"
+          },
+          "operation": {
+            "type": "string",
+            "example": "0000"
+          },
+          "launchProduction": {
+            "type": "boolean",
+            "example": false
+          },
+          "password": {
+            "type": "string",
+            "example": "SuperSenhaSeguraDaAlpha"
+          },
+          "playerIdPdvMobile": {
+            "type": "string",
+            "example": "StringDoPlayerIdPdvMobile"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int",
+            "example": 110
           }
         }
       },
-      "grid": {
+      "inventoryOut": {
         "type": "object",
+        "required": ["productId", "quantity"],
         "properties": {
-          "colorId": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "quantity": {
             "type": "integer",
             "format": "int32",
             "example": 3
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          }
+        }
+      },
+      "bodyInventoryOutGrid": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "2020030"
+          },
+          "colorId": {
+            "type": "string",
+            "example": "4"
           },
           "size01": {
             "type": "integer",
@@ -9085,7 +8843,7 @@
           "size02": {
             "type": "integer",
             "format": "int16",
-            "example": 0
+            "example": 1
           },
           "size03": {
             "type": "integer",
@@ -9095,17 +8853,17 @@
           "size04": {
             "type": "integer",
             "format": "int16",
-            "example": 0
+            "example": 1
           },
           "size05": {
             "type": "integer",
             "format": "int16",
-            "example": 0
+            "example": 1
           },
           "size06": {
             "type": "integer",
             "format": "int16",
-            "example": 0
+            "example": 1
           },
           "size07": {
             "type": "integer",
@@ -9115,7 +8873,7 @@
           "size08": {
             "type": "integer",
             "format": "int16",
-            "example": 0
+            "example": 1
           },
           "size09": {
             "type": "integer",
@@ -9125,11 +8883,849 @@
           "size10": {
             "type": "integer",
             "format": "int16",
+            "example": 1
+          }
+        }
+      },
+      "bodyInvoice": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "example": 3
+          },
+          "sellerId": {
+            "type": "integer",
+            "example": 102
+          },
+          "billId": {
+            "type": "string",
+            "example": "22002079"
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": 180
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "type": {
+            "type": "string",
+            "example": "01"
+          },
+          "installmentNumber": {
+            "type": "integer",
+            "example": "1",
+            "description": "Número do parcelamento, começa em 1"
+          }
+        }
+      },
+      "responseInvoice": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 3
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int16",
+            "example": 102
+          },
+          "grossValue": {
+            "type": "integer",
+            "format": "int16",
+            "example": 180
+          },
+          "id": {
+            "type": "string",
+            "example": "0012200207901"
+          },
+          "type": {
+            "type": "string",
+            "example": "01"
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          }
+        }
+      },
+      "paymentCondition": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "30/60/90/120"
+          },
+          "installments": {
+            "type": "integer",
+            "example": "3"
+          },
+          "firstInstallmentDays": {
+            "type": "integer",
+            "example": "30"
+          },
+          "days": {
+            "type": "integer",
+            "example": "30"
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": false
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "discount": {
+            "type": "number",
+            "example": 3.99
+          },
+          "keepFixedDay": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "responsePaymentConditionArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/paymentCondition"
+        }
+      },
+      "paymentMethod": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "4"
+          },
+          "name": {
+            "type": "string",
+            "example": "CARTÃO"
+          },
+          "mnemonic": {
+            "type": "string",
+            "example": "CA"
+          },
+          "finisherId": {
+            "type": "integer",
+            "example": 99
+          },
+          "issue": {
+            "type": "boolean",
+            "example": false
+          },
+          "catalog": {
+            "type": "boolean",
+            "example": true
+          },
+          "description": {
+            "type": "string",
+            "example": "CARTÃO"
+          }
+        }
+      },
+      "paymentMethodArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/paymentMethod"
+        }
+      },
+      "publication": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL da publicação",
+            "example": "https://reqres.in/api/user"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint da publicação",
+            "example": "api/alguma"
+          },
+          "contents": {
+            "type": "object",
+            "description": "Conteúdo da publicação",
+            "properties": {
+              "teste": {
+                "type": "string",
+                "example": "teste"
+              }
+            }
+          }
+        }
+      },
+      "subscription": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "object",
+            "example": "61a4c40aa79376c00c8c010d"
+          },
+          "callback": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "URL que receberá notificações de eventos a rota a qual se inscreveu",
+                "example": "https://test-api.app/api/subscription/publish"
+              },
+              "method": {
+                "type": "string",
+                "description": "Método HTTP que será utilizado para receber as notificações",
+                "example": "POST"
+              },
+              "config": {
+                "type": "array",
+                "description": "Configurações adicionais para o envio da notificação, como headers, query params, etc. Esse campo tem o mesmo formato do Request Config do Axios: https://axios-http.com/docs/req_config",
+                "items": {
+                  "$ref": "#/components/schemas/config"
+                }
+              }
+            }
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "URL da API a qual deseja se inscrever",
+                "example": "https://alpha-api.com/"
+              },
+              "endpoint": {
+                "type": "string",
+                "description": "Endpoint da API a qual deseja se inscrever",
+                "example": "product/inventory"
+              },
+              "method": {
+                "type": "array",
+                "description": "Métodos HTTP que deseja se inscrever",
+                "example": ["POST", "PUT", "DELETE"]
+              }
+            }
+          }
+        }
+      },
+      "bodySale": {
+        "type": "object",
+        "properties": {
+          "consumerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2
+          },
+          "consumer": {
+            "type": "string",
+            "example": "Cliente 5"
+          },
+          "sellerId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 102
+          },
+          "discountValue": {
+            "type": "number",
+            "format": "double",
+            "example": 0.0
+          },
+          "deliveryFee": {
+            "type": "number",
+            "format": "double",
+            "example": 20.0
+          },
+          "paymentId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "priceTable": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          }
+        }
+      },
+      "responseSale": {
+        "type": "object",
+        "properties": {
+          "bill": {
+            "$ref": "#/components/schemas/billPost"
+          },
+          "inventoryOut": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inventoryOut"
+            }
+          },
+          "dpa": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dpaBlockResponse"
+            }
+          },
+          "inventoryOutGrid": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/grid"
+            }
+          },
+          "invoice": {
+            "type": "object",
+            "properties": {
+              "consumerId": {
+                "type": "integer",
+                "format": "int32",
+                "example": 2
+              },
+              "sellerId": {
+                "type": "integer",
+                "format": "int32",
+                "example": 102
+              },
+              "Id": {
+                "type": "string",
+                "example": "0010020013501"
+              },
+              "grossValue": {
+                "type": "integer",
+                "format": "int32",
+                "example": 264
+              },
+              "type": {
+                "type": "string",
+                "example": "01"
+              }
+            }
+          }
+        }
+      },
+      "productSale": {
+        "type": "object",
+        "required": ["productId", "unitValue", "grids"],
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.0
+          },
+          "grids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/grid"
+            }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "inte32",
+            "example": 4
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 144.0
+          }
+        }
+      },
+      "bodySignIn": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "LOCAL"
+          },
+          "identification": {
+            "type": "string",
+            "example": "userteste3@gmail.com"
+          },
+          "key": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "responseSignIn": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlOYW1lIjoiT25lIiwiZ2l2ZW5OYW1lIjoiU29tZSIsImlkIjoiNjE1MWI0MjljYzkzN2Q2N2EwMTdiZDk0IiwicGVybWlzc2lvbnMiOnsiYWxsIjp7ImFsbCI6WyJhbGwiXX0sImF1dGgiOnsiYWxsIjpbImFsbCJdfX0sImlkZW50aWZpY2F0aW9uIjpbeyJ0eXBlIjoiTE9DQUwiLCJpZGVudGlmaWNhdGlvbiI6InVzZXJ0ZXN0ZTNAZ21haWwuY29tIiwidW52ZXJpZmllZCI6dHJ1ZX1dLCJpYXQiOjE2MzMwMTAxNDcsImV4cCI6MTYzMzAxMTA0N30.szdADaYhCiwkjSX_fCFZYXKWev8TCMLFw8z1LQxkQ7lVZGsF5JJ2yD0nQDxh_-hoDDC1VqCbW-0X6ZvMIKBePt5mnkYFEwLiDxf80r3B22qw_cTVaeDfPQjdyxRymMgPfgFdH1TFsfNKCIUZZ-IbT7HTyJXU6YJF-4K6P9D9G6nGqMwGDuBqv2auvo2mKlwWW9J7We40j9d1CgRn4u1_lOSj2l4BN8_DY0hI2dQeBP4ccdRltWIH9sv9EkdZPjuF0KisLqbQ24RBXwQ_7tXyWXTCnODaeWC4Ue1tFKsZbyJ9pOUKCwJxOXaiT-tdCqegbfkRh0la1dfstVJuAcLv2g"
+          }
+        }
+      },
+      "bodySignUp": {
+        "type": "object",
+        "properties": {
+          "givenName": {
+            "type": "string",
+            "example": "Some"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "One"
+          },
+          "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/identifications"
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "VUTT": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              }
+            }
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/all"
+            }
+          }
+        }
+      },
+      "responseSignUp": {
+        "type": "object",
+        "properties": {
+          "givenName": {
+            "type": "string",
+            "example": "Some"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "One"
+          },
+          "id": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd94"
+          },
+          "identifications": {
+            "$ref": "#/components/schemas/identificationsArray"
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/instances"
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "all": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              },
+              "auth": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "$ref": "#/components/schemas/allArray"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "theme": {
+        "type": "object",
+        "required": ["id", "priceTable", "minimunQuantity"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1213152"
+          },
+          "logos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "favicos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          }
+        }
+      },
+      "themeArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/theme"
+        }
+      },
+      "catalogsProduct": {
+        "type": "string",
+        "example": "Calças"
+      },
+      "category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "JEANS"
+          }
+        }
+      },
+      "categoryArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/category"
+        }
+      },
+      "city": {
+        "type": "object",
+        "required": ["name", "state"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 21
+          },
+          "name": {
+            "type": "string",
+            "example": "AGUA BRANCA"
+          },
+          "state": {
+            "type": "string",
+            "example": "AL"
+          },
+          "IBGEId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 2700201
+          }
+        }
+      },
+      "cityArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/city"
+        }
+      },
+      "client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS"
+          },
+          "corporateName": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "example": "11111111111"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "60150162"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "city": {
+            "type": "string",
+            "example": "FORTALEZA"
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "country": {
+            "type": "string",
+            "example": "BRASIL"
+          },
+          "registerDate": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2013-01-01T00:00:00.000Z"
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "email": {
+            "type": "string",
+            "example": "cliente@email.com.br"
+          },
+          "blocked": {
+            "type": "boolean",
+            "example": false
+          },
+          "inactive": {
+            "type": "boolean",
+            "example": false
+          },
+          "clientType": {
+            "type": "integer",
+            "format": "int16",
             "example": 0
           }
         }
       },
-      "gridResponse": {
+      "clientArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/client"
+        }
+      },
+      "responseClient": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS"
+          },
+          "corporateName": {
+            "type": "string",
+            "example": "CONSUMIDORES DIVERSOS"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "example": "11111111111"
+          },
+          "address": {
+            "type": "string",
+            "example": "AVENIDA SANTOS DUMONT"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "60150162"
+          },
+          "district": {
+            "type": "string",
+            "example": "ALDEOTA"
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "UF": {
+            "type": "string",
+            "example": "CE"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 674
+          },
+          "phone": {
+            "type": "string",
+            "example": "30302020"
+          },
+          "cellphone": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "whatsapp": {
+            "type": "string",
+            "example": "085999808080"
+          },
+          "email": {
+            "type": "string",
+            "example": "cliente@email.com.br"
+          },
+          "blocked": {
+            "type": "boolean",
+            "example": false
+          },
+          "inactive": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "collection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "BEACH WERE FLUID"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-24 19:35:20"
+          },
+          "expirationAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-24 19:35:20"
+          }
+        }
+      },
+      "collectionArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/collection"
+        }
+      },
+      "color": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int16",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "AZUL"
+          },
+          "sizes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/size"
+            }
+          }
+        }
+      },
+      "colorArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/color"
+        }
+      },
+      "config": {
+        "type": "object",
+        "properties": {
+          "test": {
+            "type": "string",
+            "example": "1234"
+          }
+        }
+      },
+      "configResponse": {
+        "type": "object",
+        "properties": {
+          "test": {
+            "type": "string",
+            "example": "1234"
+          },
+          "id": {
+            "type": "string",
+            "example": "61a4c40aa79376c00c8c010f"
+          }
+        }
+      },
+      "dpaBlockResponse": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.0
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 4
+          },
+          "billId": {
+            "type": "string",
+            "example": "200135"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-09-24 19:35:20"
+          },
+          "type": {
+            "type": "string",
+            "example": "S"
+          },
+          "history": {
+            "type": "string",
+            "example": "VENDA REALIZADA PELO SITE"
+          }
+        }
+      },
+      "grid": {
         "type": "object",
         "properties": {
           "colorId": {
@@ -9217,10 +9813,54 @@
           "$ref": "#/components/schemas/group"
         }
       },
+      "catalogGroup": {
+        "type": "object",
+        "required": ["id", "priceTable", "minimunQuantity"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "61cc902656f304037ce2b5e0"
+          },
+          "name": {
+            "type": "string",
+            "example": "Camisas"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/imagesGroupArray"
+            }
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
+          },
+          "expirationAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-11-01T03:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2021-01-01T03:00:00.000Z"
+          },
+          "priceTable": {
+            "type": "number",
+            "format": "int32",
+            "example": 8
+          }
+        }
+      },
       "groupCatalogArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/bodyCatalogGroup"
+          "$ref": "#/components/schemas/catalogGroup"
         }
       },
       "identifications": {
@@ -9249,6 +9889,10 @@
       "identificationsResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd95"
+          },
           "type": {
             "type": "string",
             "example": "LOCAL"
@@ -9256,10 +9900,6 @@
           "identification": {
             "type": "string",
             "example": "userteste3@gmail.com"
-          },
-          "id": {
-            "type": "string",
-            "example": "6151b429cc937d67a017bd95"
           },
           "unverified": {
             "type": "boolean",
@@ -9571,10 +10211,6 @@
           "$ref": "#/components/schemas/product"
         }
       },
-      "productCatalogsArray": {
-        "type": "string",
-        "example": "61d44f843b1b3fddedc72a63"
-      },
       "productGrid": {
         "type": "object",
         "properties": {
@@ -9594,94 +10230,7 @@
           }
         }
       },
-      "productSale": {
-        "type": "object",
-        "required": ["productId", "unitValue", "grids"],
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "439104"
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 36.0
-          },
-          "grids": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/grid"
-            }
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "inte32",
-            "example": 4
-          },
-          "totalValue": {
-            "type": "number",
-            "format": "double",
-            "example": 144.0
-          }
-        }
-      },
-      "productSaleBillResponse": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "439104"
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 36.0
-          },
-          "grids": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/gridResponse"
-            }
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int16",
-            "example": 4
-          },
-          "totalValue": {
-            "type": "number",
-            "format": "double",
-            "example": 144
-          }
-        }
-      },
-      "size": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "P"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int16",
-            "example": 6
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "sku": {
-            "type": "string",
-            "example": "0000001-0009-1"
-          }
-        }
-      },
-      "responseSettings": {
+      "settings": {
         "type": "object",
         "properties": {
           "id": {
@@ -9708,7 +10257,13 @@
           }
         }
       },
-      "responseOnSale": {
+      "settingsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/settings"
+        }
+      },
+      "onSale": {
         "type": "object",
         "properties": {
           "id": {
@@ -9770,1121 +10325,14 @@
           }
         }
       },
-      "responseBill": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200082"
-          },
-          "ecommerceOrderId": {
-            "type": "string",
-            "example": "2000834322"
-          },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
-          },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
-          }
-        }
-      },
-      "responseGetBill": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 5"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200082"
-          },
-          "ecommerceOrderId": {
-            "type": "string",
-            "example": "2000834322"
-          },
-          "installments": {
-            "type": "number",
-            "example": "50.5"
-          },
-          "inCash": {
-            "type": "number",
-            "example": "50.5"
-          }
-        }
-      },
-      "ResponseCatalogGroup": {
-        "type": "object",
-        "required": ["id", "priceTable", "minimunQuantity"],
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "61cc902656f304037ce2b5e0"
-          },
-          "name": {
-            "type": "string",
-            "example": "Camisas"
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-01-01T03:00:00.000Z"
-          },
-          "expirationAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-11-01T03:00:00.000Z"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-01-01T03:00:00.000Z"
-          },
-          "priceTable": {
-            "type": "number",
-            "format": "int32",
-            "example": 8
-          }
-        }
-      },
-      "responseCity": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "Campina Grande"
-          },
-          "state": {
-            "type": "string",
-            "example": "PB"
-          },
-          "IBGEId": {
-            "type": "string",
-            "example": "2504009"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "example": 5920
-          }
-        }
-      },
-      "responseClient": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "CONSUMIDORES DIVERSOS 2"
-          },
-          "corporateName": {
-            "type": "string",
-            "example": "CONSUMIDORES DIVERSOS 2"
-          },
-          "CNPJCPF": {
-            "type": "string",
-            "example": "111111111112"
-          },
-          "address": {
-            "type": "string",
-            "example": "AVENIDA SANTOS DUMONT"
-          },
-          "postalCode": {
-            "type": "string",
-            "example": "61932660"
-          },
-          "district": {
-            "type": "string",
-            "example": "ALDEOTA"
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 674
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
-          },
-          "countryId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 674
-          },
-          "phone": {
-            "type": "string",
-            "example": "30302020"
-          },
-          "cellphone": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "whatsapp": {
-            "type": "string",
-            "example": "085999808080"
-          },
-          "email": {
-            "type": "string",
-            "example": "cliente@email.com.br"
-          },
-          "blocked": {
-            "type": "boolean",
-            "example": false
-          },
-          "inactive": {
-            "type": "boolean",
-            "example": false
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 348301142
-          }
-        }
-      },
-      "responseDpa": {
-        "type": "object",
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "2020030"
-          },
-          "billId": {
-            "type": "string",
-            "example": "200003"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int16",
-            "example": 3
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 29.98
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2021-09-15 14:19:28"
-          },
-          "type": {
-            "type": "string",
-            "example": "S"
-          },
-          "history": {
-            "type": "string",
-            "example": "VENDA REALIZADA PELO SITE"
-          }
-        }
-      },
-      "responseEmail": {
-        "type": "object",
-        "properties": {
-          "accepted": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/email"
-            }
-          },
-          "rejected": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/email"
-            }
-          },
-          "envelopeTime": {
-            "type": "integer",
-            "format": "int32",
-            "example": 3154
-          },
-          "messageTime": {
-            "type": "integer",
-            "format": "int32",
-            "example": 968
-          },
-          "messageSize": {
-            "type": "integer",
-            "format": "int32",
-            "example": 340
-          },
-          "response": {
-            "type": "string",
-            "example": "250 2.0.0 Ok queued as D6BAA41A4F9C"
-          },
-          "envolope": {
-            "$ref": "#/components/schemas/envelope"
-          },
-          "messageId": {
-            "type": "string",
-            "example": "<0220f233-ce4b-6f53-93ed-ed7825ef4ac7@alphasystemas.com.br>"
-          }
-        }
-      },
-      "responseEmployee": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "FUNCIONÁRIOS DIVERSOS 2"
-          },
-          "CPF": {
-            "type": "string",
-            "example": 111111111112
-          },
-          "address": {
-            "type": "string",
-            "example": ""
-          },
-          "postalCode": {
-            "type": "string",
-            "example": 60000000
-          },
-          "district": {
-            "type": "string",
-            "example": ""
-          },
-          "cityId": {
-            "type": "integer",
-            "format": "int",
-            "example": 674
-          },
-          "UF": {
-            "type": "string",
-            "example": "CE"
-          },
-          "phone": {
-            "type": "string",
-            "example": ""
-          },
-          "cellphone": {
-            "type": "string"
-          },
-          "active": {
-            "type": "boolean",
-            "example": true
-          },
-          "commissionInCash": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionInInstallments": {
-            "type": "number",
-            "example": 0
-          },
-          "commission1": {
-            "type": "number",
-            "example": 0
-          },
-          "commission2": {
-            "type": "number",
-            "example": 0
-          },
-          "commission3": {
-            "type": "number",
-            "example": 0
-          },
-          "commission4": {
-            "type": "number",
-            "example": 0
-          },
-          "commission5": {
-            "type": "number",
-            "example": 0
-          },
-          "commission6": {
-            "type": "number",
-            "example": 0
-          },
-          "commission7": {
-            "type": "number",
-            "example": 0
-          },
-          "commission8": {
-            "type": "number",
-            "example": 0
-          },
-          "commission9": {
-            "type": "number",
-            "example": 0
-          },
-          "commission09": {
-            "type": "number",
-            "example": 0
-          },
-          "commission10": {
-            "type": "number",
-            "example": 0
-          },
-          "commission11": {
-            "type": "number",
-            "example": 0
-          },
-          "commission12": {
-            "type": "number",
-            "example": 0
-          },
-          "commission13": {
-            "type": "number",
-            "example": 0
-          },
-          "commission14": {
-            "type": "number",
-            "example": 0
-          },
-          "commission15": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionCashier": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionManager": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionSupervisor": {
-            "type": "number",
-            "example": 0
-          },
-          "commissionGeneral": {
-            "type": "number",
-            "example": 0
-          },
-          "limit": {
-            "type": "number",
-            "example": 0
-          },
-          "roleId": {
-            "type": "number",
-            "example": 0
-          },
-          "maritalStatusId": {
-            "type": "number",
-            "example": 0
-          },
-          "dependentQuantity": {
-            "type": "number",
-            "example": 0
-          },
-          "sectorId": {
-            "type": "number",
-            "example": 0
-          },
-          "salary": {
-            "type": "number",
-            "example": 0
-          },
-          "salaryCTPS": {
-            "type": "number",
-            "example": 0
-          },
-          "PaymentType": {
-            "type": "number",
-            "example": 0
-          },
-          "days": {
-            "type": "number",
-            "example": 0
-          },
-          "hours": {
-            "type": "number",
-            "example": 220
-          },
-          "syndicate": {
-            "type": "boolean",
-            "example": false
-          },
-          "transportationVoucher": {
-            "type": "boolean",
-            "example": false
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "hasControlledEfficiency": {
-            "type": "boolean",
-            "example": false
-          },
-          "productionGroupId": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "biweeklyAdvanceAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "isVacationEmployee": {
-            "type": "boolean",
-            "example": false
-          },
-          "goldQuotaNumberOfParts": {
-            "type": "integer",
-            "format": "int",
-            "example": 250
-          },
-          "goldQuotaCommission": {
-            "type": "boolean",
-            "example": false
-          },
-          "goldQuotaAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "silverQuotaNumberOfParts": {
-            "type": "integer",
-            "format": "int",
-            "example": 500
-          },
-          "silverQuotaCommission": {
-            "type": "boolean",
-            "example": false
-          },
-          "silverQuotaAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "bronzeQuotaNumberOfParts": {
-            "type": "number",
-            "example": 1000
-          },
-          "bronzeQuotaCommission": {
-            "type": "boolean",
-            "example": false
-          },
-          "bronzeQuotaAmount": {
-            "type": "number",
-            "example": 0
-          },
-          "voucherLimit": {
-            "type": "number",
-            "example": 0
-          },
-          "situation": {
-            "type": "integer",
-            "format": "int",
-            "example": 1
-          },
-          "hasTriennium": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "hasQuennium": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "award": {
-            "type": "number",
-            "example": 0
-          },
-          "productivity": {
-            "type": "number",
-            "example": 0
-          },
-          "punctuality": {
-            "type": "number",
-            "example": 0
-          },
-          "bank": {
-            "type": "integer",
-            "format": "int",
-            "example": 0
-          },
-          "agency": {
-            "type": "string",
-            "example": "0000"
-          },
-          "account": {
-            "type": "string",
-            "example": "0000"
-          },
-          "operation": {
-            "type": "string",
-            "example": "0000"
-          },
-          "launchProduction": {
-            "type": "boolean",
-            "example": false
-          },
-          "password": {
-            "type": "string",
-            "example": "SuperSenhaSeguraDaAlpha"
-          },
-          "playerIdPdvMobile": {
-            "type": "string",
-            "example": "StringDoPlayerIdPdvMobile"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int",
-            "example": 110
-          }
-        }
-      },
-      "responseInventoryOut": {
-        "$ref": "#/components/schemas/bodyInventoryOut"
-      },
-      "responseInventoryOutGrid": {
-        "$ref": "#/components/schemas/bodyInventoryOutGrid"
-      },
-      "responseInvoice": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int16",
-            "example": 3
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int16",
-            "example": 102
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int16",
-            "example": 180
-          },
-          "id": {
-            "type": "string",
-            "example": "0012200207901"
-          },
-          "type": {
-            "type": "string",
-            "example": "01"
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          }
-        }
-      },
-      "responseSettingsArray": {
+      "onSaleArray": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/responseSettings"
+          "$ref": "#/components/schemas/onSale"
         }
-      },
-      "responseOnSaleArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responseOnSale"
-        }
-      },
-      "responsePaymentCondition": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responsePaymentConditionArray"
-        }
-      },
-      "responsePaymentConditionArray": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "30/60/90/120"
-          },
-          "installments": {
-            "type": "integer",
-            "example": "3"
-          },
-          "firstInstallmentDays": {
-            "type": "integer",
-            "example": "30"
-          },
-          "days": {
-            "type": "integer",
-            "example": "30"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "disabled": {
-            "type": "boolean",
-            "example": false
-          },
-          "discount": {
-            "type": "number",
-            "example": 3.99
-          },
-          "keepFixedDay": {
-            "type": "boolean",
-            "example": true
-          }
-        }
-      },
-      "responsePaymentMethod": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responsePaymentMethodArray"
-        }
-      },
-      "responsePaymentMethodArray": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "example": "4"
-          },
-          "name": {
-            "type": "string",
-            "example": "CARTÃO"
-          },
-          "mnemonic": {
-            "type": "string",
-            "example": "CA"
-          },
-          "finisherId": {
-            "type": "integer",
-            "example": "99"
-          },
-          "issue": {
-            "type": "boolean",
-            "example": "false"
-          },
-          "catalog": {
-            "type": "boolean",
-            "example": false
-          },
-          "description": {
-            "type": "string",
-            "example": "CARTÃO"
-          }
-        }
-      },
-      "responseProductCatalog": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "61cc902656f304037ce2b5e0"
-          },
-          "disabled": {
-            "type": "boolean",
-            "example": false
-          },
-          "groups": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productCatalogsArray"
-            }
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          }
-        }
-      },
-      "responseProductCatalogArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responseProductCatalog"
-        }
-      },
-      "responsePublication": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
-          "id": {
-            "type": "object",
-            "example": "61a4c40aa79376c00c8c010d"
-          }
-        }
-      },
-      "responseSale": {
-        "type": "object",
-        "properties": {
-          "bill": {
-            "$ref": "#/components/schemas/saleBlockResponse"
-          },
-          "inventoryOut": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/saleBlockInventoryOut"
-            }
-          },
-          "dpa": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/dpaBlockResponse"
-            }
-          },
-          "inventoryOutGrid": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/gridResponse"
-            }
-          },
-          "invoice": {
-            "type": "object",
-            "properties": {
-              "consumerId": {
-                "type": "integer",
-                "format": "int32",
-                "example": 2
-              },
-              "sellerId": {
-                "type": "integer",
-                "format": "int32",
-                "example": 102
-              },
-              "Id": {
-                "type": "string",
-                "example": "0010020013501"
-              },
-              "grossValue": {
-                "type": "integer",
-                "format": "int32",
-                "example": 264
-              },
-              "type": {
-                "type": "string",
-                "example": "01"
-              }
-            }
-          }
-        }
-      },
-      "responseSignIn": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string",
-            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmYW1pbHlOYW1lIjoiT25lIiwiZ2l2ZW5OYW1lIjoiU29tZSIsImlkIjoiNjE1MWI0MjljYzkzN2Q2N2EwMTdiZDk0IiwicGVybWlzc2lvbnMiOnsiYWxsIjp7ImFsbCI6WyJhbGwiXX0sImF1dGgiOnsiYWxsIjpbImFsbCJdfX0sImlkZW50aWZpY2F0aW9uIjpbeyJ0eXBlIjoiTE9DQUwiLCJpZGVudGlmaWNhdGlvbiI6InVzZXJ0ZXN0ZTNAZ21haWwuY29tIiwidW52ZXJpZmllZCI6dHJ1ZX1dLCJpYXQiOjE2MzMwMTAxNDcsImV4cCI6MTYzMzAxMTA0N30.szdADaYhCiwkjSX_fCFZYXKWev8TCMLFw8z1LQxkQ7lVZGsF5JJ2yD0nQDxh_-hoDDC1VqCbW-0X6ZvMIKBePt5mnkYFEwLiDxf80r3B22qw_cTVaeDfPQjdyxRymMgPfgFdH1TFsfNKCIUZZ-IbT7HTyJXU6YJF-4K6P9D9G6nGqMwGDuBqv2auvo2mKlwWW9J7We40j9d1CgRn4u1_lOSj2l4BN8_DY0hI2dQeBP4ccdRltWIH9sv9EkdZPjuF0KisLqbQ24RBXwQ_7tXyWXTCnODaeWC4Ue1tFKsZbyJ9pOUKCwJxOXaiT-tdCqegbfkRh0la1dfstVJuAcLv2g"
-          }
-        }
-      },
-      "responseSignUp": {
-        "type": "object",
-        "properties": {
-          "givenName": {
-            "type": "string",
-            "example": "Some"
-          },
-          "familyName": {
-            "type": "string",
-            "example": "One"
-          },
-          "id": {
-            "type": "string",
-            "example": "6151b429cc937d67a017bd94"
-          },
-          "identifications": {
-            "$ref": "#/components/schemas/identificationsArray"
-          },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/instances"
-            }
-          },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "all": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              },
-              "auth": {
-                "type": "object",
-                "properties": {
-                  "all": {
-                    "$ref": "#/components/schemas/allArray"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "responseSubscription": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
-          "id": {
-            "type": "object",
-            "example": "61a4c40aa79376c00c8c010d"
-          }
-        }
-      },
-      "responseThemeCatalog": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "61cc543656f304037ce2b47d"
-          },
-          "logos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          },
-          "favicos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/imagesGroupArray"
-            }
-          }
-        }
-      },
-      "responseThemeCatalogArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/responseThemeCatalog"
-        }
-      },
-      "saleBlockInventoryOut": {
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "example": 36.0
-          },
-          "id": {
-            "type": "string",
-            "example": "439104"
-          }
-        }
-      },
-      "saleBlockResponse": {
-        "type": "object",
-        "properties": {
-          "consumerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 2
-          },
-          "consumer": {
-            "type": "string",
-            "example": "Cliente 7"
-          },
-          "sellerId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 102
-          },
-          "discountValue": {
-            "type": "number",
-            "format": "double",
-            "example": 0.0
-          },
-          "deliveryFee": {
-            "type": "number",
-            "format": "double",
-            "example": 20.0
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSaleBillResponse"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200135"
-          }
-        }
-      },
-      "sizes": {
-        "type": "string",
-        "example": "52, 34, 36, 38, 40, 42, 44, 46, 48, 50"
       },
       "error400": {
+        "description": "Requisição invalida.",
         "type": "object",
         "properties": {
           "error": {
@@ -10894,6 +10342,7 @@
         }
       },
       "error500": {
+        "description": "Erro interno do servidor.",
         "type": "object",
         "properties": {
           "error": {
@@ -10903,6 +10352,7 @@
         }
       },
       "error503": {
+        "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
         "type": "object",
         "properties": {
           "error": {
