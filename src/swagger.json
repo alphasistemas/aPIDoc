@@ -5970,7 +5970,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyPublication"
+                "$ref": "#/components/schemas/publication"
               }
             }
           }
@@ -5981,7 +5981,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responsePublication"
+                  "$ref": "#/components/schemas/publication"
                 }
               }
             }
@@ -6037,7 +6037,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodySubscription"
+                "$ref": "#/components/schemas/subscription"
               }
             }
           }
@@ -6048,7 +6048,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/responseSubscription"
+                  "$ref": "#/components/schemas/subscription"
                 }
               }
             }
@@ -6212,7 +6212,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bodyCity"
+                "$ref": "#/components/schemas/city"
               }
             }
           }
@@ -7732,24 +7732,6 @@
           "$ref": "#/components/schemas/catalogProduct"
         }
       },
-      "bodyCity": {
-        "type": "object",
-        "required": ["state"],
-        "properties": {
-          "name": {
-            "type": "string",
-            "example": "Campina Grande"
-          },
-          "state": {
-            "type": "string",
-            "example": "PB"
-          },
-          "IBGEId": {
-            "type": "string",
-            "example": "2504009"
-          }
-        }
-      },
       "bodyClient": {
         "type": "object",
         "properties": {
@@ -9070,7 +9052,7 @@
           "$ref": "#/components/schemas/paymentMethod"
         }
       },
-      "bodyPublication": {
+      "publication": {
         "type": "object",
         "properties": {
           "url": {
@@ -9095,54 +9077,13 @@
           }
         }
       },
-      "responsePublication": {
+      "subscription": {
         "type": "object",
         "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
           "id": {
             "type": "object",
             "example": "61a4c40aa79376c00c8c010d"
-          }
-        }
-      },
-      "bodySubscription": {
-        "type": "object",
-        "properties": {
+          },
           "callback": {
             "type": "object",
             "properties": {
@@ -9184,51 +9125,6 @@
                 "example": ["POST", "PUT", "DELETE"]
               }
             }
-          }
-        }
-      },
-      "responseSubscription": {
-        "type": "object",
-        "properties": {
-          "callback": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              },
-              "config": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/configResponse"
-                }
-              }
-            }
-          },
-          "route": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "example": "https://reqres.in/api/user"
-              },
-              "endpoint": {
-                "type": "string",
-                "example": "api/alguma"
-              },
-              "method": {
-                "type": "string",
-                "example": "POST"
-              }
-            }
-          },
-          "id": {
-            "type": "object",
-            "example": "61a4c40aa79376c00c8c010d"
           }
         }
       },
@@ -9331,6 +9227,37 @@
                 "example": "01"
               }
             }
+          }
+        }
+      },
+      "productSale": {
+        "type": "object",
+        "required": ["productId", "unitValue", "grids"],
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "439104"
+          },
+          "unitValue": {
+            "type": "number",
+            "format": "double",
+            "example": 36.0
+          },
+          "grids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/grid"
+            }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "inte32",
+            "example": 4
+          },
+          "totalValue": {
+            "type": "number",
+            "format": "double",
+            "example": 144.0
           }
         }
       },
@@ -9507,6 +9434,7 @@
       },
       "city": {
         "type": "object",
+        "required": ["name", "state"],
         "properties": {
           "id": {
             "type": "integer",
@@ -9751,7 +9679,7 @@
       "config": {
         "type": "object",
         "properties": {
-          "judah": {
+          "test": {
             "type": "string",
             "example": "1234"
           }
@@ -9760,7 +9688,7 @@
       "configResponse": {
         "type": "object",
         "properties": {
-          "judah": {
+          "test": {
             "type": "string",
             "example": "1234"
           },
@@ -9970,6 +9898,10 @@
       "identificationsResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "example": "6151b429cc937d67a017bd95"
+          },
           "type": {
             "type": "string",
             "example": "LOCAL"
@@ -9977,10 +9909,6 @@
           "identification": {
             "type": "string",
             "example": "userteste3@gmail.com"
-          },
-          "id": {
-            "type": "string",
-            "example": "6151b429cc937d67a017bd95"
           },
           "unverified": {
             "type": "boolean",
@@ -10308,37 +10236,6 @@
             "items": {
               "$ref": "#/components/schemas/sizes"
             }
-          }
-        }
-      },
-      "productSale": {
-        "type": "object",
-        "required": ["productId", "unitValue", "grids"],
-        "properties": {
-          "productId": {
-            "type": "string",
-            "example": "439104"
-          },
-          "unitValue": {
-            "type": "number",
-            "format": "double",
-            "example": 36.0
-          },
-          "grids": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/grid"
-            }
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "inte32",
-            "example": 4
-          },
-          "totalValue": {
-            "type": "number",
-            "format": "double",
-            "example": 144.0
           }
         }
       },
