@@ -63,6 +63,11 @@ OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado v
 | Email             | 2001          |    🗸    |    ✖    |      ✖      |
 | InstanceManager   | 1001          |    🗸    |    ✖    |      ✖      |
 
+### **Necessitam de SEED**
+
+- Catalog
+- Auth
+
 ## **Configurações de Acesso**
 
 Para usar esta API, é necessário que o usuário esteja autenticado. Para isso, cria-se uma nova conta a partir da rota /auth/singUp ou utiliza-se um usuário administrador provido pela infra. Conseguinte, é necessário que o usuário se autentique pela rota /auth/signIn, que retornará um token de autenticação. Em cada rota da API o token será solicitado como bearer token. O usuário precisará se autenticar novamente toda vez que vencer o prazo de autenticação predefinido. A API só funcionará enquanto o usuário estiver usando um token. O tempo de vencimento do token é definido no Config.ini de acordo com o cliente.
@@ -187,3 +192,50 @@ OBS.:
 | CATALOGFRONT                                                      | FILTER_SALES                    | FILTRA VENDAS POR VENDEDOR                                          | true                                                                |   ✖    |     🗸      |    🗸    |
 |CATALOGFRONT                                                      | NODE_TLS_REJECT_UNAUTHORIZED                    | REJEITA CONEXÃO SEM TSL                                          | 0                                                                |   ✖    |     🗸      |    🗸    |
 |
+
+### **AUTH**
+
+#### AUTH_DEFAULT_PERMISSIONS
+
+JSON com as permissões padrões para o AUTH no formato:
+
+```json
+{
+    <endpoint: signIn, signUp, ..., all>: [<permission: create, read, update, delete, all>],
+        ...
+}
+```
+
+exemplo:
+
+```json
+{
+    "all": ["create", "read"]
+}
+```
+
+#### DEFAULT_PERMISSIONS
+
+JSON com as permissões padrões para cada serviço no formato:
+
+```json
+{
+    <service: product, sale, ..., all>: {
+        <endpoint: invoice, bill, ..., all>: [<permission: create, read, update, delete, all>],
+        ...
+    },
+    ...
+}
+```
+
+```json
+{
+    "product": {
+        "product": ["all"]
+    },
+    "sale": {
+        "invlice": ["all"],
+        "bill": ["read"]
+    }
+}
+```

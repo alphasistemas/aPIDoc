@@ -7504,10 +7504,6 @@
             "format": "int32",
             "example": 2
           },
-          "ecommerceOrderId": {
-            "type": "string",
-            "example": "2000834322"
-          },
           "date": {
             "type": "string",
             "format": "date",
@@ -7546,6 +7542,10 @@
           "deliveryFee": {
             "type": "string",
             "example": 0.0
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
           },
           "inCash": {
             "type": "number",
@@ -7626,7 +7626,21 @@
           "billId": {
             "type": "string",
             "example": "200135"
-          }
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
+          },
         }
       },
       "billArray": {
@@ -9150,6 +9164,20 @@
             "type": "integer",
             "format": "int32",
             "example": 1
+          },
+          "ecommerceOrderId": {
+            "type": "string",
+            "example": "2000834322"
+          },
+          "inCash": {
+            "type": "number",
+            "format": "double",
+            "example": 0
+          },
+          "installments": {
+            "type": "number",
+            "format": "double",
+            "example": 800
           },
           "storeId": {
             "$ref": "#/components/schemas/storeId"
