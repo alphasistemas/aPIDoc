@@ -63,6 +63,11 @@ OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado v
 | Email             | 2001          |    🗸    |    ✖    |      ✖      |
 | InstanceManager   | 1001          |    🗸    |    ✖    |      ✖      |
 
+### **Necessitam de SEED**
+
+- Catalog
+- Auth
+
 ## **Configurações de Acesso**
 
 Para usar esta API, é necessário que o usuário esteja autenticado. Para isso, cria-se uma nova conta a partir da rota /auth/singUp ou utiliza-se um usuário administrador provido pela infra. Conseguinte, é necessário que o usuário se autentique pela rota /auth/signIn, que retornará um token de autenticação. Em cada rota da API o token será solicitado como bearer token. O usuário precisará se autenticar novamente toda vez que vencer o prazo de autenticação predefinido. A API só funcionará enquanto o usuário estiver usando um token. O tempo de vencimento do token é definido no Config.ini de acordo com o cliente.
