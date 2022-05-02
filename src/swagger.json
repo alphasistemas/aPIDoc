@@ -132,6 +132,61 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": ["Autenticação"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Refresh de token.",
+        "operationId": "putSignIn",
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseSignIn"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/auth/signUp": {
