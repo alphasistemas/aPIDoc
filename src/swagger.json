@@ -4518,7 +4518,7 @@
             }
           },
           {
-            "name": "formOfPayment",
+            "name": "paymentMethod",
             "in": "query",
             "description": "Forma de pagamento.",
             "schema": {
@@ -4526,7 +4526,7 @@
             }
           },
           {
-            "name": "formOfPaymentId",
+            "name": "paymentMethodId",
             "in": "query",
             "description": "Código da forma de pagamento.",
             "schema": {
@@ -5915,6 +5915,99 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseSale"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Sem conteúdo."
+          },
+          "400": {
+            "description": "Requisição invalida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Servidor Inicializando Tente Novamente Mais Tarde.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error503"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Venda"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Deleta uma venda.",
+        "operationId": "deleteSale",
+        "parameters": [
+          {
+            "name": "storeId",
+            "in": "query",
+            "description": "Número da Loja (Loja 1 = Matriz)",
+            "schema": {
+              "$ref": "#/components/schemas/storeId"
+            }
+          },
+          {
+            "name": "page",
+            "in": "header",
+            "description": "Página da resposta.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "header",
+            "description": "Número de elementos por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Corpo da requisição.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deleteSale"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ação concluída com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deleteSale"
                 }
               }
             }
@@ -7531,13 +7624,25 @@
             "type": "string",
             "example": "0.00"
           },
+          "paymentConditionsId": {
+            "type": "number",
+            "example": 12
+          },
           "paymentConditions": {
             "type": "string",
             "example": "30/60"
           },
-          "formOfPayment": {
+          "paymentMethodId": {
+            "type": "number",
+            "example": 10
+          },
+          "paymentMethod": {
             "type": "string",
             "example": "Car"
+          },
+          "priceTable": {
+            "type": "string",
+            "example": "1"
           },
           "deliveryFee": {
             "type": "string",
@@ -7595,37 +7700,30 @@
             "format": "double",
             "example": 0.0
           },
+          "paymentConditionsId": {
+            "type": "number",
+            "example": 12
+          },
+          "paymentConditions": {
+            "type": "string",
+            "example": "30/60"
+          },
+          "paymentMethodId": {
+            "type": "number",
+            "example": 10
+          },
+          "paymentMethod": {
+            "type": "string",
+            "example": "Car"
+          },
+          "priceTable": {
+            "type": "string",
+            "example": "1"
+          },
           "deliveryFee": {
             "type": "number",
             "format": "double",
             "example": 20.0
-          },
-          "storeId": {
-            "$ref": "#/components/schemas/storeId"
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/productSale"
-            }
-          },
-          "formOfPayment": {
-            "type": "string",
-            "example": "BOLETO"
-          },
-          "formOfPaymentId": {
-            "type": "integer",
-            "format": "int32",
-            "example": 8
-          },
-          "grossValue": {
-            "type": "integer",
-            "format": "int32",
-            "example": 264
-          },
-          "billId": {
-            "type": "string",
-            "example": "200135"
           },
           "ecommerceOrderId": {
             "type": "string",
@@ -7641,6 +7739,19 @@
             "format": "double",
             "example": 800
           },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          },
+          "billId": {
+            "type": "string",
+            "example": "200135"
+          }
         }
       },
       "billArray": {
@@ -9195,6 +9306,29 @@
           }
         }
       },
+      "deleteSale": {
+        "type": "object",
+        "properties": {
+          "invoiceId": {
+            "type": "string",
+            "example": "003242134034"
+          },
+          "billId": {
+            "type": "integer",
+            "format": "int32",
+            "example": 4102
+          },
+          "storeId": {
+            "$ref": "#/components/schemas/storeId"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/productSale"
+            }
+          }
+        }
+      },
       "responseSale": {
         "type": "object",
         "properties": {
@@ -9251,7 +9385,7 @@
       },
       "productSale": {
         "type": "object",
-        "required": ["productId", "unitValue", "grids"],
+        "required": ["productId", "grids"],
         "properties": {
           "productId": {
             "type": "string",
