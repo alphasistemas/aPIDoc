@@ -192,3 +192,50 @@ OBS.:
 | CATALOGFRONT                                                      | FILTER_SALES                    | FILTRA VENDAS POR VENDEDOR                                          | true                                                                |   ✖    |     🗸      |    🗸    |
 |CATALOGFRONT                                                      | NODE_TLS_REJECT_UNAUTHORIZED                    | REJEITA CONEXÃO SEM TSL                                          | 0                                                                |   ✖    |     🗸      |    🗸    |
 |
+
+### **AUTH**
+
+#### AUTH_DEFAULT_PERMISSIONS
+
+JSON com as permissões padrões para o AUTH no formato:
+
+```json
+{
+    <endpoint: signIn, signUp, ..., all>: [<permission: create, read, update, delete, all>],
+        ...
+}
+```
+
+exemplo:
+
+```json
+{
+    "all": ["create", "read"]
+}
+```
+
+#### DEFAULT_PERMISSIONS
+
+JSON com as permissões padrões para cada serviço no formato:
+
+```json
+{
+    <service: product, sale, ..., all>: {
+        <endpoint: invoice, bill, ..., all>: [<permission: create, read, update, delete, all>],
+        ...
+    },
+    ...
+}
+```
+
+```json
+{
+    "product": {
+        "product": ["all"]
+    },
+    "sale": {
+        "invlice": ["all"],
+        "bill": ["read"]
+    }
+}
+```
