@@ -1538,7 +1538,7 @@
         }
       }
     },
-    "/settings": {
+    "/settings/hq": {
       "get": {
         "tags": ["Configurações"],
         "security": [
@@ -2079,7 +2079,7 @@
         }
       }
     },
-    "/onSale": {
+    "/onSale/onSale": {
       "get": {
         "tags": ["Promoção"],
         "security": [
