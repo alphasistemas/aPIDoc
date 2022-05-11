@@ -26,3 +26,4 @@ Ela é um pacote NPM e pode ser utilizado em qualquer projeto. [FLEXIBLE PERSIST
 
 Essa camada é responsável pela comunicação interna. É responsável por:
     - Inversão de dependência entre camadas. Como um Message Broker.
+Ela é um pacote NPM e pode ser utilizado em qualquer projeto. [JOURNALY](https://github.com/Judahh/journaly)
