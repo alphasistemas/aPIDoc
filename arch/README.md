@@ -11,9 +11,9 @@ Essa arquitetura sempre usa uma arquitetura Base:
 
 Essa camada é resposável pela comunicação externa com o sistema. É responsável por:
 
-    - Comunicação com o protocolo escolhido seja REST, SOCKET ou outro qualquer.
-    - Receber a entrada de dados e padronizar para envio para a próxima camada.
-    - Receber o retorno da próxima camada e padronizar os códigos e retornos para a comunicação externa (Incluindo códigos de erros).
+- Comunicação com o protocolo escolhido seja REST, SOCKET ou outro qualquer.
+- Receber a entrada de dados e padronizar para envio para a próxima camada.
+- Receber o retorno da próxima camada e padronizar os códigos e retornos para a comunicação externa (Incluindo códigos de erros).
 
 Ela é um pacote NPM e pode ser utilizado em qualquer projeto. [BACK API](https://github.com/Judahh/backAPI).
 
