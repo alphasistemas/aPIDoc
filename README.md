@@ -59,7 +59,7 @@ OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado v
 | Subscription      | 3005          |    🗸    |    ✖    | API/CATÁLOGO |
 | Settings          | 3006          |    🗸    |    ✖    | API/CATÁLOGO |
 | OnSale            | 3007          |    🗸    |    ✖    | API/CATÁLOGO |
-| LegacyAuth        | 3008          |    🗸    |    ✖    | API/CATÁLOGO |
+| LegacyAuth        | 3008          |    🗸    |    ✖    |   CATÁLOGO   |
 | Banking           | 3009          |    🗸    |    ✖    | API/CATÁLOGO |
 | Email             | 2001          |    🗸    |    ✖    |      ✖      |
 | InstanceManager   | 1001          |    🗸    |    ✖    |      ✖      |
