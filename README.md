@@ -51,6 +51,7 @@ OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado v
 | Serviço           | Porta Default | BackEnd | FrontEnd |   Produto    |
 | ----------------- | ------------- | ------- | -------- | ------------ |
 | CatalogFront      | 4000          |    ✖    |    🗸    |   CATÁLOGO   |
+| Catalog           | 4001          |    🗸    |    ✖    |   CATÁLOGO   |
 | Auth              | 3001          |    🗸    |    ✖    | API/CATÁLOGO |
 | Product           | 3002          |    🗸    |    ✖    | API/CATÁLOGO |
 | Sale              | 3003          |    🗸    |    ✖    | API/CATÁLOGO |
@@ -59,7 +60,7 @@ OBS: Caso tenha problema com CORS, verifique se o Swagger está sendo acessado v
 | Settings          | 3006          |    🗸    |    ✖    | API/CATÁLOGO |
 | OnSale            | 3007          |    🗸    |    ✖    | API/CATÁLOGO |
 | LegacyAuth        | 3008          |    🗸    |    ✖    |   CATÁLOGO   |
-| Catalog           | 3009          |    🗸    |    ✖    |   CATÁLOGO   |
+| Banking           | 3009          |    🗸    |    ✖    | API/CATÁLOGO |
 | Email             | 2001          |    🗸    |    ✖    |      ✖      |
 | InstanceManager   | 1001          |    🗸    |    ✖    |      ✖      |
 
