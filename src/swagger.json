@@ -2239,7 +2239,7 @@
         }
       }
     },
-    "/email/email": {
+    "/mail/mail": {
       "post": {
         "tags": ["Email"],
         "summary": "Enviar e-mail.",
